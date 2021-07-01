@@ -1,0 +1,47 @@
+.login {
+    background-color: #fcc472;
+    color:white;
+    height:100vh;
+}
+
+h3{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+}
+
+.form-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#d4826e;
+    
+}
+
+.form-login >div{
+    display: grid;
+    margin: 0.2em;
+    width: 50%;
+}
+
+.br-login {
+    background-color: white;
+    height: 2px;
+    margin: 1.3em 0em;
+}
+
+label::first-letter {
+    text-transform: uppercase;
+}
+
+input {
+    border: none;
+}
