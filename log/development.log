@@ -114,3 +114,28 @@ FOREIGN KEY (`menus_id_id`)
   REFERENCES `menus_ids` (`id`)
 [0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateContacts (20210713173409)
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE `contacts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `direccion` varchar(255), `edificio` varchar(255), `ciudad` varchar(255), `telefono` varchar(255), `email` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210713173409')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHomeBanners (20210713173454)
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE `home_banners` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `image` varchar(255), `order` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210713173454')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMenus (20210713173843)
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE `menus` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210713173843')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMenuContents (20210713173936)
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE `menu_contents` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `texto` text, `image` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210713173936')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
