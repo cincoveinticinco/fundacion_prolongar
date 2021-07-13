@@ -13,8 +13,8 @@ default: &default
   password: 525  
   #password: 123
 
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
-  #socket: /var/run/mysqld/mysqld.sock
+  #socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
   #database: prolongar
   host: localhost
