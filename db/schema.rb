@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_173936) do
+ActiveRecord::Schema.define(version: 2021_07_13_203906) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "city"
@@ -69,5 +69,37 @@ ActiveRecord::Schema.define(version: 2021_07_13_173936) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "name_module"
+    t.string "imagen_min"
+    t.text "description"
+    t.string "img_banner"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sub_module_page_dependences", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "sub_module_page_id", null: false
+    t.bigint "dependence_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dependence_id"], name: "fk_rails_e436789fe7"
+    t.index ["sub_module_page_id"], name: "index_sub_module_page_dependences_on_sub_module_page_id"
+  end
+
+  create_table "sub_module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "module_page_id", null: false
+    t.string "sub_module_name"
+    t.text "description"
+    t.string "link"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["module_page_id"], name: "index_sub_module_pages_on_module_page_id"
+  end
+
   add_foreign_key "departments", "cities"
+  add_foreign_key "sub_module_page_dependences", "sub_module_pages", column: "dependence_id"
+  add_foreign_key "sub_module_page_dependences", "sub_module_pages", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "sub_module_pages", "module_pages", on_update: :cascade, on_delete: :cascade
 end

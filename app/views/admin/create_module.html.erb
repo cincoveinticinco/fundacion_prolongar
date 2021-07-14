@@ -1,0 +1,37 @@
+<% if !@module_page.blank? %>
+	<h1>Editar Modulo</h1>
+<% else %>
+	<h1>Crear Modulo</h1>
+<% end %>
+
+<%= form_tag({:controller => "admin", :action => "insert_module"},:method => "post", :multipart => true, :class =>'') do %>
+	<label>Nombre del Modulo</label>
+	<input type="text" name="name_module" required="" value="<%= !@module_page.blank? ?  @module_page.name_module : '' %>">
+	<br>
+
+	<label>Imagen Modulo</label>
+	<input type="file" name="imagen_min" <% if @module_page.blank? %> required="" <% end %> >
+	<% if !@module_page.blank? %>
+		<img src="<%=@module_page.imagen_min %>" width="100" height="100"> 
+		<input type="hidden" name="id" value ="<%= @module_page.id%>" >
+	<% end %>
+	<br>
+
+	<label>Descripcion Corta</label>
+	<textarea name="description"   <% if @module_page.blank? %> required="" <% end %> >
+		<%= !@module_page.blank? ?  @module_page.description : '' %>
+	</textarea>
+	<br>
+
+	<label>Banner</label>
+	<input type="file" name="img_banner"  <% if @module_page.blank? %> required="" <% end %>>
+	<% if !@module_page.blank? %>
+		<img src="<%=@module_page.img_banner %>" width="100" height="100"> 
+	<% end %>
+	<br>
+
+	<input type="submit" value="Guardar">
+
+
+
+<%end%>

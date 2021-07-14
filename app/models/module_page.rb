@@ -1,0 +1,2 @@
+class ModulePage < ApplicationRecord
+end

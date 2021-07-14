@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_module: MyString
+  imagen_min: MyString
+  description_short: MyText
+  img_banner: MyString
+  description: MyText
+  link: 
+  content: MyText
+
+two:
+  name_module: MyString
+  imagen_min: MyString
+  description_short: MyText
+  img_banner: MyString
+  description: MyText
+  link: 
+  content: MyText
