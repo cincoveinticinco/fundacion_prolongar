@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
   create_table "menu_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.text "texto"
     t.string "image"
+    t.bigint "menus_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["menus_id"], name: "index_menu_contents_on_menus_id"
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -99,7 +101,11 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
   end
 
   add_foreign_key "departments", "cities"
+<<<<<<< HEAD
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", column: "dependence_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", on_update: :cascade, on_delete: :cascade
   add_foreign_key "sub_module_pages", "module_pages", on_update: :cascade, on_delete: :cascade
+=======
+  add_foreign_key "menu_contents", "menus", column: "menus_id"
+>>>>>>> 10cebe228299da1ec98b301575e3757947f9d8d1
 end
