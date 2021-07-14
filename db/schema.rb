@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_07_13_203906) do
 
-  create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "direccion"
     t.string "edificio"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "department"
     t.bigint "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -37,26 +37,26 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
     t.index ["city_id"], name: "index_departments_on_city_id"
   end
 
-  create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "home_banners", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "home_banners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "image"
     t.integer "order"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "menu_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "menu_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "texto"
     t.string "image"
     t.bigint "menus_id"
@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
     t.index ["menus_id"], name: "index_menu_contents_on_menus_id"
   end
 
-  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name_module"
     t.string "imagen_min"
     t.text "description"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "sub_module_page_dependences", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "sub_module_page_dependences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "sub_module_page_id", null: false
     t.bigint "dependence_id"
     t.datetime "created_at", precision: 6, null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
     t.index ["sub_module_page_id"], name: "index_sub_module_page_dependences_on_sub_module_page_id"
   end
 
-  create_table "sub_module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "sub_module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "module_page_id", null: false
     t.string "sub_module_name"
     t.text "description"
@@ -101,11 +101,8 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
   end
 
   add_foreign_key "departments", "cities"
-<<<<<<< HEAD
+  add_foreign_key "menu_contents", "menus", column: "menus_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", column: "dependence_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", on_update: :cascade, on_delete: :cascade
   add_foreign_key "sub_module_pages", "module_pages", on_update: :cascade, on_delete: :cascade
-=======
-  add_foreign_key "menu_contents", "menus", column: "menus_id"
->>>>>>> 10cebe228299da1ec98b301575e3757947f9d8d1
 end
