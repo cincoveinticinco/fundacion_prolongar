@@ -42,12 +42,13 @@
 			 		<tr>
 			 			<td>Order</td>
 			 			<td>Imagen Banner</td>
+			 			<td>Acciones</td>
 			 		</tr>
 			 	</thead>
 			 	<tbody>
 			 		<% @home_banners.each do |data| %>
 			 		<tr>
-			 			<td><%=data['order'] %></td>
+			 			<td><%=data['order_banner'] %></td>
 			 			<td><img src="<%=data['image'] %>" width="120" height="80"></td>
 			 			<td><a href="/admin/create_home_banner/<%=data['id'] %>">Editar</a>/
 			 				<a href="/admin/delete_home_banner/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Banner?')">Eliminar</a>
@@ -59,38 +60,6 @@
 	</div>
 
 
-	<h3>Contactenos</h3>
-		<div>
-		<% if @contacts.blank?%>
-			<a href="create_contact">Crear Contactos</a>
-		<% end %>
-		<table border="1">
-			 	<thead>
-			 		<tr>
-			 			<td>Nombre</td>
-			 			<td>Direccion</td>
-						 <td>Edificio</td>
-						 <td>Ciudad</td>
-						 <td>Telefono</td>
-						 <td>Email</td>
-			 		</tr>
-			 	</thead>
-			 	<tbody>
-			 		<% @contacts.each do |data| %>
-			 		<tr>
-			 			<td><%=data['name'] %></td>
-						<td><%=data['direccion'] %></td>
-						<td><%=data['edificio'] %></td>
-						<td><%=data['ciudad'] %></td>
-						<td><%=data['telefono'] %></td>
-						<td><%=data['email'] %></td>
-			 			<td><a href="/admin/create_contact/<%=data['id'] %>">Editar</a>
-			 			</td>
-			 		</tr>
-			 		<% end %>
-			 	</tbody>
-		</table>
-	</div>
 	<h3>Modulos</h3>
 	<div>
 		<a href="create_module">Crear Modulo</a>
@@ -115,6 +84,40 @@
 			 			<td><a href="/admin/sub_module/<%=data['id'] %>">Ver Sub modulos</a></td>
 			 			<td><a href="/admin/create_module/<%=data['id'] %>">Editar</a>/
 			 				<a href="/admin/delete_module/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Modulo?')">Eliminar</a>
+			 			</td>
+			 		</tr>
+			 		<% end %>
+			 	</tbody>
+		</table>
+	</div>
+
+	<h3>Contactenos</h3>
+	<div>
+		<% if @contacts.blank?%>
+			<a href="create_contact">Crear Contactos</a>
+		<% end %>
+		<table border="1">
+			 	<thead>
+			 		<tr>
+			 			<td>Nombre</td>
+			 			<td>Direccion</td>
+						 <td>Edificio</td>
+						 <td>Ciudad</td>
+						 <td>Telefono</td>
+						 <td>Email</td>
+						 <td>Acciones</td>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		<% @contacts.each do |data| %>
+			 		<tr>
+			 			<td><%=data['name'] %></td>
+						<td><%=data['direccion'] %></td>
+						<td><%=data['edificio'] %></td>
+						<td><%=data['ciudad'] %></td>
+						<td><%=data['telefono'] %></td>
+						<td><%=data['email'] %></td>
+			 			<td><a href="/admin/create_contact/<%=data['id'] %>">Editar</a>
 			 			</td>
 			 		</tr>
 			 		<% end %>

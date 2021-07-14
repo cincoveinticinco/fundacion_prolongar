@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   FOLDER = 		
   def index
   	@module_pages = ModulePage.all
-    @home_banners = HomeBanner.all.order(id: :asc)
+    @home_banners = HomeBanner.all.order(order_banner: :asc)
     @contacts = Contact.all
     @user_admin = UserAdmin.all
   end
@@ -103,7 +103,8 @@ class AdminController < ApplicationController
 
   def create_home_banner
     @home_banner  = HomeBanner.where('id=?',params['id']).take if !params['id'].blank?
-    @home_banner2  = HomeBanner.all.order(id: :desc)
+    @total_banner  = HomeBanner.all.length
+    @total_banner = @total_banner+1 if params['id'].blank?
   end
 
   def insert_home_banner
@@ -112,11 +113,20 @@ class AdminController < ApplicationController
     image = save_file(params[:image],'images_banner') if !params[:image].blank?
 
     home_banner = HomeBanner.where('id = ?', params[:id]).take
-    home_banner2  = HomeBanner.all.order(id: :desc)
     home_banner = HomeBanner.new if home_banner.blank?
     home_banner.image = image if !image.nil?
-    home_banner.order = params[:order]
+    home_banner.order_banner = params[:order]
     home_banner.save 
+
+    home_banners = HomeBanner.where('order_banner>=?',params[:order]).where('id not in (?)',home_banner.id)
+
+    order = params[:order].to_i+1
+    home_banners.each do |data|
+      banner = HomeBanner.where('id=?',data['id']).take
+      banner.order_banner = order
+      banner.save
+      order = order+1
+    end
    
 
     flash[:msg]='Banner creado' if params['id'].blank?

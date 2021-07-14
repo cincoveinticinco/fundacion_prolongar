@@ -8,9 +8,15 @@
 	<label>Order</label>
 
 	<select name="order" id="order">
-		<% @home_banner2.each do |data| %>
-	<option name="order2"><%=data['order']  %></option>
-	<%end%>
+		<% cont = 1%>
+		<% cont_selected = @total_banner%>
+		<% if !@home_banner.blank?%>
+			<% cont_selected = @home_banner.order_banner %>
+		<% end %>
+		<% while cont<=@total_banner%>
+			<option value="<%=cont%>" <% if cont_selected==cont %> selected <%end%> ><%=cont%></option>
+			<% cont = cont+1 %>
+		<% end %>
 	</select>
 
 	<br>
