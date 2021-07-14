@@ -33,7 +33,9 @@
 
 	<h3>Contactenos</h3>
 		<div>
-		<a href="create_contact">Crear Contactos</a>
+		<% if @contacts.blank?%>
+			<a href="create_contact">Crear Contactos</a>
+		<% end %>
 		<table border="1">
 			 	<thead>
 			 		<tr>
