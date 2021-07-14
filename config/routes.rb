@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 			get :create_contact
 			post :insert_contact
 		end
-  end
 
+end
