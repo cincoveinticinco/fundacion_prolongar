@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(version: 2021_07_13_173936) do
   create_table "menu_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "texto"
     t.string "image"
+    t.bigint "menus_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["menus_id"], name: "index_menu_contents_on_menus_id"
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -70,4 +72,5 @@ ActiveRecord::Schema.define(version: 2021_07_13_173936) do
   end
 
   add_foreign_key "departments", "cities"
+  add_foreign_key "menu_contents", "menus", column: "menus_id"
 end

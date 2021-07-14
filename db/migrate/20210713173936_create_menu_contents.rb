@@ -3,7 +3,7 @@ class CreateMenuContents < ActiveRecord::Migration[6.0]
     create_table :menu_contents do |t|
       t.text :texto
       t.string :image
-
+      t.references :menus, foreign_key: true
       t.timestamps
     end
   end

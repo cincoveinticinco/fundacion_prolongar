@@ -50,7 +50,7 @@ group :test do
   gem 'webdrivers'
 end
 
-
+gem "paperclip"
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
