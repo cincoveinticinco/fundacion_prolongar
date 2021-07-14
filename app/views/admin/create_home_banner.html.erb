@@ -6,7 +6,13 @@
 
 <%= form_tag({:controller => "admin", :action => "insert_home_banner"},:method => "post", :multipart => true, :class =>'') do %>
 	<label>Order</label>
-	<input type="text" name="order" required="" value="<%= !@home_banner.blank? ?  @home_banner.order : '' %>">
+
+	<select name="order" id="order">
+		<% @home_banner2.each do |data| %>
+	<option name="order2"><%=data['order']  %></option>
+	<%end%>
+	</select>
+
 	<br>
 
 	<label>Imagen Modulo</label>

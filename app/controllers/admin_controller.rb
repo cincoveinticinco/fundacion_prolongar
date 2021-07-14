@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   FOLDER = 		
   def index
   	@module_pages = ModulePage.all
-    @home_banners = HomeBanner.all
+    @home_banners = HomeBanner.all.order(id: :asc)
     @contacts = Contact.all
     @user_admin = UserAdmin.all
   end
@@ -103,6 +103,7 @@ class AdminController < ApplicationController
 
   def create_home_banner
     @home_banner  = HomeBanner.where('id=?',params['id']).take if !params['id'].blank?
+    @home_banner2  = HomeBanner.all.order(id: :desc)
   end
 
   def insert_home_banner
@@ -110,13 +111,13 @@ class AdminController < ApplicationController
     image = nil
     image = save_file(params[:image],'images_banner') if !params[:image].blank?
 
-
     home_banner = HomeBanner.where('id = ?', params[:id]).take
+    home_banner2  = HomeBanner.all.order(id: :desc)
     home_banner = HomeBanner.new if home_banner.blank?
     home_banner.image = image if !image.nil?
     home_banner.order = params[:order]
     home_banner.save 
-
+   
 
     flash[:msg]='Banner creado' if params['id'].blank?
     flash[:msg]='Banner Editado' if !params['id'].blank?
