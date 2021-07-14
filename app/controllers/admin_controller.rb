@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   	@module_pages = ModulePage.all
     @home_banners = HomeBanner.all
     @contacts = Contact.all
+    @user_admin = UserAdmin.all
   end
 
   def create_module
@@ -47,6 +48,7 @@ class AdminController < ApplicationController
   def sub_module
     @sub_modules = SubModulePage.getSubmoduleModuleId(params[:id])
     @module_page = ModulePage.where('id=?',params[:id]).take
+
   end
 
   def create_sub_module
@@ -154,6 +156,42 @@ class AdminController < ApplicationController
     flash[:msg]='Contacts Editado' if !params['id'].blank?
     redirect_to '/admin/index'
 
+  end
+
+  def create_admin
+      
+      @user_admin  = UserAdmin.where('id=?',params['id']).take if !params['id'].blank?
+  end
+
+  def insert_admin
+
+      user_admin = UserAdmin.where('id = ?', params[:id]).take
+      user_admin = UserAdmin.new if user_admin.blank?
+      user_admin.name = params[:name]
+      user_admin.password = Digest::SHA256.hexdigest(params[:password]) if !params[:password].blank?
+      user_admin.save
+
+      flash[:msg]='Administrador creado' if params['id'].blank?
+      flash[:msg]='Administrador Editado' if !params['id'].blank?
+      redirect_to '/admin/index'
+    
+  end
+
+  def delete_admin
+      UserAdmin.where('id = ?', params[:id]).destroy_all
+      flash[:msg]='Administrador Eliminado'
+      redirect_to '/admin/index'
+  end
+
+  def upload_file
+
+    img = save_file(params[:upload] ,'content')
+    render :json => {
+      :error => false,
+      :fileName => img,
+      :uploaded => 1,
+      :url => "#{request.base_url}#{img}" 
+    }
   end
 
   private

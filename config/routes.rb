@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'admin/delete_home_banner/:id', to: "admin#delete_home_banner"
   get 'admin/create_contact/:id', to: "admin#create_contact"
 
+  get 'admin/create_admin/:id', to: "admin#create_admin"
+  get 'admin/delete_admin/:id', to: "admin#delete_admin"
 
   		namespace :admin do
 			get :index
@@ -24,6 +26,9 @@ Rails.application.routes.draw do
 			post :insert_home_banner
 			get :create_contact
 			post :insert_contact
+			post :upload_file , defaults: { format: 'json' }
+			get :create_admin
+			post :insert_admin
 		end
 
 end

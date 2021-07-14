@@ -18,9 +18,7 @@
 	<br>
 
 	<label>Descripcion Corta</label>
-	<textarea name="description"   <% if @module_page.blank? %> required="" <% end %> >
-		<%= !@module_page.blank? ?  @module_page.description : '' %>
-	</textarea>
+	<textarea name="description"   <% if @module_page.blank? %> required="" <% end %> ><%= !@module_page.blank? ?  @module_page.description : '' %></textarea>
 	<br>
 
 	<label>Banner</label>

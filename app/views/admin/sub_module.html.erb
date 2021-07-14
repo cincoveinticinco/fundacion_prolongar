@@ -20,7 +20,17 @@
 	 		<tr>
 	 			<td><%=data['sub_module_name'] %></td>
 	 			<td><%=data['description'] %></td>
-	 			<td><%=data['link'] %></td>
+	 			<td><%=data['link'] %>
+	 				<% if  data['link'].include? 'youtu'%>
+				   		<% link = data['link'].split('/') %>
+						<iframe id="ytplayer" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/<%=link[-1]%>?autoplay=1" frameborder="0"/>
+		  			<% end %>
+
+		  			<% if  data['link'].include? 'soundcloud'%>
+		  					<iframe width="100%" height="95" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=<%=data['link']%>&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+		  			<% end %>
+
+	 			</td>
 	 			<td><%=data['name_dependences'] %></td>
 	 			<td><a href="/admin/create_sub_module/<%=@module_page.id%>/<%=data['id'] %>">Editar</a>/
 	 				<a href="/admin/delete_sub_module/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Sub Modulo?')">Eliminar</a>

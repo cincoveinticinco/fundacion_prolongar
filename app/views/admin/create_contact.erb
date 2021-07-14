@@ -4,7 +4,7 @@
 	<h1>Crear Contacts</h1>
 <% end %>
 
-<%= form_tag({:controller => "admin", :action => "insert_contact"},:method => "post", :multipart => true, :class =>'') do %>
+<%= form_tag({:controller => "admin", :action => "insert_admin"},:method => "post", :multipart => true, :class =>'') do %>
 	<% if !@contact.blank? %>
 	<input type="hidden" name="id" value ="<%= @contact.id%>" >
 	<% end %>
