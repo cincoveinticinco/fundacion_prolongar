@@ -1,0 +1,32 @@
+<% if !@contact.blank? %>
+	<h1>Editar Contacts</h1>
+<% else %>
+	<h1>Crear Contacts</h1>
+<% end %>
+
+<%= form_tag({:controller => "admin", :action => "insert_contact"},:method => "post", :multipart => true, :class =>'') do %>
+	<% if !@contact.blank? %>
+	<input type="hidden" name="id" value ="<%= @contact.id%>" >
+	<% end %>
+	<label>Nombre</label>
+	<input type="text" name="name" required="" value="<%= !@contact.blank? ?  @contact.name : '' %>">
+	<br>
+    <label>Direccion</label>
+	<input type="text" name="direccion" required="" value="<%= !@contact.blank? ?  @contact.direccion : '' %>">
+	<br>
+    <label>Edificio</label>
+	<input type="text" name="edificio" required="" value="<%= !@contact.blank? ?  @contact.edificio : '' %>">
+	<br>
+    <label>Ciudad</label>
+	<input type="text" name="ciudad" required="" value="<%= !@contact.blank? ?  @contact.ciudad : '' %>">
+	<br>
+    <label>Telefono</label>
+	<input type="text" name="telefono" required="" value="<%= !@contact.blank? ?  @contact.telefono : '' %>">
+	<br>
+    <label>Email</label>
+	<br>
+	<input type="text" name="email" required="" value="<%= !@contact.blank? ?  @contact.email : '' %>">
+	<br>
+	<input type="submit" value="Guardar">
+
+<%end%>
