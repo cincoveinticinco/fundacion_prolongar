@@ -20,5 +20,4 @@ Rails.application.routes.draw do
 	      	get :new_contacts
 	      	get :list_contacts
 		end
-  end
 end
