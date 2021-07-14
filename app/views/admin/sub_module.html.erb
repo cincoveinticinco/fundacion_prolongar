@@ -1,0 +1,31 @@
+<h1>Sub modulos <%=@module_page.name_module%></h1>
+
+<!-- Mensaje de confirmacion-->
+<%=flash[:msg] %>
+<!-- End Mensaje de confirmacion-->
+
+<a href="/admin/create_sub_module/<%=@module_page.id%>">Crear Sub Modulo</a>
+<table border="1">
+	 	<thead>
+	 		<tr>
+	 			<td>Nombre</td>
+	 			<td>Descripcion Corta</td>
+	 			<td>Link</td>
+	 			<td>Depende de</td>
+	 			<td>Acciones</td>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+	 		<% @sub_modules.each do |data| %>
+	 		<tr>
+	 			<td><%=data['sub_module_name'] %></td>
+	 			<td><%=data['description'] %></td>
+	 			<td><%=data['link'] %></td>
+	 			<td><%=data['name_dependences'] %></td>
+	 			<td><a href="/admin/create_sub_module/<%=@module_page.id%>/<%=data['id'] %>">Editar</a>/
+	 				<a href="/admin/delete_sub_module/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Sub Modulo?')">Eliminar</a>
+	 			</td>
+	 		</tr>
+	 		<% end %>
+	 	</tbody>
+</table>

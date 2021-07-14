@@ -42,6 +42,60 @@ class AdminController < ApplicationController
   	
   end
 
+  def sub_module
+    @sub_modules = SubModulePage.getSubmoduleModuleId(params[:id])
+    @module_page = ModulePage.where('id=?',params[:id]).take
+  end
+
+  def create_sub_module
+    @module_page_id = params[:module_page_id]
+    @sub_module  = SubModulePage.where('id=?',params['id']).take if !params['id'].blank?
+    @dependences_id = []
+    if !params['id'].blank?
+      @dependences_id = SubModulePageDependence.where('sub_module_page_id=?',params['id']).collect(&:dependence_id)
+    end
+    @dependences = SubModulePage.where('module_page_id=?',@module_page_id)
+    @dependences = @dependences.where('id not in (?)',params['id']) if !params['id'].blank?
+  end
+
+  def insert_sub_module
+    
+      sub_module = SubModulePage.where('id=?',params['id']).take
+      sub_module = SubModulePage.new if sub_module.blank? 
+      sub_module.module_page_id = params[:module_page_id]
+      sub_module.sub_module_name = params[:sub_module_name]
+      sub_module.description = params[:description]
+      sub_module.link = params[:link]
+      sub_module.content = params[:content]
+      sub_module.save 
+
+      dependences = params[:dependences]
+      SubModulePageDependence.where('sub_module_page_id=?',sub_module.id).destroy_all
+      if !dependences.blank?
+        dependences.each do |id|
+          dependence = SubModulePageDependence.new
+          dependence.sub_module_page_id = sub_module.id
+          dependence.dependence_id = id
+          dependence.save
+        end
+      end
+
+      flash[:msg]='Sub Modulo creado' if params['id'].blank?
+      flash[:msg]='Sub Modulo Editado' if !params['id'].blank?
+      redirect_to '/admin/sub_module/'+params[:module_page_id]
+  end
+
+  def delete_sub_module
+    
+    sub_module = SubModulePage.where('id=?',params[:id])
+    module_page_id = sub_module[0]['module_page_id']
+    SubModulePageDependence.where('dependence_id=?',params[:id]).destroy_all
+    sub_module.destroy_all
+    flash[:msg]='Sub Modulo Eliminado'
+    redirect_to '/admin/sub_module/'+module_page_id.to_s
+    
+  end
+
 
   def create_home_banner
 

@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'admin/create_module/:id', to: "admin#create_module"
   get 'admin/delete_module/:id', to: "admin#delete_module"
+  get 'admin/sub_module/:id', to: "admin#sub_module"
+  get 'admin/create_sub_module/:module_page_id/:id', to: "admin#create_sub_module"
+  get 'admin/create_sub_module/:module_page_id', to: "admin#create_sub_module"
+  get 'admin/delete_sub_module/:id', to: "admin#delete_sub_module"	
+  
   post 'admin/new_banner', to:"admin#create_home_banner"
   post 'admin/new_contacts', to:"admin#create_contacts"
 
@@ -11,6 +16,7 @@ Rails.application.routes.draw do
 			get :index
 			get :create_module
 			post :insert_module
+			post :insert_sub_module
 	      	post :create_home_banner
 	     	get :delete_home_banner
 	        get :new_banner
