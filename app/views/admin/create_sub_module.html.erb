@@ -1,0 +1,39 @@
+<% if !@sub_module.blank? %>
+	<h1>Editar Sub Modulo</h1>
+<% else %>
+	<h1>Crear Sub Modulo</h1>
+<% end %>
+
+<%= form_tag({:controller => "admin", :action => "insert_sub_module"},:method => "post", :multipart => true, :class =>'') do |f| %>
+	<input type="hidden" name="id" value="<%= !@sub_module.blank? ?  @sub_module.id : '' %>">
+	<input type="hidden" name="module_page_id" value="<%=@module_page_id %>">
+
+	<label>Nombre del Modulo</label>
+	<input type="text" name="sub_module_name" required="" value="<%= !@sub_module.blank? ?  @sub_module.sub_module_name : '' %>">
+	<br>
+
+	<label>Descripcion Corta</label>
+	<textarea name="description"   <% if @sub_module.blank? %> required="" <% end %> >
+		<%= !@sub_module.blank? ?  @sub_module.description : '' %>
+	</textarea>
+	<br>
+
+	<label>Link</label>
+	<input type="text" name="link" required="" value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
+	<br>
+
+	<%if !@dependences.blank?%>
+		<label>Dependen de:</label>
+		<% @dependences.each do |data|%>
+			<input type="checkbox" name="dependences[]" <% if @dependences_id.include?  data['id'] %>	checked="" <%end%> value="<%=data['id']%>"><%=data['sub_module_name']%></label><br>
+		<% end%>
+	<% end %>
+
+	<label>Contenido</label>
+	<textarea name="content" id="editor"  <% if @sub_module.blank? %> required="" <% end %> >
+		<%= !@sub_module.blank? ?  @sub_module.content : '' %>
+	</textarea>
+	<input type="submit" value="Guardar">
+
+
+<%end%>
