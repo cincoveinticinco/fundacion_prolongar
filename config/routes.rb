@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
 		namespace :web_services do
 			post :info_home
+			post :info_page
 		end
 
 		namespace :login do

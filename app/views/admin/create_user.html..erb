@@ -1,0 +1,24 @@
+<% if !@user_admin.blank? %>
+	<h1>Editar Usuario</h1>
+<% else %>
+	<h1>Crear Usuario</h1>
+<% end %>
+
+<%= form_tag({:controller => "admin", :action => "insert_user"},:method => "post", :multipart => true, :class =>'') do %>
+	
+	<input type="hidden" name="id" value ="<%= !@user_admin.blank? ?  @user_admin.id : '' %>" >
+	<label>Usuario</label>
+	<input type="text" name="name" required="" value="<%= !@user_admin.blank? ?  @user_admin.name : '' %>">
+	<br>
+
+	<label>Password</label>
+	<input type="password" placeholder="Password" id="password" name="password" <% if @user_admin.blank? %> required <%end%>>
+	<br>
+
+	<label>Confirmar Password</label>
+	<input type="password" placeholder="Confirm Password" id="confirm_password" <% if @user_admin.blank? %> required <%end%>>
+    <br> 
+   
+	<input type="submit" value="Guardar">
+
+<%end%>

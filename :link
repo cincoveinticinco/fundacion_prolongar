@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20210715165006_add_pdf_to_sub_modules_pages.rb
