@@ -13,13 +13,28 @@
 	<br>
 
 	<label>Descripcion Corta</label>
-	<textarea name="description"   <% if @sub_module.blank? %> required="" <% end %> >
-		<%= !@sub_module.blank? ?  @sub_module.description : '' %>
-	</textarea>
+	<textarea name="description"   <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.description : '' %></textarea>
+	<br>
+
+	<label>Archivo Pdf</label>
+	<input type="file" name="file_pdf" <% if @sub_module.blank? %> required="" <% end %> >
 	<br>
 
 	<label>Link</label>
-	<input type="text" name="link" required="" value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
+		<input type="text" name="link" required="" value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
+		<% if !@sub_module.blank? %>
+		   	<% if  @sub_module.link.include? 'youtu'%>
+		   		<% link = @sub_module.link.split('/') %>
+				<iframe id="ytplayer" type="text/html" width="640" height="360"
+	  				src="http://www.youtube.com/embed/<%=link[-1]%>?autoplay=1" frameborder="0"/>
+  			<% end %>
+
+  			<% if  @sub_module.link.include? 'soundcloud'%>
+  					<iframe width="100%" height="95" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=<%=@sub_module.link%>&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+  			<% end %>
+  			
+		<% end %>
+
 	<br>
 
 	<%if !@dependences.blank?%>
@@ -30,9 +45,7 @@
 	<% end %>
 
 	<label>Contenido</label>
-	<textarea name="content" id="editor"  <% if @sub_module.blank? %> required="" <% end %> >
-		<%= !@sub_module.blank? ?  @sub_module.content : '' %>
-	</textarea>
+	<textarea name="content" id="editor"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.content : '' %></textarea>
 	<input type="submit" value="Guardar">
 
 

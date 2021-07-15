@@ -13,16 +13,29 @@ Rails.application.routes.draw do
   get 'admin/delete_home_banner/:id', to: "admin#delete_home_banner"
   get 'admin/create_contact/:id', to: "admin#create_contact"
 
+  get 'admin/create_admin/:id', to: "admin#create_admin"
+  get 'admin/delete_admin/:id', to: "admin#delete_admin"
+
+  get 'admin/create_menu/:id', to: "admin#create_menu"
+
   		namespace :admin do
 			get :index
 			get :create_module
 			post :insert_module
 			post :insert_sub_module
-	      	post :create_home_banner
 	      	get :create_home_banner
 			post :insert_home_banner
 			get :create_contact
 			post :insert_contact
+			post :upload_file , defaults: { format: 'json' }
+			get :create_admin
+			post :insert_admin
+			get :create_menu
+			post :insert_menu
+		end
+
+		namespace :web_services do
+			post :info_home
 		end
 
 end

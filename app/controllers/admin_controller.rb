@@ -2,8 +2,10 @@ class AdminController < ApplicationController
   FOLDER = 		
   def index
   	@module_pages = ModulePage.all
-    @home_banners = HomeBanner.all.order(id: :asc)
+    @home_banners = HomeBanner.all.order(order_banner: :asc)
     @contacts = Contact.all
+    @user_admin = UserAdmin.all
+    @menu_contents=MenuContent.where('id not in (3)')
   end
 
   def create_module
@@ -47,6 +49,7 @@ class AdminController < ApplicationController
   def sub_module
     @sub_modules = SubModulePage.getSubmoduleModuleId(params[:id])
     @module_page = ModulePage.where('id=?',params[:id]).take
+
   end
 
   def create_sub_module
@@ -61,12 +64,16 @@ class AdminController < ApplicationController
   end
 
   def insert_sub_module
+
+    file_pdf = nil
+    file_pdf = save_file(params[:file_pdf],'file_pdfs') if !params[:file_pdf].blank?
     
       sub_module = SubModulePage.where('id=?',params['id']).take
       sub_module = SubModulePage.new if sub_module.blank? 
       sub_module.module_page_id = params[:module_page_id]
       sub_module.sub_module_name = params[:sub_module_name]
       sub_module.description = params[:description]
+      sub_module.file_pdf = file_pdf if !file_pdf.nil?
       sub_module.link = params[:link]
       sub_module.content = params[:content]
       sub_module.save 
@@ -91,6 +98,7 @@ class AdminController < ApplicationController
     
     sub_module = SubModulePage.where('id=?',params[:id])
     module_page_id = sub_module[0]['module_page_id']
+    delete_file(sub_module[0]['file_pdf'])
     SubModulePageDependence.where('dependence_id=?',params[:id]).destroy_all
     sub_module.destroy_all
     flash[:msg]='Sub Modulo Eliminado'
@@ -101,7 +109,8 @@ class AdminController < ApplicationController
 
   def create_home_banner
     @home_banner  = HomeBanner.where('id=?',params['id']).take if !params['id'].blank?
-    @home_banner2  = HomeBanner.all.order(id: :desc)
+    @total_banner  = HomeBanner.all.length
+    @total_banner = @total_banner+1 if params['id'].blank?
   end
 
   def insert_home_banner
@@ -112,8 +121,20 @@ class AdminController < ApplicationController
     home_banner = HomeBanner.where('id = ?', params[:id]).take
     home_banner = HomeBanner.new if home_banner.blank?
     home_banner.image = image if !image.nil?
-    home_banner.order = params[:order]
+    home_banner.order_banner = params[:order]
     home_banner.save 
+
+    home_banners = HomeBanner.where('order_banner>=?',params[:order]).where('id not in (?)',home_banner.id)
+
+    order = params[:order].to_i+1
+    home_banners.each do |data|
+      banner = HomeBanner.where('id=?',data['id']).take
+      banner.order_banner = order
+      banner.save
+      order = order+1
+    end
+   
+
 
     flash[:msg]='Banner creado' if params['id'].blank?
     flash[:msg]='Banner Editado' if !params['id'].blank?
@@ -153,6 +174,67 @@ class AdminController < ApplicationController
     flash[:msg]='Contacts Editado' if !params['id'].blank?
     redirect_to '/admin/index'
 
+  end
+
+  def create_admin
+      
+      @user_admin  = UserAdmin.where('id=?',params['id']).take if !params['id'].blank?
+  end
+
+  def insert_admin
+
+      user_admin = UserAdmin.where('id = ?', params[:id]).take
+      user_admin = UserAdmin.new if user_admin.blank?
+      user_admin.name = params[:name]
+      user_admin.password = Digest::SHA256.hexdigest(params[:password]) if !params[:password].blank?
+      user_admin.save
+
+      flash[:msg]='Administrador creado' if params['id'].blank?
+      flash[:msg]='Administrador Editado' if !params['id'].blank?
+      redirect_to '/admin/index'
+    
+  end
+
+  def delete_admin
+      UserAdmin.where('id = ?', params[:id]).destroy_all
+      flash[:msg]='Administrador Eliminado'
+      redirect_to '/admin/index'
+  end
+
+  def create_menu
+      
+    @menu_content  = MenuContent.where('id=?',params['id']).take if !params['id'].blank?
+
+  end
+
+  def insert_menu
+
+    
+    image = nil
+    image = save_file(params[:image],'images_banner') if !params[:image].blank?
+
+
+    menu_content = MenuContent.where('id = ?', params[:id]).take
+    menu_content = MenuContent.new if menu_content.blank?
+    menu_content.name_page = params[:name_page]
+    menu_content.texto = params[:texto]
+    menu_content.image = image if !image.nil?
+    menu_content.save
+
+    flash[:msg]='menu contents Editado' if !params['id'].blank?
+    redirect_to '/admin/index'
+
+  end
+
+  def upload_file
+
+    img = save_file(params[:upload] ,'content')
+    render :json => {
+      :error => false,
+      :fileName => img,
+      :uploaded => 1,
+      :url => "#{request.base_url}#{img}" 
+    }
   end
 
   private

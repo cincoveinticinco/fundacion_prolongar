@@ -18,12 +18,10 @@
 	<br>
 
 	<label>Descripcion Corta</label>
-	<textarea name="description"   <% if @module_page.blank? %> required="" <% end %> >
-		<%= !@module_page.blank? ?  @module_page.description : '' %>
-	</textarea>
+	<textarea name="description"   <% if @module_page.blank? %> required="" <% end %> ><%= !@module_page.blank? ?  @module_page.description : '' %></textarea>
 	<br>
 
-	<label>Banner</label>
+	<label>Banner (Tamaño 336 x 280 px)</label>
 	<input type="file" name="img_banner"  <% if @module_page.blank? %> required="" <% end %>>
 	<% if !@module_page.blank? %>
 		<img src="<%=@module_page.img_banner %>" width="100" height="100"> 

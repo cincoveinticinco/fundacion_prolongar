@@ -8,18 +8,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'jquery-ui', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <script type="text/javascript">var url = "<%=request.base_url%>"</script>
+    <script type="text/javascript">var url = "<%=request.base_url%>/"</script>
     <script src="/assets/jquery.js"></script>
+     <script src="/assets/jquery-ui.js"></script>
     <script src="/assets/application.js"></script>
-    <script src="/assets/jquery-ui.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
     <script>
-    	  $( function() {
-    	    $( "#accordion" ).accordion();
-    	  } );
+    	  
 	  </script>
-
-    <a href="/admin/index">Home</a>
+    <ul>
+        <li><a href="/admin/index">Home</a></li>
+        <% if request.env['REQUEST_URI'].include? 'create_sub_module' %>
+            <li><a href="/admin/sub_module/<%=params[:module_page_id]%>">Sub modulo</a></li>
+        <% end %>
+    </ul>
+    
+    
   </head>
 
   <body>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_203906) do
+ActiveRecord::Schema.define(version: 2021_07_15_165058) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "city"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
 
   create_table "home_banners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "image"
-    t.integer "order"
+    t.integer "order_banner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,16 +57,9 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
   end
 
   create_table "menu_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name_page"
     t.text "texto"
     t.string "image"
-    t.bigint "menus_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["menus_id"], name: "index_menu_contents_on_menus_id"
-  end
-
-  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,14 +87,21 @@ ActiveRecord::Schema.define(version: 2021_07_13_203906) do
     t.string "sub_module_name"
     t.text "description"
     t.string "link"
+    t.string "file_pdf"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["module_page_id"], name: "index_sub_module_pages_on_module_page_id"
   end
 
+  create_table "user_admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "departments", "cities"
-  add_foreign_key "menu_contents", "menus", column: "menus_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", column: "dependence_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", on_update: :cascade, on_delete: :cascade
   add_foreign_key "sub_module_pages", "module_pages", on_update: :cascade, on_delete: :cascade
