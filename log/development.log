@@ -46094,3 +46094,198 @@ Processing by WebServicesController#info_home as */*
 Completed 200 OK in 25ms (Views: 15.7ms | ActiveRecord: 7.4ms | Allocations: 23230)
 
 
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:00:08 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 4117)
+
+
+  
+NoMethodError (undefined method `getAllBudget' for #<Class:0x000056235b4ff0e0>):
+  
+app/controllers/web_services_controller.rb:23:in `info_page'
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:00:52 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"1"}
+  [1m[36mMenuContent Load (1.9ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = ? , id_page) LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.9ms | Allocations: 1970)
+
+
+  
+ActiveRecord::StatementInvalid (Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? , id_page) LIMIT 1' at line 1):
+  
+app/controllers/web_services_controller.rb:23:in `info_page'
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:01:40 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"1"}
+  [1m[36mMenuContent Load (0.4ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = '1') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+  [1m[36mMenuContent Load (0.2ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:29:in `info_page'
+Completed 200 OK in 8ms (Views: 1.3ms | ActiveRecord: 2.3ms | Allocations: 6522)
+
+
+Started GET "/web_services/info_page" for ::1 at 2021-07-15 16:01:53 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/web_services/info_page"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:01:57 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"1"}
+  [1m[36mMenuContent Load (0.2ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = '1') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+  [1m[36mMenuContent Load (0.1ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:29:in `info_page'
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 2229)
+
+
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:02:17 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"1"}
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = '1') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 5257)
+
+
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:02:21 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"2"}
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = '2') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 989)
+
+
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:02:26 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"4"}
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = '4') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 989)
+
+
+Started POST "/web_services/info_page" for ::1 at 2021-07-15 16:02:30 -0500
+Processing by WebServicesController#info_page as */*
+  Parameters: {"id_page"=>"6"}
+  [1m[36mMenuContent Load (0.2ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id = '6') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:23:in `info_page'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 858)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateDepartments (20210715211058)
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE `departments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name_department` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715211058')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCities (20210715211251)
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE `cities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name_city` varchar(255), `departments_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_cities_on_departments_id`  (`departments_id`), CONSTRAINT `fk_rails_31277a2a17`
+FOREIGN KEY (`departments_id`)
+  REFERENCES `departments` (`id`)
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715211251')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateGenders (20210715211815)
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE `genders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `gender` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715211815')[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ (eval):1:in `block (2 levels) in run_file'
+  [1m[36mGender Load (0.2ms)[0m  [1m[34mSELECT `genders`.* FROM `genders` WHERE `genders`.`id` = 1 LIMIT 1[0m
+  ↳ (eval):1:in `block (2 levels) in run_file'
+  [1m[36mGender Create (0.2ms)[0m  [1m[32mINSERT INTO `genders` (`id`, `gender`, `created_at`, `updated_at`) VALUES (1, 'Masculino', '2021-07-15 21:27:27.170510', '2021-07-15 21:27:27.170510')[0m
+  ↳ (eval):1:in `block (2 levels) in run_file'
+  [1m[36mGender Load (0.1ms)[0m  [1m[34mSELECT `genders`.* FROM `genders` WHERE `genders`.`id` = 2 LIMIT 1[0m
+  ↳ (eval):6:in `block (2 levels) in run_file'
+  [1m[36mGender Create (0.1ms)[0m  [1m[32mINSERT INTO `genders` (`id`, `gender`, `created_at`, `updated_at`) VALUES (2, 'Femenino', '2021-07-15 21:27:27.172157', '2021-07-15 21:27:27.172157')[0m
+  ↳ (eval):6:in `block (2 levels) in run_file'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ (eval):1:in `block (2 levels) in run_file'
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT `genders`.* FROM `genders` WHERE `genders`.`id` = 1 LIMIT 1[0m
+  ↳ (eval):1:in `block (2 levels) in run_file'
+  [1m[36mGender Load (0.2ms)[0m  [1m[34mSELECT `genders`.* FROM `genders` WHERE `genders`.`id` = 2 LIMIT 1[0m
+  ↳ (eval):6:in `block (2 levels) in run_file'
+  [1m[36mGender Load (0.1ms)[0m  [1m[34mSELECT `genders`.* FROM `genders` WHERE `genders`.`id` = 3 LIMIT 1[0m
+  ↳ (eval):10:in `block (2 levels) in run_file'
+  [1m[36mGender Create (0.2ms)[0m  [1m[32mINSERT INTO `genders` (`id`, `gender`, `created_at`, `updated_at`) VALUES (3, 'Otro', '2021-07-15 21:28:24.949318', '2021-07-15 21:28:24.949318')[0m
+  ↳ (eval):10:in `block (2 levels) in run_file'
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20210715214742)
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_name` varchar(255), `password` varchar(255), `email` varchar(255), `age` varchar(255), `genders_id` bigint NOT NULL, `current_location` tinyint(1), `cities_id` bigint NOT NULL, `session_token` varchar(255), `receive_info` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_users_on_genders_id`  (`genders_id`),  INDEX `index_users_on_cities_id`  (`cities_id`), CONSTRAINT `fk_rails_2458cca161`
+FOREIGN KEY (`genders_id`)
+  REFERENCES `genders` (`id`)
+, CONSTRAINT `fk_rails_aebe0e4b04`
+FOREIGN KEY (`cities_id`)
+  REFERENCES `cities` (`id`)
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715214742')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20210715214742)
+  [1m[35m (21.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_name` varchar(255), `password` varchar(255), `email` varchar(255), `age` varchar(255), `genders_id` bigint NOT NULL, `current_location` tinyint(1), `cities_id` bigint NOT NULL, `receive_info` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_users_on_genders_id`  (`genders_id`),  INDEX `index_users_on_cities_id`  (`cities_id`), CONSTRAINT `fk_rails_2458cca161`
+FOREIGN KEY (`genders_id`)
+  REFERENCES `genders` (`id`)
+, CONSTRAINT `fk_rails_aebe0e4b04`
+FOREIGN KEY (`cities_id`)
+  REFERENCES `cities` (`id`)
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715214742')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m

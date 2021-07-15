@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_165058) do
+ActiveRecord::Schema.define(version: 2021_07_15_214742) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "city"
+    t.string "name_city"
+    t.bigint "departments_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["departments_id"], name: "index_cities_on_departments_id"
   end
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -30,11 +32,9 @@ ActiveRecord::Schema.define(version: 2021_07_15_165058) do
   end
 
   create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "department"
-    t.bigint "city_id", null: false
+    t.string "name_department"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["city_id"], name: "index_departments_on_city_id"
   end
 
   create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -101,8 +101,25 @@ ActiveRecord::Schema.define(version: 2021_07_15_165058) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "departments", "cities"
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "user_name"
+    t.string "password"
+    t.string "email"
+    t.string "age"
+    t.bigint "genders_id", null: false
+    t.boolean "current_location"
+    t.bigint "cities_id", null: false
+    t.boolean "receive_info"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cities_id"], name: "index_users_on_cities_id"
+    t.index ["genders_id"], name: "index_users_on_genders_id"
+  end
+
+  add_foreign_key "cities", "departments", column: "departments_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", column: "dependence_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", on_update: :cascade, on_delete: :cascade
   add_foreign_key "sub_module_pages", "module_pages", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "users", "cities", column: "cities_id"
+  add_foreign_key "users", "genders", column: "genders_id"
 end
