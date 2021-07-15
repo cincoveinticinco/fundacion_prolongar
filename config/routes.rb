@@ -38,4 +38,10 @@ Rails.application.routes.draw do
 			post :info_home
 		end
 
+		namespace :login do
+			get :index
+			post :login_admin
+			get :logout
+		end
+
 end
