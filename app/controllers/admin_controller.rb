@@ -110,12 +110,10 @@ class AdminController < ApplicationController
     image = save_file(params[:image],'images_banner') if !params[:image].blank?
 
     home_banner = HomeBanner.where('id = ?', params[:id]).take
-    home_banner2  = HomeBanner.all.order(id: :desc)
     home_banner = HomeBanner.new if home_banner.blank?
     home_banner.image = image if !image.nil?
     home_banner.order = params[:order]
     home_banner.save 
-   
 
     flash[:msg]='Banner creado' if params['id'].blank?
     flash[:msg]='Banner Editado' if !params['id'].blank?
