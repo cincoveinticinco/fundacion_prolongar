@@ -47970,3 +47970,108 @@ FOREIGN KEY (`cities_id`)
   [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
 >>>>>>> 39dc0e719bb286280391c7099c5653bf0ccd1c82
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to InsertMenu (20210715142914)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMenuContent Create (0.2ms)[0m  [1m[32mINSERT INTO `menu_contents` (`id`, `name_page`, `created_at`, `updated_at`) VALUES (1, '¿PARA QUE ES?', '2021-07-15 22:13:43.795295', '2021-07-15 22:13:43.795295')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMenuContent Create (0.2ms)[0m  [1m[32mINSERT INTO `menu_contents` (`id`, `name_page`, `created_at`, `updated_at`) VALUES (2, '¿A QUIEN VA DIRIGIDA?', '2021-07-15 22:13:43.799651', '2021-07-15 22:13:43.799651')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMenuContent Create (0.4ms)[0m  [1m[32mINSERT INTO `menu_contents` (`id`, `name_page`, `created_at`, `updated_at`) VALUES (3, 'MODULOS', '2021-07-15 22:13:43.805540', '2021-07-15 22:13:43.805540')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMenuContent Create (0.5ms)[0m  [1m[32mINSERT INTO `menu_contents` (`id`, `name_page`, `created_at`, `updated_at`) VALUES (4, 'PRINCIPIOS', '2021-07-15 22:13:43.811883', '2021-07-15 22:13:43.811883')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715142914')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPdfToSubModulesPages (20210715165058)
+  [1m[35m (18.1ms)[0m  [1m[35mALTER TABLE `sub_module_pages` ADD `file_pdf` varchar(255) AFTER `link`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715165058')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDepartments (20210715211058)
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE `departments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name_department` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715211058')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCities (20210715211251)
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE `cities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name_city` varchar(255), `departments_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_cities_on_departments_id`  (`departments_id`), CONSTRAINT `fk_rails_31277a2a17`
+FOREIGN KEY (`departments_id`)
+  REFERENCES `departments` (`id`)
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715211251')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGenders (20210715211815)
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE `genders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `gender` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715211815')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20210715214742)
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_name` varchar(255), `password` varchar(255), `email` varchar(255), `age` varchar(255), `genders_id` bigint NOT NULL, `current_location` tinyint(1), `cities_id` bigint NOT NULL, `receive_info` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_users_on_genders_id`  (`genders_id`),  INDEX `index_users_on_cities_id`  (`cities_id`), CONSTRAINT `fk_rails_2458cca161`
+FOREIGN KEY (`genders_id`)
+  REFERENCES `genders` (`id`)
+, CONSTRAINT `fk_rails_aebe0e4b04`
+FOREIGN KEY (`cities_id`)
+  REFERENCES `cities` (`id`)
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210715214742')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/admin/insert_sub_module" for ::1 at 2021-07-15 17:22:10 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AdminController#insert_sub_module as HTML
+  Parameters: {"authenticity_token"=>"53LMSIps4cWAJODYQ+MFOkWbIUU4e81zAphqb6GK8Qy4yspo8D2VIc/bWW9aoMvQUluFcC4Jvr3hHbzKsYlpgQ==", "id"=>"", "module_page_id"=>"1", "sub_module_name"=>"dsadsa", "description"=>"dasdsadsa", "file_pdf"=>#<ActionDispatch::Http::UploadedFile:0x00005601454bcac0 @tempfile=#<Tempfile:/tmp/RackMultipart20210715-10729-1hml2jd.pdf>, @original_filename="203977238.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file_pdf\"; filename=\"203977238.pdf\"\r\nContent-Type: application/pdf\r\n">, "link"=>"sadda", "content"=>"<p>asdsad asd sad asd sad sadasdsadsadds sadsad sadassssssssss</p>\r\n\r\n<p><span style=\"color:#2ecc71\">dasda dsa dsada dsadsadasd</span></p>\r\n"}
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:73:in `insert_sub_module'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_controller.rb:81:in `insert_sub_module'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE `module_pages`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:81:in `insert_sub_module'
+  [1m[36mSubModulePage Create (0.3ms)[0m  [1m[32mINSERT INTO `sub_module_pages` (`module_page_id`, `sub_module_name`, `description`, `link`, `file_pdf`, `content`, `created_at`, `updated_at`) VALUES (1, 'dsadsa', 'dasdsadsa', 'sadda', '/file_pdfs/2021-07-1517:22:10-0500_203977238.pdf', '<p>asdsad asd sad asd sad sadasdsadsadds sadsad sadassssssssss</p>\r\n\r\n<p><span style=\"color:#2ecc71\">dasda dsa dsada dsadsadasd</span></p>\r\n', '2021-07-15 22:22:10.416353', '2021-07-15 22:22:10.416353')[0m
+  ↳ app/controllers/admin_controller.rb:81:in `insert_sub_module'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_controller.rb:81:in `insert_sub_module'
+  [1m[36mSubModulePageDependence Load (0.4ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id=1)[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+Redirected to http://localhost:3000/admin/sub_module/1
+Completed 302 Found in 44ms (ActiveRecord: 6.0ms | Allocations: 20643)
+
+
+Started GET "/admin/sub_module/1" for ::1 at 2021-07-15 17:22:10 -0500
+Processing by AdminController#sub_module as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:53:in `sub_module'
+  Rendering admin/sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (1.0ms)[0m  [1m[34mSELECT sub_module_pages.*,group_concat(distinct dependence.sub_module_name) name_dependences FROM `sub_module_pages` left join sub_module_page_dependences on sub_module_page_dependences.sub_module_page_id = sub_module_pages.id left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id GROUP BY sub_module_pages.id[0m
+  ↳ app/views/admin/sub_module.html.erb:20
+  Rendered admin/sub_module.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2312)
+  Rendered layouts/_header.html.erb (Duration: 61.6ms | Allocations: 26381)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 83)
+Completed 200 OK in 82ms (Views: 74.6ms | ActiveRecord: 1.4ms | Allocations: 32710)
+
+
+Started GET "/admin/create_sub_module/1/1" for ::1 at 2021-07-15 17:22:16 -0500
+Processing by AdminController#create_sub_module as HTML
+  Parameters: {"module_page_id"=>"1", "id"=>"1"}
+  [1m[36mSubModulePage Load (0.8ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:59:in `create_sub_module'
+  [1m[36mSubModulePageDependence Load (0.9ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id='1')[0m
+  ↳ app/controllers/admin_controller.rb:62:in `collect'
+  Rendering admin/create_sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (1.0ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (module_page_id='1') AND (id not in ('1'))[0m
+  ↳ app/views/admin/create_sub_module.html.erb:40
+  Rendered admin/create_sub_module.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2123)
+  Rendered layouts/_header.html.erb (Duration: 6.4ms | Allocations: 3024)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 31ms (Views: 18.6ms | ActiveRecord: 2.8ms | Allocations: 7362)
+
+
