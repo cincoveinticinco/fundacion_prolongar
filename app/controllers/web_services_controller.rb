@@ -6,7 +6,7 @@ class WebServicesController < ApplicationController
         menu_content=MenuContent.all
         module_page=ModulePage.all
         contact=Contact.all
-        @user=User.all
+        
 
         render :json => { 
           :home_banner=> home_banner,
@@ -29,37 +29,56 @@ class WebServicesController < ApplicationController
 
     end
 
+     
     def create_user
-      @user  = User.where('id=?',params['id']).take if !params['id'].blank?
-    end
-  
-    def insert_user
-  
-        imagen_min = nil
-        img_banner = nil
-        imagen_min = save_file(params[:imagen_min],'img_modules') if !params[:imagen_min].blank?
-        img_banner = save_file(params[:img_banner],'img_modules') if !params[:img_banner].blank?
-  
-  
-        user = User.where('id=?',params['id']).take
+
+
+        params[:email] = params[:email].strip
+        
+
+        user = User.where('id = ?', params[:id]).take 
         user = User.new if user.blank? 
         user.user_name = params[:user_name]
         user.password = Digest::SHA256.hexdigest(params[:password]) if !params[:password].blank?
         user.email = params[:email]
         user.age = params[:age]
-        user.genders_id = params[:genders_id]
+        user.gender_id = params[:gender_id]
         user.current_location = params[:current_location]
-        user.cities_id = params[:cities_id]
+        user.city_id = params[:city_id]
         user.receive_info = params[:receive_info]
-        user.save 
-  
-        flash[:msg]='Usuario Creado' if params['id'].blank?
-        flash[:msg]='Modulo Editado' if !params['id'].blank?
-         redirect_to '/admin/index'
-      
+
+        check_email = User.getEmail(params[:email])
+        check_email = check_email.where('id not in (?)',params['id']) if !params['id'].blank?           
+
+
+      if !check_email.blank?
+
+          render :json => {
+            :error => true,
+            :msg => "Correo ya existe"
+          }
+
+      else
+
+          user.save
+
+          render :json => {
+            :error => false,
+            :msg => user
+          }
+      end
     end
 
 
-    
+    def info_user
+
+      id = params[:id]
+      user = User.all.where( 'id = ?' , id ).take
+
+      render :json => { 
+        :user => user
+      }
+
+  end
     
 end

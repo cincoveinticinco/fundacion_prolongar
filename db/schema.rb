@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_214742) do
+ActiveRecord::Schema.define(version: 2021_07_16_154129) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name_city"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_214742) do
     t.string "link"
     t.string "file_pdf"
     t.text "content"
+    t.string "image_min"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["module_page_id"], name: "index_sub_module_pages_on_module_page_id"
@@ -106,20 +107,20 @@ ActiveRecord::Schema.define(version: 2021_07_15_214742) do
     t.string "password"
     t.string "email"
     t.string "age"
-    t.bigint "genders_id", null: false
+    t.bigint "gender_id", null: false
     t.boolean "current_location"
-    t.bigint "cities_id", null: false
+    t.bigint "city_id", null: false
     t.boolean "receive_info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cities_id"], name: "index_users_on_cities_id"
-    t.index ["genders_id"], name: "index_users_on_genders_id"
+    t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["gender_id"], name: "index_users_on_gender_id"
   end
 
   add_foreign_key "cities", "departments", column: "departments_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", column: "dependence_id"
   add_foreign_key "sub_module_page_dependences", "sub_module_pages", on_update: :cascade, on_delete: :cascade
   add_foreign_key "sub_module_pages", "module_pages", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "users", "cities", column: "cities_id"
-  add_foreign_key "users", "genders", column: "genders_id"
+  add_foreign_key "users", "cities"
+  add_foreign_key "users", "genders"
 end

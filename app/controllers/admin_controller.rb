@@ -65,8 +65,10 @@ class AdminController < ApplicationController
 
   def insert_sub_module
 
-    file_pdf = nil
-    file_pdf = save_file(params[:file_pdf],'file_pdfs') if !params[:file_pdf].blank?
+      file_pdf = nil
+      file_pdf = save_file(params[:file_pdf],'file_pdfs') if !params[:file_pdf].blank?
+      image_min = nil
+  	  image_min = save_file(params[:image_min],'img_modules') if !params[:image_min].blank?
     
       sub_module = SubModulePage.where('id=?',params['id']).take
       sub_module = SubModulePage.new if sub_module.blank? 
@@ -76,6 +78,7 @@ class AdminController < ApplicationController
       sub_module.file_pdf = file_pdf if !file_pdf.nil?
       sub_module.link = params[:link]
       sub_module.content = params[:content]
+      sub_module.image_min = image_min if !image_min.nil?
       sub_module.save 
 
       dependences = params[:dependences]
@@ -99,6 +102,7 @@ class AdminController < ApplicationController
     sub_module = SubModulePage.where('id=?',params[:id])
     module_page_id = sub_module[0]['module_page_id']
     delete_file(sub_module[0]['file_pdf'])
+    delete_file(sub_module[0]['image_min'])
     SubModulePageDependence.where('dependence_id=?',params[:id]).destroy_all
     sub_module.destroy_all
     flash[:msg]='Sub Modulo Eliminado'
@@ -236,6 +240,8 @@ class AdminController < ApplicationController
       :url => "#{request.base_url}#{img}" 
     }
   end
+
+  
 
   private
 

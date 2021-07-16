@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'admin/create_menu/:id', to: "admin#create_menu"
 
+
   		namespace :admin do
 			get :index
 			get :create_module
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
 		namespace :web_services do
 			post :info_home
 			post :info_page
+			post :create_user
+			post :info_user
 		end
 
 end

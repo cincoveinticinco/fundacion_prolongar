@@ -43,7 +43,12 @@
 			<input type="checkbox" name="dependences[]" <% if @dependences_id.include?  data['id'] %>	checked="" <%end%> value="<%=data['id']%>"><%=data['sub_module_name']%></label><br>
 		<% end%>
 	<% end %>
-
+	<label>Imagen Submodulo (Tamaño 496 x 279 px)</label>
+	<input type="file" name="image_min" <% if @sub_module.blank? %> required="" <% end %> >
+	<% if !@sub_module.blank? %>
+		<img src="<%=@sub_module.image_min %>" width="100" height="100"> 
+	<% end %>
+	<br>
 	<label>Contenido</label>
 	<textarea name="content" id="editor"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.content : '' %></textarea>
 	<input type="submit" value="Guardar">
