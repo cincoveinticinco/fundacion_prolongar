@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<!-- Mensaje de confirmacion-->
+<%=flash[:msg] %>
+<!-- End Mensaje de confirmacion-->
+
+
+<%= form_tag({:controller => "login", :action => "login_admin"},:method => "post", :multipart => true, :class =>'') do %>
+	
+	<label>Usuario</label>
+	<input type="text" name="name" required="" value="">
+	<br>
+
+	<label>Password</label>
+	<input type="password" placeholder="Password" id="password" name="password" required >
+	<br>
+
+   
+	<input type="submit" value="Guardar">
+
+<%end%>
