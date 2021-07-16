@@ -8,7 +8,13 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { HttpClientModule } from "@angular/common/http";
+import { AQuienVaDirigidaComponent } from './pages/home/a-quien-va-dirigida/a-quien-va-dirigida.component';
+import { PrincipiosComponent } from './pages/home/principios/principios.component';
+import { ParaQueEsComponent } from './pages/home/para-que-es/para-que-es.component';
+import { PrejuiciosComponent } from './components/prejuicios/prejuicios.component';
+import { EmocionesComponent } from './components/emociones/emociones.component';
+import { CorporalidadComponent } from './components/corporalidad/corporalidad.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +22,18 @@ import { RegisterComponent } from './pages/register/register.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AQuienVaDirigidaComponent,
+    PrincipiosComponent,
+    ParaQueEsComponent,
+    PrejuiciosComponent,
+    EmocionesComponent,
+    CorporalidadComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

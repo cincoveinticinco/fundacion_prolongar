@@ -1,10 +1,9 @@
 footer {
     background-color: #fff8e6;
     color: #dd8d69; 
-    position:absolute;
+    /* position:absolute; */
     bottom:0;
     width:100%;
-    height:auto;
 }
 
 ul {
@@ -61,5 +60,14 @@ ul {
         text-decoration: none;
         padding: 1em;
         margin:0em;
+    }
+
+    footer {
+        background-color: #fff8e6;
+        color: #dd8d69; 
+        position:relative;
+        bottom:0;
+        width:100%;
+        /* height: 0; */
     }
 }
