@@ -50,11 +50,14 @@ DROP TABLE IF EXISTS `cities`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cities` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `city` varchar(255) DEFAULT NULL,
+  `name_city` varchar(255) DEFAULT NULL,
+  `departments_id` bigint NOT NULL,
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  KEY `index_cities_on_departments_id` (`departments_id`),
+  CONSTRAINT `fk_rails_31277a2a17` FOREIGN KEY (`departments_id`) REFERENCES `departments` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +66,7 @@ CREATE TABLE `cities` (
 
 LOCK TABLES `cities` WRITE;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
+INSERT INTO `cities` VALUES (1,'Bogota',1,'2021-07-15 21:27:27.170510','2021-07-15 21:27:27.170510');
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,14 +110,11 @@ DROP TABLE IF EXISTS `departments`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `departments` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `department` varchar(255) DEFAULT NULL,
-  `city_id` bigint NOT NULL,
+  `name_department` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_departments_on_city_id` (`city_id`),
-  CONSTRAINT `fk_rails_ac0c831fa9` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +123,7 @@ CREATE TABLE `departments` (
 
 LOCK TABLES `departments` WRITE;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
+INSERT INTO `departments` VALUES (1,'Cundinamarca','2021-07-15 21:27:27.170510','2021-07-15 21:27:27.170510');
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +140,7 @@ CREATE TABLE `genders` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +149,7 @@ CREATE TABLE `genders` (
 
 LOCK TABLES `genders` WRITE;
 /*!40000 ALTER TABLE `genders` DISABLE KEYS */;
+INSERT INTO `genders` VALUES (1,'Masculino','2021-07-15 21:27:27.170510','2021-07-15 21:27:27.170510'),(2,'Femenino','2021-07-15 21:27:27.172157','2021-07-15 21:27:27.172157'),(3,'Otro','2021-07-15 21:28:24.949318','2021-07-15 21:28:24.949318');
 /*!40000 ALTER TABLE `genders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,8 +281,37 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20210701164258'),('20210701164540'),('20210701164736'),('20210701165013'),('20210713173409'),('20210713173454'),('20210713173843'),('20210713173936'),('20210713202737'),('20210713203236'),('20210713203505'),('20210713203906'),('20210714220006'),('20210715142914'),('20210715165058');
+INSERT INTO `schema_migrations` VALUES ('20210701164258'),('20210701164540'),('20210701164736'),('20210701165013'),('20210713173409'),('20210713173454'),('20210713173843'),('20210713173936'),('20210713202737'),('20210713203236'),('20210713203505'),('20210713203906'),('20210714220006'),('20210715142914'),('20210715165058'),('20210715211058'),('20210715211251'),('20210715211815'),('20210715214742'),('20210716154129'),('20210716194236'),('20210716195622');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `session_tokens`
+--
+
+DROP TABLE IF EXISTS `session_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `session_tokens` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `users_id` bigint NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_session_tokens_on_users_id` (`users_id`),
+  CONSTRAINT `fk_rails_5496a9776f` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `session_tokens`
+--
+
+LOCK TABLES `session_tokens` WRITE;
+/*!40000 ALTER TABLE `session_tokens` DISABLE KEYS */;
+INSERT INTO `session_tokens` VALUES (6,15,'f0566a96c2483554123883f25ca4bac96c485f60995d110b482eacb8f9094178','2021-07-16 21:55:02.535520','2021-07-16 22:09:02.061231'),(7,13,'bb43abd1b49bb7dcec179ef62f4f3bda336ca3df7fa4721ba3340848a22b9b27','2021-07-16 22:08:21.650246','2021-07-16 22:08:21.650125');
+/*!40000 ALTER TABLE `session_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -313,6 +345,37 @@ LOCK TABLES `sub_module_page_dependences` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sub_module_page_has_users`
+--
+
+DROP TABLE IF EXISTS `sub_module_page_has_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sub_module_page_has_users` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `sub_module_page_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `view_module` tinyint(1) DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_sub_module_page_has_users_on_sub_module_page_id` (`sub_module_page_id`),
+  KEY `index_sub_module_page_has_users_on_user_id` (`user_id`),
+  CONSTRAINT `fk_rails_81742df9b1` FOREIGN KEY (`sub_module_page_id`) REFERENCES `sub_module_pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_rails_e5f964da6d` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sub_module_page_has_users`
+--
+
+LOCK TABLES `sub_module_page_has_users` WRITE;
+/*!40000 ALTER TABLE `sub_module_page_has_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sub_module_page_has_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sub_module_pages`
 --
 
@@ -327,12 +390,13 @@ CREATE TABLE `sub_module_pages` (
   `link` varchar(255) DEFAULT NULL,
   `file_pdf` varchar(255) DEFAULT NULL,
   `content` text,
+  `image_min` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_sub_module_pages_on_module_page_id` (`module_page_id`),
   CONSTRAINT `fk_rails_36c2b1942a` FOREIGN KEY (`module_page_id`) REFERENCES `module_pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -341,7 +405,7 @@ CREATE TABLE `sub_module_pages` (
 
 LOCK TABLES `sub_module_pages` WRITE;
 /*!40000 ALTER TABLE `sub_module_pages` DISABLE KEYS */;
-INSERT INTO `sub_module_pages` VALUES (1,1,'prubea1','		dfs		\r\n	\r\n	','dsf',NULL,'<p>1</p>\r\n','2021-07-14 21:17:39.874323','2021-07-14 21:17:43.860067'),(7,1,'prueba pdf','pruebas pdf','prueba pdf','/file_pdfs/2021-07-1512:22:35-0500_finanzas_cierres.pdf','<p>ok</p>\r\n','2021-07-15 17:22:35.153709','2021-07-15 17:22:35.153709');
+INSERT INTO `sub_module_pages` VALUES (1,1,'prubea1','		dfs		\r\n	\r\n	','dsf',NULL,'<p>1</p>\r\n','/img_modules/2021-07-1611:06:12-0500_Capturadepantallade2021-07-0109-16-57.png','2021-07-14 21:17:39.874323','2021-07-16 16:06:12.882793'),(7,1,'prueba pdf','pruebas pdf','prueba pdf','/file_pdfs/2021-07-1512:22:35-0500_finanzas_cierres.pdf','<p>ok</p>\r\n','/img_modules/2021-07-1611:06:19-0500_Capturadepantallade2021-07-0214-39-12.png','2021-07-15 17:22:35.153709','2021-07-16 16:06:19.999846');
 /*!40000 ALTER TABLE `sub_module_pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -371,6 +435,43 @@ LOCK TABLES `user_admins` WRITE;
 INSERT INTO `user_admins` VALUES (1,'john','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','2021-07-15 14:19:27.285713','2021-07-15 14:19:27.285713');
 /*!40000 ALTER TABLE `user_admins` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `age` varchar(255) DEFAULT NULL,
+  `gender_id` bigint NOT NULL,
+  `current_location` tinyint(1) DEFAULT NULL,
+  `city_id` bigint NOT NULL,
+  `receive_info` tinyint(1) DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_users_on_gender_id` (`gender_id`),
+  KEY `index_users_on_city_id` (`city_id`),
+  CONSTRAINT `fk_rails_47055e3204` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`),
+  CONSTRAINT `fk_rails_9c7442481a` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'John','123','no@gm.com','20',1,1,1,1,'2021-07-15 21:27:27.170510','2021-07-15 21:27:27.170510'),(13,'John','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','no1@gm.com','20',1,1,1,1,'2021-07-16 16:40:57.564509','2021-07-16 16:40:57.564509'),(15,'John','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','no2@gm.com','21',1,1,1,1,'2021-07-16 17:07:46.489296','2021-07-16 17:08:23.059049');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -381,4 +482,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-15 15:47:02
+-- Dump completed on 2021-07-19  9:08:33
