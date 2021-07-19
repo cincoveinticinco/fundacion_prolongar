@@ -1,5 +1,7 @@
 class WebServicesController < ApplicationController
-
+  before action :validate_session, only: [:]
+  
+  
   def info_home
       
       home_banner=HomeBanner.all.order("order_banner")
@@ -87,7 +89,9 @@ class WebServicesController < ApplicationController
           if !token.blank?
               render :json => { 
                 :msg => "Token creado"
+                :token => token
               }
+    
           end            
       else
           render :json => { 
@@ -112,12 +116,14 @@ class WebServicesController < ApplicationController
 
   end
 
-  def validate_session_id(token)
-    session_user = SessionToken.where('token = ?', token).take
+  private
+
+  def validate_session
+    session_user = SessionToken.where('token = ?', params[:token]).take
         if !session_user.blank?
-          seconds_diff = (Time.current - session_user.updated_at).to_i.abs
-          puts seconds_diff
-          # inactivity gratter than 20 minutes
+            seconds_diff = (Time.current - session_user.updated_at).to_i.abs
+            puts seconds_diff
+            # inactivity gratter than 20 minutes
           if seconds_diff > 6000
             session_user.destroy
               render :json => { 
