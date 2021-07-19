@@ -1,5 +1,7 @@
 class WebServicesController < ApplicationController
-
+  before_action :validate_session, only: [:get_module, :get_sub_module, :view_module]
+  
+  
   def info_home
       
       home_banner=HomeBanner.all.order("order_banner")
@@ -86,8 +88,10 @@ class WebServicesController < ApplicationController
           token = create_token(user.id)
           if !token.blank?
               render :json => { 
-                :msg => "Token creado"
+                :msg => "Token creado",
+                :token => token
               }
+    
           end            
       else
           render :json => { 
@@ -112,12 +116,69 @@ class WebServicesController < ApplicationController
 
   end
 
-  def validate_session_id(token)
-    session_user = SessionToken.where('token = ?', token).take
+    def get_module
+      module_page = ModulePage.where('id=?',params[:id]).take
+      user_id = @user.id
+      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
+
+      render :json => { 
+          :error => false,
+          :module_page => module_page,
+          :sub_module_pages => sub_module_pages
+        }
+
+
+    end
+
+    def get_sub_module
+        user_id = @user.id
+        sub_module = SubModulePage.where('id=?',params[:id]).take
+        sub_module_page = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id=?',sub_module.id).take
+
+        next_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id>?',sub_module.id).order('sub_module_pages.id asc').take
+        next_submodule = []
+        if !next_sub.blank?
+          next_submodule.push('id'=>next_sub.id,'locked'=>next_sub.locked,'name_dependences'=>next_sub.name_dependences)
+        end
+
+        prev_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id<?',sub_module.id).order('sub_module_pages.id asc').take
+        prev_submodule = []
+        if !prev_sub.blank?
+          prev_submodule.push('id'=>prev_sub.id,'locked'=>prev_sub.locked,'name_dependences'=>prev_sub.name_dependences)
+        end
+
+        render :json => { 
+          :error => false,
+          :module_page => sub_module_page,
+          :next_submodule => next_submodule,
+          :prev_submodule => prev_submodule,
+        }
+    end
+
+    def view_module
+      user_id = @user.id
+      sub_module_has_user = SubModulePageHasUser.where('sub_module_page_id=?',params[:sub_module_page_id]).where('user_id=?',user_id).take
+      sub_module_has_user = SubModulePageHasUser.new if sub_module_has_user.blank?
+      sub_module_has_user.sub_module_page_id = params[:sub_module_page_id]
+      sub_module_has_user.user_id = user_id
+      sub_module_has_user.view_module = params[:view_module]
+      sub_module_has_user.save
+
+      render :json => { 
+          :error => false,
+          :msgg => 'Cambio Guarado',
+        }
+      
+    end
+
+  private
+
+  def validate_session
+    session_user = SessionToken.where('token = ?', params[:token]).take
         if !session_user.blank?
-          seconds_diff = (Time.current - session_user.updated_at).to_i.abs
-          puts seconds_diff
-          # inactivity gratter than 20 minutes
+            seconds_diff = (Time.current - session_user.updated_at).to_i.abs
+            puts seconds_diff
+            # inactivity gratter than 20 minutes
           if seconds_diff > 6000
             session_user.destroy
               render :json => { 
@@ -128,15 +189,17 @@ class WebServicesController < ApplicationController
             session_user.updated_at = Time.current
             session_user.save
           end
-          return session_user
+            @user=User.find(session_user.id)
         else
-          
+            render :json => { 
+              :msg => "Sesion inactiva"
+            }
             return nil
+            
         end
   end
 
 
   
-
-
+    
 end

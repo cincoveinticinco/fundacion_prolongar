@@ -40,9 +40,12 @@ Rails.application.routes.draw do
 			post :info_page
 			post :create_user
 			post :info_user
+			post :get_module
+			post :get_sub_module
 			post :validate_user
 			post :create_token
 			post :validate_session_id
+
 		end
 
 		namespace :login do

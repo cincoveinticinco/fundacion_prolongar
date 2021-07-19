@@ -8,7 +8,7 @@
 	<input type="text" name="name_page" required="" value="<%= !@menu_content.blank? ?  @menu_content.name_page : '' %>">
 	<br>
     <label>Texto</label>
-		<textarea name="content" id="editor"  <% if @menu_content.blank? %> required="" <% end %> ><%= !@menu_content.blank? ?  @menu_content.texto : '' %></textarea>
+		<textarea name="texto" id="editor"  <% if @menu_content.blank? %> required="" <% end %> ><%= !@menu_content.blank? ?  @menu_content.texto : '' %></textarea>
 	<br>
     <label>Imagen</label>
 	<input type="file" name="image" <% if @menu_content.blank? %> required="" <% end %> >
