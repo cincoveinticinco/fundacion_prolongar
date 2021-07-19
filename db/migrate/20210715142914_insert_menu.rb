@@ -21,5 +21,10 @@ class InsertMenu < ActiveRecord::Migration[6.0]
     menu.name_page = "PRINCIPIOS"
     menu.save
 
+    menu=MenuContent.new
+    menu.id = 5
+    menu.name_page = "KAS"
+    menu.save
+
   end
 end
