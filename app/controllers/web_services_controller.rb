@@ -1,5 +1,5 @@
 class WebServicesController < ApplicationController
-  before action :validate_session, only: [:get_module, :get_sub_module, :view_module]
+  before_action :validate_session, only: [:get_module, :get_sub_module, :view_module]
   
   
   def info_home
@@ -88,7 +88,7 @@ class WebServicesController < ApplicationController
           token = create_token(user.id)
           if !token.blank?
               render :json => { 
-                :msg => "Token creado"
+                :msg => "Token creado",
                 :token => token
               }
     

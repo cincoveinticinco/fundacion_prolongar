@@ -40,15 +40,12 @@ Rails.application.routes.draw do
 			post :info_page
 			post :create_user
 			post :info_user
-<<<<<<< HEAD
 			post :get_module
 			post :get_sub_module
-			post :view_module
-=======
 			post :validate_user
 			post :create_token
 			post :validate_session_id
->>>>>>> c52409e36e82c6bce3523d95a99a5bb78b0d69f0
+
 		end
 
 		namespace :login do
