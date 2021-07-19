@@ -1,0 +1,137 @@
+<!-- <section>
+    <div class="container">
+        <br>
+        <h3 class="mt-5">registro</h3>
+        <div class="br-register mb-3"></div>
+        <form action="" class="form-register">
+            <div class="row">
+                <div class="col">
+                    <label for="">nombre o apodo</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Contraseña</label>
+                    <input type="password" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Confirmar Contraseña</label>
+                    <input type="password" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Corre Electronico</label>
+                    <input type="email" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <h5 class="text-orange">Genero:</h5>
+                <div class="col">
+                    <label for="" class="label-green">femenino: </label>
+                    <input type="radio" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="label-green">Masculino: </label>
+                    <input type="radio" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="label-green">Otro: </label>
+                    <input type="radio" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="label-green">Edad: </label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <br> <br>
+                <h5 class="text-orange">Ubicacion Actual:</h5>
+                <div class="col-sm-5 col-xl-5">
+                    <label for="" class="label-green">Estoy fuera de Colombia</label>
+                </div>
+                <div class="col-sm-3 col-xl-1 mt-3">
+                    <input type="checkbox"  (change)="checkDepartamentos($event)" name="" id="">
+                </div>
+                <div class="col-sm-9 col-xl-5">
+                    <label for="" class="label-green">Estoy fuera de Colombia</label>
+                </div>
+                <div class="col-sm-3 col-xl-1 mt-3">
+                    <input type="checkbox" name="" id="">
+                </div>
+            </div>
+
+            <ng-container *ngIf="checkedDepart==true; else elseTemplate">
+                <div class="row">
+                    <div class="col">
+                        <label for="" class="label-green">Departamento: </label>
+                        <select class="form-control" id="exampleFormControlSelect1" (change)="ciudad($event)">
+                            <option *ngFor="let item of departamentos; let i=index" value="{{item.id}}">{{item.departamento}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="" class="label-green">Ciudad: </label>
+                        <input class="form-control" list="datalistOptions" placeholder="Buscar ciudad">
+                        <datalist id="datalistOptions">
+                            <option *ngFor="let item of municipios; let i=index">{{item}}</option>
+                        </datalist>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #elseTemplate>
+                
+            </ng-template>
+            
+            <div class="row">
+                <br>
+                <div class="col-sm-9 col-xl-5 mt-3">
+                    <h5 for="" class="text-orange">Acepto terminos y condiciones </h5>
+                </div>
+                <div class="col-sm-3 col-xl-1 mt-3">
+                    <input type="checkbox" name="" id="">
+                </div>
+                <div class="col-sm-9 col-xl-5 mt-3">
+                    <h5 for="" class="text-orange">Deseo recibir comunicacion </h5>
+                </div>
+                <div class="col-sm-3 col-xl-1 mt-3">
+                    <input type="checkbox" name="" id="">
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-center">
+                <button class="btn float-end mt-4 btn-enviar">Enviar</button>
+            </div>
+            <br><br>
+        </form>
+    </div>
+</section> -->
+
+<div>
+    <img src="../../../assets/img/1-Prejuicios.jpg" alt="" style="width: 100%;">
+    <h1 class="texto-encima text-uppercase" style="border-bottom: 2px solid white;">title</h1>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3">
+            <h4 class="text-uppercase" style="border-bottom: 2px solid #88b87b;">nombre contenido</h4>
+        </div>
+        <div class="col-5">
+            <img src="../../../assets/img/1-Prejuicios.jpg" alt="" width="100%" height="280px">
+        </div>
+        <div class="col-4 mt-5">
+            <p style="border-top: 2px solid #88b87b;">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste odit quos a repellendus consequuntur, veritatis quis temporibus suscipit nesciunt deleniti optio soluta necessitatibus ipsum. Laboriosam suscipit dolorem nulla sed velit!
+            </p>
+        </div>
+    </div>
+    <hr>
+        <div class="d-flex justify-content-center mb-5">
+            <img src="../../../assets/img/Flecha.png" alt="" width="50px">
+        </div>
+</div>

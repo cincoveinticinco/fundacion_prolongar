@@ -1,0 +1,71 @@
+<section class="home">
+    <div class="titulo">
+        <a routerLink="homes"><img src="" alt=""></a>
+    </div>
+
+    <ul class="nav justify-content-center mt-3">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="para-que-es">¿PARA QUÉ ES?</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="a-quienva-dirigida">¿A QUIÉN VA DIRIGIDA?</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropbtn">MÓDULOS</a> 
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div> 
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="principios">PRINCIPIOS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="kas">KAS</a>
+        </li>
+    </ul>
+      
+    <div class="container mt-5">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="container mt-5">
+            <div class="d-flex justify-content-center mb-5">
+                <img src="../../../assets/img/Flecha.png" alt="" width="50px">
+            </div>
+    </div>
+ 
+    <section class="modulos">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <div class="col-8 offset-2">
+                        <div class="d-flex justify-content-center mt-5  rotate">
+                            <img src="../../../assets/img/Flecha.png" alt="" width="50px">
+                        </div>
+                        <h2 class="titulo-modulos">módulos</h2>
+                        <p class="text-orange text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, eligendi magni numquam ex totam voluptatem fugit ea suscipit dolore sunt officiis consequatur reprehenderit ab</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="images">
+            <div>
+                <img src="../../../assets/img/1-Prejuicios.jpg" alt="" class="img-modulos">
+            </div>
+            <div>
+                <img src="../../../assets/img/2-Emociones.jpg" alt="" class="img-modulos">
+            </div>
+        </div>
+
+        <div class="corporalidad">
+            <div class="d-flex justify-content-center">
+                <h4 class="corporalidad-title mt-5">corporalida</h4>
+            </div>
+        </div>
+
+    </section>
+</section>
