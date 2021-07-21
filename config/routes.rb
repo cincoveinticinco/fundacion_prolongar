@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 			post :validate_user
 			post :create_token
 			post :validate_session_id
+			post :info_register
 
 		end
 
@@ -52,6 +53,13 @@ Rails.application.routes.draw do
 			get :index
 			post :login_admin
 			get :logout
+		end
+
+		namespace :mailer do
+			get :recovery_email
+			post :validate_email
+			post :recovery_password
+
 		end
 
 end
