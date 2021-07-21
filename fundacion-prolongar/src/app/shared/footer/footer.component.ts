@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class FooterComponent implements OnInit {
 
+  public datafooter:any;
+
   constructor(private serviceFooter:FooterService) { }
 
   ngOnInit(): void {
@@ -18,7 +20,9 @@ export class FooterComponent implements OnInit {
   infoFooter() {
     this.serviceFooter.infoFooter().subscribe(data => {
       console.log(data);
+      this.datafooter = data;
       
     })
+    /* console.log(this.datafooter.contact[0].name); */
   }
 }
