@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Roboto';
+    src: url("./assets/fonts/ROBOTO/Roboto-Light.ttf");
+  }
+
+* {
+    font-family: 'Roboto' !important;
+}
+
+.texto-encima{
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  color: white;
+}

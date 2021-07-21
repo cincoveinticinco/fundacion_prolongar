@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 			post :insert_admin
 			get :create_menu
 			post :insert_menu
+			get :download
 		end
 
 		namespace :web_services do

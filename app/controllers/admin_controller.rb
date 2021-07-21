@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :validate_login
+  #before_action :validate_login
 
 
   def index
@@ -243,6 +243,25 @@ class AdminController < ApplicationController
     }
   end
 
+  def download
+
+     @user = User.all
+
+     respond_to do |format|
+     
+      format.xlsx { 
+        
+           response.headers["Content-Type"] = "xlsx; charset=UTF-8; header=present"
+           response.headers["Content-Disposition"] = "attachment; filename=registros.xlsx"
+           render :template => "excel/registers.xlsx"
+      }
+    format.html
+    end
+
+      
+  end
+
+  
   
 
   private
