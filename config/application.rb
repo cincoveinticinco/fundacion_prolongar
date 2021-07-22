@@ -31,6 +31,10 @@ module FundacionProlongar
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
+<<<<<<< HEAD
 end
 
 
+=======
+end
+>>>>>>> e5b99d6eab0719a74953a1f6a4c3295cb5fc0e7c

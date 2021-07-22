@@ -118,6 +118,11 @@
 		</table>
 	</div>
 
+	<h3>Registros</h3>
+	<div>
+		 <td><%= link_to "Descargar Registros", excel_download_path(:format => "xlsx") %></td> 		
+	</div>
+
 	<h3>Contactenos</h3>
 	<div>
 		<% if @contacts.blank?%>

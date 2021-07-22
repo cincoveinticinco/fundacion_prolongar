@@ -44,7 +44,8 @@ Rails.application.routes.draw do
 			post :get_sub_module
 			post :validate_user
 			post :create_token
-			post :validate_session_id
+			post :validate_session
+			post :info_register
 
 		end
 
@@ -52,6 +53,18 @@ Rails.application.routes.draw do
 			get :index
 			post :login_admin
 			get :logout
+		end
+
+		namespace :mailer do
+			get :recovery_email
+			post :validate_email
+			post :recovery_password
+
+		end
+
+		namespace :excel do
+			get :download
+
 		end
 
 end

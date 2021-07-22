@@ -7,4 +7,12 @@ class User < ApplicationRecord
       User.where('email = ?', email)
     end
 
+    def self.getUser
+
+      User.select('user_name,email,age, genders.gender,current_location, cities.city, receive_info')
+      .joins("inner join genders on genders.id=gender_id")
+      .joins("inner join cities on cities.id=city_id")
+
+    end
+
 end
