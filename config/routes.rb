@@ -33,7 +33,6 @@ Rails.application.routes.draw do
 			post :insert_admin
 			get :create_menu
 			post :insert_menu
-			get :download
 		end
 
 		namespace :web_services do
@@ -45,7 +44,7 @@ Rails.application.routes.draw do
 			post :get_sub_module
 			post :validate_user
 			post :create_token
-			post :validate_session_id
+			post :validate_session
 			post :info_register
 
 		end
@@ -60,6 +59,11 @@ Rails.application.routes.draw do
 			get :recovery_email
 			post :validate_email
 			post :recovery_password
+
+		end
+
+		namespace :excel do
+			get :download
 
 		end
 

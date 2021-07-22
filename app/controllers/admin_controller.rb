@@ -243,27 +243,6 @@ class AdminController < ApplicationController
     }
   end
 
-  def download
-
-     @user = User.all
-
-     respond_to do |format|
-     
-      format.xlsx { 
-        
-           response.headers["Content-Type"] = "xlsx; charset=UTF-8; header=present"
-           response.headers["Content-Disposition"] = "attachment; filename=registros.xlsx"
-           render :template => "excel/registers.xlsx"
-      }
-    format.html
-    end
-
-      
-  end
-
-  
-  
-
   private
 
   def save_file(file,folder_img)

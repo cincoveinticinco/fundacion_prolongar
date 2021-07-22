@@ -18,13 +18,15 @@ style_content=wb.styles.add_style(
 
 wb.add_worksheet(name: "Usuarios Registrados",encoding: Encoding::UTF_8) do |sheet|
 
-  whitsd=[20,15,10,10,15,10,25]
+  whitsd=[20,25,10,10,15,15,25]
 
   time=Time.zone.now
   date=time.strftime('%b %d  %Y')
-  sheet.merge_cells "A1:F1"
+  sheet.merge_cells "A1:B1"
+  sheet.merge_cells "A2:B2"
 
-  sheet.add_row ['usuarios registrados'], :style=> css_tittle, :widths=>whitsd
+  sheet.add_row ['Usuarios Registrados'], :style=> css_tittle, :widths=>whitsd
+  sheet.add_row ['Generado en ' + date.to_s], :style=> css_tittle, :widths=>whitsd
   
   sheet.add_row []
   sheet.add_row ['Nombre de usuario','Email','Edad','Genero','Ubicacion Actual', 'Ciudad', 'suscripcion'],
@@ -32,24 +34,22 @@ wb.add_worksheet(name: "Usuarios Registrados",encoding: Encoding::UTF_8) do |she
 
   @user.each do |p|
 
-
-    current_location = p['current_location'].to_s
-    if current_location == true
-       current_location = 'En Colombia'
+    current_location= p['current_location'].to_s
+    if current_location == "true"
+      current_location = "En Colombia"
     else
-      current_location = 'Fuera de Colombia'
+     current_location = "Fuera de Colombia" 
+    end
+    
+    receive_info= p['receive_info'].to_s
+    if receive_info == "true"
+      receive_info = "Desea recibir notificaciones"
+    else
+     receive_info = "No desea recibir notificaciones" 
     end
 
-    receive_info = p['receive_info'].to_s
-    if receive_info == true
-       receive_info = 'Desea Recibir Notificaciones'
-    else
-      receive_info = 'No Desea Recibir Notificaciones'
-    end
-
-    sheet.add_row [p['user_name'],p['email'],p['age'], p['gender_id'],current_location,p['city_id'], 
-                   receive_info],:style=> style_content, 
-                   :widths=>whitsd
+    sheet.add_row [p['user_name'],p['email'],p['age'], p['gender'],current_location,p['city'],receive_info ],
+    :style=> style_content,:widths=>whitsd
   end
 
 end
