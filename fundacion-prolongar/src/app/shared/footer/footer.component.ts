@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class FooterComponent implements OnInit {
 
   public datafooter:any;
+  public datos:any;
 
   constructor(private serviceFooter:FooterService) { }
 
@@ -18,11 +19,10 @@ export class FooterComponent implements OnInit {
   }
 
   infoFooter() {
+    let datos;
     this.serviceFooter.infoFooter().subscribe(data => {
-      console.log(data);
       this.datafooter = data;
-      
+      this.datos = this.datafooter.contact[0];
     })
-    /* console.log(this.datafooter.contact[0].name); */
   }
 }

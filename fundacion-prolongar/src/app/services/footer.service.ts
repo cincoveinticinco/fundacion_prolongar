@@ -14,10 +14,6 @@ export class FooterService {
   public apiUrl:any=environment.url;
 
   infoFooter() {
-  /*  let headers={
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    } */
     return this.http.post(`${this.apiUrl}info_home`,'').pipe(map(result=> result))
   }
 }
