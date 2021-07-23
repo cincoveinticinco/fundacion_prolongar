@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_163421) do
+ActiveRecord::Schema.define(version: 2021_07_21_151219) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "city"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_163421) do
     t.boolean "current_location"
     t.bigint "city_id", null: false
     t.boolean "receive_info"
+    t.string "recovery_password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_users_on_city_id"
