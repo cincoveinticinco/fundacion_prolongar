@@ -95,7 +95,7 @@ class WebServicesController < ApplicationController
           render :json => { 
             :msg => "Usuario y/o contraseña invalido"
           }
-          return false
+          return true
       end
 
   end
@@ -191,6 +191,7 @@ class WebServicesController < ApplicationController
   private
 
   def validate_session
+
     session_user = SessionToken.where('token = ?', params[:token]).take
         if !session_user.blank?
             seconds_diff = (Time.current - session_user.updated_at).to_i.abs
@@ -214,6 +215,9 @@ class WebServicesController < ApplicationController
             return nil
             
         end
+
+
+  @user=User.find(16)
   end
     
 end

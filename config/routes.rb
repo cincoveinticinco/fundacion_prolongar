@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 			post :create_token
 			post :validate_session
 			post :info_register
+			post :view_module
 
 		end
 
