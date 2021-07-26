@@ -11,6 +11,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HomeModule } from './pages/home/home.module';
 import { ComponentsModule } from './components/components.module';
+import { MenuComponent } from './shared/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { ComponentsModule } from './components/components.module';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { ComponentsModule } from './components/components.module';
     HomeModule,
     APP_ROUTING,
     ComponentsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

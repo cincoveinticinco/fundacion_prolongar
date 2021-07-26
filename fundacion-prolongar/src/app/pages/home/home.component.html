@@ -3,7 +3,7 @@
         <a routerLink="homes"><img src="" alt=""></a>
     </div>
 
-    <ul class="nav justify-content-center mt-3">
+    <ul class="nav justify-content-center mt-3" *ngIf="this.datos">
         <li class="nav-item">
             <a class="nav-link" routerLink="para-que-es">{{this.menu[0].name_page}}</a>
         </li>

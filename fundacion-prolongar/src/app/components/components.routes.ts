@@ -1,33 +1,31 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CorporalidadComponent } from './corporalidad/corporalidad.component';
-/* const routes: Routes = [
-	{
-		path: 'home', component: HomeComponent,
-		children: [
-			{ path: 'a-quienva-dirigida', component:AQuienVaDirigidaComponent },
-			{ path: 'principios', component: PrincipiosComponent},
-			{ path: 'para-que-es', component:ParaQueEsComponent  },
-			{ path: 'kas', component: KasComponent},
-			{ path: 'homes', component:HomesComponent },
-			{ path: 'prejucios', component:PrejuiciosComponent},
-			{ path: 'emociones', component: EmocionesComponent},
-			{ path: 'corporalidad', component:CorporalidadComponent },
-			{ path: '', redirectTo: '/home/homes', pathMatch: 'full' },
-		]
-	} 
-]; */
+import { PrejuiciosComponent } from './prejuicios/prejuicios.component';
+import { EmocionesComponent } from './emociones/emociones.component';
+import { AuthguardGuard } from '../guards/authguard.guard';
 
 const routes: Routes = [
-    {
-      path: 'corporalidad',
-      component: CorporalidadComponent
-    },
-    {
+  {
+    path: 'corporalidad',
+    canActivate:[AuthguardGuard],
+    component: CorporalidadComponent
+  },
+	{
+		path: 'emociones',
+    canActivate:[AuthguardGuard],
+		component: EmocionesComponent
+	},
+	{
+		path: 'prejuicios',
+    canActivate:[AuthguardGuard],
+		component: PrejuiciosComponent
+	},
+    /* {
       path: '**',
       redirectTo: '/home/homes',
       pathMatch: 'full'
-    }
+    } */
   ];
 
 export const APP_ROUTING = RouterModule.forChild(routes);

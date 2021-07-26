@@ -21,15 +21,15 @@
         <br>
         <h3>INICIAR SESION</h3>
         <div class="br-register"></div>
-        <form action="" class="form-register mt-4">
+        <form action="" class="form-register mt-4" name="form-login" (ngSubmit)="login()">
             <div class="row">
                 <div class="col">
                     <label for="">Usuario</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="usuario" [(ngModel)]="model.usuario">
                 </div>
                 <div class="col">
                     <label for="">Contraseña</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="model.password">
                 </div>
             </div>
             
