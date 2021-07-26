@@ -10,15 +10,20 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   model:any ={}
+  public error:any;
   constructor(private auth:AuthservicesService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    console.log(this.model);
     this.auth.login(this.model).subscribe(data=>{
       console.log(data);
+      if (data.error) {
+        this.error = data.msg;
+        return;
+      }
+      this.router.navigate(['/corporalidad'])
     })
   }
 }
