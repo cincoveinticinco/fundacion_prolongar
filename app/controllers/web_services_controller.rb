@@ -210,7 +210,7 @@ class WebServicesController < ApplicationController
             session_user.updated_at = Time.current
             session_user.save
           end
-            @user=User.find(session_user.id)
+            @user=User.find(session_user.users_id)
         else
             render :json => { 
               :msg => "Sesion inactiva"
