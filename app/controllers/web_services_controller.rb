@@ -85,17 +85,19 @@ class WebServicesController < ApplicationController
       if !user.blank?
           token = create_token(user.id)
           if !token.blank?
-              #render :json => { 
-               # :msg => "Token creado",
-                #:token => token
-              #}
+              render :json => { 
+               :msg => "Token creado",
+               :token => token
+               :error => false
+              }
               return true
     
           end            
       else
-          #render :json => { 
-           # :msg => "Usuario y/o contraseña invalido"
-         # }
+          render :json => { 
+            :msg => "Usuario y/o contraseña invalido"
+            :error => true
+          }
           return false
       end
 
