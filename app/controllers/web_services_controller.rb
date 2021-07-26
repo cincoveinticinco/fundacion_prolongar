@@ -87,7 +87,7 @@ class WebServicesController < ApplicationController
           if !token.blank?
               render :json => { 
                :msg => "Token creado",
-               :token => token
+               :token => token,
                :error => false
               }
               return true
