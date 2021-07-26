@@ -16,9 +16,9 @@ export class AuthservicesService {
     localStorage.setItem('token','1');
     return this.http.post(`${this.apiUrl}validate_user`,user).pipe(map(resp=>{
       let body = resp;
-      if (body.msg != "Usuario y/o contraseña invalido") {
+      /* if (body.msg != "Usuario y/o contraseña invalido") {
         
-      }
+      } */
       return body;
     }))
   }
