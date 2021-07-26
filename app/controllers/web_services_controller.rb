@@ -95,7 +95,7 @@ class WebServicesController < ApplicationController
           end            
       else
           render :json => { 
-            :msg => "Usuario y/o contraseña invalido"
+            :msg => "Usuario y/o contraseña invalido",
             :error => true
           }
           return false
