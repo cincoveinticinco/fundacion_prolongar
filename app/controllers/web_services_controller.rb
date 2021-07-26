@@ -218,9 +218,7 @@ class WebServicesController < ApplicationController
             return nil
             
         end
-        
-
-  @user=User.find(16)
+  
   end
     
 end
