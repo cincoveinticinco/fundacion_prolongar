@@ -13,12 +13,11 @@ export class AuthservicesService {
   constructor(private http: HttpClient) { }
 
   login(user:any) {
-    localStorage.setItem('token','1');
     return this.http.post(`${this.apiUrl}validate_user`,user).pipe(map(resp=>{
-      let body = resp;
-      /* if (body.msg != "Usuario y/o contraseña invalido") {
-        
-      } */
+      let body:any = resp;
+      if (body.error ==false) {
+        localStorage.setItem('token',body.token);
+      }
       return body;
     }))
   }
