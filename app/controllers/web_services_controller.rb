@@ -88,7 +88,7 @@ class WebServicesController < ApplicationController
               #render :json => { 
                # :msg => "Token creado",
                 #:token => token
-              }
+              #}
               return true
     
           end            
