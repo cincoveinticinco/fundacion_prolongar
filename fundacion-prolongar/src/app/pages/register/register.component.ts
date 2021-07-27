@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartamentosCiudadesService } from 'src/app/services/departamentos-ciudades.service';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,9 @@ export class RegisterComponent implements OnInit {
   public departamentos:any;
   public municipios:any;
 
-  constructor(private serviceDept:DepartamentosCiudadesService) { }
+  model:any={};
+
+  constructor(private serviceDept:DepartamentosCiudadesService,private register:RegisterService) { }
 
   ngOnInit(): void {
     this.departamentosCiudades();
@@ -37,6 +40,11 @@ export class RegisterComponent implements OnInit {
   ciudad(event: any){
     let pais = event.target.value;
     this.municipios=this.departamentos[pais]['ciudades'];  
+  }
+
+  registrarUsuario(){
+    console.log(this.model);
+    /* this.register.registrarUsuario(this.model).subscribe(data=>{}) */
   }
 
 }

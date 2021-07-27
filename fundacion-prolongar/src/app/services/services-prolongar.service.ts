@@ -15,4 +15,13 @@ export class ServicesProlongarService {
   infoHome(){
     return this.http.post(`${this.apiUrl}info_home`,'').pipe(map(result=> result))
   }
+
+  dataModule(id:string){
+    let token = localStorage.getItem('token');
+    let datos={
+      id:id,
+      token:token,
+    }
+    return this.http.post(`${this.apiUrl}get_module`,datos)
+  }
 }

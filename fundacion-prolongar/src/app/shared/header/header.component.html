@@ -1,23 +1,6 @@
-<!-- <nav class="menu">
-    <ul class="logos-menu">
-        <li>
-            <img src="../../../assets/img/Log-Prolongar.png" alt="">
-        </li>
-        <li>
-            <img src="../../../assets/img/Log-Konrad.png" alt="">
-        </li>
-    </ul>
-	<ul class="text-menu">
-        <li><a class="text-uppercase" routerLink="register">regitrarse</a></li>
-        <li><a class="text-uppercase" >|</a></li>
-        <li><a class="text-uppercase" routerLink="login">inicio de sesión</a></li>
-      </ul>
-</nav> -->
-
-<nav class="navbar navbar-expand-lg">
-  
+<nav class="navbar navbar-expand-lg"*ngIf="!tokenValidate; else elseTemplate">
     <div class="container-fluid collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav nav-left" >
         <li class="nav-item">
             <a class="navbar-brand">
                 <img src="../../../assets/img/Prolongar.png" alt="" class="img-menu">
@@ -28,11 +11,19 @@
                 <img src="../../../assets/img/konrad.png" alt="" class="img-menu">
             </a>
         </li>
+        <li class="nav-item button-hamburger">
+          <button>
+            <span class="material-icons-outlined">menu</span>
+          </button>
+        </li>
       </ul>
       <ul class="navbar-nav navbar-right">
         <li class="nav-item text-uppercase"><a class="nav-link" [routerLink]="['/login']">inicio de sesión</a></li>
         <li class="nav-item"><a class="nav-link text-uppercase" >|</a></li>
         <li class="nav-item text-uppercase"><a class="nav-link" [routerLink]="'register'">regitrarse</a></li>
       </ul>
-    </div>
-  </nav>
+    </div>    
+</nav>
+<ng-template #elseTemplate>
+  <app-menu></app-menu>
+</ng-template>

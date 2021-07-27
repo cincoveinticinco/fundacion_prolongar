@@ -3,29 +3,29 @@
         <br>
         <h3 class="mt-5">registro</h3>
         <div class="br-register mb-3"></div>
-        <form action="" class="form-register">
+        <form action="" class="form-register" name="form-register" (ngSubmit)="registrarUsuario()">
             <div class="row">
                 <div class="col">
                     <label for="">nombre o apodo</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="user_name" [(ngModel)]="model.user_name">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="">Contraseña</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="model.password">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="">Confirmar Contraseña</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="" >
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="">Corre Electronico</label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="model.email">
                 </div>
             </div>
             <br>
@@ -33,19 +33,19 @@
                 <h5 class="text-orange">Genero:</h5>
                 <div class="col">
                     <label for="" class="label-green">femenino: </label>
-                    <input type="radio" name="" id="">
+                    <input type="radio" name="" value="1" [(ngModel)]="model.gender_id">
                 </div>
                 <div class="col">
                     <label for="" class="label-green">Masculino: </label>
-                    <input type="radio" name="" id="">
+                    <input type="radio" name="" value="2" [(ngModel)]="model.gender_id">
                 </div>
                 <div class="col">
                     <label for="" class="label-green">Otro: </label>
-                    <input type="radio" name="" id="">
+                    <input type="radio" name="" value="3" [(ngModel)]="model.gender_id">
                 </div>
                 <div class="col">
                     <label for="" class="label-green">Edad: </label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="age" [(ngModel)]="model.age">
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col">
                         <label for="" class="label-green">Ciudad: </label>
-                        <input class="form-control" list="datalistOptions" placeholder="Buscar ciudad">
+                        <input class="form-control" list="datalistOptions" placeholder="Buscar ciudad" [(ngModel)]="model.city_id">
                         <datalist id="datalistOptions">
                             <option *ngFor="let item of municipios; let i=index">{{item}}</option>
                         </datalist>
@@ -93,13 +93,13 @@
                     <h5 for="" class="text-orange">Acepto terminos y condiciones </h5>
                 </div>
                 <div class="col-sm-3 col-xl-1 mt-3">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="">
                 </div>
                 <div class="col-sm-9 col-xl-5 mt-3">
                     <h5 for="" class="text-orange">Deseo recibir comunicacion </h5>
                 </div>
                 <div class="col-sm-3 col-xl-1 mt-3">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="receive_info" [(ngModel)]="model.receive_info">
                 </div>
             </div>
             
