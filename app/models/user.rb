@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
     def self.getUser
 
-      User.select('user_name,email,age, genders.gender,current_location, cities.city, receive_info, sub_module_page_has_users.view_module')
+      User.select('user_name,email,age, genders.gender,current_location, cities.city, receive_info,  sub_module_pages.sub_module_name as sub_module_name ')
       .joins("inner join genders on genders.id=gender_id")
       .joins("inner join cities on cities.id=city_id")
       .joins("left join sub_module_page_has_users on sub_module_page_has_users.user_id=users.id")
