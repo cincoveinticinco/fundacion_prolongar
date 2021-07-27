@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  tokenValidate:any;
   constructor() { }
 
   ngOnInit(): void {
+    this.tokenValidate =localStorage.getItem('token');
   }
 
 }
