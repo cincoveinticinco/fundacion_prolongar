@@ -88,7 +88,8 @@ class WebServicesController < ApplicationController
               render :json => { 
                :msg => "Token creado",
                :token => token,
-               :error => false
+               :error => false,
+               :user_id=>user.id
               }
               return true
     
@@ -119,14 +120,22 @@ class WebServicesController < ApplicationController
 
   def get_module
     module_page = ModulePage.where('id=?',params[:id]).take
-    user_id = @user.id
-    sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
+    if !module_page.blank?
+      user_id = @user.id
+      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
 
-    render :json => { 
-        :error => false,
-        :module_page => module_page,
-        :sub_module_pages => sub_module_pages
+      render :json => { 
+          :error => false,
+          :module_page => module_page,
+          :sub_module_pages => sub_module_pages
+        }
+    else
+      render :json => { 
+        :error => true,
+        :msg => "Id de modulo no existe"
       }
+    end
+
 
 
   end

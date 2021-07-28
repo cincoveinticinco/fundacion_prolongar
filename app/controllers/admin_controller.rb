@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  #before_action :validate_login
+  before_action :validate_login
 
 
   def index
