@@ -6,13 +6,13 @@
 <div class="container mt-5">
     <div class="row mt-5" *ngFor="let item of subModule; let i=index">
         <ng-container *ngIf="i==0; else elseTemplate">
-            <div class="col-3">
+            <div class="col-lg-3">
                 <h4 class="text-uppercase" style="border-bottom: 2px solid #88b87b;">{{item.sub_module_name}}</h4>
             </div>
-            <div class="col-5">
+            <div class="col-lg-5" (click)="verSubmodule(item.id)">
                 <img [src]="item.image_min" alt="" width="100%" height="280px">
             </div>
-            <div class="col-4 mt-5">
+            <div class="col-lg-4 mt-5">
                 <p style="border-top: 2px solid #88b87b;">{{item.description}}</p>
             </div>
             <hr class="mt-5">
@@ -21,13 +21,13 @@
             </div>
         </ng-container>
         <ng-template #elseTemplate>
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12">
                 <h4 class="text-uppercase" style="border-bottom: 2px solid #88b87b;">{{item.sub_module_name}}</h4>
             </div>
-            <div class="col-5">
+            <div class="col-lg-5 col-sm-12" (click)="verSubmodule(item.id)">
                 <img [src]="item.image_min" alt="" width="100%" height="280px">
             </div>
-            <div class="col-4 mt-5">
+            <div class="col-lg-4 col-sm-12 mt-5">
                 <p style="border-top: 2px solid #88b87b;">{{item.description}}</p>
             </div>
         </ng-template>

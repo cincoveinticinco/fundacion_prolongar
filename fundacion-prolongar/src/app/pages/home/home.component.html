@@ -12,10 +12,8 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropbtn">MÓDULOS</a> 
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+            <div class="dropdown-content" >
+                <a *ngFor="let item of menuInterno; let i=index" (click)="redirecMenu(item.id)">{{item.name_module}}</a>
             </div> 
         </li>
         <li class="nav-item">

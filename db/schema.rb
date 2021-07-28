@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 2021_07_21_151219) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "menu_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name_page"
     t.text "texto"

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { AuthservicesService } from 'src/app/services/authservices.service';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 
@@ -15,28 +16,39 @@ export class MenuComponent implements OnInit {
   dataMenu:any;
   menu:boolean=false;
   menuTitle:any;
+  menuInterno: any;
+  menuSubHideShow:any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute,private services:ServicesProlongarService,private authservices:AuthservicesService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,private services:ServicesProlongarService,private authservices:AuthservicesService) {}
 
   ngOnInit(): void {
-    if (location.href.indexOf('corporalidad')>-1) {
-      this.moduleId=1;
-      console.log('en corporalidad');
-    }
-    if (location.href.indexOf('prejuicios')>-1) {
-      this.moduleId=2;
-      console.log('en prejuicios');
-    }
-    if (location.href.indexOf('emociones')>-1) {
-      this.moduleId=3;
-      console.log('en emociones');
-    }
+
+    let url = this.router.url;
+
+    this.menuSubHideShow=url.substr(1,4);
+
+    this.moduleId=url.substr(1,1);
+
     this.services.dataModule(this.moduleId).subscribe(data => {
       this.datos=data;
       this.dataMenu = this.datos.sub_module_pages;
       this.menuTitle=this.datos.module_page;
       console.log(data);
-    })
+    });
+
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
+      let url = this.router.url;
+      this.menuSubHideShow=url.substr(1,4);
+      this.moduleId=url.substr(1,1);
+      this.services.dataModule(this.moduleId).subscribe(data => {
+        this.datos=data;
+        this.dataMenu = this.datos.sub_module_pages;
+        this.menuTitle=this.datos.module_page;
+        console.log(data);
+      })
+    });
+
+    this.datosMenu();
   }
 
   logout() {
@@ -46,5 +58,20 @@ export class MenuComponent implements OnInit {
 
   menuHideShow() {
     this.menu =!this.menu;
+  }
+
+  datosMenu(){
+    this.services.infoHome().subscribe(data=>{
+      this.datos=data;
+      this.menuInterno = this.datos.module_page
+    })
+  }
+
+  redirecMenu(id: any){
+    this.router.navigate([id])
+  }
+
+  redirecSbMenu(id: any){
+    this.router.navigate([this.moduleId,id])
   }
 }

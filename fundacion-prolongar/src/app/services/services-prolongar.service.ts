@@ -24,4 +24,13 @@ export class ServicesProlongarService {
     }
     return this.http.post(`${this.apiUrl}get_module`,datos)
   }
+
+  dataSubModule(id:string){
+    let token = localStorage.getItem('token');
+    let datos={
+      id:id,
+      token:token,
+    }
+    return this.http.post(`${this.apiUrl}get_sub_module`,datos)
+  }
 }

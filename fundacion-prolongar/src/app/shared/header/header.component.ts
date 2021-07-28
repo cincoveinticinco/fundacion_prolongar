@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   tokenValidate:any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.tokenValidate =localStorage.getItem('token');
+    this.router.events.subscribe((val) => {
+      this.tokenValidate =localStorage.getItem('token');
+    });
   }
 
 }

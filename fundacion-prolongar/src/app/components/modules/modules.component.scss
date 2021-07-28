@@ -1,0 +1,16 @@
+.texto-encima{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    color: white;
+}
+
+@media screen and (max-width:490px){
+  .texto-encima {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: white;
+  }
+}
+  

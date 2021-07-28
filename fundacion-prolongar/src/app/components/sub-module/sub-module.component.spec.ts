@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmocionesComponent } from './emociones.component';
+import { SubModuleComponent } from './sub-module.component';
 
-describe('EmocionesComponent', () => {
-  let component: EmocionesComponent;
-  let fixture: ComponentFixture<EmocionesComponent>;
+describe('SubModuleComponent', () => {
+  let component: SubModuleComponent;
+  let fixture: ComponentFixture<SubModuleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmocionesComponent ]
+      declarations: [ SubModuleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmocionesComponent);
+    fixture = TestBed.createComponent(SubModuleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
