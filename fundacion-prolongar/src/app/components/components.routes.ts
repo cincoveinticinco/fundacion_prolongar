@@ -6,12 +6,12 @@ import { ModulesComponent } from './modules/modules.component';
 
 const routes: Routes = [
     {
-      path: ':tipomodule/:idsubmodule',
+      path: 'modulo/:tipomodule/:idsubmodule',
       canActivate:[AuthguardGuard],
       component: SubModuleComponent,
     },
     {
-      path: ':tipomodule',
+      path: 'modulo/:tipomodule',
       canActivate:[AuthguardGuard],
       component: ModulesComponent,
     }

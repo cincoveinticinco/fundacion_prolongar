@@ -17,12 +17,17 @@ export class AuthservicesService {
       let body:any = resp;
       if (body.error ==false) {
         localStorage.setItem('token',body.token);
+        localStorage.setItem('id',body.user_id);
       }
       return body;
     }))
   }
 
+  infoUser(id:any) {
+    return this.http.post(`${this.apiUrl}info_user`, id);
+  }
+
   logout() {
-    return localStorage.removeItem('token');
+    return localStorage.clear();
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="aquien">
         <div class="col-4 offset-2">
-            <img [src]="aquien.image" alt="" width="336px" height="280px">
+            <img [src]="urlimage+aquien.image" alt="" width="336px" height="280px">
         </div>
         <div class="col-5" style="border-bottom: 2px solid #fcc474;">
             <h3 class="mb-5 text-center text-uppercase">{{aquien.name_page}}</h3>

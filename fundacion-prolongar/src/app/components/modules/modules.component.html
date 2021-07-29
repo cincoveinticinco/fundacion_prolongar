@@ -1,5 +1,5 @@
-<div>
-    <img src="../../../assets/img/1-Prejuicios.jpg" alt="" style="width: 100%;">
+<div *ngIf="modules">
+    <img [src]="urlimage+modules.img_banner" class="img-responsive" style="width: 100%;height: 500px;;">
     <h1 class="texto-encima text-uppercase" *ngIf="modules" style="border-bottom: 2px solid white;">{{modules.name_module}}</h1>
 </div>
 
@@ -7,13 +7,24 @@
     <div class="row mt-5" *ngFor="let item of subModule; let i=index">
         <ng-container *ngIf="i==0; else elseTemplate">
             <div class="col-lg-3">
-                <h4 class="text-uppercase" style="border-bottom: 2px solid #88b87b;">{{item.sub_module_name}}</h4>
+                <h4 class="text-uppercase title-sub-module">{{item.sub_module_name}}</h4>
             </div>
             <div class="col-lg-5" (click)="verSubmodule(item.id)">
-                <img [src]="item.image_min" alt="" width="100%" height="280px">
+                <img [src]="urlimage+item.image_min" alt="" width="100%" height="280px" class="img-sub-module">
             </div>
             <div class="col-lg-4 mt-5">
-                <p style="border-top: 2px solid #88b87b;">{{item.description}}</p>
+                <p class="text-sub-module">{{item.description}}</p>
+
+                <ng-container *ngIf="item.view_module==0; else elseTemplate" >
+                    <button class="float-end btn-visualized">
+                        <img src="../../../assets/img/3-Ojo.png" alt="">
+                    </button>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <button class="float-end btn-visualized-ok">
+                        <img src="../../../assets/img/2-OK.png" alt="">
+                    </button>
+                </ng-template>
             </div>
             <hr class="mt-5">
             <div class="d-flex justify-content-center mb-5">
@@ -22,13 +33,23 @@
         </ng-container>
         <ng-template #elseTemplate>
             <div class="col-lg-3 col-sm-12">
-                <h4 class="text-uppercase" style="border-bottom: 2px solid #88b87b;">{{item.sub_module_name}}</h4>
+                <h4 class="text-uppercase title-sub-module">{{item.sub_module_name}}</h4>
             </div>
             <div class="col-lg-5 col-sm-12" (click)="verSubmodule(item.id)">
-                <img [src]="item.image_min" alt="" width="100%" height="280px">
+                <img [src]="urlimage+item.image_min" alt="" width="100%" height="280px" class="img-sub-module">
             </div>
             <div class="col-lg-4 col-sm-12 mt-5">
-                <p style="border-top: 2px solid #88b87b;">{{item.description}}</p>
+                <p class="text-sub-module">{{item.description}}</p>
+                <ng-container *ngIf="item.view_module==0; else elseTemplate" >
+                    <button class="float-end btn-visualized">
+                        <img src="../../../assets/img/3-Ojo.png" alt="">
+                    </button>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <button class="float-end btn-visualized-ok">
+                        <img src="../../../assets/img/2-OK.png" alt="">
+                    </button>
+                </ng-template>
             </div>
         </ng-template>
     </div>

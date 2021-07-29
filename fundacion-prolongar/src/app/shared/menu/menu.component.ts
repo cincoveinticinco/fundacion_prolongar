@@ -18,16 +18,15 @@ export class MenuComponent implements OnInit {
   menuTitle:any;
   menuInterno: any;
   menuSubHideShow:any;
+  user:any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,private services:ServicesProlongarService,private authservices:AuthservicesService) {}
 
   ngOnInit(): void {
 
     let url = this.router.url;
-
     this.menuSubHideShow=url.substr(1,4);
-
-    this.moduleId=url.substr(1,1);
+    this.moduleId=url.substr(8,1);
 
     this.services.dataModule(this.moduleId).subscribe(data => {
       this.datos=data;
@@ -37,9 +36,13 @@ export class MenuComponent implements OnInit {
     });
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
+
+      this.infoUser();
+
       let url = this.router.url;
       this.menuSubHideShow=url.substr(1,4);
-      this.moduleId=url.substr(1,1);
+      this.moduleId=url.substr(8,1);
+
       this.services.dataModule(this.moduleId).subscribe(data => {
         this.datos=data;
         this.dataMenu = this.datos.sub_module_pages;
@@ -49,6 +52,7 @@ export class MenuComponent implements OnInit {
     });
 
     this.datosMenu();
+    this.infoUser();
   }
 
   logout() {
@@ -68,10 +72,20 @@ export class MenuComponent implements OnInit {
   }
 
   redirecMenu(id: any){
-    this.router.navigate([id])
+    this.router.navigate(['modulo/',id])
   }
 
   redirecSbMenu(id: any){
-    this.router.navigate([this.moduleId,id])
+    this.router.navigate(['modulo/',this.moduleId,id])
+  }
+
+  infoUser() {
+    let dataId={
+      id : localStorage.getItem('id')
+    }
+    this.authservices.infoUser(dataId).subscribe(data=>{
+      console.log(data);
+      this.user = data;
+    })
   }
 }

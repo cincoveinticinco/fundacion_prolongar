@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-modules',
@@ -13,12 +14,13 @@ export class ModulesComponent implements OnInit {
   public modules:any;
   public subModule:any;
   moduleId: any;
+  urlimage: any;
 
   constructor(private services:ServicesProlongarService, private router:Router,private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.urlimage = environment.urlImage;
     this.rutaActiva.paramMap.subscribe(data=>{
-      console.log(data)
       this.moduleId=data;
       this.viewModules(this.moduleId.params['tipomodule']);
     })
@@ -34,7 +36,7 @@ export class ModulesComponent implements OnInit {
   }
 
   verSubmodule(id:any){
-    this.router.navigate([this.moduleId.params['tipomodule'],id])
+    this.router.navigate(['modulo',this.moduleId.params['tipomodule'],id])
   }
 
 }

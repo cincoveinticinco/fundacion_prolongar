@@ -43,6 +43,18 @@ export class SubModuleComponent implements OnInit {
     this.completado =!this.verDespues;
   }
 
+  next_submodule(data:any,module:any){
+    let idmodule=module.params['tipomodule'];
+    let idsubmodule=data[0].id;
+    this.router.navigate(['modulo',idmodule,idsubmodule])
+  }
+
+  previus_submodule(data:any,module:any){
+    let idmodule=module.params['tipomodule'];
+    let idsubmodule=data[0].id;
+    this.router.navigate(['modulo',idmodule,idsubmodule])
+  }
+
   url(url:string) {
     /* extraer url y cambiar src="https://www.youtube.com/embed/OAXGl12ZspI"*/
     let urlgood = url
