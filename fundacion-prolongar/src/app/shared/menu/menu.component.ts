@@ -76,6 +76,7 @@ export class MenuComponent implements OnInit {
   }
 
   redirecSbMenu(id: any){
+    this.menuHideShow();
     this.router.navigate(['modulo/',this.moduleId,id])
   }
 
@@ -84,7 +85,6 @@ export class MenuComponent implements OnInit {
       id : localStorage.getItem('id')
     }
     this.authservices.infoUser(dataId).subscribe(data=>{
-      console.log(data);
       this.user = data;
     })
   }

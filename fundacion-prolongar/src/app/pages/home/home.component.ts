@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,13 @@ export class HomeComponent implements OnInit {
   public datos:any;
   public menu:any;
   menuInterno:any;
+  urlimage: any;
 
   constructor(private services:ServicesProlongarService, private router:Router) { }
 
   ngOnInit(): void {
     this.datosMenu();
+    this.urlimage = environment.urlImage;
   }
 
   datosMenu(){
@@ -24,7 +27,6 @@ export class HomeComponent implements OnInit {
       this.datos=data;
       this.menu = this.datos.menu_content;
       this.menuInterno = this.datos.module_page
-      console.log(this.menu);
     })
   }
 

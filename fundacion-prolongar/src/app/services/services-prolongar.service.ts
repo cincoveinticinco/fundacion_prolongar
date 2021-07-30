@@ -33,4 +33,15 @@ export class ServicesProlongarService {
     }
     return this.http.post(`${this.apiUrl}get_sub_module`,datos)
   }
+
+  viewSubModules(data:any){
+    let token = localStorage.getItem('token');
+    let datos={
+      view_module:data.view_module,
+      sub_module_page_id:data.id,
+      token:token
+    }
+    return this.http.post(`${this.apiUrl}view_module`,datos)
+  }
+
 }

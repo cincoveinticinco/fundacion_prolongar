@@ -1,19 +1,11 @@
 <div class="container">
-    <div class="row">
-        <div class="col-4 offset-2">
-            <img src="../../../../assets/img/1-Prejuicios.jpg" alt="" width="336px" height="280px">
+    <div class="row" *ngIf="kas">
+        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
+            <img [src]="urlimage+kas.image" alt="" width="336px" height="280px" class="img-seccion">
         </div>
-        <div class="col-5">
-            <h3 class="text-center mb-5">KAS</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, obcaecati modi distinctio reiciendis, laborum accusamus eveniet at vero nam dolore molestiae itaque numquam nisi voluptatem et ex ratione enim libero!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, obcaecati modi distinctio reiciendis, laborum accusamus eveniet at vero nam dolore molestiae itaque numquam nisi voluptatem et ex ratione enim libero!</p>
-        </div>
-        
-        <div class="col-9 offset-2" style="border-bottom: 2px solid #fcc474;">
-            <div>
-                <h3 class="text-end text-green">Humbert Gehring</h3>
-                <h5 class="text-end text-green">Representante de la KAS en colombia</h5>
-            </div>
+        <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
+            <h3 class="mb-5 mt-2 text-center text-uppercase">{{kas.name_page}}</h3>
+            <p>{{kas.texto}}</p>
         </div>
     </div>
 </div>

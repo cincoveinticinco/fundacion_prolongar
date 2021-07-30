@@ -15,6 +15,7 @@ export class ModulesComponent implements OnInit {
   public subModule:any;
   moduleId: any;
   urlimage: any;
+  messageSubModule:boolean=false;
 
   constructor(private services:ServicesProlongarService, private router:Router,private rutaActiva: ActivatedRoute) { }
 
@@ -36,6 +37,11 @@ export class ModulesComponent implements OnInit {
   }
 
   verSubmodule(id:any){
+
+    if (this.subModule.view_module==0) {
+      this.messageSubModule =true;
+      return
+    }
     this.router.navigate(['modulo',this.moduleId.params['tipomodule'],id])
   }
 

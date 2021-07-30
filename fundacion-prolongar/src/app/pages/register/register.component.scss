@@ -60,3 +60,13 @@ label::first-letter {
     color: white;
     width: 20%;
 }
+
+
+
+input.ng-invalid.ng-touched,select.ng-invalid.ng-touched {
+    border: 1px solid red !important;
+}
+
+.ng-valid .ng-untouched{
+    border:none!important;
+}

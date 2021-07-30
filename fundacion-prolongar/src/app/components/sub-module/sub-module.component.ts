@@ -17,10 +17,16 @@ export class SubModuleComponent implements OnInit {
   next:any;
   completado:boolean=false;
   verDespues:boolean=false;
+  messageSubModule:boolean=false;
 
   constructor(private router: Router, private services:ServicesProlongarService,private rutaActiva: ActivatedRoute,private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
+    this.datInfo();
+  }
+
+
+  datInfo(){
     this.rutaActiva.paramMap.subscribe(data=>{
       this.moduleId=data;
       this.services.dataSubModule(this.moduleId.params['idsubmodule']).subscribe(data => {
@@ -33,33 +39,89 @@ export class SubModuleComponent implements OnInit {
     });
   }
 
-  compled() {
+
+  compled(id:any) {
     this.completado =!this.completado;
     this.verDespues =!this.completado;
+    let view;
+    if (this.completado) {
+      view =1;
+      console.log("1");
+      
+    }else {
+      console.log("0");
+      view =0;
+    }
+    let datos={
+      view_module:view,
+      id:id
+    };
+
+    this.services.viewSubModules(datos).subscribe(data=>{
+      this.datInfo();
+      this.messageSubModule=false;
+    })
+    
   }
 
-  verdespues(){
+  verdespues(id:any){
     this.verDespues =!this.verDespues;
     this.completado =!this.verDespues;
+
+    let view;
+    if (this.verDespues) {
+      view =0;
+      console.log("1");
+      
+    }else {
+      console.log("0");
+      view =1;
+    }
+    let datos={
+      view_module:view,
+      id:id
+    };
+
+    this.services.viewSubModules(datos).subscribe(data=>{
+      this.datInfo();
+      this.messageSubModule=false;
+    })
   }
 
   next_submodule(data:any,module:any){
+
+   if(this.datos.module_page.view_module==0){
+    this.messageSubModule =true;
+    return
+   }
+
+    this.verDespues =false;
+    this.completado =false;
     let idmodule=module.params['tipomodule'];
     let idsubmodule=data[0].id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
+    this.services.viewSubModules(data).subscribe(data =>{})
   }
 
   previus_submodule(data:any,module:any){
+    this.verDespues =false;
+    this.completado =false;
     let idmodule=module.params['tipomodule'];
     let idsubmodule=data[0].id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
   }
 
+  messageModule(data:any){
+    if (data ==0) {
+      this.messageSubModule =true;
+    }
+  }
+
   url(url:string) {
-    /* extraer url y cambiar src="https://www.youtube.com/embed/OAXGl12ZspI"*/
     let urlgood = url
-    let url2 = urlgood.split('');
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url)
+    let url2 = urlgood.split('/watch?v=');
+    let url3 = url2.concat(url2[0]+'/embed/'+url2[1])
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url3[2])
   }
 
 }

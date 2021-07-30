@@ -13,6 +13,8 @@ import { HomeModule } from './pages/home/home.module';
 import { ComponentsModule } from './components/components.module';
 import { MenuComponent } from './shared/menu/menu.component';
 import { FormsModule } from '@angular/forms';
+import { ValidarPasswordDirective } from './shared/directives/validar-password.directive';
+import { TextTransformPipe } from './shared/pipes/text-transform.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    MenuComponent
+    MenuComponent,
+    ValidarPasswordDirective,
+    TextTransformPipe
   ],
   imports: [
     BrowserModule,

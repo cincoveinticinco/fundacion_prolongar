@@ -40,3 +40,17 @@ input {
     color:white;
     width: 20%;
 }
+
+.redirectToRegister{
+    cursor: pointer;
+    text-decoration: none;
+    color:#fcc472;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red !important;
+}
+
+.ng-valid .ng-untouched{
+    border:none!important;
+}

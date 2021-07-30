@@ -36,6 +36,23 @@
   cursor: pointer;
 }
 
+.eye{
+  position: relative;
+  top: -50%;
+  left: 40%;
+  z-index: 1;
+}
+
+.opacity {
+  filter: invert(35%);
+}
+
+.img-globo{
+  position: relative;
+  right: 39%;
+  top: -50%;
+}
+
 @media screen and (max-width:490px){
   .texto-encima {
     position: absolute;
