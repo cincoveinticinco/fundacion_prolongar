@@ -46,7 +46,7 @@ class MailerController < ApplicationController
             recovery_password.save
 
             render :json => { 
-                :msg => "contraseña cambiada con exito"
+                :msg => "contraseña cambiada con exito",
                 :error => false,
                 }
             return nil
@@ -54,7 +54,7 @@ class MailerController < ApplicationController
             @user=User.find(recovery_password.id)
         else
             render :json => { 
-                :msg => "Token incorrecto"
+                :msg => "Token incorrecto",
                 :error => true,
             }
             return nil
