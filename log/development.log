@@ -34867,6 +34867,7 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 17ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 1621)
 
 
+<<<<<<< HEAD
 Started GET "/admin" for 54.184.81.126 at 2021-08-02 19:40:28 +0000
 Cannot render console from 54.184.81.126! Allowed networks: 127.0.0.0/127.255.255.255, ::1
   
@@ -34875,6 +34876,61 @@ ActionController::RoutingError (No route matches [GET] "/admin"):
 actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
 web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
 web-console (4.1.0) lib/web_console/middleware.rb:19:in `block in call'
+=======
+[ActiveJob] [ActionMailer::MailDeliveryJob] [77b9f58c-6993-4d45-9813-19ed9728f3b4] Performed ActionMailer::MailDeliveryJob (Job ID: 77b9f58c-6993-4d45-9813-19ed9728f3b4) from Async(mailers) in 1815.8ms
+>>>>>>> 5e72e0d64d88082fb001d8487752d50c52f44964
+Started GET "/admin/index" for ::1 at 2021-08-02 15:00:19 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AdminController#index as HTML
+Redirected to http://localhost:3000/login/index
+Filter chain halted as :validate_login rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 2872)
+
+
+Started GET "/login/index" for ::1 at 2021-08-02 15:00:20 -0500
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1187)
+  Rendered layouts/_header.html.erb (Duration: 34.4ms | Allocations: 7433)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 83)
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.0ms | Allocations: 13574)
+
+
+Started POST "/login/login_admin" for ::1 at 2021-08-02 15:00:21 -0500
+Processing by LoginController#login_admin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"arkpNwpKZxcbwK+BFdQ0/M35ZLP9efE5+y6GkuVqYJu87zgf3Vr3uP+S4pVxju+cVbd34fuWFQmgN/Kapq5W7g==", "name"=>"alex", "password"=>"[FILTERED]"}
+  [1m[36mUserAdmin Load (1.1ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins` WHERE (name='alex') AND (password='a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3') LIMIT 1[0m
+  ↳ app/controllers/login_controller.rb:8:in `login_admin'
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 26ms (ActiveRecord: 3.6ms | Allocations: 5546)
+
+
+Started GET "/admin/index" for ::1 at 2021-08-02 15:00:21 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.4ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (1.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:105
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:128
+  Rendered admin/index.html.erb within layouts/application (Duration: 46.6ms | Allocations: 13485)
+  Rendered layouts/_header.html.erb (Duration: 3.5ms | Allocations: 3143)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 67ms (Views: 47.8ms | ActiveRecord: 6.7ms | Allocations: 19796)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_444444_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+>>>>>>> b16006b88efab6ec14076a31c88f1565c491f5d2
 web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
 web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
 actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
@@ -34884,7 +34940,55 @@ activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagge
 activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
 activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
 railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+<<<<<<< HEAD
 sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+=======
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_555555_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+>>>>>>> b16006b88efab6ec14076a31c88f1565c491f5d2
 actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
 actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
 rack (2.2.3) lib/rack/method_override.rb:24:in `call'
