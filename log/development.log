@@ -35314,6 +35314,22 @@ concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker'
 =======
 >>>>>>> a437b3966661f1c7b016543ab6d237984b9c16f2
+<<<<<<< HEAD
+Started GET "/admin/index" for ::1 at 2021-08-02 16:36:59 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AdminController#index as HTML
+Redirected to http://localhost:3000/login/index
+Filter chain halted as :validate_login rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 2868)
+
+
+Started GET "/login/index" for ::1 at 2021-08-02 16:36:59 -0500
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1187)
+  Rendered layouts/_header.html.erb (Duration: 35.1ms | Allocations: 6873)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms | Allocations: 12704)
+=======
 >>>>>>> cad34a0e8f5c355d1cbe7b31bd49b03720bce3a2
 Started GET "/login/index" for ::1 at 2021-08-02 16:31:36 -0500
   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
@@ -35322,6 +35338,7 @@ Processing by LoginController#index as HTML
   Rendered login/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1201)
   Rendered layouts/_header.html.erb (Duration: 6.4ms | Allocations: 6993)
 Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 10332)
+>>>>>>> 0842855273f6054000530190bd792e2f7285899e
 
 
   
@@ -35344,6 +35361,234 @@ concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `block (2 levels) in create_worker'
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `catch'
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker'
+<<<<<<< HEAD
+Started GET "/login/index" for ::1 at 2021-08-02 16:39:09 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1200)
+  Rendered layouts/_header.html.erb (Duration: 9.8ms | Allocations: 7442)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 83)
+Completed 200 OK in 23ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 13630)
+
+
+Started POST "/login/login_admin" for ::1 at 2021-08-02 16:39:14 -0500
+Processing by LoginController#login_admin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"75JHWgM89PmrUFNA1LKJrWZiWWwI5CNIWFt0Zpgj9RePnLdcUv3arkWm9oFlKfFUs/1mozCtFhM6ZLuV4AjZMQ==", "name"=>"alex", "password"=>"[FILTERED]"}
+  [1m[36mUserAdmin Load (0.7ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins` WHERE (name='alex') AND (password='a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3') LIMIT 1[0m
+  ↳ app/controllers/login_controller.rb:8:in `login_admin'
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 29ms (ActiveRecord: 4.5ms | Allocations: 5371)
+
+
+Started GET "/admin/index" for ::1 at 2021-08-02 16:39:14 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.4ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (1.2ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:105
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:128
+  Rendered admin/index.html.erb within layouts/application (Duration: 38.9ms | Allocations: 13484)
+  Rendered layouts/_header.html.erb (Duration: 4.9ms | Allocations: 3143)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 56ms (Views: 41.3ms | ActiveRecord: 5.6ms | Allocations: 19837)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_444444_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_555555_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_ffffff_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin/create_module/1" for ::1 at 2021-08-02 16:39:18 -0500
+Processing by AdminController#create_module as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModulePage Load (0.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:14:in `create_module'
+  Rendering admin/create_module.html.erb within layouts/application
+  Rendered admin/create_module.html.erb within layouts/application (Duration: 1.8ms | Allocations: 640)
+  Rendered layouts/_header.html.erb (Duration: 4.6ms | Allocations: 3155)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 0.6ms | Allocations: 5315)
+
+
+Started GET "/admin/sub_module/1" for ::1 at 2021-08-02 16:39:22 -0500
+Processing by AdminController#sub_module as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:53:in `sub_module'
+  Rendering admin/sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (2.1ms)[0m  [1m[34mSELECT sub_module_pages.*,group_concat(distinct dependence.sub_module_name) name_dependences FROM `sub_module_pages` left join sub_module_page_dependences on sub_module_page_dependences.sub_module_page_id = sub_module_pages.id left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id GROUP BY sub_module_pages.id[0m
+  ↳ app/views/admin/sub_module.html.erb:21
+  Rendered admin/sub_module.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2538)
+  Rendered layouts/_header.html.erb (Duration: 4.2ms | Allocations: 3147)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 21ms (Views: 10.9ms | ActiveRecord: 3.1ms | Allocations: 8270)
+
+
+Started GET "/admin/create_sub_module/1" for ::1 at 2021-08-02 16:39:24 -0500
+Processing by AdminController#create_sub_module as HTML
+  Parameters: {"module_page_id"=>"1"}
+  Rendering admin/create_sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (module_page_id='1')[0m
+  ↳ app/views/admin/create_sub_module.html.erb:40
+  Rendered admin/create_sub_module.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1614)
+  Rendered layouts/_header.html.erb (Duration: 4.9ms | Allocations: 3144)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 5589)
+
+
+Started POST "/admin/insert_sub_module" for ::1 at 2021-08-02 16:39:45 -0500
+Processing by AdminController#insert_sub_module as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+gLhM+SXW+LKx/uOiA5VuaPYG5q86NTg+TunPZXwmY2aDBE1tVZ1tSQxXk85lS1AdkckVYSh4bubBGjO7du1qw==", "id"=>"", "module_page_id"=>"1", "sub_module_name"=>"nombre contenido", "description"=>"dasdsa", "file_pdf"=>#<ActionDispatch::Http::UploadedFile:0x000055d49db103d8 @tempfile=#<Tempfile:/tmp/RackMultipart20210802-15216-2if8g6.pdf>, @original_filename="bingo.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file_pdf\"; filename=\"bingo.pdf\"\r\nContent-Type: application/pdf\r\n">, "link"=>"https://youtu.be/G_JVf84vfBQ", "image_min"=>#<ActionDispatch::Http::UploadedFile:0x000055d49db10310 @tempfile=#<Tempfile:/tmp/RackMultipart20210802-15216-uurqq9.jpg>, @original_filename="1-Introducción a los Prejuicios.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image_min\"; filename=\"1-Introducci\xC3\xB3n a los Prejuicios.jpg\"\r\nContent-Type: image/jpeg\r\n">, "content"=>"<p>dsadsdsad</p>\r\n"}
+  [1m[36mSubModulePage Load (0.8ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:75:in `insert_sub_module'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[36mModulePage Load (0.5ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE `module_pages`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[36mSubModulePage Create (2.0ms)[0m  [1m[32mINSERT INTO `sub_module_pages` (`module_page_id`, `sub_module_name`, `description`, `link`, `file_pdf`, `content`, `image_min`, `created_at`, `updated_at`) VALUES (1, 'nombre contenido', 'dasdsa', 'https://youtu.be/G_JVf84vfBQ', '/file_pdfs/2021-08-0216:39:45-0500_bingo.pdf', '<p>dsadsdsad</p>\r\n', '/img_modules/2021-08-0216:39:45-0500_1-IntroducciónalosPrejuicios.jpg', '2021-08-02 16:39:45.836221', '2021-08-02 16:39:45.836221')[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[36mSubModulePageDependence Load (0.5ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id=1)[0m
+  ↳ app/controllers/admin_controller.rb:87:in `insert_sub_module'
+Redirected to http://localhost:3000/admin/sub_module/1
+Completed 302 Found in 77ms (ActiveRecord: 7.1ms | Allocations: 17169)
+
+
+Started GET "/admin/sub_module/1" for ::1 at 2021-08-02 16:39:45 -0500
+Processing by AdminController#sub_module as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:53:in `sub_module'
+  Rendering admin/sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.6ms)[0m  [1m[34mSELECT sub_module_pages.*,group_concat(distinct dependence.sub_module_name) name_dependences FROM `sub_module_pages` left join sub_module_page_dependences on sub_module_page_dependences.sub_module_page_id = sub_module_pages.id left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id GROUP BY sub_module_pages.id[0m
+  ↳ app/views/admin/sub_module.html.erb:21
+  Rendered admin/sub_module.html.erb within layouts/application (Duration: 2.3ms | Allocations: 786)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 3146)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 1.0ms | Allocations: 5343)
+
+
+=======
 Started GET "/login/index" for ::1 at 2021-08-02 16:31:37 -0500
 Processing by LoginController#index as HTML
   Rendering login/index.html.erb within layouts/application
@@ -35407,3 +35652,4 @@ concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `block (2 levels) in create_worker'
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `catch'
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker'
+>>>>>>> 0842855273f6054000530190bd792e2f7285899e
