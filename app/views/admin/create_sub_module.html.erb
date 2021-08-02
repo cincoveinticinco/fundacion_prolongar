@@ -17,11 +17,11 @@
 	<br>
 
 	<label>Archivo Pdf</label>
-	<input type="file" name="file_pdf" <% if @sub_module.blank? %> required="" <% end %> >
+	<input type="file" name="file_pdf" <% if @sub_module.blank? %>  <% end %> >
 	<br>
 
 	<label>Link</label>
-		<input type="text" name="link" required="" value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
+		<input type="text" name="link"  value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
 		<% if !@sub_module.blank? %>
 		   	<% if  @sub_module.link.include? 'youtu'%>
 		   		<% link = @sub_module.link.split('/') %>

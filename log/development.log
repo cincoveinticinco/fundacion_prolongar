@@ -34879,6 +34879,106 @@ web-console (4.1.0) lib/web_console/middleware.rb:19:in `block in call'
 =======
 [ActiveJob] [ActionMailer::MailDeliveryJob] [77b9f58c-6993-4d45-9813-19ed9728f3b4] Performed ActionMailer::MailDeliveryJob (Job ID: 77b9f58c-6993-4d45-9813-19ed9728f3b4) from Async(mailers) in 1815.8ms
 >>>>>>> 5e72e0d64d88082fb001d8487752d50c52f44964
+<<<<<<< HEAD
+Started POST "/mailer/validate_email" for ::1 at 2021-08-02 16:05:40 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MailerController#validate_email as */*
+  Parameters: {"email"=>"john.jejen@cincoveinticinco.c"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (email = 'john.jejen@cincoveinticinco.c') LIMIT 1[0m
+  ↳ app/controllers/mailer_controller.rb:6:in `validate_email'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2398)
+
+
+Started POST "/mailer/validate_email" for ::1 at 2021-08-02 16:05:48 -0500
+Processing by MailerController#validate_email as */*
+  Parameters: {"email"=>"john.jejen@cincoveinticinco.com"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (email = 'john.jejen@cincoveinticinco.com') LIMIT 1[0m
+  ↳ app/controllers/mailer_controller.rb:6:in `validate_email'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mailer_controller.rb:13:in `validate_email'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE `users` SET `users`.`recovery_password` = 'b09920115f5aba2c4ce32ce4926f1164b5b46b25b1351043581be727f92dfc7e', `users`.`updated_at` = '2021-08-02 16:05:48.582612' WHERE `users`.`id` = 16[0m
+  ↳ app/controllers/mailer_controller.rb:13:in `validate_email'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mailer_controller.rb:13:in `validate_email'
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 717d7921-584b-4bdc-a4de-fd4be3ba75b3) to Async(mailers) with arguments: "UserMailer", "recovery_email", "deliver_now", #<GlobalID:0x00007f678400a968 @uri=#<URI::GID gid://fundacion-prolongar/User/16>>
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 26901)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3] Performing ActionMailer::DeliveryJob (Job ID: 717d7921-584b-4bdc-a4de-fd4be3ba75b3) from Async(mailers) enqueued at 2021-08-02T21:05:48Z with arguments: "UserMailer", "recovery_email", "deliver_now", #<GlobalID:0x00007f678404db78 @uri=#<URI::GID gid://fundacion-prolongar/User/16>>
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3] DEPRECATION WARNING: Sending mail with DeliveryJob and Parameterized::DeliveryJob is deprecated and will be removed in Rails 6.1. Please use MailDeliveryJob instead. (called from instance_exec at /home/john/.rvm/gems/ruby-2.6.3/gems/activesupport-6.0.4/lib/active_support/callbacks.rb:428)
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3]   Rendering user_mailer/recovery_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3]   Rendered user_mailer/recovery_email.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 260)
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3] UserMailer#recovery_email: processed outbound mail in 4.8ms
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3] Delivered mail 61085e2c98ca1_75983fb3d22bc82897f7@john-VivoBook-ASUSLaptop-X421EAY-X413EA.mail (2208.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3] Date: Mon, 02 Aug 2021 16:05:48 -0500
+From: garabatos@fundacionprolongar.org
+To: john.jejen@cincoveinticinco.com
+Message-ID: <61085e2c98ca1_75983fb3d22bc82897f7@john-VivoBook-ASUSLaptop-X421EAY-X413EA.mail>
+Subject: =?UTF-8?Q?Recuperaci=C3=B3n_de_Contrase=C3=B1a?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Correo de Recuperaci=C3=B3n de contrase=C3=B1a, =0D
+    <p>Hola John Jejen, hemos recibidio una solicitud para reestablecer t=
+u contrase=C3=B1a. </p>=0D
+      Para recuperar tu contrase=C3=B1a =0D
+      <a href=3D"http://localhost:4200/recovery_password/b09920115f5aba2c=
+4ce32ce4926f1164b5b46b25b1351043581be727f92dfc7e" >haz click aqu=C3=AD</a=
+>=0D
+    </p>=0D
+    <p>=0D
+  =0D
+    </p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+[ActiveJob] [ActionMailer::DeliveryJob] [717d7921-584b-4bdc-a4de-fd4be3ba75b3] Performed ActionMailer::DeliveryJob (Job ID: 717d7921-584b-4bdc-a4de-fd4be3ba75b3) from Async(mailers) in 2216.33ms
+Started POST "/mailer/recovery_password" for ::1 at 2021-08-02 16:06:49 -0500
+Processing by MailerController#recovery_password as */*
+  Parameters: {"recovery_password"=>"[FILTERED]", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (recovery_password = '8cee49411282d14875296fffdfd9e0020d98843c51286dc5c622b540f7b8980a') LIMIT 1[0m
+  ↳ app/controllers/mailer_controller.rb:33:in `recovery_password'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 886)
+
+
+Started POST "/mailer/recovery_password" for ::1 at 2021-08-02 16:07:09 -0500
+Processing by MailerController#recovery_password as */*
+  Parameters: {"recovery_password"=>"[FILTERED]", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (recovery_password = 'b09920115f5aba2c4ce32ce4926f1164b5b46b25b1351043581be727f92dfc7e') LIMIT 1[0m
+  ↳ app/controllers/mailer_controller.rb:33:in `recovery_password'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mailer_controller.rb:46:in `recovery_password'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2021-08-02 16:07:09.275305', `users`.`password` = 'b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0' WHERE `users`.`id` = 16[0m
+  ↳ app/controllers/mailer_controller.rb:46:in `recovery_password'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mailer_controller.rb:46:in `recovery_password'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 3329)
+
+
+=======
 Started GET "/admin/index" for ::1 at 2021-08-02 15:00:19 -0500
   [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
 Processing by AdminController#index as HTML
@@ -35007,3 +35107,165 @@ puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
 puma (4.3.8) lib/puma/server.rb:472:in `process_client'
 puma (4.3.8) lib/puma/server.rb:328:in `block in run'
 puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+<<<<<<< HEAD
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:15:42 -0500
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:15:42 -0500
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:15:42 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by WebServicesController#info_home as HTML
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.8ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  [1m[36mHomeBanner Load (0.4ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.6ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  [1m[36mMenuContent Load (0.6ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (2.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (2.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (1.4ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (3.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 72ms (Views: 50.6ms | ActiveRecord: 12.5ms | Allocations: 21301)
+
+
+Completed 200 OK in 78ms (Views: 24.1ms | ActiveRecord: 40.2ms | Allocations: 22093)
+
+
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.3ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.4ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.9ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 2.1ms | Allocations: 4568)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:15:54 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.3ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.2ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 1.1ms | Allocations: 4569)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:15:54 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (1.4ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.8ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:15:55 -0500
+  [1m[36mModulePage Load (4.0ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Processing by WebServicesController#info_home as HTML
+  [1m[36mContact Load (2.7ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mHomeBanner Load (3.2ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+Completed 200 OK in 40ms (Views: 27.8ms | ActiveRecord: 8.9ms | Allocations: 6699)
+
+
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.9ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 31ms (Views: 22.8ms | ActiveRecord: 5.3ms | Allocations: 6180)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:35:08 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (8.1ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (2.1ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.8ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 34ms (Views: 21.3ms | ActiveRecord: 11.8ms | Allocations: 4555)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:35:14 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.9ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (103.5ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.7ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 146ms (Views: 37.4ms | ActiveRecord: 105.5ms | Allocations: 4562)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:35:22 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.7ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (1.0ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 3.0ms | Allocations: 4555)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:35:23 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (1.0ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.9ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 3.1ms | Allocations: 4555)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:35:24 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.5ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.4ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.5ms | Allocations: 4555)
+
+
+Started POST "/web_services/info_home" for ::1 at 2021-08-02 15:59:24 -0500
+Processing by WebServicesController#info_home as HTML
+  [1m[36mHomeBanner Load (0.3ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY order_banner[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mMenuContent Load (0.4ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/controllers/web_services_controller.rb:13:in `info_home'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 1.2ms | Allocations: 4555)
+
+
+=======
+>>>>>>> b16006b88efab6ec14076a31c88f1565c491f5d2
+>>>>>>> a437b3966661f1c7b016543ab6d237984b9c16f2
