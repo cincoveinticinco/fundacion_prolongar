@@ -26,7 +26,7 @@
 	 			<td><%=data['link'] %>
 	 				<% if  data['link'].include? 'youtu'%>
 				   		<% link = data['link'].split('/') %>
-						<iframe id="ytplayer" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/<%=link[-1]%>?autoplay=1" frameborder="0"/>
+						<iframe id="ytplayer" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/<%=link[-1]%>?autoplay=1" frameborder="0"/></iframe>
 		  			<% end %>
 
 		  			<% if  data['link'].include? 'soundcloud'%>
