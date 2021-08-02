@@ -14,13 +14,13 @@ class MailerController < ApplicationController
               UserMailer.recovery_email(user).deliver_later
                            
               render :json => {
-              :error => true,
+              :error => false,
               :msg => "Correo Enviado"
               }
           else
       
               render :json => {
-              :error => false,
+              :error => true,
               :msg =>  "correo no existe"
               }
 
@@ -47,6 +47,7 @@ class MailerController < ApplicationController
 
             render :json => { 
                 :msg => "contraseña cambiada con exito"
+                :error => false,
                 }
             return nil
             end
@@ -54,6 +55,7 @@ class MailerController < ApplicationController
         else
             render :json => { 
                 :msg => "Token incorrecto"
+                :error => true,
             }
             return nil
             
