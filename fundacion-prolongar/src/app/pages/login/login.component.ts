@@ -31,4 +31,8 @@ export class LoginComponent implements OnInit {
   redirectToRegister(){
     this.router.navigate(['register'])
   }
+
+  redirectToRecPass(){
+    this.router.navigate(['recuperar-contraseña'])
+  }
 }

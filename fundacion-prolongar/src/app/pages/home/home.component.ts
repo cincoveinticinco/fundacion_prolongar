@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
       this.datos=data;
       this.menu = this.datos.menu_content;
       this.menuInterno = this.datos.module_page
+      console.log(this.menuInterno);
+      
     })
   }
 

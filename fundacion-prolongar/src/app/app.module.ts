@@ -15,6 +15,7 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { ValidarPasswordDirective } from './shared/directives/validar-password.directive';
 import { TextTransformPipe } from './shared/pipes/text-transform.pipe';
+import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { TextTransformPipe } from './shared/pipes/text-transform.pipe';
     RegisterComponent,
     MenuComponent,
     ValidarPasswordDirective,
-    TextTransformPipe
+    TextTransformPipe,
+    RecuperarPasswordComponent
   ],
   imports: [
     BrowserModule,
