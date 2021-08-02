@@ -35653,3 +35653,81 @@ concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `catch'
 concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker'
 >>>>>>> 0842855273f6054000530190bd792e2f7285899e
+Started GET "/admin/create_sub_module/1" for ::1 at 2021-08-02 16:43:19 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AdminController#create_sub_module as HTML
+  Parameters: {"module_page_id"=>"1"}
+  Rendering admin/create_sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (module_page_id='1')[0m
+  ↳ app/views/admin/create_sub_module.html.erb:40
+  Rendered admin/create_sub_module.html.erb within layouts/application (Duration: 13.2ms | Allocations: 9551)
+  Rendered layouts/_header.html.erb (Duration: 19.4ms | Allocations: 7445)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 83)
+Completed 200 OK in 44ms (Views: 35.2ms | ActiveRecord: 1.6ms | Allocations: 20871)
+
+
+Started GET "/admin/create_sub_module/1/1" for ::1 at 2021-08-02 16:45:27 -0500
+Processing by AdminController#create_sub_module as HTML
+  Parameters: {"module_page_id"=>"1", "id"=>"1"}
+  [1m[36mSubModulePage Load (1.8ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:59:in `create_sub_module'
+  [1m[36mSubModulePageDependence Load (2.1ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id='1')[0m
+  ↳ app/controllers/admin_controller.rb:62:in `collect'
+  Rendering admin/create_sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (2.9ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (module_page_id='1') AND (id not in ('1'))[0m
+  ↳ app/views/admin/create_sub_module.html.erb:40
+  Rendered admin/create_sub_module.html.erb within layouts/application (Duration: 7.4ms | Allocations: 903)
+  Rendered layouts/_header.html.erb (Duration: 11.7ms | Allocations: 3143)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 72ms (Views: 20.2ms | ActiveRecord: 8.8ms | Allocations: 9006)
+
+
+Started GET "/admin/create_sub_module/1/1" for ::1 at 2021-08-02 16:45:54 -0500
+Processing by AdminController#create_sub_module as HTML
+  Parameters: {"module_page_id"=>"1", "id"=>"1"}
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:59:in `create_sub_module'
+  [1m[36mSubModulePageDependence Load (0.3ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id='1')[0m
+  ↳ app/controllers/admin_controller.rb:62:in `collect'
+  Rendering admin/create_sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.7ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (module_page_id='1') AND (id not in ('1'))[0m
+  ↳ app/views/admin/create_sub_module.html.erb:39
+  Rendered admin/create_sub_module.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1619)
+  Rendered layouts/_header.html.erb (Duration: 9.3ms | Allocations: 3433)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 80)
+Completed 200 OK in 30ms (Views: 22.3ms | ActiveRecord: 1.5ms | Allocations: 8349)
+
+
+Started POST "/admin/insert_sub_module" for ::1 at 2021-08-02 16:46:07 -0500
+Processing by AdminController#insert_sub_module as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FxEThqmlz3ZxAJt0JbEQqo27h/8mQQ4h7UDsjaUUGGZ3H+OA+GThIZ/2PrWUKmhTWCS4MB4IO3qPfyN+3T80QA==", "id"=>"1", "module_page_id"=>"1", "sub_module_name"=>"nombre contenido", "description"=>"dasdsa", "link"=>"https://soundcloud.com/lorena-valero-492844439", "content"=>"<p>dsadsdsad</p>\r\n"}
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:75:in `insert_sub_module'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE `module_pages`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[36mSubModulePage Update (3.5ms)[0m  [1m[33mUPDATE `sub_module_pages` SET `sub_module_pages`.`link` = 'https://soundcloud.com/lorena-valero-492844439', `sub_module_pages`.`updated_at` = '2021-08-02 16:46:07.682427' WHERE `sub_module_pages`.`id` = 1[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_controller.rb:84:in `insert_sub_module'
+  [1m[36mSubModulePageDependence Load (0.8ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id=1)[0m
+  ↳ app/controllers/admin_controller.rb:87:in `insert_sub_module'
+Redirected to http://localhost:3000/admin/sub_module/1
+Completed 302 Found in 27ms (ActiveRecord: 8.2ms | Allocations: 13016)
+
+
+Started GET "/admin/sub_module/1" for ::1 at 2021-08-02 16:46:07 -0500
+Processing by AdminController#sub_module as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModulePage Load (0.4ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:53:in `sub_module'
+  Rendering admin/sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.6ms)[0m  [1m[34mSELECT sub_module_pages.*,group_concat(distinct dependence.sub_module_name) name_dependences FROM `sub_module_pages` left join sub_module_page_dependences on sub_module_page_dependences.sub_module_page_id = sub_module_pages.id left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id GROUP BY sub_module_pages.id[0m
+  ↳ app/views/admin/sub_module.html.erb:21
+  Rendered admin/sub_module.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1792)
+  Rendered layouts/_header.html.erb (Duration: 3.8ms | Allocations: 3149)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 1.0ms | Allocations: 6507)
+
+
