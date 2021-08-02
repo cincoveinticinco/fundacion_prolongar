@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 
 @Component({
   selector: 'app-para-que-es',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParaQueEsComponent implements OnInit {
 
-  constructor() { }
+  public datos:any;
+  public paraque:any;
+
+  constructor(private services:ServicesProlongarService) { }
 
   ngOnInit(): void {
+    this.datosParaQ();
+  }
+
+  datosParaQ(){
+    this.services.infoHome().subscribe(data => {
+      this.datos=data;
+      this.paraque = this.datos.menu_content[0];
+    })
   }
 
 }

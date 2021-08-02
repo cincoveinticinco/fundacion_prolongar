@@ -127,3 +127,15 @@ li a:hover {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+
+@media (max-width: 500px) {
+  ul {
+    list-style-type: none;
+    margin:0% 10%;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+}
+}

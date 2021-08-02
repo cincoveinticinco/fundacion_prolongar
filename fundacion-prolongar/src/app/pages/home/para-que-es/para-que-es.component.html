@@ -1,12 +1,11 @@
 <div class="container">
     <div class="row">
-        <div class="col-4 offset-2">
-            <img src="../../../../assets/img/1-Prejuicios.jpg" alt="" width="336px" height="280px">
+        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
+            <img [src]="paraque.image" alt="" width="336px" height="280px">
         </div>
-        <div class="col-5" style="border-bottom: 2px solid #fcc474;">
-            <h3 class="mb-5 text-center text-uppercase">¿para que es?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, obcaecati modi distinctio reiciendis, laborum accusamus eveniet at vero nam dolore molestiae itaque numquam nisi voluptatem et ex ratione enim libero!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, obcaecati modi distinctio reiciendis, laborum accusamus eveniet at vero nam dolore molestiae itaque numquam nisi voluptatem et ex ratione enim libero!</p>
+        <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
+            <h3 class="mb-5 text-center text-uppercase">{{paraque.name_page}}</h3>
+            <p>{{paraque.texto}}</p>
         </div>
     </div>
 </div>
