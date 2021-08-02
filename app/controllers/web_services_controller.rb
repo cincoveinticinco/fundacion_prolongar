@@ -86,14 +86,18 @@ class WebServicesController < ApplicationController
           token = create_token(user.id)
           if !token.blank?
               render :json => { 
-                :msg => "Token creado",
-                :token => token
+               :msg => "Token creado",
+               :token => token,
+               :error => false,
+               :user_id=>user.id
               }
+              return true
     
           end            
       else
           render :json => { 
-            :msg => "Usuario y/o contraseña invalido"
+            :msg => "Usuario y/o contraseña invalido",
+            :error => true
           }
           return false
       end
@@ -116,14 +120,22 @@ class WebServicesController < ApplicationController
 
   def get_module
     module_page = ModulePage.where('id=?',params[:id]).take
-    user_id = @user.id
-    sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
+    if !module_page.blank?
+      user_id = @user.id
+      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
 
-    render :json => { 
-        :error => false,
-        :module_page => module_page,
-        :sub_module_pages => sub_module_pages
+      render :json => { 
+          :error => false,
+          :module_page => module_page,
+          :sub_module_pages => sub_module_pages
+        }
+    else
+      render :json => { 
+        :error => true,
+        :msg => "Id de modulo no existe"
       }
+    end
+
 
 
   end
@@ -191,6 +203,7 @@ class WebServicesController < ApplicationController
   private
 
   def validate_session
+
     session_user = SessionToken.where('token = ?', params[:token]).take
         if !session_user.blank?
             seconds_diff = (Time.current - session_user.updated_at).to_i.abs
@@ -206,7 +219,7 @@ class WebServicesController < ApplicationController
             session_user.updated_at = Time.current
             session_user.save
           end
-            @user=User.find(session_user.id)
+            @user=User.find(session_user.users_id)
         else
             render :json => { 
               :msg => "Sesion inactiva"
@@ -214,6 +227,7 @@ class WebServicesController < ApplicationController
             return nil
             
         end
+  
   end
     
 end

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url:"http://localhost:3000/web_services/"
+  url:"http://localhost:3000/web_services/",
+  urlImage:"http://localhost:3000"
 };
 
 /*

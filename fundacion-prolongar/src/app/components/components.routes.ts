@@ -1,34 +1,21 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CorporalidadComponent } from './corporalidad/corporalidad.component';
-/* const routes: Routes = [
-	{
-		path: 'home', component: HomeComponent,
-		children: [
-			{ path: 'a-quienva-dirigida', component:AQuienVaDirigidaComponent },
-			{ path: 'principios', component: PrincipiosComponent},
-			{ path: 'para-que-es', component:ParaQueEsComponent  },
-			{ path: 'kas', component: KasComponent},
-			{ path: 'homes', component:HomesComponent },
-			{ path: 'prejucios', component:PrejuiciosComponent},
-			{ path: 'emociones', component: EmocionesComponent},
-			{ path: 'corporalidad', component:CorporalidadComponent },
-			{ path: '', redirectTo: '/home/homes', pathMatch: 'full' },
-		]
-	} 
-]; */
+import { AuthguardGuard } from '../guards/authguard.guard';
+import { SubModuleComponent } from './sub-module/sub-module.component';
+import { ModulesComponent } from './modules/modules.component';
 
 const routes: Routes = [
     {
-      path: 'corporalidad',
-      component: CorporalidadComponent
+      path: 'modulo/:tipomodule/:idsubmodule',
+      canActivate:[AuthguardGuard],
+      component: SubModuleComponent,
     },
     {
-      path: '**',
-      redirectTo: '/home/homes',
-      pathMatch: 'full'
+      path: 'modulo/:tipomodule',
+      canActivate:[AuthguardGuard],
+      component: ModulesComponent,
     }
-  ];
+];
 
 export const APP_ROUTING = RouterModule.forChild(routes);
 

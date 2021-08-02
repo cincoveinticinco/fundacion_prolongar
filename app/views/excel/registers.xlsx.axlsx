@@ -29,7 +29,7 @@ wb.add_worksheet(name: "Usuarios Registrados",encoding: Encoding::UTF_8) do |she
   sheet.add_row ['Generado en ' + date.to_s], :style=> css_tittle, :widths=>whitsd
   
   sheet.add_row []
-  sheet.add_row ['Nombre de usuario','Email','Edad','Genero','Ubicacion Actual', 'Ciudad', 'suscripcion'],
+  sheet.add_row ['Nombre de usuario','Email','Edad','Género','Ubicación Actual', 'Ciudad','Departamento', 'Suscripción', 'Módulos Vistos'],
                  :style=> style_titles, :widths=>whitsd
 
   @user.each do |p|
@@ -48,7 +48,11 @@ wb.add_worksheet(name: "Usuarios Registrados",encoding: Encoding::UTF_8) do |she
      receive_info = "No desea recibir notificaciones" 
     end
 
-    sheet.add_row [p['user_name'],p['email'],p['age'], p['gender'],current_location,p['city'],receive_info ],
+    if p['sub_module_name'].blank?
+      p['sub_module_name']="--"
+    end
+
+    sheet.add_row [p['user_name'],p['email'],p['age'], p['gender'],current_location,p['city'],p['department'],receive_info,p['sub_module_name']],
     :style=> style_content,:widths=>whitsd
   end
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-principios',
@@ -10,10 +11,12 @@ export class PrincipiosComponent implements OnInit {
 
   public datos:any;
   public principios:any;
+  urlimage: any;
 
   constructor(private services:ServicesProlongarService) { }
 
   ngOnInit(): void {
+    this.urlimage = environment.urlImage;
     this.datosPrincipios();
   }
 
@@ -21,7 +24,6 @@ export class PrincipiosComponent implements OnInit {
     this.services.infoHome().subscribe(data=>{
       this.datos=data;
       this.principios = this.datos.menu_content[3];
-      console.log(this.principios);
     })
   }
 

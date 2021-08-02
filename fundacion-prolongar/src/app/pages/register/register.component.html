@@ -3,29 +3,29 @@
         <br>
         <h3 class="mt-5">registro</h3>
         <div class="br-register mb-3"></div>
-        <form action="" class="form-register">
+        <form action="" #form="ngForm"  class="form-register" name="form-register" [appValidarPassword]="['password','confirmarContrasena']" (ngSubmit)="registrarUsuario()">
             <div class="row">
                 <div class="col">
-                    <label for="">nombre o apodo</label>
-                    <input type="text" class="form-control">
+                    <label for="">nombre o apodo:</label>
+                    <input type="text" class="form-control" name="user_name" [ngClass]="{'ng-invalid': true}" required [(ngModel)]="model.user_name">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="">Contraseña</label>
-                    <input type="password" class="form-control">
+                    <label for="">Contraseña:</label>
+                    <input type="password" class="form-control" name="password" required [(ngModel)]="model.password">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="">Confirmar Contraseña</label>
-                    <input type="password" class="form-control">
+                    <label for="">Confirmar Contraseña:</label>
+                    <input type="password" class="form-control" name="confirmarContrasena" required  [(ngModel)]="model.confirmarContrasena" >
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="">Corre Electronico</label>
-                    <input type="email" class="form-control">
+                    <label for="">Corre Electronico:</label>
+                    <input type="email" class="form-control" required pattern="([A-Z|a-z|0-9|\-!#$%&'*+_](\.){0,1})+[A-Z|a-z|0-9|\-!#$%&'*+_]\@([A-Z|a-z|0-9|\-!#$%&'*+_])+((\.){0,1}[A-Z|a-z|0-9]){1}\.[a-zA-Z]{2,6}(\.[a-zA-Z]{2,6})?" name="email" [(ngModel)]="model.email">
                 </div>
             </div>
             <br>
@@ -33,19 +33,19 @@
                 <h5 class="text-orange">Genero:</h5>
                 <div class="col">
                     <label for="" class="label-green">femenino: </label>
-                    <input type="radio" name="" id="">
+                    <input type="radio" name="gender_id" value="1" [(ngModel)]="model.gender_id">
                 </div>
                 <div class="col">
                     <label for="" class="label-green">Masculino: </label>
-                    <input type="radio" name="" id="">
+                    <input type="radio" name="gender_id" value="2" [(ngModel)]="model.gender_id">
                 </div>
                 <div class="col">
                     <label for="" class="label-green">Otro: </label>
-                    <input type="radio" name="" id="">
+                    <input type="radio" name="gender_id" value="3" [(ngModel)]="model.gender_id">
                 </div>
                 <div class="col">
                     <label for="" class="label-green">Edad: </label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="age" required [(ngModel)]="model.age">
                 </div>
             </div>
 
@@ -53,16 +53,16 @@
                 <br> <br>
                 <h5 class="text-orange">Ubicacion Actual:</h5>
                 <div class="col-sm-5 col-xl-5">
-                    <label for="" class="label-green">Estoy fuera de Colombia</label>
+                    <label for="" class="label-green">Estoy en Colombia</label>
                 </div>
                 <div class="col-sm-3 col-xl-1 mt-3">
-                    <input type="checkbox"  (change)="checkDepartamentos($event)" name="" id="">
+                    <input type="radio"  (change)="checkDepartamentos($event)" value="1" required name="current_location" [(ngModel)]="model.current_location">
                 </div>
                 <div class="col-sm-9 col-xl-5">
                     <label for="" class="label-green">Estoy fuera de Colombia</label>
                 </div>
                 <div class="col-sm-3 col-xl-1 mt-3">
-                    <input type="checkbox" name="" id="">
+                    <input type="radio" name="current_location" value="0" required [(ngModel)]="model.current_location">
                 </div>
             </div>
 
@@ -70,16 +70,15 @@
                 <div class="row">
                     <div class="col">
                         <label for="" class="label-green">Departamento: </label>
-                        <select class="form-control" id="exampleFormControlSelect1" (change)="ciudad($event)">
-                            <option *ngFor="let item of departamentos; let i=index" value="{{item.id}}">{{item.departamento}}</option>
+                        <select class="form-control" id="exampleFormControlSelect1" name="departamento" (change)="ciudad($event)">
+                            <option *ngFor="let item of departamentos; let i=index" value="{{item.id}}">{{item.department}}</option>
                         </select>
                     </div>
                     <div class="col">
                         <label for="" class="label-green">Ciudad: </label>
-                        <input class="form-control" list="datalistOptions" placeholder="Buscar ciudad">
-                        <datalist id="datalistOptions">
-                            <option *ngFor="let item of municipios; let i=index">{{item}}</option>
-                        </datalist>
+                        <select class="form-control" id="exampleFormControlSelect1" name="city_id" [(ngModel)]="model.city_id">
+                            <option *ngFor="let item of municipios; let i=index" value="{{item.id}}">{{item.city}}</option>
+                        </select>
                     </div>
                 </div>
             </ng-container>
@@ -93,18 +92,18 @@
                     <h5 for="" class="text-orange">Acepto terminos y condiciones </h5>
                 </div>
                 <div class="col-sm-3 col-xl-1 mt-3">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="">
                 </div>
                 <div class="col-sm-9 col-xl-5 mt-3">
                     <h5 for="" class="text-orange">Deseo recibir comunicacion </h5>
                 </div>
                 <div class="col-sm-3 col-xl-1 mt-3">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="receive_info" [(ngModel)]="model.receive_info">
                 </div>
             </div>
             
             <div class="d-flex justify-content-center">
-                <button class="btn float-end mt-4 btn-enviar">Enviar</button>
+                <button class="btn float-end mt-4 btn-enviar" [disabled]="(form.invalid ? true : false)">Enviar</button>
             </div>
             <br><br>
         </form>

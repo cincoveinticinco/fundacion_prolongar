@@ -4,8 +4,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 
-
-
 const routes: Routes = [
     {
       path: 'home',
@@ -18,12 +16,12 @@ const routes: Routes = [
     {
       path: 'login',
       component: LoginComponent
-    },   
+    }, 
     {
       path: '**',
       redirectTo: '/home/homes',
-      pathMatch: 'full'
-    }
+     pathMatch: 'full' 
+    } 
   ];
 
 
