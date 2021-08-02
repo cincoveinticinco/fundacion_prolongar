@@ -33,5 +33,6 @@ export class HomeComponent implements OnInit {
   redirecMenu(id: any){
     this.router.navigate(['modulo/',id])
   }
+  
 
 }
