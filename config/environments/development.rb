@@ -67,7 +67,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'garabatos@fundacionprolongar.org',
-    password:             'j3F>PLZ7',
+    password:             'Gj3F>PLZ7',
     authentication:       'plain',
     enable_starttls_auto: true  }
   
