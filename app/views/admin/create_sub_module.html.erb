@@ -17,16 +17,15 @@
 	<br>
 
 	<label>Archivo Pdf</label>
-	<input type="file" name="file_pdf" <% if @sub_module.blank? %> required="" <% end %> >
+	<input type="file" name="file_pdf" <% if @sub_module.blank? %>  <% end %> >
 	<br>
 
 	<label>Link</label>
-		<input type="text" name="link" required="" value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
+		<input type="text" name="link"  value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
 		<% if !@sub_module.blank? %>
 		   	<% if  @sub_module.link.include? 'youtu'%>
 		   		<% link = @sub_module.link.split('/') %>
-				<iframe id="ytplayer" type="text/html" width="640" height="360"
-	  				src="http://www.youtube.com/embed/<%=link[-1]%>?autoplay=1" frameborder="0"/>
+	  				<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=link[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   			<% end %>
 
   			<% if  @sub_module.link.include? 'soundcloud'%>
