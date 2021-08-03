@@ -137,18 +137,7 @@ li a:hover {
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
-  ul {
-    list-style-type: none;
-    margin:0% 10%;
-    padding: 0;
-    text-align: center;
-    display: grid;
-    justify-content: center;
-  }
-}
-
- .flip-card {
+.flip-card {
   background-color: transparent;
   width: 100%;
   height: 300px;
@@ -187,14 +176,14 @@ li a:hover {
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: #d4826e;
   color: white;
   transform: rotateY(180deg);
 }
 
 .title-card-flip {
   position: relative;
-  width: 30%;
+  width: 40%;
   top: -90%;
   left: 10%; 
   color: white;
@@ -204,9 +193,51 @@ li a:hover {
   text-transform: uppercase;
 }
 
+.content-ver-mas { 
+  border-top: 1px solid #fff;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows:auto;
+}
+
+@media (max-width: 500px) {
+  ul {
+    list-style-type: none;
+    margin:0% 10%;
+    padding: 0;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+  }
+
+  .wrapper{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 150px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+
+  .title-card-flip {
+    position: relative;
+    width: 80%;
+    top: -90%;
+    left: 10%; 
+    color: white;
+    border-bottom: 2px solid #ffffff;
+    font-weight: bolder;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  
+  
 }
 
