@@ -5,22 +5,22 @@
 
     <ul class="nav justify-content-center mt-3" *ngIf="this.datos">
         <li class="nav-item">
-            <a class="nav-link" routerLink="para-que-es">{{this.menu[0].name_page}}</a>
+            <a class="nav-link fw-bolder" routerLink="para-que-es">{{this.menu[0].name_page}}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="a-quienva-dirigida">{{this.menu[1].name_page}}</a>
+            <a class="nav-link fw-bolder" routerLink="a-quienva-dirigida">{{this.menu[1].name_page}}</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropbtn">MÓDULOS</a> 
+            <a class="nav-link fw-bolder dropbtn">MÓDULOS</a> 
             <div class="dropdown-content" >
-                <a *ngFor="let item of menuInterno; let i=index" (click)="redirecMenu(item.id)">{{item.name_module}}</a>
+                <a class="text-uppercase" *ngFor="let item of menuInterno; let i=index" (click)="redirecMenu(item.id)">{{item.name_module}}</a>
             </div> 
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="principios">{{this.menu[3].name_page}}</a>
+            <a class="nav-link fw-bolder" routerLink="principios">{{this.menu[3].name_page}}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="kas">KAS</a>
+            <a class="nav-link fw-bolder" routerLink="kas">{{this.menu[4].name_page}}</a>
         </li>
     </ul>
       
@@ -73,7 +73,7 @@
 
         <div class="images wrapper" *ngIf="menuInterno">
             <div class="flip-card"  *ngFor="let item of menuInterno; let i=index">
-                <ng-container *ngIf="i<=1;" >
+                <ng-container *ngIf="i<=2;" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <img [src]="urlimage+item.imagen_min" style="width:100%;height:100%;">
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <div class="col-12" *ngIf="menuInterno">
+       <!--  <div class="col-12" *ngIf="menuInterno">
             <div class="flip-card"  *ngFor="let item of menuInterno; let i=index;">
                 
                 <ng-container *ngIf="i+1 > i+1%2">
@@ -118,7 +118,7 @@
                     </div>
                 </ng-container>
             </div>
-        </div>
+        </div> -->
         
       
 
