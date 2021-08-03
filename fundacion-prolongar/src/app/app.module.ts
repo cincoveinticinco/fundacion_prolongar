@@ -17,6 +17,7 @@ import { ValidarPasswordDirective } from './shared/directives/validar-password.d
 import { TextTransformPipe } from './shared/pipes/text-transform.pipe';
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 import { ValidateEqualDirective } from './shared/directives/validate-equal.directive';
+import { ValidateAgeDirective } from './shared/directives/validate-age.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { ValidateEqualDirective } from './shared/directives/validate-equal.direc
     ValidarPasswordDirective,
     TextTransformPipe,
     RecuperarPasswordComponent,
-    ValidateEqualDirective
+    ValidateEqualDirective,
+    ValidateAgeDirective
   ],
   imports: [
     BrowserModule,
