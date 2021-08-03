@@ -19,12 +19,14 @@ export class MenuComponent implements OnInit {
   menuInterno: any;
   menuSubHideShow:any;
   user:any;
+  rutaMenu:any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,private services:ServicesProlongarService,private authservices:AuthservicesService) {}
 
   ngOnInit(): void {
 
     let url = this.router.url;
+    this.rutaMenu = url
     this.menuSubHideShow=url.substr(1,4);
     this.moduleId=url.substr(8,1);
 
@@ -40,6 +42,9 @@ export class MenuComponent implements OnInit {
       this.infoUser();
 
       let url = this.router.url;
+      console.log(url);
+      this.rutaMenu = url
+      
       this.menuSubHideShow=url.substr(1,4);
       this.moduleId=url.substr(8,1);
 
