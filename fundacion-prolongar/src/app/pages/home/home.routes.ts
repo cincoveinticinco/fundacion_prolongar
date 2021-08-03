@@ -17,6 +17,11 @@ const routes: Routes = [
 			{ path: 'para-que-es', component:ParaQueEsComponent  },
 			{ path: 'kas', component: KasComponent},
 			{ path: 'homes', component:HomesComponent },
+			{
+				path: '**',
+				redirectTo: '/home/homes',
+				pathMatch: 'full' 
+			} 
 		]
 	}
 ];

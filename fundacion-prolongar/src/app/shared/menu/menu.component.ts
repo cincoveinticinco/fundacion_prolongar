@@ -56,7 +56,7 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['home/homes'])
+    this.router.navigate(['home'])
     this.authservices.logout();
   }
 
