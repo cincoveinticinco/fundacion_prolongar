@@ -48,12 +48,12 @@
                             <li class="item-modules nav-item"> 
                                 <ng-container *ngIf="item.view_module==0; else elseTemplate" >
                                     <button class="float-start btn-visualized">
-                                        <img src="../../../assets/img/3-Ojo.png" alt="">
+                                        <img src="./assets/img/3-Ojo.png" alt="">
                                     </button>
                                 </ng-container>
                                 <ng-template #elseTemplate>
                                     <button class="float-start btn-visualized-ok">
-                                        <img src="../../../assets/img/2-OK.png" alt="">
+                                        <img src="./assets/img/2-OK.png" alt="">
                                     </button>
                                 </ng-template>
                                 <a class="nav-link" [ngClass]="{'disabled':item.view_module==0}" (click)="redirecSbMenu(item.id)">{{item.sub_module_name}}</a>

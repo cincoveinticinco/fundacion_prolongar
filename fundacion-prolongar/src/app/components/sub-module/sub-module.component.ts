@@ -118,9 +118,12 @@ export class SubModuleComponent implements OnInit {
   }
 
   url(url:string) {
+    /* lo que llega de BD: https://youtu.be/ayd3yWr4tqU */
+    /* la correcta para el iframe: https://www.youtube.com/embed/ayd3yWr4tqU */
     let urlgood = url
-    let url2 = urlgood.split('/watch?v=');
-    let url3 = url2.concat(url2[0]+'/embed/'+url2[1])
+    let url2 = urlgood.split('https://youtu.be/');
+    let urlYouTube="https://www.youtube.com/embed/"
+    let url3 = url2.concat(urlYouTube+url2[1])
     return this.sanitizer.bypassSecurityTrustResourceUrl(url3[2])
   }
 

@@ -1,6 +1,6 @@
 <section class="home">
-    <div class="titulo">
-        <a routerLink="homes"><img src="" alt=""></a>
+    <div class="titulo mb-5">
+        <a routerLink="homes"><img src="./assets/img/LogoHome262X82.png" alt=""></a>
     </div>
 
     <ul class="nav justify-content-center mt-3" *ngIf="this.datos">
@@ -51,7 +51,7 @@
         </div>
         
 
-      <!--   <div>
+        <!-- <div>
             <div class="images wrapper">
                 <div>
                     <img src="../../../assets/img/1-Prejuicios.jpg" alt="" class="img-modulos" (click)="redirecMenu(1)">
@@ -69,33 +69,54 @@
             <div class="d-flex justify-content-center">
                 <h4 class="corporalidad-title mt-5" (click)="redirecMenu(3)">corporalida</h4>
             </div>
-        </div>
- -->
-       
-      
+        </div> -->
 
-        <div>
-            <div class="images wrapper">
-                <div class="flip-container" *ngFor="let item of menuInterno; let i=index">
-                    <ng-container *ngIf="i<=2;">
-                        <div class="card1">
-                            <div class="front" [ngStyle]="{'background-image': 'url('+urlimage+item.imagen_min+')'}">
-                              <h3>{{item.name_module}}</h3>
-                            </div>
-                            <div class="back">
-                              <p>{{item.description}}</p>
-                              <div class=" d-flex justify-content-center">
-                                  <span>
-                                      ver mas
-                                      <i class="bi bi-arrow-right"></i>
-                                  </span>
-                              </div>
+        <div class="images wrapper">
+            <div class="flip-card" *ngFor="let item of menuInterno; let i=index">
+                <ng-container *ngIf="i<=1;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img [src]="urlimage+item.imagen_min" style="width:100%;height:100%;">
+                          <h3 class="title-card-flip">{{item.name_module}}</h3>
+                        </div>
+                        <div class="flip-card-back d-flex align-items-center">
+                            <div>
+                                <p class="">{{item.description}}</p>
+                                <p>
+                                    <span class="float-end ver-mas" (click)="redirecMenu(item.id)">
+                                        Ver mas
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </p>
                             </div>
                         </div>
-                    </ng-container>
-                </div> 
+                    </div>
+                </ng-container>
             </div>
         </div>
+        
+      
+
+       <!--  <div>
+            <div class="images wrapper">
+                <div class="flip-container" *ngFor="let item of menuInterno; let i=index">
+                    <div class="card1">
+                        <div class="front" [ngStyle]="{'background-image': 'url('+urlimage+item.imagen_min+')'}">
+                            <h3>{{item.name_module}}</h3>
+                        </div>
+                        <div class="back">
+                            <p>{{item.description}}</p>
+                            <div class=" d-flex justify-content-center">
+                                <span>
+                                    ver mas
+                                    <i class="bi bi-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div> -->
        
 
     </section>

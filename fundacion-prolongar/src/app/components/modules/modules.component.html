@@ -12,7 +12,7 @@
             <div class="col-lg-5 col-sm-12 card-responsive" (click)="verSubmodule(item.id)">
                 <img [src]="urlimage+item.image_min" alt="" width="100%" height="280px" [ngClass]="{'opacity': item.view_module==0}" class="img-sub-module">
                 <ng-container *ngIf="item.view_module==0; else elseTemplate">
-                    <img src="../../../assets/img/Candado.png" alt="" class="eye">
+                    <img src="./assets/img/Candado.png" alt="" class="eye">
                 </ng-container>
                 <ng-template #elseTemplate>
                     
@@ -22,7 +22,7 @@
                 </ng-container>
                 <ng-template #elseTemplateglobo1>
                     <span class="img-globo">
-                        <img src="../../../assets/img/Globo-2.png" alt="">
+                        <img src="./assets/img/Globo-2.png" alt="">
                     </span>
                 </ng-template>   
             </div>
@@ -31,18 +31,18 @@
 
                 <ng-container *ngIf="item.view_module==0; else elseTemplate" >
                     <button class="float-end btn-visualized">
-                        <img src="../../../assets/img/3-Ojo.png" alt="">
+                        <img src="./assets/img/3-Ojo.png" alt="">
                     </button>
                 </ng-container>
                 <ng-template #elseTemplate>
                     <button class="float-end btn-visualized-ok">
-                        <img src="../../../assets/img/2-OK.png" alt="">
+                        <img src="./assets/img/2-OK.png" alt="">
                     </button>
                 </ng-template>
             </div>
             <hr class="mt-5">
             <div class="d-flex justify-content-center mb-5">
-                <img src="../../../assets/img/Flecha.png" alt="" width="50px">
+                <img src="./assets/img/Flecha.png" alt="" width="50px">
             </div>
         </ng-container>
         <ng-template #elseTemplate>
@@ -54,7 +54,7 @@
                 <div class="col-lg-5 col-sm-12 card-responsive">
                     <img [src]="urlimage+item.image_min" alt="" width="100%" height="280px" [ngClass]="{'opacity': item.view_module==0}" class="img-sub-module">
                     <ng-container *ngIf="item.view_module==0; else elseTemplate">
-                        <img src="../../../assets/img/Candado.png" alt="" class="eye">
+                        <img src="./assets/img/Candado.png" alt="" class="eye">
                     </ng-container>
                     <ng-template #elseTemplate>
                         
@@ -64,7 +64,7 @@
                     </ng-container>
                     <ng-template #elseTemplateglobo2>
                         <span class="img-globo">
-                            <img src="../../../assets/img/Globo-2.png" alt="">
+                            <img src="./assets/img/Globo-2.png" alt="">
                         </span>
                     </ng-template>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="col-lg-5 col-sm-12" (click)="verSubmodule(item.id)">
                     <img [src]="urlimage+item.image_min" alt="" width="100%" height="280px" [ngClass]="{'opacity': item.view_module==0}" class="img-sub-module">
                     <ng-container *ngIf="item.view_module==0; else elseTemplate">
-                        <img src="../../../assets/img/Candado.png" alt="" class="eye">
+                        <img src="./assets/img/Candado.png" alt="" class="eye">
                     </ng-container>
                     <ng-template #elseTemplate>
                         
@@ -83,7 +83,7 @@
                     </ng-container>
                     <ng-template #elseTemplateglobo2>
                         <span class="img-globo">
-                            <img src="../../../assets/img/Globo-2.png" alt="">
+                            <img src="./assets/img/Globo-2.png" alt="">
                         </span>
                     </ng-template>
                 </div>
@@ -93,12 +93,12 @@
                 <p class="text-sub-module">{{item.description}}</p>
                 <ng-container *ngIf="item.view_module==0; else elseTemplate" >
                     <button class="float-end btn-visualized">
-                        <img src="../../../assets/img/3-Ojo.png" alt="">
+                        <img src="./assets/img/3-Ojo.png" alt="">
                     </button>
                 </ng-container>
                 <ng-template #elseTemplate>
                     <button class="float-end btn-visualized-ok">
-                        <img src="../../../assets/img/2-OK.png" alt="">
+                        <img src="./assets/img/2-OK.png" alt="">
                     </button>
                 </ng-template>
             </div>
