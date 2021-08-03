@@ -28,6 +28,10 @@ h5 a:hover{
 
 }
 
+.align-left{
+  text-align: left !important;
+}
+
 
 /* Estilos generales fomularui*/
 
@@ -50,9 +54,11 @@ label{
     padding: 0.2rem 0rem;
     text-align: right;
     font-size: 0.8rem;
-    margin-bottom: -1.2rem;
+    margin-bottom: -0.5rem;
 }
 
+.ng-invalid.is-submitted  input.ng-invalid,
+.ng-invalid.is-submitted  select.ng-invalid,
 input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched{
   border: 1px solid #d4826e !important;
