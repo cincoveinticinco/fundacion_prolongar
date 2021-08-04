@@ -26,6 +26,7 @@ class AdminController < ApplicationController
   	  module_page = ModulePage.new if module_page.blank? 
   	  module_page.name_module = params[:name_module]
   	  module_page.imagen_min = imagen_min if !imagen_min.nil?
+      module_page.color_module = params[:color_module]
   	  module_page.description = params[:description]
   	  module_page.img_banner = img_banner if !img_banner.nil?
   	  module_page.save 
@@ -257,7 +258,7 @@ class AdminController < ApplicationController
   end
 
   def delete_file(img)
-  	img = "#{Rails.root}/public/#{img}"
+  	img = "#{Rails.root}/public/#{img}"  
   	File.delete(img) if File.exist?(img)
   end
 

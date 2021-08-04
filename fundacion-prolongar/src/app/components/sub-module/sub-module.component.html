@@ -19,6 +19,11 @@
                 ver despues
             </button>
         </div>
+        <div class="d-flex justify-content-end" *ngIf="datos.module_page.file_pdf != null">
+            <a class="btn float-end" [href]="urlPdf+datos.module_page.file_pdf">
+                <img src="../../../assets/img/Ico-PDF.png" alt="">
+            </a>
+        </div>
 
         <ng-container *ngIf="next==0;">
             <div class="col-lg-2 mt-5">

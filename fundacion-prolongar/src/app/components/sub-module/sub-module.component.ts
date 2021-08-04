@@ -3,7 +3,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import {DomSanitizer} from '@angular/platform-browser';
-
+import { environment } from 'src/environments/environment';
+environment
 @Component({
   selector: 'app-sub-module',
   templateUrl: './sub-module.component.html',
@@ -18,13 +19,15 @@ export class SubModuleComponent implements OnInit {
   completado:boolean=false;
   verDespues:boolean=false;
   messageSubModule:boolean=false;
+  urlPdf:any;
 
   constructor(private router: Router, private services:ServicesProlongarService,private rutaActiva: ActivatedRoute,private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
+    this.urlPdf= environment.url;
+
     this.datInfo();
   }
-
 
   datInfo(){
     this.rutaActiva.paramMap.subscribe(data=>{
@@ -38,7 +41,6 @@ export class SubModuleComponent implements OnInit {
       });
     });
   }
-
 
   compled(id:any) {
     this.completado =!this.completado;
@@ -91,8 +93,8 @@ export class SubModuleComponent implements OnInit {
   next_submodule(data:any,module:any){
 
    if(this.datos.module_page.view_module==0){
-    this.messageSubModule =true;
-    return
+      this.messageSubModule =true;
+      return
    }
 
     this.verDespues =false;

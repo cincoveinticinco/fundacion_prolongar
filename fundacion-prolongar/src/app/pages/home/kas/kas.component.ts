@@ -23,7 +23,7 @@ export class KasComponent implements OnInit {
   datoskas(){
     this.services.infoHome().subscribe(data => {
       this.datos = data
-      this.kas = this.datos.menu_content[1];
+      this.kas = this.datos.menu_content[4];
     })
   }
 }

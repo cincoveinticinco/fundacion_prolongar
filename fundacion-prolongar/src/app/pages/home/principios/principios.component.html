@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container mt-5">
     <div class="row" *ngIf="principios">
         <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
-            <img [src]="urlimage+principios.image" alt="" width="336px" height="280px" class="img-seccion">
+            <img [src]="urlimage+principios.image" width="280px" height="336px" class="img-seccion">
         </div>
         <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
             <h3 class="mb-5 mt-2 text-center text-uppercase">{{principios.name_page}}</h3>
-            <p [innerHTML]="principios.texto"></p>
+            <p class="text-justify mx-5" [innerHTML]="principios.texto"></p>
         </div>
     </div>
 </div>

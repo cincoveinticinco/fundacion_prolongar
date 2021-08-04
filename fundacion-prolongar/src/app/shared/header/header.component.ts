@@ -16,11 +16,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     let url = this.router.url;
-    this.rutaMenu = url
+    this.rutaMenu = url.substr(1,4);
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
       let url = this.router.url;
-      this.rutaMenu = url
+      this.rutaMenu = url.substr(1,4);
     });
 
     this.router.events.subscribe((val) => {
