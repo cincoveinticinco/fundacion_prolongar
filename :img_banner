@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20210804151449_add_color_module_to_module_page.rb

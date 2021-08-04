@@ -5,6 +5,7 @@ class SubModulePage < ApplicationRecord
   		SubModulePage.select("sub_module_pages.*,group_concat(distinct dependence.sub_module_name) name_dependences")
   		.joins("left join sub_module_page_dependences on sub_module_page_dependences.sub_module_page_id = sub_module_pages.id")
   		.joins("left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id")
+		.where("sub_module_pages.module_page_id=?",module_page_id)
   		.group("sub_module_pages.id")
   end
 
