@@ -42,7 +42,11 @@ class WebServicesController < ApplicationController
       user.age = params[:age]
       user.gender_id = params[:gender_id]
       user.current_location = params[:current_location]
-      user.city_id = params[:city_id]
+      if user.current_location==false
+         user.city_id = "949"
+      else
+        user.city_id = params[:city_id]
+      end
       user.receive_info = params[:receive_info]
 
       check_email = User.getEmail(params[:email])

@@ -10,11 +10,17 @@
 	<br>
 
 	<label>Imagen Modulo</label>
-	<input type="file" name="imagen_min" <% if @module_page.blank? %> required="" <% end %> >
+	<input type="file" name="imagen_min" <% if @module_page.blank? %>  <% end %> >
 	<% if !@module_page.blank? %>
 		<img src="<%=@module_page.imagen_min %>" width="100" height="100"> 
 		<input type="hidden" name="id" value ="<%= @module_page.id%>" >
 	<% end %>
+	<br>
+
+	<label>Color</label>
+	<input type="color" name="color_select">
+	<input type="text" name="color_module" value=color_select>
+	<input type="text" name="color_module" value="<%= !@module_page.blank? ?  @module_page.color_module : '' %>">
 	<br>
 
 	<label>Descripcion Corta</label>
@@ -22,7 +28,7 @@
 	<br>
 
 	<label>Banner (Tamaño 336 x 280 px)</label>
-	<input type="file" name="img_banner"  <% if @module_page.blank? %> required="" <% end %>>
+	<input type="file" name="img_banner"  <% if @module_page.blank? %>  <% end %>>
 	<% if !@module_page.blank? %>
 		<img src="<%=@module_page.img_banner %>" width="100" height="100"> 
 	<% end %>
