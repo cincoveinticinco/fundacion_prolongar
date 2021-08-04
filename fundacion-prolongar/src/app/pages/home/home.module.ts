@@ -8,6 +8,7 @@ import { APP_ROUTING } from './home.routes';
 import { KasComponent } from './kas/kas.component';
 import { HomesComponent  } from './home/home.component';
 
+
 @NgModule({
   declarations: [
     AQuienVaDirigidaComponent,

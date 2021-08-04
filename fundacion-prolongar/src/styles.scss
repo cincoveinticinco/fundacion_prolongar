@@ -79,6 +79,25 @@ select.ng-invalid.ng-touched{
   color: #b9b9b9 !important;
 }
 
+.textcontent-submodule p{
+  font-weight: 300;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.textcontent-submodule p strong{
+  font-weight: 900;
+}
+
+.textcontent-submodule img{
+  object-fit: contain;
+  // margin: 0 auto;
+  // display: block;
+  // width: 100% !important;
+  // height: auto !important;
+}
+
 @media (max-width: 500px) {
   .img-seccion {
     width: 100% !important;

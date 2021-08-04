@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
@@ -8,7 +8,8 @@ environment
 @Component({
   selector: 'app-sub-module',
   templateUrl: './sub-module.component.html',
-  styleUrls: ['./sub-module.component.scss']
+  styleUrls: ['./sub-module.component.scss'],
+  //encapsulation: ViewEncapsulation.None
 })
 export class SubModuleComponent implements OnInit {
 
@@ -144,6 +145,10 @@ export class SubModuleComponent implements OnInit {
     let urlYouTube="https://www.youtube.com/embed/"
     let url3 = url2.concat(urlYouTube+url2[1])
     return this.sanitizer.bypassSecurityTrustResourceUrl(url3[2])
+  }
+
+  safeHtml(content:any) {
+    return this.sanitizer.bypassSecurityTrustHtml(content)
   }
 
 }

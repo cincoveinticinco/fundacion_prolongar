@@ -10,11 +10,11 @@
 
     <div class="row">
       <div class="col-12 mt-5" *ngIf="moduleInfo.content">
-          <p [innerHTML]="moduleInfo.content"></p>
+          <div class="textcontent-submodule" [innerHTML]="safeHtml(moduleInfo.content)"></div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row row-buttons">
       <div class="d-flex justify-content-center mt-4">
           <a class="btn" (click)="compled($event, moduleInfo.id)" [ngClass]="{'btn-sub-module': completado==false,'btn-sub-module-select': completado==true}">
               <img src="./assets/img/2-OK.png" alt="">
@@ -25,14 +25,15 @@
               ver despues
           </a>
       </div>
+      <div class="button-file" *ngIf="moduleInfo.file_pdf != null">
+        <a class="btn" [href]="urlPdf+moduleInfo.file_pdf">
+            <img src="../../../assets/img/Ico-PDF.png" alt="">
+        </a>
+    </div>
     </div>
 
     <div class="row">
-      <div class="d-flex justify-content-end" *ngIf="moduleInfo.file_pdf != null">
-          <a class="btn float-end" [href]="urlPdf+moduleInfo.file_pdf">
-              <img src="../../../assets/img/Ico-PDF.png" alt="">
-          </a>
-      </div>
+
     </div>
 
     <div class="row">

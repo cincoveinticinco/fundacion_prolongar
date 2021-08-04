@@ -56,6 +56,8 @@
 }
 
 
+
+
 .title-sub-module{
     font-size: 25px;
     letter-spacing: 2.5px;
@@ -89,3 +91,15 @@
     margin: 0.5em;
 }
 
+.row-buttons{
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.row-buttons .button-file{
+  position: absolute;
+  right: 7px;
+  bottom: calc(50% - 10px);
+  transform: translateY(50%);
+  width: 100px;
+}

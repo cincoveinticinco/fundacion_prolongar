@@ -43,6 +43,9 @@ import { LoaderComponent } from './shared/loader/loader.component';
     ComponentsModule,
     FormsModule
   ],
+  exports: [
+    LoaderComponent
+  ],
   providers: [TextTransformPipe],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
