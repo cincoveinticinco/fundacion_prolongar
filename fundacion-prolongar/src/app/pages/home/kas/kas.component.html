@@ -1,11 +1,15 @@
+<app-loader *ngIf="!kas"></app-loader>
 <div class="container mt-5">
     <div class="row" *ngIf="kas">
         <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
-            <img [src]="urlimage+kas.image" width="280px" height="336px"  class="img-seccion">
+            <img [src]="urlimage+kas.image"   class="img-seccion ">
         </div>
         <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #ebc998">
             <h3 class="mb-5 mt-2 text-center text-uppercase">{{kas.name_page}}</h3>
             <div class="text-justify" [innerHTML]="kas.texto" ></div>
+            <div class="text-justify">
+                {{kas.texto}}
+            </div>
         </div>
     </div>
 </div>

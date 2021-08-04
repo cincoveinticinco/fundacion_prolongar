@@ -1,3 +1,4 @@
+<app-loader *ngIf="!principios"></app-loader>
 <div class="container mt-5">
     <div class="row" *ngIf="principios">
         <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
@@ -5,7 +6,7 @@
         </div>
         <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
             <h3 class="mb-5 mt-2 text-center text-uppercase">{{principios.name_page}}</h3>
-            <p class="text-justify mx-5" [innerHTML]="principios.texto"></p>
+            <div class="text-justify mx-lg-5" [innerHTML]="principios.texto"></div>
         </div>
     </div>
 </div>

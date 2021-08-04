@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { APP_ROUTING } from './app.routes';
@@ -31,7 +31,8 @@ import { ValidateAgeDirective } from './shared/directives/validate-age.directive
     TextTransformPipe,
     RecuperarPasswordComponent,
     ValidateEqualDirective,
-    ValidateAgeDirective
+    ValidateAgeDirective,
+   
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,10 @@ import { ValidateAgeDirective } from './shared/directives/validate-age.directive
     ComponentsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TextTransformPipe],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
