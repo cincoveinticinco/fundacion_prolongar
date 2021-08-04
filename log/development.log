@@ -44780,6 +44780,7 @@ Processing by AdminController#create_module as HTML
 Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 4632)
 
 
+<<<<<<< HEAD
 Started GET "/admin/index" for ::1 at 2021-08-04 12:22:29 -0500
   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
 Processing by AdminController#index as HTML
@@ -45018,3 +45019,15 @@ Processing by WebServicesController#info_user as */*
 Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 9576)
 
 
+=======
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT GET_LOCK('6269247306950290740', 0)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColorModuleToModulePage (20210804151449)
+  [1m[35m (50.7ms)[0m  [1m[35mALTER TABLE `module_pages` ADD `color_module` varchar(255) AFTER `img_banner`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210804151449')[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('6269247306950290740')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+>>>>>>> 4c5231ccc39d9b20d75fdf15f935791bfb4de183
