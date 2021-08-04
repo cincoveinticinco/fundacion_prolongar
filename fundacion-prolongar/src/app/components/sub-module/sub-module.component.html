@@ -6,24 +6,29 @@
             
         </div>
         <div class="col-12" *ngIf="datos">
-             <iframe class="mt-5" [src]="url(datos.module_page.link)" allowfullscreen width="100%" height="1000px"></iframe>
+             <iframe class="mt-5" [src]="url(datos.module_page.link)" allowfullscreen width="100%" height="100%"></iframe>
         </div>
         
         <div class="d-flex justify-content-center mt-5">
             <button class="btn" (click)="compled(datos.module_page.id)" [ngClass]="{'btn-sub-module': completado==false,'btn-sub-module-select': completado==true}">
-                <img src="../../../assets/img/2-OK.png" alt="">
+                <img src="./assets/img/2-OK.png" alt="">
                 completado
             </button>
             <button class="btn" (click)="verdespues(datos.module_page.id)" [ngClass]="{'btn-sub-module': verDespues==false,'btn-sub-module-select': verDespues==true}">
-                <img src="../../../assets/img/3-Ojo.png" alt="">
+                <img src="./assets/img/3-Ojo.png" alt="">
                 ver despues
             </button>
+        </div>
+        <div class="d-flex justify-content-end" *ngIf="datos.module_page.file_pdf != null">
+            <a class="btn float-end" [href]="urlPdf+datos.module_page.file_pdf">
+                <img src="../../../assets/img/Ico-PDF.png" alt="">
+            </a>
         </div>
 
         <ng-container *ngIf="next==0;">
             <div class="col-lg-2 mt-5">
                 <button class="btn-round" (click)="previus_submodule(previus,moduleId)">
-                    <img src="../../../assets/img/6-Flecha_Izq.png" alt="">
+                    <img src="./assets/img/6-Flecha_Izq.png" alt="">
                 </button>
                 <span class="text-flecha">anterior</span>
             </div>
@@ -35,13 +40,13 @@
                 </ng-container>
                 <ng-template #elseTemplate>
                     <span class="img-globo">
-                        <img src="../../../assets/img/Globo-2.png" alt="">
+                        <img src="./assets/img/Globo-2.png" alt="">
                     </span>
                 </ng-template>
                 
                 <div>
                     <button class="btn-round" (click)="next_submodule(next,moduleId)" >
-                        <img src="../../../assets/img/7-Flecha_derecha.png" alt="">
+                        <img src="./assets/img/7-Flecha_derecha.png" alt="">
                     </button>
                     <span class="text-flecha">siguiente</span>
                 </div>
@@ -51,14 +56,14 @@
         <ng-container *ngIf="next!=0 && previus!=0;">
             <div class="col-lg-2 col-sm-4 mt-5">
                 <button class="btn-round" (click)="previus_submodule(previus,moduleId)">
-                    <img src="../../../assets/img/6-Flecha_Izq.png" alt="">
+                    <img src="./assets/img/6-Flecha_Izq.png" alt="">
                 </button>
                 <span class="text-flecha">anterior</span>
             </div>
             
             <div class="col-lg-1 col-sm-4 offset-lg-9 offset-sm-4 mt-5" nf>
                 <button class="btn-round" (click)="next_submodule(next,moduleId)">
-                    <img src="../../../assets/img/7-Flecha_derecha.png" alt="">
+                    <img src="./assets/img/7-Flecha_derecha.png" alt="">
                 </button>
                 <span class="text-flecha">siguiente</span>
             </div>

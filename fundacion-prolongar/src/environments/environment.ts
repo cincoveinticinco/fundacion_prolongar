@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  url:"http://localhost:3000/web_services/",
-  urlImage:"http://localhost:3000"
+  // url:"http://localhost:3000/web_services/",
+  // urlImage:"http://localhost:3000"
+
+  url:"http://35.84.147.171:3000/web_services/",
+  urlImage:"http://35.84.147.171:3000/"
 };
 
 /*

@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@font-face {
-    font-family: 'Roboto';
-    src: url("./assets/fonts/ROBOTO/Roboto-Light.ttf");
-  }
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url("./assets/fonts/ROBOTO/Roboto-Light.ttf");
+//   }
 
 * {
     font-family: 'Roboto' !important;
@@ -12,6 +12,67 @@ body {
   background-color: #fff8e6 !important;
 }
 
+h3{
+  letter-spacing: 3px;
+}
+
+h5 a{
+  color: #d4836e;
+  text-decoration: none;
+
+}
+
+h5 a:hover{
+  color: #d4836e;
+  text-decoration: underline;
+
+}
+
+.align-left{
+  text-align: left !important;
+}
+
+
+/* Estilos generales fomularui*/
+
+label{
+  color: #d4836e;
+  font-weight: 500;
+}
+
+.form-control{
+  border-radius: 0 !important;
+}
+
+.form-control:focus{
+  box-shadow: none !important;
+}
+
+.form-error{
+    display: block;
+    color: #d4826e;
+    padding: 0.2rem 0rem;
+    text-align: right;
+    font-size: 0.8rem;
+    margin-bottom: -0.5rem;
+}
+
+.ng-invalid.is-submitted  input.ng-invalid,
+.ng-invalid.is-submitted  select.ng-invalid,
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+  border: 1px solid #d4826e !important;
+}
+
+.alert-danger{
+  border-color: #d4826e !important;
+  background: #d4826ec2 !important;
+  color: white !important;
+}
+
+.legal-form{
+  color: #b9b9b9 !important;
+}
 
 @media (max-width: 500px) {
   .img-seccion {

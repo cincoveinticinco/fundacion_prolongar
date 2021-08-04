@@ -53,6 +53,13 @@
   top: -50%;
 }
 
+.img-banner{
+  width: 100%;
+  height: 500px;
+}  
+
+
+
 @media screen and (max-width:490px){
   .texto-encima {
     position: absolute;
@@ -67,6 +74,22 @@
 
   .title-sub-module{
     border-bottom: none;
+  }
+
+  .card-responsive{
+    height: 250px;
+  }
+
+  .img-banner{
+    width: 100%;
+    height: auto;
+  }
+
+  .eye{
+    position: relative;
+    top: -90%;
+    left: 40%;
+    z-index: 1;
   }
 
 }

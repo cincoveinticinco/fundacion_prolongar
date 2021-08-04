@@ -19,12 +19,14 @@ export class MenuComponent implements OnInit {
   menuInterno: any;
   menuSubHideShow:any;
   user:any;
+  rutaMenu:any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,private services:ServicesProlongarService,private authservices:AuthservicesService) {}
 
   ngOnInit(): void {
 
     let url = this.router.url;
+    this.rutaMenu = url
     this.menuSubHideShow=url.substr(1,4);
     this.moduleId=url.substr(8,1);
 
@@ -32,7 +34,6 @@ export class MenuComponent implements OnInit {
       this.datos=data;
       this.dataMenu = this.datos.sub_module_pages;
       this.menuTitle=this.datos.module_page;
-      console.log(data);
     });
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
@@ -40,6 +41,8 @@ export class MenuComponent implements OnInit {
       this.infoUser();
 
       let url = this.router.url;
+      this.rutaMenu = url
+      
       this.menuSubHideShow=url.substr(1,4);
       this.moduleId=url.substr(8,1);
 
@@ -47,7 +50,6 @@ export class MenuComponent implements OnInit {
         this.datos=data;
         this.dataMenu = this.datos.sub_module_pages;
         this.menuTitle=this.datos.module_page;
-        console.log(data);
       })
     });
 
@@ -56,7 +58,7 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['home/homes'])
+    this.router.navigate(['home'])
     this.authservices.logout();
   }
 

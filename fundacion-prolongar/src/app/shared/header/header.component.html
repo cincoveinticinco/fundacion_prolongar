@@ -2,23 +2,32 @@
     <div class="container-fluid collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-left" >
         <li class="nav-item">
-            <a class="navbar-brand">
-                <img src="../../../assets/img/Prolongar.png" alt="" class="img-menu">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/img/Prolongar.png" alt="" class="img-menu">
             </a>
         </li>
         <li  class="nav-item">
             <a class="navbar-brand" href="#">
-                <img src="../../../assets/img/konrad.png" alt="" class="img-menu">
+                <img src="./assets/img/konrad.png" alt="" class="img-menu">
             </a>
         </li>
-        <li class="nav-item button-hamburger">
-            <i class="bi bi-list btn-hamburger"></i>
+        <li  class="nav-item mx-1" *ngIf="rutaMenu!='/home/homes'">
+          <a class="navbar-brand" routerLink="home/homes" >
+              <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="" width="100%">
+          </a>
+        </li>
+        <li class="nav-item button-hamburger dropdown float-end">
+            <i class="bi bi-list dropbtn"></i>
+            <div class="dropdown-content">
+              <a class="nav-link" routerLink="login">inicio de sesión</a>
+              <a class="nav-link" routerLink="register">registro</a>
+            </div> 
         </li>
       </ul>
       <ul class="navbar-nav navbar-right">
         <li class="nav-item text-uppercase"><a class="nav-link" routerLink="login">inicio de sesión</a></li>
         <li class="nav-item"><a class="nav-link text-uppercase" >|</a></li>
-        <li class="nav-item text-uppercase"><a class="nav-link" routerLink="register">regitro</a></li>
+        <li class="nav-item text-uppercase"><a class="nav-link" routerLink="register">registro</a></li>
       </ul>
     </div>    
 </nav>
