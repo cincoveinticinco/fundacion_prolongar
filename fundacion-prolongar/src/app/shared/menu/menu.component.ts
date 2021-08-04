@@ -34,7 +34,6 @@ export class MenuComponent implements OnInit {
       this.datos=data;
       this.dataMenu = this.datos.sub_module_pages;
       this.menuTitle=this.datos.module_page;
-      console.log(data);
     });
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
@@ -42,7 +41,6 @@ export class MenuComponent implements OnInit {
       this.infoUser();
 
       let url = this.router.url;
-      console.log(url);
       this.rutaMenu = url
       
       this.menuSubHideShow=url.substr(1,4);
@@ -52,7 +50,6 @@ export class MenuComponent implements OnInit {
         this.datos=data;
         this.dataMenu = this.datos.sub_module_pages;
         this.menuTitle=this.datos.module_page;
-        console.log(data);
       })
     });
 
