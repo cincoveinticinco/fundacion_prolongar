@@ -69,7 +69,7 @@ class WebServicesController < ApplicationController
   def info_user
 
     id = params[:id]
-    user = User.all.where( 'id = ?' , id ).take
+    user = User.getUserinfo.where( 'id = ?' , id ).take
 
     render :json => { 
       :user => user

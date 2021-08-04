@@ -258,8 +258,8 @@ class AdminController < ApplicationController
   end
 
   def delete_file(img)
-  	img = "#{Rails.root}/public/#{img}"
-  	File.delete(img) if !File.exist?(img)
+  	img = "#{Rails.root}/public/#{img}"  
+  	File.delete(img) if File.exist?(img)
   end
 
   def validate_login
