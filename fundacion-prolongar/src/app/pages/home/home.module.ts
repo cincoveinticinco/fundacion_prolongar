@@ -25,7 +25,8 @@ import { LoaderComponent } from 'src/app/shared/loader/loader.component';
     APP_ROUTING
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    LoaderComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
