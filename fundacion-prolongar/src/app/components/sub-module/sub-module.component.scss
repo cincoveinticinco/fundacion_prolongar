@@ -1,19 +1,72 @@
+.content-submodule{
+  max-width: 990px;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+
+.videoWrapp{
+  height: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	position: relative;
+}
+
+.videoWrapp iframe{
+  max-height: 560px;
+  height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.content-button{
+  width: 80px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+}
+
 .btn-round{
     background-color: #fab180;
     display: block;
-    width: 3em;
-    height: 3em;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     border:none;
+    margin: 0 auto;
 }
 
-.title-sub-module{ 
-    color: #87b879;
+.left-button .btn-round img{
+  margin-left: -2px;
+  margin-top: -1px;
+}
+
+.right-button .btn-round img{
+  margin-left: 3px;
+  margin-top: -1px;
+}
+
+.right-button .img-globo{
+  position: absolute;
+  right: 60px;
+  bottom: -8px;
+
+}
+
+
+.title-sub-module{
+    font-size: 25px;
+    letter-spacing: 2.5px;
+    color: #87B878;
     text-transform: uppercase;
-    text-decoration-line: underline;
+    border-bottom: 1px solid #87B878;
+    padding-bottom: 5px;
+    display: inline-block;
 }
 
-.btn-sub-module { 
+.btn-sub-module {
     background-color: #fcc472;
     color: white;
     padding:0.4em 2.5em;
@@ -22,13 +75,13 @@
 }
 
 .text-flecha {
-    color: #fab180;
-    text-transform: uppercase;
-    font-weight:bold;
-    font-size:0.8em;
+  color: #fab180;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 0.9px;
 }
 
-.btn-sub-module-select{ 
+.btn-sub-module-select{
     background-color: #87b879;
     color: white;
     padding:0.4em 2.5em;
@@ -36,8 +89,3 @@
     margin: 0.5em;
 }
 
-.img-globo{
-    position: relative;
-    left: 1%;
-    top: -70px;
-}

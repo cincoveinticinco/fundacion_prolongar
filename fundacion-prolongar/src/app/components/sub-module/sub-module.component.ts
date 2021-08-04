@@ -18,8 +18,9 @@ export class SubModuleComponent implements OnInit {
   next:any;
   completado:boolean=false;
   verDespues:boolean=false;
-  messageSubModule:boolean=false;
-  urlPdf:any;
+  messageSubModule:any = null;
+  urlPdf: any;
+  moduleInfo: any;
 
   constructor(private router: Router, private services:ServicesProlongarService,private rutaActiva: ActivatedRoute,private sanitizer:DomSanitizer) { }
 
@@ -32,24 +33,31 @@ export class SubModuleComponent implements OnInit {
   datInfo(){
     this.rutaActiva.paramMap.subscribe(data=>{
       this.moduleId=data;
-      this.services.dataSubModule(this.moduleId.params['idsubmodule']).subscribe(data => {
-        this.datos=data;
-        this.next = this.datos.next_submodule;
-        this.previus = this.datos.prev_submodule
-        
+      this.services.dataSubModule(this.moduleId.params['idsubmodule']).subscribe((data:any) => {
+        this.datos = data;
+        this.moduleInfo = data.module_page
+        this.next = this.datos.next_submodule[0];
+        this.previus = this.datos.prev_submodule[0]
+
+        this.completado = this.moduleInfo.view_module == 1
+
         console.log(data);
       });
     });
   }
 
-  compled(id:any) {
+  compled(event:MouseEvent, id: any) {
+
+    event.preventDefault()
+
     this.completado =!this.completado;
-    this.verDespues =!this.completado;
+    this.verDespues = !this.completado;
+
     let view;
     if (this.completado) {
       view =1;
       console.log("1");
-      
+
     }else {
       console.log("0");
       view =0;
@@ -61,12 +69,15 @@ export class SubModuleComponent implements OnInit {
 
     this.services.viewSubModules(datos).subscribe(data=>{
       this.datInfo();
-      this.messageSubModule=false;
+      this.messageSubModule=null;
     })
-    
+
   }
 
-  verdespues(id:any){
+  verdespues(event:MouseEvent, id: any) {
+
+    event.preventDefault()
+
     this.verDespues =!this.verDespues;
     this.completado =!this.verDespues;
 
@@ -74,7 +85,7 @@ export class SubModuleComponent implements OnInit {
     if (this.verDespues) {
       view =0;
       console.log("1");
-      
+
     }else {
       console.log("0");
       view =1;
@@ -86,14 +97,14 @@ export class SubModuleComponent implements OnInit {
 
     this.services.viewSubModules(datos).subscribe(data=>{
       this.datInfo();
-      this.messageSubModule=false;
+      this.messageSubModule=null;
     })
   }
 
   next_submodule(data:any,module:any){
 
-   if(this.datos.module_page.view_module==0){
-      this.messageSubModule =true;
+   if(this.next.locked==1){
+      this.messageSubModule ='next';
       return
    }
 
@@ -102,10 +113,16 @@ export class SubModuleComponent implements OnInit {
     let idmodule=module.params['tipomodule'];
     let idsubmodule=data[0].id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
-    this.services.viewSubModules(data).subscribe(data =>{})
+    //this.services.viewSubModules(data).subscribe(data =>{})
   }
 
-  previus_submodule(data:any,module:any){
+  previus_submodule(data: any, module: any) {
+
+    if(this.previus.locked==1){
+      this.messageSubModule ='next';
+      return
+    }
+
     this.verDespues =false;
     this.completado =false;
     let idmodule=module.params['tipomodule'];
