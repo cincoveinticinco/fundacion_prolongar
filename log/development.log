@@ -47677,3 +47677,272 @@ Processing by WebServicesController#get_module as */*
 Completed 200 OK in 52ms (Views: 6.4ms | ActiveRecord: 12.3ms | Allocations: 31016)
 
 
+Started POST "/web_services/get_module" for ::1 at 2021-08-04 17:51:04 -0500
+Processing by WebServicesController#get_module as */*
+  Parameters: {"id"=>"24", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee"}
+  [1m[36mSessionToken Load (0.3ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.3ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 17:51:05.066939' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='24') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:122:in `get_module'
+  [1m[36mSubModulePage Load (0.7ms)[0m  [1m[34mSELECT sub_module_pages.*,dependence.name_dependences, if(dependence.name_dependences is not null,1,0) locked,
+			if(sub_module_page_has_users.view_module is true,1,0) view_module FROM `sub_module_pages` LEFT JOIN (
+				SELECT sub_module_page_dependences.sub_module_page_id,
+					group_concat(distinct dependence.sub_module_name) name_dependences
+				 from sub_module_page_dependences
+				left join sub_module_page_has_users on
+				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.sub_module_page_id
+				 and sub_module_page_has_users.user_id = 16 and sub_module_page_has_users.view_module is  true
+				left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id
+				where  sub_module_page_has_users.id is null
+				group by sub_module_page_dependences.sub_module_page_id
+				) dependence on dependence.sub_module_page_id=sub_module_pages.id left join sub_module_page_has_users on sub_module_page_has_users.sub_module_page_id = sub_module_pages.id 
+  				and sub_module_page_has_users.user_id = 16 WHERE (sub_module_pages.module_page_id=24) GROUP BY sub_module_pages.id[0m
+  ↳ app/controllers/web_services_controller.rb:127:in `get_module'
+Completed 200 OK in 30ms (Views: 5.7ms | ActiveRecord: 4.1ms | Allocations: 30200)
+
+
+Started POST "/web_services/view_module" for ::1 at 2021-08-04 17:55:24 -0500
+Processing by WebServicesController#view_module as */*
+  Parameters: {"sub_module_page_id"=>"14", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee", "view_module"=>"1"}
+  [1m[36mSessionToken Load (0.2ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.3ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 17:55:24.182105' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mSubModulePageHasUser Load (0.3ms)[0m  [1m[34mSELECT `sub_module_page_has_users`.* FROM `sub_module_page_has_users` WHERE (sub_module_page_id='14') AND (user_id=16) LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:171:in `view_module'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[36mSubModulePage Load (0.3ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE `sub_module_pages`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[36mSubModulePageHasUser Create (0.3ms)[0m  [1m[32mINSERT INTO `sub_module_page_has_users` (`sub_module_page_id`, `user_id`, `view_module`, `created_at`, `updated_at`) VALUES (14, 16, TRUE, '2021-08-04 17:55:24.203994', '2021-08-04 17:55:24.203994')[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 9.2ms | Allocations: 18169)
+
+
+Started POST "/web_services/get_module" for ::1 at 2021-08-04 17:55:28 -0500
+Processing by WebServicesController#get_module as */*
+  Parameters: {"id"=>"24", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee"}
+  [1m[36mSessionToken Load (0.4ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.3ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 17:55:28.458874' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='24') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:122:in `get_module'
+  [1m[36mSubModulePage Load (0.6ms)[0m  [1m[34mSELECT sub_module_pages.*,dependence.name_dependences, if(dependence.name_dependences is not null,1,0) locked,
+			if(sub_module_page_has_users.view_module is true,1,0) view_module FROM `sub_module_pages` LEFT JOIN (
+				SELECT sub_module_page_dependences.sub_module_page_id,
+					group_concat(distinct dependence.sub_module_name) name_dependences
+				 from sub_module_page_dependences
+				left join sub_module_page_has_users on
+				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.sub_module_page_id
+				 and sub_module_page_has_users.user_id = 16 and sub_module_page_has_users.view_module is  true
+				left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id
+				where  sub_module_page_has_users.id is null
+				group by sub_module_page_dependences.sub_module_page_id
+				) dependence on dependence.sub_module_page_id=sub_module_pages.id left join sub_module_page_has_users on sub_module_page_has_users.sub_module_page_id = sub_module_pages.id 
+  				and sub_module_page_has_users.user_id = 16 WHERE (sub_module_pages.module_page_id=24) GROUP BY sub_module_pages.id[0m
+  ↳ app/controllers/web_services_controller.rb:127:in `get_module'
+Completed 200 OK in 13ms (Views: 1.8ms | ActiveRecord: 4.6ms | Allocations: 6190)
+
+
+Started POST "/web_services/get_module" for ::1 at 2021-08-04 18:02:30 -0500
+Processing by WebServicesController#get_module as */*
+  Parameters: {"id"=>"24", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee"}
+  [1m[36mSessionToken Load (0.5ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.5ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 18:02:30.469170' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='24') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:122:in `get_module'
+  [1m[36mSubModulePage Load (0.7ms)[0m  [1m[34mSELECT sub_module_pages.*,dependence.name_dependences, if(dependence.name_dependences is not null,1,0) locked,
+			if(sub_module_page_has_users.view_module is true,1,0) view_module FROM `sub_module_pages` LEFT JOIN (
+				SELECT sub_module_page_dependences.sub_module_page_id,
+					group_concat(distinct dependence.sub_module_name) name_dependences
+				 from sub_module_page_dependences
+				left join sub_module_page_has_users on
+				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.dependence_id
+				 and sub_module_page_has_users.user_id = 16 and sub_module_page_has_users.view_module is  true
+				left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id
+				where  sub_module_page_has_users.id is null
+				group by sub_module_page_dependences.sub_module_page_id
+				) dependence on dependence.sub_module_page_id=sub_module_pages.id left join sub_module_page_has_users on sub_module_page_has_users.sub_module_page_id = sub_module_pages.id 
+  				and sub_module_page_has_users.user_id = 16 WHERE (sub_module_pages.module_page_id=24) GROUP BY sub_module_pages.id[0m
+  ↳ app/controllers/web_services_controller.rb:127:in `get_module'
+Completed 200 OK in 31ms (Views: 5.7ms | ActiveRecord: 4.5ms | Allocations: 30233)
+
+
+Started GET "/admin/create_sub_module/24" for ::1 at 2021-08-04 18:02:41 -0500
+Processing by AdminController#create_sub_module as HTML
+  Parameters: {"module_page_id"=>"24"}
+  Rendering admin/create_sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.3ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (module_page_id='24')[0m
+  ↳ app/views/admin/create_sub_module.html.erb:39
+  Rendered admin/create_sub_module.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1586)
+  Rendered layouts/_header.html.erb (Duration: 3.6ms | Allocations: 3120)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.3ms | Allocations: 5563)
+
+
+Started POST "/admin/insert_sub_module" for ::1 at 2021-08-04 18:02:53 -0500
+Processing by AdminController#insert_sub_module as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5IfSbWjv5DwTRepCr1zhCda4E9C5vFXzjWZDy6raID7z4flIM2EnWyPssblAEnxEDlKwwGpH812ejX80pwl4Eg==", "id"=>"", "module_page_id"=>"24", "sub_module_name"=>"sub 3", "description"=>"ok", "link"=>"", "dependences"=>["15"], "image_min"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb01301c18 @tempfile=#<Tempfile:/tmp/RackMultipart20210804-39009-16gxrqt.jpeg>, @original_filename="nairo.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image_min\"; filename=\"nairo.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "content"=>""}
+  [1m[36mSubModulePage Load (0.3ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE (id='') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:76:in `insert_sub_module'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_controller.rb:85:in `insert_sub_module'
+  [1m[36mModulePage Load (0.2ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE `module_pages`.`id` = 24 LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:85:in `insert_sub_module'
+  [1m[36mSubModulePage Create (0.4ms)[0m  [1m[32mINSERT INTO `sub_module_pages` (`module_page_id`, `sub_module_name`, `description`, `link`, `content`, `image_min`, `created_at`, `updated_at`) VALUES (24, 'sub 3', 'ok', '', '', '/img_modules/2021-08-0418:02:53-0500_nairo.jpeg', '2021-08-04 18:02:53.336925', '2021-08-04 18:02:53.336925')[0m
+  ↳ app/controllers/admin_controller.rb:85:in `insert_sub_module'
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_controller.rb:85:in `insert_sub_module'
+  [1m[36mSubModulePageDependence Load (0.3ms)[0m  [1m[34mSELECT `sub_module_page_dependences`.* FROM `sub_module_page_dependences` WHERE (sub_module_page_id=16)[0m
+  ↳ app/controllers/admin_controller.rb:88:in `insert_sub_module'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_controller.rb:94:in `block in insert_sub_module'
+  [1m[36mSubModulePage Load (0.2ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE `sub_module_pages`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:94:in `block in insert_sub_module'
+  [1m[36mSubModulePageDependence Create (0.2ms)[0m  [1m[32mINSERT INTO `sub_module_page_dependences` (`sub_module_page_id`, `dependence_id`, `created_at`, `updated_at`) VALUES (16, 15, '2021-08-04 18:02:53.352423', '2021-08-04 18:02:53.352423')[0m
+  ↳ app/controllers/admin_controller.rb:94:in `block in insert_sub_module'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_controller.rb:94:in `block in insert_sub_module'
+Redirected to http://localhost:3000/admin/sub_module/24
+Completed 302 Found in 24ms (ActiveRecord: 10.1ms | Allocations: 15152)
+
+
+Started GET "/admin/sub_module/24" for ::1 at 2021-08-04 18:02:53 -0500
+Processing by AdminController#sub_module as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='24') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:54:in `sub_module'
+  Rendering admin/sub_module.html.erb within layouts/application
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT sub_module_pages.*,group_concat(distinct dependence.sub_module_name) name_dependences FROM `sub_module_pages` left join sub_module_page_dependences on sub_module_page_dependences.sub_module_page_id = sub_module_pages.id left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id WHERE (sub_module_pages.module_page_id='24') GROUP BY sub_module_pages.id[0m
+  ↳ app/views/admin/sub_module.html.erb:21
+  Rendered admin/sub_module.html.erb within layouts/application (Duration: 1.2ms | Allocations: 879)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 3120)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 5400)
+
+
+Started POST "/web_services/get_module" for ::1 at 2021-08-04 18:02:58 -0500
+Processing by WebServicesController#get_module as */*
+  Parameters: {"id"=>"24", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee"}
+  [1m[36mSessionToken Load (0.3ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.3ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 18:02:58.510609' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mModulePage Load (0.2ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='24') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:122:in `get_module'
+  [1m[36mSubModulePage Load (0.7ms)[0m  [1m[34mSELECT sub_module_pages.*,dependence.name_dependences, if(dependence.name_dependences is not null,1,0) locked,
+			if(sub_module_page_has_users.view_module is true,1,0) view_module FROM `sub_module_pages` LEFT JOIN (
+				SELECT sub_module_page_dependences.sub_module_page_id,
+					group_concat(distinct dependence.sub_module_name) name_dependences
+				 from sub_module_page_dependences
+				left join sub_module_page_has_users on
+				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.dependence_id
+				 and sub_module_page_has_users.user_id = 16 and sub_module_page_has_users.view_module is  true
+				left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id
+				where  sub_module_page_has_users.id is null
+				group by sub_module_page_dependences.sub_module_page_id
+				) dependence on dependence.sub_module_page_id=sub_module_pages.id left join sub_module_page_has_users on sub_module_page_has_users.sub_module_page_id = sub_module_pages.id 
+  				and sub_module_page_has_users.user_id = 16 WHERE (sub_module_pages.module_page_id=24) GROUP BY sub_module_pages.id[0m
+  ↳ app/controllers/web_services_controller.rb:127:in `get_module'
+Completed 200 OK in 12ms (Views: 2.3ms | ActiveRecord: 4.3ms | Allocations: 6431)
+
+
+Started POST "/web_services/view_module" for ::1 at 2021-08-04 18:03:15 -0500
+Processing by WebServicesController#view_module as */*
+  Parameters: {"sub_module_page_id"=>"15", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee", "view_module"=>"1"}
+  [1m[36mSessionToken Load (0.2ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.3ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 18:03:15.271261' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mSubModulePageHasUser Load (0.3ms)[0m  [1m[34mSELECT `sub_module_page_has_users`.* FROM `sub_module_page_has_users` WHERE (sub_module_page_id='15') AND (user_id=16) LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:171:in `view_module'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[36mSubModulePage Load (0.4ms)[0m  [1m[34mSELECT `sub_module_pages`.* FROM `sub_module_pages` WHERE `sub_module_pages`.`id` = 15 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[36mSubModulePageHasUser Create (0.3ms)[0m  [1m[32mINSERT INTO `sub_module_page_has_users` (`sub_module_page_id`, `user_id`, `view_module`, `created_at`, `updated_at`) VALUES (15, 16, TRUE, '2021-08-04 18:03:15.301718', '2021-08-04 18:03:15.301718')[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:176:in `view_module'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 6.4ms | Allocations: 17955)
+
+
+Started POST "/web_services/get_module" for ::1 at 2021-08-04 18:03:20 -0500
+Processing by WebServicesController#get_module as */*
+  Parameters: {"id"=>"24", "token"=>"ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee"}
+  [1m[36mSessionToken Load (0.3ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'ce78d56ac04b7a73fe7709763e46a2876b662e86ba0e7f1a5354f67416dbb0ee') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.2ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-04 18:03:20.392859' WHERE `session_tokens`.`id` = 3[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='24') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:122:in `get_module'
+  [1m[36mSubModulePage Load (0.5ms)[0m  [1m[34mSELECT sub_module_pages.*,dependence.name_dependences, if(dependence.name_dependences is not null,1,0) locked,
+			if(sub_module_page_has_users.view_module is true,1,0) view_module FROM `sub_module_pages` LEFT JOIN (
+				SELECT sub_module_page_dependences.sub_module_page_id,
+					group_concat(distinct dependence.sub_module_name) name_dependences
+				 from sub_module_page_dependences
+				left join sub_module_page_has_users on
+				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.dependence_id
+				 and sub_module_page_has_users.user_id = 16 and sub_module_page_has_users.view_module is  true
+				left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id
+				where  sub_module_page_has_users.id is null
+				group by sub_module_page_dependences.sub_module_page_id
+				) dependence on dependence.sub_module_page_id=sub_module_pages.id left join sub_module_page_has_users on sub_module_page_has_users.sub_module_page_id = sub_module_pages.id 
+  				and sub_module_page_has_users.user_id = 16 WHERE (sub_module_pages.module_page_id=24) GROUP BY sub_module_pages.id[0m
+  ↳ app/controllers/web_services_controller.rb:127:in `get_module'
+Completed 200 OK in 12ms (Views: 1.9ms | ActiveRecord: 4.4ms | Allocations: 6425)
+
+
