@@ -15,7 +15,7 @@ class SubModulePage < ApplicationRecord
 					group_concat(distinct dependence.sub_module_name) name_dependences
 				 from sub_module_page_dependences
 				left join sub_module_page_has_users on
-				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.dependence_id
+				 sub_module_page_has_users.sub_module_page_id = sub_module_page_dependences.sub_module_page_id
 				 and sub_module_page_has_users.user_id = %s and sub_module_page_has_users.view_module is  true
 				left join sub_module_pages dependence  on dependence.id = sub_module_page_dependences.dependence_id
 				where  sub_module_page_has_users.id is null
