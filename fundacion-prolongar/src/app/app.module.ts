@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { APP_ROUTING } from './app.routes';
@@ -18,6 +18,7 @@ import { TextTransformPipe } from './shared/pipes/text-transform.pipe';
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 import { ValidateEqualDirective } from './shared/directives/validate-equal.directive';
 import { ValidateAgeDirective } from './shared/directives/validate-age.directive';
+import { LoaderComponent } from './shared/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ValidateAgeDirective } from './shared/directives/validate-age.directive
     TextTransformPipe,
     RecuperarPasswordComponent,
     ValidateEqualDirective,
-    ValidateAgeDirective
+    ValidateAgeDirective,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,10 @@ import { ValidateAgeDirective } from './shared/directives/validate-age.directive
     ComponentsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TextTransformPipe],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
