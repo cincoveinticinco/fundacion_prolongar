@@ -1,9 +1,9 @@
 <section class="home">
-    <div class="titulo mb-5">
+    <div class="titulo mb-1">
         <a routerLink="homes"><img src="./assets/img/LogoHome262X82.png" alt=""></a>
     </div>
 
-    <ul class="nav justify-content-center mt-3" *ngIf="this.datos">
+    <ul class="nav justify-content-center" *ngIf="this.datos">
         <li class="nav-item">
             <a class="nav-link fw-bolder" routerLink="para-que-es">{{this.menu[0].name_page}}</a>
         </li>
@@ -24,7 +24,7 @@
         </li>
     </ul>
       
-    <div class="mt-2">
+    <div class="">
         <router-outlet></router-outlet>
     </div>
 

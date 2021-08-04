@@ -26,7 +26,8 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
 
     let url = this.router.url;
-    this.rutaMenu = url
+    this.rutaMenu = url.substr(1,4);
+    
     this.menuSubHideShow=url.substr(1,4);
     this.moduleId=url.substr(8,1);
 
@@ -41,7 +42,7 @@ export class MenuComponent implements OnInit {
       this.infoUser();
 
       let url = this.router.url;
-      this.rutaMenu = url
+      this.rutaMenu = url.substr(1,4);
       
       this.menuSubHideShow=url.substr(1,4);
       this.moduleId=url.substr(8,1);
