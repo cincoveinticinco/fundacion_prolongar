@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthservicesService } from 'src/app/services/authservices.service';
 import { DepartamentosCiudadesService } from 'src/app/services/departamentos-ciudades.service';
 import { RegisterService } from 'src/app/services/register.service';
 
@@ -16,8 +18,12 @@ export class RegisterComponent implements OnInit {
   current_location:any;
 
   model:any={};
+  error: string = "";
 
-  constructor(private serviceDept:RegisterService,private register:RegisterService) { }
+  constructor(
+    private router:Router,
+    private register: RegisterService,
+    private auth: AuthservicesService) { }
 
   ngOnInit(): void {
     this.departamentosCiudades();
@@ -34,16 +40,22 @@ export class RegisterComponent implements OnInit {
   }
 
   departamentosCiudades(){
-    this.serviceDept.gnederDepartamentCity().subscribe((data:any)=>{
+    this.register.gnederDepartamentCity().subscribe((data:any)=>{
      this.departamentos=data.department;
      console.log(this.departamentos);
-     
+
     })
   }
 
-  ciudad(event: any){
-    let pais = event.target.value;
-    this.municipios=this.departamentos[pais]['cityf'];  
+  ciudad() {
+
+    this.model.city_id = null;
+
+    const departamento = this.departamentos.find((x:any) => x.id == this.model.departamento)
+    if (departamento) {
+        this.municipios = departamento.cityf
+    }
+
   }
 
   registrarUsuario(){
@@ -54,7 +66,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.model.current_location == 0) {
-      this.model.city_id=0;
+      this.model.city_id = 0
     }
 
     let datosUsuario ={
@@ -67,10 +79,19 @@ export class RegisterComponent implements OnInit {
       city_id:this.model.city_id,
       receive_info:this.info
     }
-    this.register.registrarUsuario(datosUsuario).subscribe(data=>{
-      console.log(data);
-      /* this.ngOnInit(); */
-    }) 
+    this.register.registrarUsuario(datosUsuario).subscribe((data:any) => {
+      if (data.error) {
+        this.error = data.msg
+        return;
+      }
+
+      this.auth.login({ email: this.model.email, password: this.model.password })
+        .subscribe(data => {
+          this.router.navigate(['/'])
+        })
+
+
+    })
   }
 
 }

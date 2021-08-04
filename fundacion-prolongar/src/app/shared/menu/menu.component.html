@@ -2,11 +2,25 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-left" >
-        <li class="nav-item text-uppercase"><a class="nav-link" routerLink="home/homes">caja de herramientas</a></li>
+        <li class="nav-item" *ngIf="rutaMenu=='/home/homes'">
+            <a class="navbar-brand" routerLink="home/homes" >
+                <img src="./assets/img/Prolongar.png" alt="" class="img-menu">
+            </a>
+        </li>
+        <li  class="nav-item" *ngIf="rutaMenu=='/home/homes'">
+            <a class="navbar-brand" routerLink="home/homes">
+                <img src="./assets/img/konrad.png" alt="" class="img-menu">
+            </a>
+        </li>
+        <li  class="nav-item mx-5" *ngIf="rutaMenu!='/home/homes'">
+          <a class="navbar-brand" routerLink="home/homes" >
+              <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="" width="100%">
+          </a>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropbtn">MÓDULOS</a> 
             <div class="dropdown-content">
-                <a class="nav-link" *ngFor="let item of menuInterno; let i=index" (click)="redirecMenu(item.id)">{{item.name_module}}</a>
+                <a class="nav-link text-uppercase" *ngFor="let item of menuInterno; let i=index" (click)="redirecMenu(item.id)">{{item.name_module}}</a>
             </div> 
         </li>
       </ul>
@@ -15,8 +29,8 @@
         <li class="nav-item dropdown">
             <i class="bi bi-person-circle btn-user dropbtn" style="font-size: 1.7em;"></i>
             <div class="dropdown-content">
-                <a class="nav-link text-dark text-uppercase" (click)="logout()">cerrar sesión</a>
-                <a class="nav-link text-dark text-uppercase">editar datos</a>
+                <a class="nav-link text-uppercase" (click)="logout()">cerrar sesión</a>
+                <a class="nav-link text-uppercase">editar datos</a>
             </div> 
         </li>
         <li class="nav-item button-hamburger" *ngIf="menuSubHideShow!='home'">
@@ -48,12 +62,12 @@
                             <li class="item-modules nav-item"> 
                                 <ng-container *ngIf="item.view_module==0; else elseTemplate" >
                                     <button class="float-start btn-visualized">
-                                        <img src="../../../assets/img/3-Ojo.png" alt="">
+                                        <img src="./assets/img/3-Ojo.png" alt="">
                                     </button>
                                 </ng-container>
                                 <ng-template #elseTemplate>
                                     <button class="float-start btn-visualized-ok">
-                                        <img src="../../../assets/img/2-OK.png" alt="">
+                                        <img src="./assets/img/2-OK.png" alt="">
                                     </button>
                                 </ng-template>
                                 <a class="nav-link" [ngClass]="{'disabled':item.view_module==0}" (click)="redirecSbMenu(item.id)">{{item.sub_module_name}}</a>

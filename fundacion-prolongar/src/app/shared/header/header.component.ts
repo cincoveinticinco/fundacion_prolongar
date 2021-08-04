@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   tokenValidate:any;
+  rutaMenu:any;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    let url = this.router.url;
+    this.rutaMenu = url
+
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
+      let url = this.router.url;
+      this.rutaMenu = url
+    });
+
     this.router.events.subscribe((val) => {
       this.tokenValidate =localStorage.getItem('token');
     });
