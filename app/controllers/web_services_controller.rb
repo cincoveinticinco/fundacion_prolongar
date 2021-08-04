@@ -151,7 +151,7 @@ class WebServicesController < ApplicationController
         next_submodule.push('id'=>next_sub.id,'locked'=>next_sub.locked,'name_dependences'=>next_sub.name_dependences)
       end
 
-      prev_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id<?',sub_module.id).order('sub_module_pages.id asc').take
+      prev_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id<?',sub_module.id).order('sub_module_pages.id desc').take
       prev_submodule = []
       if !prev_sub.blank?
         prev_submodule.push('id'=>prev_sub.id,'locked'=>prev_sub.locked,'name_dependences'=>prev_sub.name_dependences)
