@@ -29,20 +29,25 @@ export class ModulesComponent implements OnInit {
 
   viewModules(id: any){
     this.services.dataModule(id).subscribe(data => {
-      console.log(data);  
+      console.log(data);
       this.datos=data;
       this.subModule = this.datos.sub_module_pages
       this.modules = this.datos.module_page
     })
   }
 
-  verSubmodule(id:any){
+  verSubmodule(item: any) {
+
+    if (item.locked == 1) {
+      item.showMessageLocked = true;
+      return;
+    }
 
     if (this.subModule.view_module==0) {
       this.messageSubModule =true;
       return
     }
-    this.router.navigate(['modulo',this.moduleId.params['tipomodule'],id])
+    this.router.navigate(['modulo',this.moduleId.params['tipomodule'],item.id])
   }
 
 }

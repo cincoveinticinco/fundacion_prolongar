@@ -11,7 +11,7 @@
                 <img src="./assets/img/konrad.png" alt="" class="img-menu">
             </a>
         </li>
-        <li  class="nav-item mx-1" *ngIf="rutaMenu!='home'">
+        <li  class="nav-item mx-1" *ngIf="rutaMenu!='/home/homes' && rutaMenu!='/register' && rutaMenu!='/login'">
           <a class="navbar-brand" routerLink="home/homes" >
               <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="" width="100%">
           </a>
@@ -21,7 +21,7 @@
             <div class="dropdown-content">
               <a class="nav-link" routerLink="login">inicio de sesión</a>
               <a class="nav-link" routerLink="register">registro</a>
-            </div> 
+            </div>
         </li>
       </ul>
       <ul class="navbar-nav navbar-right">
@@ -29,7 +29,7 @@
         <li class="nav-item"><a class="nav-link text-uppercase" >|</a></li>
         <li class="nav-item text-uppercase"><a class="nav-link" routerLink="register">registro</a></li>
       </ul>
-    </div>    
+    </div>
 </nav>
 <ng-template #elseTemplate>
   <app-menu></app-menu>

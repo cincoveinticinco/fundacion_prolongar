@@ -10,17 +10,19 @@ ul {
     background-color: #fff8e6;
     list-style-type: none;
     margin: 0em 5em;
-    padding: 4em 1em 0em 1em;
+    padding: 1.5rem 1rem 1.5rem 1rem;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 12px;
+    line-height: 14px;
   }
-  
+
   li {
     float: left;
   }
-  
+
   li {
     width:auto;
     margin:1em;
@@ -37,6 +39,7 @@ ul {
 
   li img {
       width:100%;
+      object-fit: contain;
   }
 
   p {
@@ -53,7 +56,7 @@ ul {
         display: table-cell;
     }
     li {
-        width: auto;
+        width: 100%;
         display: block;
         color: #dd8d69;
         text-align: center;
@@ -62,9 +65,13 @@ ul {
         margin:0em;
     }
 
+    li p{
+      text-align: center;
+    }
+
     footer {
         background-color: #fff8e6;
-        color: #dd8d69; 
+        color: #dd8d69;
         position:relative;
         bottom:0;
         width:100%;

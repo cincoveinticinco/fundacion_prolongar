@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router, RoutesRecognized } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,9 +11,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fundacion-prolongar';
-  tokenValidate:any;
+  tokenValidate: any;
 
-  ngOnInit(){
-   
+  constructor(private router: Router) {
+
+    router.events
+      .pipe(filter(e => e instanceof RoutesRecognized))
+      .pipe(pairwise())
+      .subscribe((event: any[]) => {
+        localStorage.setItem('lastView', event[0].urlAfterRedirects)
+      })
+  }
+
+  ngOnInit() {
+
+
   }
 }

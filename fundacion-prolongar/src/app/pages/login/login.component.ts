@@ -17,14 +17,21 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    
+
     this.auth.login(this.model).subscribe(data=>{
       console.log(data);
       if (data.error) {
         this.error = data.msg;
         return;
       }
-      this.router.navigate(['/home/hom'])
+
+      const lastView = localStorage.getItem('lastView')
+      if (lastView && lastView.indexOf('modulo') != -1) {
+        this.router.navigate([lastView])
+      } else {
+        this.router.navigate(['/modulo/1'])
+      }
+
     })
   }
 
