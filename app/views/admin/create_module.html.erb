@@ -16,9 +16,8 @@
 		<input type="hidden" name="id" value ="<%= @module_page.id%>" >
 	<% end %>
 	<br>
-
-	<label>Color</label>
-	<input type="text" name="color_module" value="<%= !@module_page.blank? ?  @module_page.color_module : '' %>">
+	<label for="color_module">Color:</label>
+	<input type="color" name="color_module" value="<%= !@module_page.blank? ?  @module_page.color_module : '' %>">
 	<br>
 
 	<label>Descripcion Corta</label>

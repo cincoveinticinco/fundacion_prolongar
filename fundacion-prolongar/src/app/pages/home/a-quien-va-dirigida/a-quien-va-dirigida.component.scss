@@ -1,7 +1,25 @@
-h3, p {
+h3{
     color: #fab180;
+}
+
+p {
+    color: #fab180;
+    font-weight: 300;
+    width:100%;
 }
 
 h3 {
     font-weight: bolder;
+}
+
+.text-green {
+    color:#88b87b !important;
+}
+
+span {
+    color:#88b87b !important;
+}
+
+.text-justify{
+    text-align: justify;
 }
