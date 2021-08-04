@@ -19,4 +19,11 @@ class User < ApplicationRecord
 
     end
 
+    def self.getUserinfo
+
+      User.select('id,user_name,email,age, gender_id,current_location, city_id,receive_info,created_at,updated_at')
+
+    end
+
+
 end

@@ -44780,3 +44780,241 @@ Processing by AdminController#create_module as HTML
 Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 4632)
 
 
+Started GET "/admin/index" for ::1 at 2021-08-04 12:22:29 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.2ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (0.4ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.2ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:106
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:130
+  Rendered admin/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 26623)
+  Rendered layouts/_header.html.erb (Duration: 13.7ms | Allocations: 7439)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 84)
+Completed 200 OK in 50ms (Views: 35.1ms | ActiveRecord: 8.9ms | Allocations: 39338)
+
+
+Started GET "/img_modules/2021-08-0412:11:39-0500_nairo.jpeg" for ::1 at 2021-08-04 12:22:29 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/img_modules/2021-08-0412:11:39-0500_nairo.jpeg"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin/index" for ::1 at 2021-08-04 12:22:30 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.7ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.4ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:106
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:130
+  Rendered admin/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3911)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 3140)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 2.0ms | Allocations: 7792)
+
+
+Started GET "/img_modules/2021-08-0412:11:39-0500_nairo.jpeg" for ::1 at 2021-08-04 12:22:30 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/img_modules/2021-08-0412:11:39-0500_nairo.jpeg"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin/create_module/1" for ::1 at 2021-08-04 12:22:33 -0500
+Processing by AdminController#create_module as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModulePage Load (0.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:14:in `create_module'
+  Rendering admin/create_module.html.erb within layouts/application
+  Rendered admin/create_module.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1340)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 3117)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.6ms | Allocations: 5939)
+
+
+Started POST "/admin/insert_module" for ::1 at 2021-08-04 12:22:37 -0500
+Processing by AdminController#insert_module as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"35dfXmjikvJn0WZf++NvVm7tCHSzLE81NhGXW/9BGfDI8XR7M2xRlVd4PaQUrfIbtgerZGDX6Zsl+quk8pJB3A==", "name_module"=>"PREJUICIOS", "id"=>"1", "color_module"=>"#fb2323", "description"=>"TEXTO DEL OVER"}
+  [1m[36mModulePage Load (0.2ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages` WHERE (id='1') LIMIT 1[0m
+  ↳ app/controllers/admin_controller.rb:25:in `insert_module'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_controller.rb:32:in `insert_module'
+  [1m[36mModulePage Update (0.3ms)[0m  [1m[33mUPDATE `module_pages` SET `module_pages`.`color_module` = '#fb2323', `module_pages`.`updated_at` = '2021-08-04 12:22:37.595884' WHERE `module_pages`.`id` = 1[0m
+  ↳ app/controllers/admin_controller.rb:32:in `insert_module'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_controller.rb:32:in `insert_module'
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 6ms (ActiveRecord: 2.7ms | Allocations: 3890)
+
+
+Started GET "/admin/index" for ::1 at 2021-08-04 12:22:37 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.3ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.2ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:106
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:130
+  Rendered admin/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3893)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 3115)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 1.3ms | Allocations: 7745)
+
+
+Started GET "/img_modules/2021-08-0412:11:39-0500_nairo.jpeg" for ::1 at 2021-08-04 12:22:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/img_modules/2021-08-0412:11:39-0500_nairo.jpeg"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/web_services/info_user" for ::1 at 2021-08-04 12:39:49 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (id = '16') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 10264)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-04 12:40:14 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT user_name,email,age, gender_id,current_location, city_id,receive_info FROM `users` WHERE (id = '16') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 9518)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-04 12:40:26 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (id = '16') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 9499)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-04 12:40:57 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (id = '16') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 9599)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-04 12:41:12 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT id,user_name,email,age, gender_id,current_location, city_id,receive_info FROM `users` WHERE (id = '16') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 9467)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-04 12:42:10 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT id,user_name,email,age, gender_id,current_location, city_id,receive_info,created_at,updated_at FROM `users` WHERE (id = '16') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 9576)
+
+
