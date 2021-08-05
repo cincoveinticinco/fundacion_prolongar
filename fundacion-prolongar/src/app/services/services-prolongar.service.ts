@@ -15,7 +15,17 @@ export class ServicesProlongarService {
   infoHomeResponse = new Subject<any>()
   private infoHomeRequest = new BehaviorSubject(this._infoHomeData)
   private infoHomeMessage = this.infoHomeRequest.asObservable()
+  private isLoadingInfoHome: boolean = false;
+
   public get infoHomeData() {
+    if (!this._infoHomeData && !this.isLoadingInfoHome) {
+      this.isLoadingInfoHome = true;
+      this.infoHome()
+        .subscribe(data => {
+          this._infoHomeData = data
+          this.infoHomeRequest.next(data)
+        })
+    }
     return this.infoHomeMessage
   }
 
@@ -23,11 +33,7 @@ export class ServicesProlongarService {
 
   infoHome() {
     return this.http.post(`${this.apiUrl}info_home`, '')
-      .pipe(map((result: any) => {
-        this._infoHomeData = result
-        this.infoHomeRequest.next(result)
-        return result
-      }))
+      .pipe(map((result => result)))
   }
 
   dataModule(id:string){

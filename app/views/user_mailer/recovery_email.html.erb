@@ -2,15 +2,26 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <h1>Correo de Recuperación de contraseña, 
-    <p>Hola <%= @user.user_name%>, hemos recibidio una solicitud para reestablecer tu contraseña. </p>
-      Para recuperar tu contraseña 
-      <a href="<%= @url %>" >haz click aquí</a>
-    </p>
-    <p>
-  
-    </p>
+  <body style="margin: 0; padding: 0; font-family: 'Roboto'">
+  	<center>
+  	<table width="800px" style="margin: 0; padding: 0">
+  		<tr>
+  			<td>
+  				<img src="bannerMail.jpeg">
+			    <h1>Correo de Recuperación de contraseña</h1>
+			    <p>Hola <%= @user.user_name%>,</p>
+			    <p>Hemos recibidio una solicitud para reestablecer tu contraseña.</p>
+			    <p>
+			      Para recuperar tu contraseña 
+			      <a href="<%= @url %>" >haz click aquí</a>
+			    </p>
+  			</td>
+  		</tr>
+  	</table>
+  	</center>
   </body>
 </html>

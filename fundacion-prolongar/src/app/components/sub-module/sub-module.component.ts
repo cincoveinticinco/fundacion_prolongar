@@ -138,13 +138,28 @@ export class SubModuleComponent implements OnInit {
   }
 
   url(url:string) {
-    /* lo que llega de BD: https://youtu.be/ayd3yWr4tqU */
-    /* la correcta para el iframe: https://www.youtube.com/embed/ayd3yWr4tqU */
-    let urlgood = url
-    let url2 = urlgood.split('https://youtu.be/');
-    let urlYouTube="https://www.youtube.com/embed/"
-    let url3 = url2.concat(urlYouTube+url2[1])
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url3[2])
+
+
+    if (url.length <= 0)
+      return null;
+
+    if (url.indexOf('youtu') > -1) {
+      /* lo que llega de BD: https://youtu.be/ayd3yWr4tqU */
+      /* la correcta para el iframe: https://www.youtube.com/embed/ayd3yWr4tqU */
+      let urlgood = url
+      let url2 = urlgood.split('https://youtu.be/');
+      let urlYouTube="https://www.youtube.com/embed/"
+      let url3 = url2.concat(urlYouTube+url2[1])
+      return this.sanitizer.bypassSecurityTrustResourceUrl(url3[2])
+    }
+
+    if (url.indexOf('soundcloud') > -1) {
+      let urlSoundCloud = `https://w.soundcloud.com/player/?url=${url}&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`
+      return this.sanitizer.bypassSecurityTrustResourceUrl(urlSoundCloud)
+    }
+
+    return null;
+
   }
 
   safeHtml(content:any) {

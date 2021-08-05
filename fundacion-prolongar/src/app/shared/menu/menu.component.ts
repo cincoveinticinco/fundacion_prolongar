@@ -68,10 +68,12 @@ export class MenuComponent implements OnInit {
   }
 
   datosMenu(){
-    this.services.infoHome().subscribe((data: any) => {
-      console.log(data)
-      this.datos=data;
-      this.menuInterno = this.datos.module_page
+    this.services.infoHomeData.subscribe((data: any) => {
+      if (data) {
+        this.datos=data;
+        this.menuInterno = this.datos.module_page
+      }
+
     })
   }
 

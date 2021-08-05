@@ -42,8 +42,6 @@ export class RegisterComponent implements OnInit {
   departamentosCiudades(){
     this.register.gnederDepartamentCity().subscribe((data:any)=>{
      this.departamentos=data.department;
-     console.log(this.departamentos);
-
     })
   }
 
@@ -66,7 +64,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.model.current_location == 0) {
-      this.model.city_id = 0
+      this.model.city_id = null
     }
 
     let datosUsuario ={
@@ -79,6 +77,8 @@ export class RegisterComponent implements OnInit {
       city_id:this.model.city_id,
       receive_info:this.info
     }
+
+    console.log(datosUsuario)
     this.register.registrarUsuario(datosUsuario).subscribe((data:any) => {
       if (data.error) {
         this.error = data.msg

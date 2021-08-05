@@ -17,16 +17,20 @@ const routes: Routes = [
     {
       path: 'recuperar-contraseña',
       component: RecuperarPasswordComponent
-    },
+  },
+  {
+    path: 'recovery_password/:token',
+    component: RecuperarPasswordComponent
+  },
     {
       path: 'login',
       component: LoginComponent
-    }, 
+    },
     {
       path: '**',
       redirectTo: '/home/homes',
-      pathMatch: 'full' 
-    } 
+      pathMatch: 'full'
+    }
   ];
 
 
