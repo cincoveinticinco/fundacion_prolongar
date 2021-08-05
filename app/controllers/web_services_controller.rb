@@ -142,7 +142,7 @@ class WebServicesController < ApplicationController
 
   def get_sub_module
       user_id = @user.id
-      sub_module = SubModulePage.where('id=?',params[:id]).take
+      sub_module = SubModulePage.where('order_sub=?',params[:order_sub]).take
       sub_module_page = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id=?',sub_module.id).take
 
       next_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.order_sub>?',sub_module.order_sub).order('sub_module_pages.order_sub asc').take
