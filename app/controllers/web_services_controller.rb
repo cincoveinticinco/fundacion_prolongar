@@ -149,13 +149,13 @@ class WebServicesController < ApplicationController
       next_submodule = []
       
       if !next_sub.blank?
-        next_submodule.push('order_sub'=>next_sub.order_sub,'locked'=>next_sub.locked,'view_before'=>sub_module_page.view_module,'name_dependences'=>next_sub.name_dependences,'view_module'=>next_sub.view_module)
+        next_submodule.push('id'=>next_sub.id,'locked'=>next_sub.locked,'view_before'=>sub_module_page.view_module,'name_dependences'=>next_sub.name_dependences,'view_module'=>next_sub.view_module)
       end
    
       prev_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.order_sub<?',sub_module.order_sub).order('sub_module_pages.order_sub desc').take
       prev_submodule = []
       if !prev_sub.blank?
-        prev_submodule.push('order_sub'=>prev_sub.order_sub,'locked'=>prev_sub.locked,'name_dependences'=>prev_sub.name_dependences)
+        prev_submodule.push('id'=>prev_sub.id,'locked'=>prev_sub.locked,'name_dependences'=>prev_sub.name_dependences)
       end
 
       render :json => { 
