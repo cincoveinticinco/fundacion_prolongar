@@ -21,9 +21,12 @@ export class ParaQueEsComponent implements OnInit {
   }
 
   datosParaQ(){
-    this.services.infoHome().subscribe(data => {
-      this.datos=data;
-      this.paraque = this.datos.menu_content[0];
+    this.services.infoHomeData.subscribe(data => {
+      if (data) {
+        this.datos=data;
+        this.paraque = this.datos.menu_content[0];
+      }
+
     })
   }
 

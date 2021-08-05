@@ -6,7 +6,10 @@
         </div>
         <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
             <h3 class="mb-5 text-center text-uppercase">{{paraque.name_page}}</h3>
-            <p class="text-justify mx-lg-5" [innerHTML]="paraque.texto"></p>
+            <div class="text-justify mx-lg-5">
+              <div class="content-homepage " [innerHTML]="paraque.texto | safeHTML"></div>
+            </div>
+
         </div>
     </div>
 </div>

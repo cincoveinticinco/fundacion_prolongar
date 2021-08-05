@@ -18,6 +18,7 @@ import { TextTransformPipe } from './shared/pipes/text-transform.pipe';
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 import { ValidateEqualDirective } from './shared/directives/validate-equal.directive';
 import { ValidateAgeDirective } from './shared/directives/validate-age.directive';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,6 @@ import { ValidateAgeDirective } from './shared/directives/validate-age.directive
     RegisterComponent,
     MenuComponent,
     ValidarPasswordDirective,
-    TextTransformPipe,
     RecuperarPasswordComponent,
     ValidateEqualDirective,
     ValidateAgeDirective,
@@ -41,8 +41,8 @@ import { ValidateAgeDirective } from './shared/directives/validate-age.directive
     APP_ROUTING,
     ComponentsModule,
     FormsModule,
+    SharedModule
   ],
-  providers: [TextTransformPipe],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],

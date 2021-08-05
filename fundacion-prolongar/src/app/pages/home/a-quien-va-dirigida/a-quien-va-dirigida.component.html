@@ -6,7 +6,9 @@
         </div>
         <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
             <h3 class="mb-5 mt-2 text-center text-uppercase">{{aquien.name_page}}</h3>
-            <div class="text-justify mx-lg-5" [innerHTML]="aquien.texto |lowercase"></div>
+            <div class="text-justify mx-lg-5">
+              <div class="content-homepage " [innerHTML]="aquien.texto | safeHTML"></div>
+            </div>
         </div>
     </div>
 </div>

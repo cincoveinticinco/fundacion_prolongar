@@ -2,13 +2,20 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthservicesService {
 
-  public apiUrl:any=environment.url;
+  public apiUrl: any = environment.url;
+
+  private _infoUserData:any = null
+  private infoUserResponse = new Subject<any>()
+  private infoUserRequest = new BehaviorSubject(this._infoUserData)
+  private infoUserMessage = this.infoUserRequest.asObservable()
+
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +30,20 @@ export class AuthservicesService {
     }))
   }
 
-  infoUser(id:any) {
-    return this.http.post(`${this.apiUrl}info_user`, id);
+  public infoUserData(id: any) {
+    if (!this._infoUserData) {
+      this.infoUser(id).subscribe(data => {
+        this._infoUserData = data
+        this.infoUserRequest.next(data)
+      })
+    }
+
+    return this.infoUserMessage
+  }
+
+  infoUser(id: any) {
+    return this.http.post(`${this.apiUrl}info_user`, id)
+    .pipe(map(result => result))
   }
 
   logout() {
