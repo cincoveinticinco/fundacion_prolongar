@@ -1,22 +1,30 @@
 <footer class="container-fluid" id="footer">
-    <ul *ngIf="this.datos">
-        <li>
-            <img src="./assets/img/Log-Prolongar.png" alt="" height="38px">
-        </li>
-        <li>
-            <p>{{this.datos.name}} &#174;</p>
-            <p>{{this.datos.direccion}}</p>
-        </li>
-        <li>
-            <p>{{this.datos.edificio}}</p>
-            <p>{{this.datos.ciudad}}</p>
-        </li>
-        <li>
-            <p>Teléfono: {{this.datos.telefono}}</p>
-            <p>{{this.datos.email}}</p>
-        </li>
-        <li>
-            <img src="./assets/img/Log-Konrad.png" alt="" height="38px">
-        </li>
-    </ul>
+  <ul *ngIf="this.datos" class="iconos-movil">
+    <li>
+      <img src="./assets/img/Log-Prolongar.png" alt="" height="38px">
+    </li>
+    <li>
+      <img src="./assets/img/Log-Konrad.png" alt="" height="38px">
+    </li>
+  </ul>
+  <ul *ngIf="this.datos">
+    <li class="icono-desk">
+      <img src="./assets/img/Log-Prolongar.png" alt="" height="38px">
+    </li>
+    <li>
+      <p>{{this.datos.name}} &#174;</p>
+      <p>{{this.datos.direccion}}</p>
+    </li>
+    <li>
+      <p>{{this.datos.edificio}}</p>
+      <p>{{this.datos.ciudad}}</p>
+    </li>
+    <li>
+      <p>Teléfono: {{this.datos.telefono}}</p>
+      <p>{{this.datos.email}}</p>
+    </li>
+    <li class="icono-desk">
+      <img src="./assets/img/Log-Konrad.png" alt="" height="38px">
+    </li>
+  </ul>
 </footer>

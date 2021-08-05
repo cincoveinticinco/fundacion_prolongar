@@ -8,7 +8,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HomeModule } from './pages/home/home.module';
 import { ComponentsModule } from './components/components.module';
 import { MenuComponent } from './shared/menu/menu.component';
@@ -19,6 +19,8 @@ import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar
 import { ValidateEqualDirective } from './shared/directives/validate-equal.directive';
 import { ValidateAgeDirective } from './shared/directives/validate-age.directive';
 import { SharedModule } from './shared/shared.module';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { HttpCatchErrors } from './services/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { SharedModule } from './shared/shared.module';
     RecuperarPasswordComponent,
     ValidateEqualDirective,
     ValidateAgeDirective,
-   
+    PerfilComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,9 @@ import { SharedModule } from './shared/shared.module';
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpCatchErrors, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -26,16 +26,15 @@ export class AuthservicesService {
       let body:any = resp;
       if (body.error ==false) {
         localStorage.setItem('token',body.token);
-        localStorage.setItem('id',body.user_id);
       }
       return body;
     }))
   }
 
-  public infoUserData(id: any) {
+  public infoUserData() {
     if (!this._infoUserData && !this.isLoadinginfoUser) {
       this.isLoadinginfoUser = true
-      this.infoUser(id).subscribe(data => {
+      this.infoUser().subscribe(data => {
         this._infoUserData = data
         this.infoUserRequest.next(data)
       })
@@ -44,8 +43,9 @@ export class AuthservicesService {
     return this.infoUserMessage
   }
 
-  infoUser(id: any) {
-    return this.http.post(`${this.apiUrl}info_user`, id)
+  infoUser() {
+    const token = localStorage.getItem('token')
+    return this.http.post(`${this.apiUrl}info_user`, {token: token})
     .pipe(map(result => result))
   }
 
@@ -64,6 +64,8 @@ export class AuthservicesService {
   }
 
   logout() {
+    this._infoUserData = null;
+    this.isLoadinginfoUser = false;
     return localStorage.clear();
   }
 }

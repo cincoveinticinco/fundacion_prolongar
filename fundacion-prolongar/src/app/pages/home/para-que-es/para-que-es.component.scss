@@ -1,9 +1,9 @@
 h3{
-    color: #fab180;
+    color: #f5af80;
 }
 
 p {
-    color: #fab180;
+    color: #f5af80;
     font-weight: 300;
     width:100%;
 }
@@ -24,3 +24,10 @@ span {
     text-align: justify;
     line-height:18px ;
 }
+
+@media (max-width: 500px) {
+  .container{
+
+  }
+}
+

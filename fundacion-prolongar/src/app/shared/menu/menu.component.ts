@@ -31,15 +31,7 @@ export class MenuComponent implements OnInit {
     this.menuSubHideShow=url.substr(1,4);
     this.moduleId=url.substr(8,1);
 
-    this.services.dataModule(this.moduleId).subscribe(data => {
-      this.datos=data;
-      this.dataMenu = this.datos.sub_module_pages;
-      this.menuTitle=this.datos.module_page;
-    });
-
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
-
-      this.infoUser();
 
       let url = this.router.url;
       this.rutaMenu = url.substr(1,4);
@@ -47,13 +39,10 @@ export class MenuComponent implements OnInit {
       this.menuSubHideShow=url.substr(1,4);
       this.moduleId=url.substr(8,1);
 
-      this.services.dataModule(this.moduleId).subscribe(data => {
-        this.datos=data;
-        this.dataMenu = this.datos.sub_module_pages;
-        this.menuTitle=this.datos.module_page;
-      })
+      this.datosModulo()
     });
 
+    this.datosModulo()
     this.datosMenu();
     this.infoUser();
   }
@@ -61,10 +50,21 @@ export class MenuComponent implements OnInit {
   logout() {
     this.router.navigate(['home'])
     this.authservices.logout();
+    window.location.reload()
   }
 
   menuHideShow() {
     this.menu =!this.menu;
+  }
+
+  datosModulo() {
+    this.services.infoDataModule(this.moduleId).subscribe(data => {
+      if (data) {
+        this.datos=data;
+        this.dataMenu = this.datos.sub_module_pages;
+        this.menuTitle=this.datos.module_page;
+      }
+    });
   }
 
   datosMenu(){
@@ -87,11 +87,10 @@ export class MenuComponent implements OnInit {
   }
 
   infoUser() {
-    let dataId={
-      id : localStorage.getItem('id')
-    }
-    this.authservices.infoUserData(dataId).subscribe(data => {
-      this.user = data;
+    this.authservices.infoUserData().subscribe((data:any) => {
+      if (data && data.user) {
+        this.user = data;
+      }
     })
   }
 }

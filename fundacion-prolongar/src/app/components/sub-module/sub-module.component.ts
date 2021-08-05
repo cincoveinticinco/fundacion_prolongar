@@ -14,6 +14,7 @@ export class SubModuleComponent implements OnInit {
 
   loader: boolean = true;
   moduleId:any;
+  subModuleId:any;
   datos:any;
   previus:any;
   next:any;
@@ -27,20 +28,26 @@ export class SubModuleComponent implements OnInit {
 
   ngOnInit(): void {
     this.urlPdf= environment.urlImage;
-
     this.datInfo();
   }
 
   datInfo(){
-    this.rutaActiva.paramMap.subscribe(data=>{
-      this.moduleId=data;
-      this.services.dataSubModule(this.moduleId.params['idsubmodule']).subscribe((data:any) => {
+    this.rutaActiva.params.subscribe(params => {
+
+      this.moduleId = params.tipomodule;
+      this.subModuleId = params.idsubmodule;
+
+      this.services.dataSubModule(this.subModuleId).subscribe((data:any) => {
         this.datos = data;
         this.moduleInfo = data.module_page
         this.next = this.datos.next_submodule[0];
         this.previus = this.datos.prev_submodule[0]
 
         this.completado = this.moduleInfo.view_module == 1
+
+        if (this.moduleInfo.locked == 1) {
+          this.router.navigate(['modulo', this.moduleId])
+        }
 
         this.loader = false
       });
@@ -68,7 +75,8 @@ export class SubModuleComponent implements OnInit {
       id:id
     };
 
-    this.services.viewSubModules(datos).subscribe(data=>{
+    this.services.viewSubModules(datos).subscribe(data => {
+      console.log(data);
       this.datInfo();
       this.messageSubModule=null;
     })
@@ -111,10 +119,9 @@ export class SubModuleComponent implements OnInit {
 
     this.verDespues =false;
     this.completado =false;
-    let idmodule=module.params['tipomodule'];
+    let idmodule=this.moduleId;
     let idsubmodule=data.id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
-    //this.services.viewSubModules(data).subscribe(data =>{})
   }
 
   previus_submodule(data: any, module: any) {
@@ -126,7 +133,7 @@ export class SubModuleComponent implements OnInit {
 
     this.verDespues =false;
     this.completado =false;
-    let idmodule=module.params['tipomodule'];
+    let idmodule=this.moduleId;
     let idsubmodule=data.id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
   }

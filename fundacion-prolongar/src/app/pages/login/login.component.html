@@ -13,7 +13,7 @@
 
         <form action="" class="form-register mt-4" #form="ngForm" name="form-login" (ngSubmit)="login()">
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-lg-6">
                     <label for="">Correo eletrónico</label>
                     <input #email="ngModel" type="email" class="form-control" name="email"  required pattern="([A-Z|a-z|0-9|\-!#$%&'*+_](\.){0,1})+[A-Z|a-z|0-9|\-!#$%&'*+_]\@([A-Z|a-z|0-9|\-!#$%&'*+_])+((\.){0,1}[A-Z|a-z|0-9]){1}\.[a-zA-Z]{2,6}(\.[a-zA-Z]{2,6})?" [(ngModel)]="model.email">
                     <ng-container *ngIf="email.errors && email.touched && email.invalid">
@@ -21,7 +21,7 @@
                       <span *ngIf="email.errors.required" class="form-error">Correo electrónico requerido</span>
                     </ng-container>
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg-6">
                     <label for="">Contraseña</label>
                     <input #password="ngModel" type="password" class="form-control" name="password" required [(ngModel)]="model.password">
                     <ng-container *ngIf="password.errors && password.touched && password.invalid">

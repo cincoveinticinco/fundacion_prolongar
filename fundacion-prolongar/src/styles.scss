@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #fff8e6 !important;
+  background-color: #fcf4e5 !important;
 }
 
 h3{
@@ -69,12 +69,12 @@ label{
 .ng-invalid.is-submitted  select.ng-invalid,
 input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched{
-  border: 1px solid #d4826e !important;
+  border: 1px solid #d58071 !important;
 }
 
 .alert-danger{
-  border-color: #d4826e !important;
-  background: #d4826ec2 !important;
+  border-color: #d58071 !important;
+  background: #d58071c2 !important;
   color: white !important;
 }
 
@@ -87,6 +87,11 @@ select.ng-invalid.ng-touched{
   color: #D5774F;
   font-weight: 300;
   font-size: 15px;
+}
+
+.content-homepage ul span,
+.content-homepage p span{
+  font-size: 15px !important;
 }
 
 .textcontent-submodule p{
@@ -108,9 +113,33 @@ select.ng-invalid.ng-touched{
   // height: auto !important;
 }
 
+.content-page .text-justify{
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #fcc474;
+}
+
 @media (max-width: 500px) {
   .img-seccion {
     width: 100% !important;
     margin-bottom: 2em;
+    object-fit: contain;
   }
+
+  .content-page{
+    padding: 0 3rem !important;
+  }
+
+  .content-page .text-justify{
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    border-bottom: 2px solid #fcc474;
+  }
+
+  // .order-sm-first{
+  //   order: 1 !important
+  // }
+
+  // .order-sm-last{
+  //   order: 6 !important
+  // }
 }
