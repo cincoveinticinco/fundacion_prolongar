@@ -48395,3 +48395,218 @@ Processing by WebServicesController#info_user as */*
 Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 4.4ms | Allocations: 4757)
 
 
+Started GET "/admin/index" for ::1 at 2021-08-05 12:52:08 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AdminController#index as HTML
+Redirected to http://localhost:3000/login/index
+Filter chain halted as :validate_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/login/index" for ::1 at 2021-08-05 12:52:08 -0500
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1187)
+  Rendered layouts/_header.html.erb (Duration: 14.2ms | Allocations: 7440)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 83)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 11028)
+
+
+Started POST "/login/login_admin" for ::1 at 2021-08-05 12:53:14 -0500
+Processing by LoginController#login_admin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5VPjlrJ8+H6bxgquel8vkTJ4ByEbKbogYPkL+trLC/uTAwrXPmR/2Sjmmu2fSkjNbtB0XV2FumJDZJ44TV3NYw==", "name"=>"alex", "password"=>"[FILTERED]"}
+  [1m[36mUserAdmin Load (3.5ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins` WHERE (name='alex') AND (password='a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3') LIMIT 1[0m
+  ↳ app/controllers/login_controller.rb:8:in `login_admin'
+Redirected to http://localhost:3000/login/index
+Completed 302 Found in 23ms (ActiveRecord: 5.3ms | Allocations: 2072)
+
+
+Started GET "/login/index" for ::1 at 2021-08-05 12:53:14 -0500
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 200)
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 3139)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 3975)
+
+
+Started POST "/login/login_admin" for ::1 at 2021-08-05 12:53:44 -0500
+Processing by LoginController#login_admin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BYH8vD3opVFqJuaMCcLJXxNUajjEgq9M037Tc0BXWU5z0RX9sfAi9tkGds/s164DT/wZRIIurw7w40ax18Gf1g==", "name"=>"admin", "password"=>"[FILTERED]"}
+  [1m[36mUserAdmin Load (0.4ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins` WHERE (name='admin') AND (password='a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3') LIMIT 1[0m
+  ↳ app/controllers/login_controller.rb:8:in `login_admin'
+Redirected to http://localhost:3000/login/index
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1037)
+
+
+Started GET "/login/index" for ::1 at 2021-08-05 12:53:44 -0500
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 191)
+  Rendered layouts/_header.html.erb (Duration: 3.7ms | Allocations: 3138)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 3966)
+
+
+Started POST "/login/login_admin" for ::1 at 2021-08-05 12:53:47 -0500
+Processing by LoginController#login_admin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Wv9WVHFpglyuuBsiKdN+cmnePQaDaOjeAlIJl3YYz6TOxQY3d0hrsGacC9tsiqllQ8LiFyho+FblN3kyk6lpg==", "name"=>"alex", "password"=>"[FILTERED]"}
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins` WHERE (name='alex') AND (password='a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3') LIMIT 1[0m
+  ↳ app/controllers/login_controller.rb:8:in `login_admin'
+Redirected to http://localhost:3000/login/index
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 1049)
+
+
+Started GET "/login/index" for ::1 at 2021-08-05 12:53:47 -0500
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 193)
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 3139)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 3965)
+
+
+Started POST "/login/login_admin" for ::1 at 2021-08-05 12:53:57 -0500
+Processing by LoginController#login_admin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uSUjA9b1qySI44u3EsNW17Xctv5SzEVihDweUjSkZCjPdcpCWu0sgzvDG/T31jGL6XTFghRgRSCnoYuQozKisA==", "name"=>"admin", "password"=>"[FILTERED]"}
+  [1m[36mUserAdmin Load (0.7ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins` WHERE (name='admin') AND (password='105072d0f811b7f114b3eb1caec082cc69aa7cde14640372e0fe233dcd6cdc9d') LIMIT 1[0m
+  ↳ app/controllers/login_controller.rb:8:in `login_admin'
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 13ms (ActiveRecord: 2.2ms | Allocations: 4299)
+
+
+Started GET "/admin/index" for ::1 at 2021-08-05 12:53:57 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.3ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (0.3ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:106
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:130
+  Rendered admin/index.html.erb within layouts/application (Duration: 27.4ms | Allocations: 19830)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 3142)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 42ms (Views: 27.5ms | ActiveRecord: 4.0ms | Allocations: 28438)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_444444_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-icons_555555_256x240.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:64:in `block (3 levels) in broadcast'
+activesupport (6.0.4) lib/active_support/logger_silence.rb:36:in `silence'
+activesupport (6.0.4) lib/active_support/logger.rb:62:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin/index" for ::1 at 2021-08-05 12:54:19 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.2ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (0.5ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.6ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:106
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:130
+  Rendered admin/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 4704)
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 3446)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 80)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 1.9ms | Allocations: 10135)
+
+
+Started GET "/admin/index" for ::1 at 2021-08-05 12:55:38 -0500
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUserAdmin Load (0.3ms)[0m  [1m[34mSELECT `user_admins`.* FROM `user_admins`[0m
+  ↳ app/views/admin/index.html.erb:19
+  [1m[36mHomeBanner Load (0.4ms)[0m  [1m[34mSELECT `home_banners`.* FROM `home_banners` ORDER BY `home_banners`.`order_banner` ASC[0m
+  ↳ app/views/admin/index.html.erb:49
+  [1m[36mMenuContent Load (0.4ms)[0m  [1m[34mSELECT `menu_contents`.* FROM `menu_contents` WHERE (id not in (3))[0m
+  ↳ app/views/admin/index.html.erb:77
+  [1m[36mModulePage Load (0.3ms)[0m  [1m[34mSELECT `module_pages`.* FROM `module_pages`[0m
+  ↳ app/views/admin/index.html.erb:106
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT `contacts`.* FROM `contacts`[0m
+  ↳ app/views/admin/index.html.erb:130
+  Rendered admin/index.html.erb within layouts/application (Duration: 41.3ms | Allocations: 22553)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 3431)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 80)
+Completed 200 OK in 67ms (Views: 42.7ms | ActiveRecord: 5.4ms | Allocations: 30443)
+
+
