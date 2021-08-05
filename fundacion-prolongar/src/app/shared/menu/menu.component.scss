@@ -143,6 +143,16 @@
 }
 
 @media (max-width: 500px) {
+
+  .dropdown-content{
+    right: 0%;
+    transform: none;
+  }
+
+  .navbar-nav.nav-left{
+    width: 70%;
+  }
+
   .titles-modules {
     display: block;
     /* align-self: center; */

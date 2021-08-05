@@ -1,16 +1,16 @@
 <app-loader *ngIf="!paraque"></app-loader>
 <div class="container mt-5">
     <div class="row" *ngIf="paraque">
-        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
-            <img [src]="urlimage+paraque.image" width="280px" height="336px" class="img-seccion">
-        </div>
-        <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
+      <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0 order-sm-first order-last">
+        <img [src]="urlimage+paraque.image" width="280px" height="336px" class="img-seccion">
+      </div>
+        <div class="col-xl-5 col-sm-12 order-sm-last order-first content-page">
             <h3 class="mb-5 text-center text-uppercase">{{paraque.name_page}}</h3>
             <div class="text-justify mx-lg-5">
               <div class="content-homepage " [innerHTML]="paraque.texto | safeHTML"></div>
             </div>
-
         </div>
+
     </div>
 </div>
 

@@ -45,6 +45,10 @@ export class SubModuleComponent implements OnInit {
 
         this.completado = this.moduleInfo.view_module == 1
 
+        if (this.moduleInfo.locked == 1) {
+          this.router.navigate(['modulo', this.moduleId])
+        }
+
         this.loader = false
       });
     });
@@ -118,7 +122,6 @@ export class SubModuleComponent implements OnInit {
     let idmodule=this.moduleId;
     let idsubmodule=data.id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
-    //this.services.viewSubModules(data).subscribe(data =>{})
   }
 
   previus_submodule(data: any, module: any) {

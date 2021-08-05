@@ -89,6 +89,11 @@ select.ng-invalid.ng-touched{
   font-size: 15px;
 }
 
+.content-homepage ul span,
+.content-homepage p span{
+  font-size: 15px !important;
+}
+
 .textcontent-submodule p{
   font-weight: 300;
   text-align: justify;
@@ -108,9 +113,33 @@ select.ng-invalid.ng-touched{
   // height: auto !important;
 }
 
+.content-page .text-justify{
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #fcc474;
+}
+
 @media (max-width: 500px) {
   .img-seccion {
     width: 100% !important;
     margin-bottom: 2em;
+    object-fit: contain;
   }
+
+  .content-page{
+    padding: 0 3rem !important;
+  }
+
+  .content-page .text-justify{
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    border-bottom: 2px solid #fcc474;
+  }
+
+  // .order-sm-first{
+  //   order: 1 !important
+  // }
+
+  // .order-sm-last{
+  //   order: 6 !important
+  // }
 }

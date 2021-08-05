@@ -11,19 +11,20 @@
                 <img src="./assets/img/konrad.png" alt="" class="img-menu">
             </a>
         </li>
-        <li  class="nav-item mx-1" *ngIf="rutaMenu!='/home/homes' && rutaMenu!='/register' && rutaMenu!='/login'">
+        <li  class="nav-item mx-1" *ngIf="rutaMenu!='home' && rutaMenu!='regi' && rutaMenu!='logi'">
           <a class="navbar-brand" routerLink="home/homes" >
               <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="" width="100%">
           </a>
         </li>
-        <li class="nav-item button-hamburger dropdown float-end">
+        <li class="nav-item button-hamburger dropdown float-end" (click)="toggleMenu()">
             <i class="bi bi-list dropbtn"></i>
-            <div class="dropdown-content">
+            <div *ngIf="toggleMenuButton" class="dropdown-content">
               <a class="nav-link" routerLink="login">inicio de sesión</a>
               <a class="nav-link" routerLink="register">registro</a>
             </div>
         </li>
       </ul>
+
       <ul class="navbar-nav navbar-right">
         <li class="nav-item text-uppercase"><a class="nav-link" routerLink="login">inicio de sesión</a></li>
         <li class="nav-item"><a class="nav-link text-uppercase" >|</a></li>

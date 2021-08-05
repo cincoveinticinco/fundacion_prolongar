@@ -1,10 +1,10 @@
 <app-loader *ngIf="!principios"></app-loader>
 <div class="container mt-5">
     <div class="row" *ngIf="principios">
-        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0">
+        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0 order-sm-first order-last">
             <img [src]="urlimage+principios.image" width="280px" height="336px" class="img-seccion">
         </div>
-        <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #fcc474;">
+        <div class="col-xl-5 col-sm-12 order-sm-last order-first content-page">
             <h3 class="mb-5 mt-2 text-center text-uppercase">{{principios.name_page}}</h3>
             <div class="text-justify mx-lg-5">
               <div class="content-homepage " [innerHTML]="principios.texto | safeHTML"></div>

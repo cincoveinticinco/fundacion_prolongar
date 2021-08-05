@@ -31,11 +31,7 @@ export class MenuComponent implements OnInit {
     this.menuSubHideShow=url.substr(1,4);
     this.moduleId=url.substr(8,1);
 
-
-
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
-
-      //this.infoUser();
 
       let url = this.router.url;
       this.rutaMenu = url.substr(1,4);
@@ -91,11 +87,10 @@ export class MenuComponent implements OnInit {
   }
 
   infoUser() {
-    let dataId={
-      id : localStorage.getItem('id')
-    }
-    this.authservices.infoUserData(dataId).subscribe(data => {
-      this.user = data;
+    this.authservices.infoUserData().subscribe((data:any) => {
+      if (data && data.user) {
+        this.user = data;
+      }
     })
   }
 }

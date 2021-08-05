@@ -131,6 +131,10 @@
   display: inline-block;
 }
 
+.content-center{
+  margin: 0 auto;
+}
+
 .half-wide{
   width: 50% !important;
 }
@@ -338,8 +342,14 @@ li a:hover {
 }
 
 @media (max-width: 500px) {
+
+  .dropdown-content{
+    position: static;
+    background-color: transparent;
+  }
   .miniBanner{
     width: 100% !important;
+    height: 150px;
   }
 
   .miniBanner.full-wide h3 .lineFullWide.lineLeft,
@@ -350,7 +360,7 @@ li a:hover {
 
 
   .miniBanner.full-wide{
-    height: 260px;
+    height: 150px;
     text-align: left;
   }
 
@@ -373,6 +383,25 @@ li a:hover {
     display: block !important;
   }
 
+  .contentDescription .content-description{
+    font-size: 14px;
+    height: 80px;
+  }
+
+  .miniBanner.full-wide  .ver-mas{
+    bottom: 0;
+  }
+
+  .ver-mas{
+    font-size: 14px;
+    bottom: -20px;
+
+  }
+
+  .mt-5{
+    margin: 0 !important;
+  }
+
 
 
   ul {
@@ -383,6 +412,24 @@ li a:hover {
     display: grid;
     justify-content: center;
   }
+
+  ul li{
+    display: block;
+    width: 100%;
+  }
+
+  ul li a{
+    font-size: 15px;
+    font-weight: 500 !important;
+    padding: 10px 16px;
+  }
+
+  .text-modulos{
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+
 
   .wrapper{
     display: grid;

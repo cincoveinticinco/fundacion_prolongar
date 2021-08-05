@@ -47,13 +47,35 @@ ul {
     margin-bottom: 0;
 }
 
+.iconos-movil{
+  display: none;
+  width: 100%;
+  margin: 0;
+
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 0;
+}
+
+.iconos-movil{
+  padding: 1rem;
+}
+
 @media screen and (max-width:490px){
+
+  .iconos-movil{
+    display: grid;
+  }
+
+  .icono-desk{
+    display: none;
+  }
 
     ul{
         background-color: #fcf4e5;
         list-style-type: none;
         overflow: hidden;
         display: table-cell;
+        padding-top: 0;
     }
     li {
         width: 100%;
@@ -61,7 +83,7 @@ ul {
         color: #dd8d69;
         text-align: center;
         text-decoration: none;
-        padding: 1em;
+        padding: 0.5rem;
         margin:0em;
     }
 
