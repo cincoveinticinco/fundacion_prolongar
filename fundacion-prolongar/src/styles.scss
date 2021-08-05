@@ -34,7 +34,13 @@ h5 a:hover{
   text-align: left !important;
 }
 
+.align-right{
+  text-align: right !important;
+}
 
+.align-center{
+  text-align: center !important;
+}
 /* Estilos generales fomularui*/
 
 label{
@@ -52,7 +58,7 @@ label{
 
 .form-error{
     display: block;
-    color: #d4826e;
+    color: #b1b1b1;
     padding: 0.2rem 0rem;
     text-align: right;
     font-size: 0.8rem;
@@ -74,6 +80,32 @@ select.ng-invalid.ng-touched{
 
 .legal-form{
   color: #b9b9b9 !important;
+}
+
+.content-homepage p{
+  text-align: justify;
+  color: #D5774F;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.textcontent-submodule p{
+  font-weight: 300;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.textcontent-submodule p strong{
+  font-weight: 900;
+}
+
+.textcontent-submodule img{
+  object-fit: contain;
+  // margin: 0 auto;
+  // display: block;
+  // width: 100% !important;
+  // height: auto !important;
 }
 
 @media (max-width: 500px) {

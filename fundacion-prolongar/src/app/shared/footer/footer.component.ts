@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FooterService } from 'src/app/services/footer.service';
 import { map } from 'rxjs/operators';
+import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,17 +13,18 @@ export class FooterComponent implements OnInit {
   public datafooter:any;
   public datos:any;
 
-  constructor(private serviceFooter:FooterService) { }
+  constructor(private serviceFooter:ServicesProlongarService) { }
 
   ngOnInit(): void {
     this.infoFooter()
   }
 
   infoFooter() {
-    let datos;
-    this.serviceFooter.infoFooter().subscribe(data => {
-      this.datafooter = data;
-      this.datos = this.datafooter.contact[0];
+    this.serviceFooter.infoHomeData.subscribe(data => {
+      if (data) {
+        this.datafooter = data;
+        this.datos = this.datafooter.contact[0];
+      }
     })
   }
 }

@@ -1,3 +1,4 @@
+<app-loader *ngIf="loader"></app-loader>
 <section class="home">
     <div class="titulo mb-1">
         <a routerLink="homes"><img src="./assets/img/LogoHome262X82.png" alt=""></a>
@@ -11,10 +12,10 @@
             <a class="nav-link fw-bolder" routerLink="a-quienva-dirigida">{{this.menu[1].name_page}}</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link fw-bolder dropbtn">MÓDULOS</a> 
+            <a class="nav-link fw-bolder dropbtn">MÓDULOS</a>
             <div class="dropdown-content" >
                 <a class="text-uppercase" *ngFor="let item of menuInterno; let i=index" (click)="redirecMenu(item.id)">{{item.name_module}}</a>
-            </div> 
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link fw-bolder" routerLink="principios">{{this.menu[3].name_page}}</a>
@@ -23,7 +24,7 @@
             <a class="nav-link fw-bolder" routerLink="kas">{{this.menu[4].name_page}}</a>
         </li>
     </ul>
-      
+
     <div class="">
         <router-outlet></router-outlet>
     </div>
@@ -35,7 +36,7 @@
                 </a>
             </div>
     </div>
- 
+
     <section class="modulos">
         <div class="container">
             <div class="row">
@@ -51,9 +52,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
 
         <!-- <div>
             <div class="images wrapper">
@@ -65,38 +66,39 @@
                 </div>
                  <div>
                     <img src="../../../assets/img/2-Emociones.jpg" alt="" class="img-modulos">
-                </div> 
+                </div>
             </div>
         </div>
-        
+
         <div class="corporalidad">
             <div class="d-flex justify-content-center">
                 <h4 class="corporalidad-title mt-5" (click)="redirecMenu(3)">corporalida</h4>
             </div>
         </div> -->
 
-        <div class="images wrapper" *ngIf="menuInterno">
-            <div class="flip-card"  *ngFor="let item of menuInterno; let i=index">
-                <ng-container *ngIf="i<=2;" >
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                          <img [src]="urlimage+item.imagen_min" style="width:100%;height:100%;">
-                          <h3 class="title-card-flip">{{item.name_module}}</h3>
-                        </div>
-                        <div class="flip-card-back d-flex align-items-center">
-                            <div>
-                                <p class="">{{item.description}}</p>
-                                <p class="content-ver-mas mt-5">
-                                    <span class="float-end ver-mas" (click)="redirecMenu(item.id)">
-                                        Ver mas
-                                        <i class="bi bi-arrow-right"></i>
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        <div  *ngIf="menuInterno">
+          <ng-container  *ngFor="let item of menuInterno; let i=index">
+            <div class="miniBanner" [class]="getPositionBanner(i)" [ngStyle]="{'background-color': item.color_module}" >
+
+              <h3>
+                <ng-container *ngIf="getPositionBanner(i) == 'full-wide'">
+                <span class="lineFullWide lineLeft"></span>
+                <span class="lineFullWide lineRight"></span>
                 </ng-container>
+                {{item.name_module | uppercase}}
+              </h3>
+              <div class="contentDescription">
+                <div class="content-description">{{item.description}}</div>
+                <div>
+                    <span class="float-end ver-mas" (click)="redirecMenu(item.id)">
+                        Ver mas
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                  </div>
             </div>
+          </div>
+          </ng-container>
+
         </div>
     </section>
 </section>

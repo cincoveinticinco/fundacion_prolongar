@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-  public datos:any;
+  public loader = true;
+  public datos: any;
   public menu:any;
   menuInterno:any;
   urlimage: any;
@@ -22,19 +23,35 @@ export class HomeComponent implements OnInit {
     this.urlimage = environment.urlImage;
   }
 
-  datosMenu(){
-    this.services.infoHome().subscribe(data=>{
-      this.datos=data;
-      this.menu = this.datos.menu_content;
-      this.menuInterno = this.datos.module_page
-      console.log(this.menuInterno);
-      
+  datosMenu() {
+    this.services.infoHomeData.subscribe(data => {
+      if (data) {
+        this.datos=data;
+        this.menu = this.datos.menu_content;
+        this.menuInterno = this.datos.module_page
+        this.loader = false
+      }
+
     })
   }
 
   redirecMenu(id: any){
     this.router.navigate(['modulo/',id])
   }
-  
+
+  getPositionBanner(index:any) {
+    const esPar = index % 2 == 0;
+
+    if (!esPar) {
+      return 'half-wide';
+    } else {
+      if (index == this.menuInterno.length - 1) {
+        return 'full-wide';
+      }
+    }
+
+    return 'half-wide';
+  }
+
 
 }

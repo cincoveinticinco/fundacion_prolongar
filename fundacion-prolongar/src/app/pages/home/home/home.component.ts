@@ -17,11 +17,9 @@ export class HomesComponent implements OnInit {
 
   ngOnInit(): void {
     this.urlimage = environment.urlImage;
-    console.log(this.urlimage);
-    this.datosBanner();
   }
 
-  datosBanner(){
+  datosBanner() {
     this.services.infoHome().subscribe(data=>{
       this.datos=data;
       this.homeBanner = this.datos.menu_content;

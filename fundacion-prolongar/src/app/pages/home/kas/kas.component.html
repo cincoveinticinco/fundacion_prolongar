@@ -6,10 +6,10 @@
         </div>
         <div class="col-xl-5 col-sm-12" style="border-bottom: 2px solid #ebc998">
             <h3 class="mb-5 mt-2 text-center text-uppercase">{{kas.name_page}}</h3>
-            <div class="text-justify" [innerHTML]="kas.texto" ></div>
-            <div class="text-justify">
-                {{kas.texto}}
+            <div class="text-justify mx-lg-5">
+              <div class="content-homepage " [innerHTML]="kas.texto | safeHTML"></div>
             </div>
+
         </div>
     </div>
 </div>
