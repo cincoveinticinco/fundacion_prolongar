@@ -4,14 +4,13 @@ class MailerController < ApplicationController
 
         params[:email] = params[:email].strip
         user = User.where('email = ?', params[:email]).take
-    
           if !user.blank?
-
+              url_back = request.base_url
               token = Digest::SHA256.hexdigest([Time.now, rand].join)
               user.recovery_password = token
               user.updated_at = Time.now
               user.save
-              UserMailer.recovery_email(user).deliver_later
+              UserMailer.recovery_email(user,url_back).deliver_later
                            
               render :json => {
               :error => false,
