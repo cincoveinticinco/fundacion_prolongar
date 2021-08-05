@@ -14,6 +14,7 @@ class MailerController < ApplicationController
                            
               render :json => {
               :error => false,
+              :url_back =>url_back,
               :msg => "Correo Enviado"
               }
           else
