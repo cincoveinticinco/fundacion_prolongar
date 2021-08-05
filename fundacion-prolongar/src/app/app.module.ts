@@ -32,7 +32,7 @@ import { SharedModule } from './shared/shared.module';
     RecuperarPasswordComponent,
     ValidateEqualDirective,
     ValidateAgeDirective,
-
+   
   ],
   imports: [
     BrowserModule,
