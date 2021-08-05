@@ -4,7 +4,7 @@ class MailerController < ApplicationController
 
         params[:email] = params[:email].strip
         user = User.where('email = ?', params[:email]).take
-    
+        @url2 = URL_FRONT
           if !user.blank?
 
               token = Digest::SHA256.hexdigest([Time.now, rand].join)
