@@ -47,7 +47,7 @@
                 <img src="./assets/img/6-Flecha_Izq.png" alt="">
             </button>
             <span class="text-flecha">Anterior</span>
-            <span class="img-globo"  *ngIf="messageSubModule=='prev'">
+            <span class="img-globo"  *ngIf="this.previus.locked==1">
               <img src="./assets/img/Globo-2.png" alt="">
             </span>
         </div>
@@ -59,7 +59,7 @@
               <img src="./assets/img/7-Flecha_derecha.png" alt="">
           </button>
           <span class="text-flecha">Siguiente</span>
-          <span class="img-globo" *ngIf="messageSubModule=='next'">
+          <span class="img-globo" *ngIf="this.next.locked==1">
             <img src="./assets/img/Globo-2.png" alt="">
           </span>
         </div>

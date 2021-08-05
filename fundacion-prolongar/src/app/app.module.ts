@@ -19,6 +19,7 @@ import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar
 import { ValidateEqualDirective } from './shared/directives/validate-equal.directive';
 import { ValidateAgeDirective } from './shared/directives/validate-age.directive';
 import { SharedModule } from './shared/shared.module';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { SharedModule } from './shared/shared.module';
     RecuperarPasswordComponent,
     ValidateEqualDirective,
     ValidateAgeDirective,
+    PerfilComponent,
    
   ],
   imports: [

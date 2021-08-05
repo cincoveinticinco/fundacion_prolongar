@@ -64,6 +64,8 @@ export class AuthservicesService {
   }
 
   logout() {
+    this._infoUserData = null;
+    this.isLoadinginfoUser = false;
     return localStorage.clear();
   }
 }

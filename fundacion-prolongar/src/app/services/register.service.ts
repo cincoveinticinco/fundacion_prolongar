@@ -12,7 +12,8 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   registrarUsuario(dataUser:any){
-    let datosUsuario ={
+    let datosUsuario = {
+      id: dataUser.id,
       user_name:dataUser.user_name,
       password:dataUser.password,
       email:dataUser.email,

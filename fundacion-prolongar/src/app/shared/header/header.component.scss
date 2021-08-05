@@ -3,11 +3,11 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #d4826e;
+    background-color: #d58071;
 }
 
 .navbar{
-  background-color: #d4826e;
+  background-color: #d58071;
 }
 
 .navbar * {
@@ -51,7 +51,7 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  color: #d4826e !important;
+  color: #d58071 !important;
 }
 
 /* Show the dropdown menu on hover */
@@ -80,7 +80,7 @@
   .dropdown-content{
     display: none;
     position: absolute;
-    background-color: #fcc472;
+    background-color: #f7c371;
     min-width: 100vw;
     box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 50%);
     z-index: 9999;

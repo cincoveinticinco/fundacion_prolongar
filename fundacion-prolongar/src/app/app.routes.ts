@@ -4,6 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AuthguardGuard } from './guards/authguard.guard';
 
 const routes: Routes = [
     {
@@ -13,6 +15,11 @@ const routes: Routes = [
     {
       path: 'register',
       component: RegisterComponent
+    },
+    {
+      path: 'editar-datos',
+      component: PerfilComponent,
+      canActivate:[AuthguardGuard],
     },
     {
       path: 'recuperar-contraseña',
