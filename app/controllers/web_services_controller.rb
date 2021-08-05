@@ -1,5 +1,5 @@
 class WebServicesController < ApplicationController
-  before_action :validate_session, only: [:get_module, :get_sub_module, :view_module]
+  before_action :validate_session, only: [:info_user, :get_module, :get_sub_module, :view_module]
   
   
   def info_home
@@ -68,8 +68,8 @@ class WebServicesController < ApplicationController
 
   def info_user
 
-    id = params[:id]
-    user = User.getUserinfo.where( 'id = ?' , id ).take
+    @user.id
+    user = User.getUserinfo.where( 'id = ?' , @user.id ).take
 
     render :json => { 
       :user => user

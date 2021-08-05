@@ -48213,3 +48213,185 @@ f64adc8125eece1e0bb251b15663175f0d56f23e5aae5c37" >haz click aqu=C3=AD</a=
 </html>=0D
 
 [ActiveJob] [ActionMailer::DeliveryJob] [e32dc2d9-4cdd-4c74-aa29-ad5958f662cc] Performed ActionMailer::DeliveryJob (Job ID: e32dc2d9-4cdd-4c74-aa29-ad5958f662cc) from Async(mailers) in 1713.31ms
+Started POST "/mailer/validate_email" for ::1 at 2021-08-05 12:16:27 -0500
+Processing by MailerController#validate_email as */*
+  Parameters: {"email"=>"john.jejen@cincoveinticinco.co"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (email = 'john.jejen@cincoveinticinco.co') LIMIT 1[0m
+  ↳ app/controllers/mailer_controller.rb:6:in `validate_email'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2101)
+
+
+Started POST "/mailer/validate_email" for ::1 at 2021-08-05 12:16:31 -0500
+Processing by MailerController#validate_email as */*
+  Parameters: {"email"=>"john.jejen@cincoveinticinco.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (email = 'john.jejen@cincoveinticinco.com') LIMIT 1[0m
+  ↳ app/controllers/mailer_controller.rb:6:in `validate_email'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mailer_controller.rb:13:in `validate_email'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`recovery_password` = '6545b5aaf080b1a070356332479b2cdde69f9aee2e9fed2b0b6e65e4b2c3d3c3', `users`.`updated_at` = '2021-08-05 12:16:31.046039' WHERE `users`.`id` = 16[0m
+  ↳ app/controllers/mailer_controller.rb:13:in `validate_email'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mailer_controller.rb:13:in `validate_email'
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: d6f109f2-6233-4974-9ef6-0af96e2e24b6) to Async(mailers) with arguments: "UserMailer", "recovery_email", "deliver_now", #<GlobalID:0x0000563f828f51c0 @uri=#<URI::GID gid://fundacion-prolongar/User/16>>
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 14508)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6] Performing ActionMailer::DeliveryJob (Job ID: d6f109f2-6233-4974-9ef6-0af96e2e24b6) from Async(mailers) enqueued at 2021-08-05T17:16:31Z with arguments: "UserMailer", "recovery_email", "deliver_now", #<GlobalID:0x0000563f829be9a8 @uri=#<URI::GID gid://fundacion-prolongar/User/16>>
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6] DEPRECATION WARNING: Sending mail with DeliveryJob and Parameterized::DeliveryJob is deprecated and will be removed in Rails 6.1. Please use MailDeliveryJob instead. (called from instance_exec at /home/john/.rvm/gems/ruby-2.6.3/gems/activesupport-6.0.4/lib/active_support/callbacks.rb:428)
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6]   Rendering user_mailer/recovery_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6]   Rendered user_mailer/recovery_email.html.erb within layouts/mailer (Duration: 0.6ms | Allocations: 163)
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6] UserMailer#recovery_email: processed outbound mail in 2.6ms
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6] Delivered mail 610c1cefef2d_37312b1fc16bac043963@john-VivoBook-ASUSLaptop-X421EAY-X413EA.mail (1798.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6] Date: Thu, 05 Aug 2021 12:16:31 -0500
+From: garabatos@fundacionprolongar.org
+To: john.jejen@cincoveinticinco.com
+Message-ID: <610c1cefef2d_37312b1fc16bac043963@john-VivoBook-ASUSLaptop-X421EAY-X413EA.mail>
+Subject: =?UTF-8?Q?Recuperaci=C3=B3n_de_Contrase=C3=B1a?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+    <link rel=3D"preconnect" href=3D"https://fonts.googleapis.com">=0D
+	<link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" crossorigin>=
+=0D
+	<link href=3D"https://fonts.googleapis.com/css2?family=3DRoboto:wght@400=
+;700&display=3Dswap" rel=3D"stylesheet">=0D
+  </head>=0D
+  <body style=3D"margin: 0; padding: 0; font-family: 'Roboto'">=0D
+  	<center>=0D
+  	<table width=3D"800px" style=3D"margin: 0; padding: 0">=0D
+  		<tr>=0D
+  			<td>=0D
+  				<img src=3D"bannerMail.jpeg">=0D
+			    <h1>Correo de Recuperaci=C3=B3n de contrase=C3=B1a</h1>=0D
+			    <p>Hola John Jejen,</p>=0D
+			    <p>Hemos recibidio una solicitud para reestablecer tu contrase=C3=B1=
+a.</p>=0D
+			    <p>=0D
+			      Para recuperar tu contrase=C3=B1a =0D
+			      <a href=3D"http://localhost:4200/recovery_password/6545b5aaf080b=
+1a070356332479b2cdde69f9aee2e9fed2b0b6e65e4b2c3d3c3" >haz click aqu=C3=AD=
+</a>=0D
+			    </p>=0D
+  			</td>=0D
+  		</tr>=0D
+  	</table>=0D
+  	</center>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+[ActiveJob] [ActionMailer::DeliveryJob] [d6f109f2-6233-4974-9ef6-0af96e2e24b6] Performed ActionMailer::DeliveryJob (Job ID: d6f109f2-6233-4974-9ef6-0af96e2e24b6) from Async(mailers) in 1801.46ms
+Started POST "/web_services/info_user" for ::1 at 2021-08-05 12:29:40 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mSessionToken Load (0.4ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = NULL) LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+Filter chain halted as :validate_session rendered or redirected
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 2101)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-05 12:29:53 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16", "token"=>"b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0"}
+  [1m[36mSessionToken Load (0.4ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+Filter chain halted as :validate_session rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 887)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-05 12:30:03 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16", "token"=>"a15a9a872b1994c3c72f7ef35987aabd6b2fc66c8940df800fd2a36049046b0c"}
+  [1m[36mSessionToken Load (0.3ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'a15a9a872b1994c3c72f7ef35987aabd6b2fc66c8940df800fd2a36049046b0c') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+Filter chain halted as :validate_session rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 887)
+
+
+Started POST "/web_services/validate_user" for ::1 at 2021-08-05 12:35:08 -0500
+Processing by WebServicesController#validate_user as */*
+  Parameters: {"email"=>"john.jejen@cincoveinticinco.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (email = 'john.jejen@cincoveinticinco.com') AND (password = 'b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:83:in `validate_user'
+  [1m[36mSessionToken Load (0.4ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (users_id = 16)[0m
+  ↳ app/controllers/web_services_controller.rb:109:in `create_token'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:109:in `create_token'
+  [1m[36mSessionToken Destroy (0.2ms)[0m  [1m[31mDELETE FROM `session_tokens` WHERE `session_tokens`.`id` = 4[0m
+  ↳ app/controllers/web_services_controller.rb:109:in `create_token'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:109:in `create_token'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:115:in `create_token'
+  [1m[36mSessionToken Create (0.3ms)[0m  [1m[32mINSERT INTO `session_tokens` (`users_id`, `token`, `created_at`, `updated_at`) VALUES (16, '7211f5a1c40d42fb73def70cfaf772103ab2e3858b3d1ca1cce8886c1be8d1a7', '2021-08-05 12:35:08.221482', '2021-08-05 12:35:08.221356')[0m
+  ↳ app/controllers/web_services_controller.rb:115:in `create_token'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:115:in `create_token'
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 10.3ms | Allocations: 18100)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-05 12:35:21 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16", "token"=>"7211f5a1c40d42fb73def70cfaf772103ab2e3858b3d1ca1cce8886c1be8d1a7"}
+  [1m[36mSessionToken Load (0.3ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = '7211f5a1c40d42fb73def70cfaf772103ab2e3858b3d1ca1cce8886c1be8d1a7') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.2ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-05 12:35:21.973897' WHERE `session_tokens`.`id` = 5[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT id,user_name,email,age, gender_id,current_location, city_id,receive_info,created_at,updated_at FROM `users` WHERE (id = 16) LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 4898)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-05 12:35:30 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16", "token"=>"DFGG"}
+  [1m[36mSessionToken Load (0.3ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = 'DFGG') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+Filter chain halted as :validate_session rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 886)
+
+
+Started POST "/web_services/info_user" for ::1 at 2021-08-05 12:35:35 -0500
+Processing by WebServicesController#info_user as */*
+  Parameters: {"id"=>"16", "token"=>"7211f5a1c40d42fb73def70cfaf772103ab2e3858b3d1ca1cce8886c1be8d1a7"}
+  [1m[36mSessionToken Load (0.7ms)[0m  [1m[34mSELECT `session_tokens`.* FROM `session_tokens` WHERE (token = '7211f5a1c40d42fb73def70cfaf772103ab2e3858b3d1ca1cce8886c1be8d1a7') LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:208:in `validate_session'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mSessionToken Update (0.4ms)[0m  [1m[33mUPDATE `session_tokens` SET `session_tokens`.`updated_at` = '2021-08-05 12:35:35.592385' WHERE `session_tokens`.`id` = 5[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/web_services_controller.rb:221:in `validate_session'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:223:in `validate_session'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT id,user_name,email,age, gender_id,current_location, city_id,receive_info,created_at,updated_at FROM `users` WHERE (id = 16) LIMIT 1[0m
+  ↳ app/controllers/web_services_controller.rb:72:in `info_user'
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 4.4ms | Allocations: 4757)
+
+
