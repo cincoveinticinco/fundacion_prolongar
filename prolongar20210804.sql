@@ -36,7 +36,7 @@ CREATE TABLE `ar_internal_metadata` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `cities` (
   PRIMARY KEY (`id`),
   KEY `index_cities_on_departments_id` (`departments_id`),
   CONSTRAINT `fk_rails_31277a2a17` FOREIGN KEY (`departments_id`) REFERENCES `departments` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1063 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1063 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `contacts` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `departments` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `genders` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +175,7 @@ CREATE TABLE `home_banners` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +202,7 @@ CREATE TABLE `menu_contents` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +232,7 @@ CREATE TABLE `module_pages` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +255,7 @@ DROP TABLE IF EXISTS `schema_migrations`;
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
   PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +284,7 @@ CREATE TABLE `session_tokens` (
   PRIMARY KEY (`id`),
   KEY `index_session_tokens_on_users_id` (`users_id`),
   CONSTRAINT `fk_rails_5496a9776f` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,7 +315,7 @@ CREATE TABLE `sub_module_page_dependences` (
   KEY `fk_rails_e436789fe7` (`dependence_id`),
   CONSTRAINT `fk_rails_e436789fe7` FOREIGN KEY (`dependence_id`) REFERENCES `sub_module_pages` (`id`),
   CONSTRAINT `fk_rails_fee1aa63cc` FOREIGN KEY (`sub_module_page_id`) REFERENCES `sub_module_pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,7 +347,7 @@ CREATE TABLE `sub_module_page_has_users` (
   KEY `index_sub_module_page_has_users_on_user_id` (`user_id`),
   CONSTRAINT `fk_rails_81742df9b1` FOREIGN KEY (`sub_module_page_id`) REFERENCES `sub_module_pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_rails_e5f964da6d` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -381,7 +381,7 @@ CREATE TABLE `sub_module_pages` (
   PRIMARY KEY (`id`),
   KEY `index_sub_module_pages_on_module_page_id` (`module_page_id`),
   CONSTRAINT `fk_rails_36c2b1942a` FOREIGN KEY (`module_page_id`) REFERENCES `module_pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +408,7 @@ CREATE TABLE `user_admins` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -446,7 +446,7 @@ CREATE TABLE `users` (
   KEY `index_users_on_city_id` (`city_id`),
   CONSTRAINT `fk_rails_47055e3204` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`),
   CONSTRAINT `fk_rails_9c7442481a` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
