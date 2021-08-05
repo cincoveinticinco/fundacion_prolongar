@@ -22,8 +22,11 @@ export class AQuienVaDirigidaComponent implements OnInit {
 
   datosAqvd(){
     this.services.infoHome().subscribe(data => {
-      this.datos = data
-      this.aquien = this.datos.menu_content[1];
+      if (data) {
+        this.datos = data
+        this.aquien = this.datos.menu_content[1];
+      }
+
     })
   }
 

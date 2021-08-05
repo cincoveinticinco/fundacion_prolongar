@@ -27,7 +27,7 @@ export class MenuComponent implements OnInit {
 
     let url = this.router.url;
     this.rutaMenu = url.substr(1,4);
-    
+
     this.menuSubHideShow=url.substr(1,4);
     this.moduleId=url.substr(8,1);
 
@@ -43,7 +43,7 @@ export class MenuComponent implements OnInit {
 
       let url = this.router.url;
       this.rutaMenu = url.substr(1,4);
-      
+
       this.menuSubHideShow=url.substr(1,4);
       this.moduleId=url.substr(8,1);
 
@@ -68,7 +68,8 @@ export class MenuComponent implements OnInit {
   }
 
   datosMenu(){
-    this.services.infoHome().subscribe(data=>{
+    this.services.infoHome().subscribe((data: any) => {
+      console.log(data)
       this.datos=data;
       this.menuInterno = this.datos.module_page
     })
@@ -87,7 +88,7 @@ export class MenuComponent implements OnInit {
     let dataId={
       id : localStorage.getItem('id')
     }
-    this.authservices.infoUser(dataId).subscribe(data=>{
+    this.authservices.infoUserData(dataId).subscribe(data => {
       this.user = data;
     })
   }

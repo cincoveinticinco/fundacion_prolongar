@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTING } from './home.routes';
 import { KasComponent } from './kas/kas.component';
 import { HomesComponent } from './home/home.component';
-import { LoaderComponent } from 'src/app/shared/loader/loader.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 @NgModule({
@@ -17,16 +18,15 @@ import { LoaderComponent } from 'src/app/shared/loader/loader.component';
     ParaQueEsComponent,
     KasComponent,
     HomesComponent,
-    LoaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    SharedModule,
     APP_ROUTING
   ],
   exports: [
     RouterModule,
-    LoaderComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -20,10 +20,13 @@ export class PrincipiosComponent implements OnInit {
     this.datosPrincipios();
   }
 
-  datosPrincipios(){
-    this.services.infoHome().subscribe(data=>{
-      this.datos=data;
-      this.principios = this.datos.menu_content[3];
+  datosPrincipios() {
+    this.services.infoHomeData.subscribe(data => {
+      if (data) {
+        this.datos=data;
+        this.principios = this.datos.menu_content[3];
+      }
+
     })
   }
 

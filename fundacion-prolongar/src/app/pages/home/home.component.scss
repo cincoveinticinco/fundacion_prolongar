@@ -11,6 +11,138 @@
     text-transform: uppercase;
 }
 
+.miniBanner{
+  display: inline-block;
+  vertical-align: top;
+  height: 260px;
+  padding: 2rem;
+}
+
+.miniBanner .contentDescription{
+  display: none;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.ver-mas{
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.contentDescription .content-description{
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.miniBanner h3{
+  color: white;
+  font-size: 26px;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+.miniBanner h3:after{
+  content: "";
+  width: 130%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+}
+
+.miniBanner.full-wide h3{
+    margin: 0;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+}
+
+.miniBanner.full-wide h3:after{
+  display: none;
+}
+
+.miniBanner.full-wide h3 .lineFullWide{
+  width: 100px;
+}
+
+.miniBanner.full-wide h3 .lineFullWide:before{
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+
+.miniBanner.full-wide h3 .lineFullWide:after{
+  content: "";
+  width: 2px;
+  height: 75px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+
+.miniBanner.full-wide h3 .lineFullWide.lineLeft{
+  position: absolute;
+  left: -110px;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.miniBanner.full-wide h3 .lineFullWide.lineRight{
+  position: absolute;
+  right: -110px;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.miniBanner.full-wide h3 .lineFullWide.lineRight:after{
+  right: 0;
+  left: inherit;
+}
+
+.miniBanner.full-wide .contentDescription{
+  max-width: 43%;
+}
+
+.miniBanner:hover h3{
+  display: none;
+}
+
+.miniBanner:hover .contentDescription{
+  display: inline-block;
+}
+
+.half-wide{
+  width: 50% !important;
+}
+
+.full-wide{
+  width: 100% !important;
+  height: 150px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
 /* menu home */
 
 .menu-home{
@@ -139,9 +271,7 @@ li a:hover {
 .dropdown:hover .dropdown-content {display: block;}
 
 
-.ver-mas{
-  cursor: pointer;
-}
+
 
 .flip-card {
   background-color: transparent;
@@ -191,7 +321,7 @@ li a:hover {
   position: relative;
   width: 40%;
   top: -90%;
-  left: 10%; 
+  left: 10%;
   color: white;
   border-bottom: 2px solid #ffffff;
   font-weight: bolder;
@@ -199,17 +329,52 @@ li a:hover {
   text-transform: uppercase;
 }
 
-.content-ver-mas { 
+.content-ver-mas {
   border-top: 1px solid #fff;
 }
 
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows:auto;
+
 }
 
 @media (max-width: 500px) {
+  .miniBanner{
+    width: 100% !important;
+  }
+
+  .miniBanner.full-wide h3 .lineFullWide.lineLeft,
+  .miniBanner.full-wide h3 .lineFullWide.lineRight{
+    display: none;
+  }
+
+
+
+  .miniBanner.full-wide{
+    height: 260px;
+    text-align: left;
+  }
+
+  .miniBanner.full-wide h3{
+    position: relative;
+    bottom: inherit;
+    right: inherit;
+    transform: none;
+  }
+
+  .miniBanner.full-wide .contentDescription{
+    max-width: 100% !important;
+  }
+
+  .miniBanner h3:after{
+    width: 100%;
+  }
+
+  .miniBanner.full-wide h3:after{
+    display: block !important;
+  }
+
+
+
   ul {
     list-style-type: none;
     margin:0% 10%;
@@ -236,14 +401,14 @@ li a:hover {
     position: relative;
     width: 80%;
     top: -90%;
-    left: 10%; 
+    left: 10%;
     color: white;
     border-bottom: 2px solid #ffffff;
     font-weight: bolder;
     text-align: left;
     text-transform: uppercase;
   }
-  
-  
+
+
 }
 

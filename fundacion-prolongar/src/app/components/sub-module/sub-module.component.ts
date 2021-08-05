@@ -9,10 +9,10 @@ environment
   selector: 'app-sub-module',
   templateUrl: './sub-module.component.html',
   styleUrls: ['./sub-module.component.scss'],
-  //encapsulation: ViewEncapsulation.None
 })
 export class SubModuleComponent implements OnInit {
 
+  loader: boolean = true;
   moduleId:any;
   datos:any;
   previus:any;
@@ -26,7 +26,7 @@ export class SubModuleComponent implements OnInit {
   constructor(private router: Router, private services:ServicesProlongarService,private rutaActiva: ActivatedRoute,private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
-    this.urlPdf= environment.url;
+    this.urlPdf= environment.urlImage;
 
     this.datInfo();
   }
@@ -42,7 +42,7 @@ export class SubModuleComponent implements OnInit {
 
         this.completado = this.moduleInfo.view_module == 1
 
-        console.log(data);
+        this.loader = false
       });
     });
   }
@@ -112,7 +112,7 @@ export class SubModuleComponent implements OnInit {
     this.verDespues =false;
     this.completado =false;
     let idmodule=module.params['tipomodule'];
-    let idsubmodule=data[0].id;
+    let idsubmodule=data.id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
     //this.services.viewSubModules(data).subscribe(data =>{})
   }
@@ -127,7 +127,7 @@ export class SubModuleComponent implements OnInit {
     this.verDespues =false;
     this.completado =false;
     let idmodule=module.params['tipomodule'];
-    let idsubmodule=data[0].id;
+    let idsubmodule=data.id;
     this.router.navigate(['modulo',idmodule,idsubmodule])
   }
 

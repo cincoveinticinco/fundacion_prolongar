@@ -1,4 +1,4 @@
-<app-loader></app-loader>
+<app-loader *ngIf="loader"></app-loader>
 <div class="content-submodule container mb-5" *ngIf="datos">
     <h2 class="mb-5 title-sub-module" >{{moduleInfo.sub_module_name}}</h2>
     <div class="row">
@@ -11,7 +11,7 @@
 
     <div class="row">
       <div class="col-12 mt-5" *ngIf="moduleInfo.content">
-          <div class="textcontent-submodule" [innerHTML]="safeHtml(moduleInfo.content)"></div>
+          <div class="textcontent-submodule" [innerHTML]="moduleInfo.content | safeHTML"></div>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
           </a>
       </div>
       <div class="button-file" *ngIf="moduleInfo.file_pdf != null">
-        <a class="btn" [href]="urlPdf+moduleInfo.file_pdf">
+        <a class="btn" target="_blank" [href]="urlPdf+moduleInfo.file_pdf">
             <img src="../../../assets/img/Ico-PDF.png" alt="">
         </a>
     </div>

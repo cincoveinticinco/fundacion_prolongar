@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTING } from './components.routes';
 import { SubModuleComponent } from './sub-module/sub-module.component';
 import { ModulesComponent } from './modules/modules.component';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     SubModuleComponent,
@@ -12,6 +13,7 @@ import { ModulesComponent } from './modules/modules.component';
   imports: [
     CommonModule,
     RouterModule,
+    SharedModule,
     APP_ROUTING
   ],
   schemas: [
