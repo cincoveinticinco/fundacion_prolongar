@@ -1,4 +1,4 @@
-<app-loader></app-loader>
+<app-loader-module *ngIf="!datos"></app-loader-module>
 <div class="container mb-5" *ngIf="datos">
     <h2 class="mt-5 title-sub-module" >{{datos.module_page.sub_module_name}}</h2>
     <div class="row">
