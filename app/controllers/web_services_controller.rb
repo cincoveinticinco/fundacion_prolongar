@@ -122,7 +122,7 @@ class WebServicesController < ApplicationController
     module_page = ModulePage.where('id=?',params[:id]).take
     if !module_page.blank?
       user_id = @user.id
-      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
+      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id).order(:order_sub) 
 
       render :json => { 
           :error => false,
@@ -145,17 +145,17 @@ class WebServicesController < ApplicationController
       sub_module = SubModulePage.where('id=?',params[:id]).take
       sub_module_page = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id=?',sub_module.id).take
 
-      next_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id>?',sub_module.id).order('sub_module_pages.id asc').take
+      next_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.order_sub>?',sub_module.order_sub).order('sub_module_pages.order_sub asc').take
       next_submodule = []
       
       if !next_sub.blank?
-        next_submodule.push('id'=>next_sub.id,'locked'=>next_sub.locked,'view_before'=>sub_module_page.view_module,'name_dependences'=>next_sub.name_dependences,'view_module'=>next_sub.view_module)
+        next_submodule.push('id'=>next_sub.order_sub,'locked'=>next_sub.locked,'view_before'=>sub_module_page.view_module,'name_dependences'=>next_sub.name_dependences,'view_module'=>next_sub.view_module)
       end
    
-      prev_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.id<?',sub_module.id).order('sub_module_pages.id desc').take
+      prev_sub = SubModulePage.getSubmoduleModuleIdUserId(sub_module.module_page_id,user_id).where('sub_module_pages.order_sub<?',sub_module.order_sub).order('sub_module_pages.order_sub desc').take
       prev_submodule = []
       if !prev_sub.blank?
-        prev_submodule.push('id'=>prev_sub.id,'locked'=>prev_sub.locked,'name_dependences'=>prev_sub.name_dependences)
+        prev_submodule.push('id'=>prev_sub.order_sub,'locked'=>prev_sub.locked,'name_dependences'=>prev_sub.name_dependences)
       end
 
       render :json => { 

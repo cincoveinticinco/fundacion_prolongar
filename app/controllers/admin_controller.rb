@@ -50,7 +50,7 @@ class AdminController < ApplicationController
   end
 
   def sub_module
-    @sub_modules = SubModulePage.getSubmoduleModuleId(params[:id])
+    @sub_modules = SubModulePage.getSubmoduleModuleId(params[:id]).order(order_sub: :asc)
     @module_page = ModulePage.where('id=?',params[:id]).take
 
   end
@@ -74,6 +74,7 @@ class AdminController < ApplicationController
   	  image_min = save_file(params[:image_min],'img_modules') if !params[:image_min].blank?
     
       sub_module = SubModulePage.where('id=?',params['id']).take
+      valid_order = SubModulePage.where('order_sub=?',params[:order_sub])
       sub_module = SubModulePage.new if sub_module.blank? 
       sub_module.module_page_id = params[:module_page_id]
       sub_module.sub_module_name = params[:sub_module_name]
@@ -81,9 +82,9 @@ class AdminController < ApplicationController
       sub_module.file_pdf = file_pdf if !file_pdf.nil?
       sub_module.link = params[:link]
       sub_module.content = params[:content]
+      sub_module.order_sub = params[:order_sub]
       sub_module.image_min = image_min if !image_min.nil?
       sub_module.save 
-
       dependences = params[:dependences]
       SubModulePageDependence.where('sub_module_page_id=?',sub_module.id).destroy_all
       if !dependences.blank?
@@ -94,10 +95,11 @@ class AdminController < ApplicationController
           dependence.save
         end
       end
-
-      flash[:msg]='Sub Modulo creado' if params['id'].blank?
-      flash[:msg]='Sub Modulo Editado' if !params['id'].blank?
-      redirect_to '/admin/sub_module/'+params[:module_page_id]
+      
+        flash[:msg]='Sub Modulo creado' if params['id'].blank?
+        flash[:msg]='Sub Modulo Editado' if !params['id'].blank?
+        redirect_to '/admin/sub_module/'+params[:module_page_id]
+     
   end
 
   def delete_sub_module

@@ -4,6 +4,7 @@ class MailerController < ApplicationController
 
         params[:email] = params[:email].strip
         user = User.where('email = ?', params[:email]).take
+
           if !user.blank?
               url_back = request.base_url
               token = Digest::SHA256.hexdigest([Time.now, rand].join)
@@ -14,6 +15,7 @@ class MailerController < ApplicationController
                            
               render :json => {
               :error => false,
+              :url_back =>url_back,
               :msg => "Correo Enviado"
               }
           else

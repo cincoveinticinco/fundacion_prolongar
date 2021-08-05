@@ -42,6 +42,9 @@
 			<input type="checkbox" name="dependences[]" <% if @dependences_id.include?  data['id'] %>	checked="" <%end%> value="<%=data['id']%>"><%=data['sub_module_name']%></label><br>
 		<% end%>
 	<% end %>
+	<label>Orden</label>
+	<input type="text" name="order_sub" required="" value="<%= !@sub_module.blank? ?  @sub_module.order_sub : '' %>">
+	<br>
 	<label>Imagen Submodulo (Tamaño 496 x 279 px)</label>
 	<input type="file" name="image_min" <% if @sub_module.blank? %> required="" <% end %> >
 	<% if !@sub_module.blank? %>
