@@ -122,7 +122,7 @@ class WebServicesController < ApplicationController
     module_page = ModulePage.where('id=?',params[:id]).take
     if !module_page.blank?
       user_id = @user.id
-      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id)
+      sub_module_pages = SubModulePage.getSubmoduleModuleIdUserId(module_page.id,user_id).order(:order_sub) 
 
       render :json => { 
           :error => false,
