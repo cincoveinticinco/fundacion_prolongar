@@ -84,27 +84,22 @@ class AdminController < ApplicationController
       sub_module.content = params[:content]
       sub_module.order_sub = params[:order_sub]
       sub_module.image_min = image_min if !image_min.nil?
-      if !valid_order.blank?
-          flash[:msg]='Orden del modulo ya existe'
-          redirect_to '/admin/sub_module/'+params[:module_page_id]
-      else
-        sub_module.save 
-
-        dependences = params[:dependences]
-        SubModulePageDependence.where('sub_module_page_id=?',sub_module.id).destroy_all
-        if !dependences.blank?
-          dependences.each do |id|
-            dependence = SubModulePageDependence.new
-            dependence.sub_module_page_id = sub_module.id
-            dependence.dependence_id = id
-            dependence.save
-          end
+      sub_module.save 
+      dependences = params[:dependences]
+      SubModulePageDependence.where('sub_module_page_id=?',sub_module.id).destroy_all
+      if !dependences.blank?
+        dependences.each do |id|
+          dependence = SubModulePageDependence.new
+          dependence.sub_module_page_id = sub_module.id
+          dependence.dependence_id = id
+          dependence.save
         end
+      end
       
         flash[:msg]='Sub Modulo creado' if params['id'].blank?
         flash[:msg]='Sub Modulo Editado' if !params['id'].blank?
         redirect_to '/admin/sub_module/'+params[:module_page_id]
-     end
+     
   end
 
   def delete_sub_module
