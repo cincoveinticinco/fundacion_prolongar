@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_193952) do
+ActiveRecord::Schema.define(version: 2021_08_06_150511) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "city"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_193952) do
     t.string "sub_module_name"
     t.text "description"
     t.string "link"
+    t.string "link_2"
     t.string "file_pdf"
     t.text "content"
     t.integer "order_sub"

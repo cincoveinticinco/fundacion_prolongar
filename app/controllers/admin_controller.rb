@@ -81,6 +81,7 @@ class AdminController < ApplicationController
       sub_module.description = params[:description]
       sub_module.file_pdf = file_pdf if !file_pdf.nil?
       sub_module.link = params[:link]
+      sub_module.link_2 = params[:link_2]
       sub_module.content = params[:content]
       sub_module.order_sub = params[:order_sub]
       sub_module.image_min = image_min if !image_min.nil?
