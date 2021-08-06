@@ -24,6 +24,7 @@ export class HttpCatchErrors implements HttpInterceptor{
 				if(event instanceof HttpResponse){
           if (event.body && event.body.msg) {
             if (event.body.msg == "Sesion inactiva") {
+              localStorage.clear()
               this.router.navigate(['/'])
             }
 					}

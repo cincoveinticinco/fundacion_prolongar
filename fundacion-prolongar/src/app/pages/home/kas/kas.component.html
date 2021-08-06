@@ -1,15 +1,18 @@
 <app-loader *ngIf="!kas"></app-loader>
 <div class="container mt-5">
+  <div class="content-data-section">
     <div class="row" *ngIf="kas">
-        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm- order-sm-first order-last0">
-            <img [src]="urlimage+kas.image"   class="img-seccion ">
-        </div>
-        <div class="col-xl-5 col-sm-12 order-sm-last order-first content-page">
-            <h3 class="mb-5 mt-2 text-center text-uppercase">{{kas.name_page}}</h3>
-            <div class="text-justify mx-lg-5">
-              <div class="content-homepage " [innerHTML]="kas.texto | safeHTML"></div>
-            </div>
+      <div class="col-sm-12 col-xl-5  order-sm-first order-last0">
+          <img [src]="urlimage+kas.image"   class="img-seccion ">
+      </div>
+      <div class="col-xl-7 col-sm-12 order-sm-last order-first content-page">
+          <h3 class="mb-5 mt-2 text-center text-uppercase">{{kas.name_page}}</h3>
+          <div class="text-justify mx-lg-12">
+            <div class="content-homepage " [innerHTML]="kas.texto | safeHTML"></div>
+          </div>
 
-        </div>
-    </div>
+      </div>
+  </div>
+  </div>
+
 </div>

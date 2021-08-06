@@ -91,6 +91,15 @@
     margin: 0.5em;
 }
 
+.btn-sub-module-despues{
+  background-color: #c7c7c7;
+  color: white;
+  padding:0.4em 2.5em;
+  border:none;
+  margin: 0.5em;
+}
+
+
 .row-buttons{
   position: relative;
   margin-bottom: 1.5rem;
@@ -102,4 +111,15 @@
   bottom: calc(50% - 10px);
   transform: translateY(50%);
   width: 100px;
+}
+
+
+@media (max-width: 500px) {
+  .right-button .img-globo{
+    width: 140px;
+  }
+
+  .right-button .img-globo img{
+    width: 100%;
+  }
 }

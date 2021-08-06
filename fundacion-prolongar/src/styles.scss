@@ -41,6 +41,11 @@ h5 a:hover{
 .align-center{
   text-align: center !important;
 }
+
+.content-data-section{
+  max-width: 720px;
+  margin: 0 auto;
+}
 /* Estilos generales fomularui*/
 
 label{
@@ -114,7 +119,7 @@ select.ng-invalid.ng-touched{
 }
 
 .content-page .text-justify{
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   border-bottom: 2px solid #fcc474;
 }
 
@@ -133,6 +138,14 @@ select.ng-invalid.ng-touched{
     margin-bottom: 2rem;
     padding-bottom: 0;
     border-bottom: 2px solid #fcc474;
+  }
+
+  .textcontent-submodule{
+    padding: 0 2rem;
+  }
+
+  .textcontent-submodule img{
+    max-width: 100%;
   }
 
   // .order-sm-first{

@@ -23,11 +23,10 @@ span {
 .text-justify{
     text-align: justify;
     line-height:18px ;
+    color: #d58071;
 }
 
-@media (max-width: 500px) {
-  .container{
-
-  }
+.content-page .text-justify{
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid #fcc474;
 }
-

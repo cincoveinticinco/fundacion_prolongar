@@ -1,14 +1,17 @@
 <app-loader *ngIf="!aquien"></app-loader>
 <div class="container mt-5">
+  <div class="content-data-section">
     <div class="row" *ngIf="aquien">
-        <div class="col-sm-12 col-xl-4 offset-xl-2 offset-sm-0  order-sm-first order-last">
-            <img [src]="urlimage+aquien.image" alt="" width="280px" height="336px"  class="img-seccion">
-        </div>
-        <div class="col-xl-5 col-sm-12 order-sm-last order-first content-page" >
-            <h3 class="mb-5 mt-2 text-center text-uppercase">{{aquien.name_page}}</h3>
-            <div class="text-justify mx-lg-5" >
-              <div class="content-homepage " [innerHTML]="aquien.texto | safeHTML"></div>
-            </div>
-        </div>
-    </div>
+      <div class="col-sm-12 col-xl-5   order-sm-first order-last">
+          <img [src]="urlimage+aquien.image" alt="" width="280px" height="336px"  class="img-seccion">
+      </div>
+      <div class="col-xl-7 col-sm-12 order-sm-last order-first content-page" >
+          <h3 class="mb-5 mt-2 text-center text-uppercase">{{aquien.name_page}}</h3>
+          <div class="text-justify mx-lg-12" >
+            <div class="content-homepage " [innerHTML]="aquien.texto | safeHTML"></div>
+          </div>
+      </div>
+  </div>
+  </div>
+
 </div>

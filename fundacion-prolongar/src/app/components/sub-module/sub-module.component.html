@@ -19,12 +19,12 @@
     </div>
 
     <div class="row row-buttons">
-      <div class="d-flex justify-content-center mt-4">
+      <div class="d-grid d-md-flex justify-content-center mt-4">
           <a class="btn" (click)="compled($event, moduleInfo.id)" [ngClass]="{'btn-sub-module': completado==false,'btn-sub-module-select': completado==true}">
               <img src="./assets/img/2-OK.png" alt="">
               completado
           </a>
-          <a class="btn" (click)="verdespues($event, moduleInfo.id)" [ngClass]="{'btn-sub-module': verDespues==false,'btn-sub-module-select': verDespues==true}">
+          <a class="btn" (click)="verdespues($event, moduleInfo.id)" [ngClass]="{'btn-sub-module': verDespues==false,'btn-sub-module-despues': verDespues==true}">
               <img src="./assets/img/3-Ojo.png" alt="">
               ver despues
           </a>
@@ -47,9 +47,7 @@
                 <img src="./assets/img/6-Flecha_Izq.png" alt="">
             </button>
             <span class="text-flecha">Anterior</span>
-            <span class="img-globo"  *ngIf="this.previus.locked==1">
-              <img src="./assets/img/Globo-2.png" alt="">
-            </span>
+
         </div>
       </div>
 
@@ -65,52 +63,6 @@
         </div>
       </div>
 
-
-
-
-        <!-- <ng-container *ngIf="next==0;">
-            <div class="col-lg-2 mt-5">
-                <button class="btn-round" (click)="previus_submodule(previus,moduleId)">
-                    <img src="./assets/img/6-Flecha_Izq.png" alt="">
-                </button>
-                <span class="text-flecha">anterior</span>
-            </div>
-        </ng-container>
-        <ng-container *ngIf="previus==0;">
-            <div class="col-lg-2 d-flex justify-content-end offset-lg-10 mt-5">
-                <ng-container *ngIf="messageSubModule==false; else elseTemplate">
-
-                </ng-container>
-                <ng-template #elseTemplate>
-                    <span class="img-globo">
-                        <img src="./assets/img/Globo-2.png" alt="">
-                    </span>
-                </ng-template>
-
-                <div>
-                    <button class="btn-round" (click)="next_submodule(next,moduleId)" >
-                        <img src="./assets/img/7-Flecha_derecha.png" alt="">
-                    </button>
-                    <span class="text-flecha">Siguiente</span>
-                </div>
-
-            </div>
-        </ng-container>
-        <ng-container *ngIf="next!=0 && previus!=0;">
-            <div class="col-lg-2 col-sm-4 mt-5">
-                <button class="btn-round" (click)="previus_submodule(previus,moduleId)">
-                    <img src="./assets/img/6-Flecha_Izq.png" alt="">
-                </button>
-                <span class="text-flecha">Anterior</span>
-            </div>
-
-            <div class="col-lg-1 col-sm-4 offset-lg-9 offset-sm-4 mt-5" nf>
-                <button class="btn-round" (click)="next_submodule(next,moduleId)">
-                    <img src="./assets/img/7-Flecha_derecha.png" alt="">
-                </button>
-                <span class="text-flecha">Siguiente</span>
-            </div>
-        </ng-container> -->
 
     </div>
 </div>
