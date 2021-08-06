@@ -1,56 +1,78 @@
 <% if !@sub_module.blank? %>
-	<h1>Editar Sub Modulo</h1>
+	<h1 class="text-center text-dark-orange">Editar Sub Modulo</h1>
+	<div class="container br-register"></div>
 <% else %>
-	<h1>Crear Sub Modulo</h1>
+	<h1 class="text-center text-dark-orange">Crear Sub Modulo</h1>
+	<div class="container br-register"></div>
 <% end %>
 
 <%= form_tag({:controller => "admin", :action => "insert_sub_module"},:method => "post", :multipart => true, :class =>'') do |f| %>
-	<input type="hidden" name="id" value="<%= !@sub_module.blank? ?  @sub_module.id : '' %>">
-	<input type="hidden" name="module_page_id" value="<%=@module_page_id %>">
+	
+	<div class="container">
+		<input type="hidden" name="id" value="<%= !@sub_module.blank? ?  @sub_module.id : '' %>">
+		<input type="hidden" name="module_page_id" value="<%=@module_page_id %>">
 
-	<label>Nombre del Modulo</label>
-	<input type="text" name="sub_module_name" required="" value="<%= !@sub_module.blank? ?  @sub_module.sub_module_name : '' %>">
-	<br>
+		<div class="row">
+			<div class="col">
+				<label>Nombre del Modulo</label>
+				<input type="text" class="form-control" name="sub_module_name" required="" value="<%= !@sub_module.blank? ?  @sub_module.sub_module_name : '' %>">
+			</div>
+			<div class="col">
+				<label>Descripcion Corta</label>
+				<textarea name="description" class="form-control"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.description : '' %></textarea>
+			</div>
+		</div>
 
-	<label>Descripcion Corta</label>
-	<textarea name="description"   <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.description : '' %></textarea>
-	<br>
+		<div class="row mt-3">
+			<div class="col">
+				<label>Archivo Pdf</label>
+				<input type="file" class="form-control" name="file_pdf" <% if @sub_module.blank? %>  <% end %> >
+			</div>
+			<div class="col">
+				<label>Link</label>
+				<input type="text" class="form-control" name="link"  value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
+				<% if !@sub_module.blank? %>
+					<% if  @sub_module.link.include? 'youtu'%>
+						<% link = @sub_module.link.split('/') %>
+							<iframe width="360" height="115" src="https://www.youtube.com/embed/<%=link[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<% end %>
 
-	<label>Archivo Pdf</label>
-	<input type="file" name="file_pdf" <% if @sub_module.blank? %>  <% end %> >
-	<br>
-
-	<label>Link</label>
-		<input type="text" name="link"  value="<%= !@sub_module.blank? ?  @sub_module.link : '' %>">
-		<% if !@sub_module.blank? %>
-		   	<% if  @sub_module.link.include? 'youtu'%>
-		   		<% link = @sub_module.link.split('/') %>
-	  				<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=link[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  			<% end %>
-
-  			<% if  @sub_module.link.include? 'soundcloud'%>
-  					<iframe width="100%" height="95" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=<%=@sub_module.link%>&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
-  			<% end %>
-  			
-		<% end %>
-
-	<br>
-
-	<%if !@dependences.blank?%>
-		<label>Dependen de:</label>
-		<% @dependences.each do |data|%>
-			<input type="checkbox" name="dependences[]" <% if @dependences_id.include?  data['id'] %>	checked="" <%end%> value="<%=data['id']%>"><%=data['sub_module_name']%></label><br>
-		<% end%>
-	<% end %>
-	<label>Imagen Submodulo (Tamaño 496 x 279 px)</label>
-	<input type="file" name="image_min" <% if @sub_module.blank? %> required="" <% end %> >
-	<% if !@sub_module.blank? %>
-		<img src="<%=@sub_module.image_min %>" width="100" height="100"> 
-	<% end %>
-	<br>
-	<label>Contenido</label>
-	<textarea name="content" id="editor"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.content : '' %></textarea>
-	<input type="submit" value="Guardar">
+					<% if  @sub_module.link.include? 'soundcloud'%>
+							<iframe width="100%" height="95" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=<%=@sub_module.link%>&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+					<% end %>
+					
+				<% end %>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col ">
+				<%if !@dependences.blank?%>
+				<label class="form-check-label">Dependen de:</label>
+				<% @dependences.each do |data|%>
+					<input type="checkbox" class="form-check-input" name="dependences[]" <% if @dependences_id.include?  data['id'] %>	checked="" <%end%> value="<%=data['id']%>"><%=data['sub_module_name']%></label>
+				<% end%>
+				<% end %>
+			</div>
+			<div class="col">
+				<label>Imagen Submodulo (Tamaño 496 x 279 px)</label>
+				<input type="file" class="form-control" name="image_min" <% if @sub_module.blank? %> required="" <% end %> >
+				<% if !@sub_module.blank? %>
+				<img src="<%=@sub_module.image_min %>" width="100" height="100"> 
+				<% end %>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col">
+				<label>Contenido</label>
+				<textarea name="content" class="form-control" id="editor"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.content : '' %></textarea>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="d-flex justify-content-center mt-3 mb-5">
+        <input type="submit" value="Guardar" class="btn-create">
+    </div>
 
 
 <%end%>

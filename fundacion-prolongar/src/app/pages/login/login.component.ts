@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   login(){
 
     this.auth.login(this.model).subscribe(data=>{
-      console.log(data);
       if (data.error) {
         this.error = data.msg;
         return;

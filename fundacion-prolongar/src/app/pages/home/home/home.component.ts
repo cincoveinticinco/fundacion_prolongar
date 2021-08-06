@@ -23,7 +23,6 @@ export class HomesComponent implements OnInit {
     this.services.infoHome().subscribe(data=>{
       this.datos=data;
       this.homeBanner = this.datos.menu_content;
-      console.log(this.datos);
     })
   }
 

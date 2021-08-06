@@ -928,10 +928,10 @@ body .ui-tooltip {
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border: 1px solid #c5c5c5;
-	background: #f6f6f6;
+	border: 1px solid #d58071;
+	background: #d58071;
 	font-weight: normal;
-	color: #454545;
+	color: #fcf4e4;
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -951,10 +951,10 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-	border: 1px solid #cccccc;
-	background: #ededed;
+	border: 1px solid #d58071;
+	background: #d58071;
 	font-weight: normal;
-	color: #2b2b2b;
+	color: #fcf4e4;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -979,8 +979,8 @@ a.ui-button:focus {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-	border: 1px solid #003eff;
-	background: #007fff;
+	border: 1px solid #d58071;
+	background: #d58071;
 	font-weight: normal;
 	color: #ffffff;
 }
