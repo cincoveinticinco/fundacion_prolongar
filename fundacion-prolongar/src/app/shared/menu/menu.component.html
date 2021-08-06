@@ -3,18 +3,22 @@
     <div class="container collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-left" >
         <li class="nav-item" *ngIf="rutaMenu=='home'">
-            <a class="navbar-brand" routerLink="home/homes" >
+          <div class="navbar-brand main-logos">
+            <a  routerLink="home/homes" >
                 <img src="./assets/img/Prolongar.png" alt="" class="img-menu">
             </a>
+            <a routerLink="home/homes">
+              <img src="./assets/img/konrad.png" alt="" class="img-menu">
+          </a>
+          </div>
+
         </li>
         <li  class="nav-item" *ngIf="rutaMenu=='home'">
-            <a class="navbar-brand" routerLink="home/homes">
-                <img src="./assets/img/konrad.png" alt="" class="img-menu">
-            </a>
+
         </li>
         <li  class="nav-item mx-5" *ngIf="rutaMenu!='home'">
           <a class="navbar-brand" routerLink="home/homes" >
-              <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="" width="100%">
+              <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="logo-garabatos" width="100%">
           </a>
         </li>
         <li class="nav-item dropdown" *ngIf="rutaMenu.indexOf('modu') != -1">
@@ -30,7 +34,7 @@
             <i class="bi bi-person-circle btn-user dropbtn" style="font-size: 1.7em;"></i>
             <div class="dropdown-content">
                 <a class="nav-link text-uppercase" (click)="logout()">cerrar sesión</a>
-                <!-- <a class="nav-link text-uppercase">editar datos</a> -->
+                <a routerLink="/editar-datos" class="nav-link text-uppercase">editar datos</a>
             </div>
         </li>
         <li class="nav-item button-hamburger" *ngIf="menuSubHideShow!='home'">
@@ -55,7 +59,7 @@
                 </div>
                 <div class="col-lg-5 col-sm-10 offset-lg-2 offset-sm-0 contents-menu row">
                     <div class="col-lg-12 mt-5">
-                        <button (click)="menuHideShow()" class="btn-close"></button>
+                        <button (click)="menuHideShow()" class="btn-close btn-close-white"></button>
                     </div>
                     <div class="col-lg-12">
                         <ul class="menu-modules" *ngFor="let item of dataMenu">

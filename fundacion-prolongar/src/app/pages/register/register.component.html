@@ -1,6 +1,6 @@
 <section>
   <div class="titulo">
-    <a routerLink="homes"><img src="./assets/img/LogoHome262X82.png" alt=""></a>
+    <a routerLink="homes"><img class="logo-garabatos-home" src="./assets/img/LogoHomeGris522X164.png" alt=""></a>
   </div>
   <div class="container">
     <br>
@@ -51,25 +51,18 @@
       <br>
 
       <div class="row">
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
           <h5 class="text-orange">Género</h5>
-        </div>
-        <div class="col-4">
-          <h5 class="text-orange">Edad</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-8">
           <div class="row">
-            <div class="col">
-              <label for="" class="label-green">femenino: </label>
-              <input #gender_id="ngModel" required type="radio" name="gender_id" value="1" [(ngModel)]="model.gender_id">
-            </div>
-            <div class="col">
-              <label for="" class="label-green">Masculino: </label>
+            <div class="col-6 col-lg-4">
+              <label for="" class="label-green">Femenino: </label>
               <input #gender_id="ngModel" required type="radio" name="gender_id" value="2" [(ngModel)]="model.gender_id">
             </div>
-            <div class="col">
+            <div class="col-6 col-lg-4">
+              <label for="" class="label-green">Masculino: </label>
+              <input #gender_id="ngModel" required type="radio" name="gender_id" value="1" [(ngModel)]="model.gender_id">
+            </div>
+            <div class="col-6 col-lg-4">
               <label for="" class="label-green">Otro: </label>
               <input #gender_id="ngModel" required type="radio" name="gender_id" value="3" [(ngModel)]="model.gender_id">
             </div>
@@ -80,7 +73,8 @@
 
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-lg-4">
+          <h5 class="text-orange">Edad</h5>
           <input #age="ngModel" type="number" class="form-control" name="age" required [(ngModel)]="model.age" validateAge>
           <ng-container *ngIf="form.submitted && age.errors  && age.invalid">
             <span *ngIf="age.errors.required" class="form-error">Ingrese una edad válida</span>
@@ -92,16 +86,16 @@
 
       <div class="row">
         <h5 class="text-orange">Ubicacion Actual</h5>
-        <div class="col-sm-5 col-xl-5">
+        <div class="col-10 col-xl-5">
           <label for="" class="label-green">Estoy en Colombia</label>
         </div>
-        <div class="col-sm-3 col-xl-1 mt-2">
+        <div class="col-2 col-xl-1 mt-2">
           <input #current_location="ngModel" type="radio"  (change)="checkDepartamentos($event)" value="1" required name="current_location" [(ngModel)]="model.current_location">
         </div>
-        <div class="col-sm-9 col-xl-5">
+        <div class="col-10 col-xl-5">
           <label for="" class="label-green">Estoy fuera de Colombia</label>
         </div>
-        <div class="col-sm-3 col-xl-1 mt-2">
+        <div class="col-2 col-xl-1 mt-2">
           <input #current_location="ngModel" type="radio" (change)="checkedDepart=false" name="current_location" value="0" required [(ngModel)]="model.current_location">
         </div>
         <ng-container *ngIf="form.submitted && current_location.errors  && current_location.invalid">
@@ -111,7 +105,7 @@
 
       <ng-container *ngIf="checkedDepart==true; else elseTemplate">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-lg-6">
             <label for="" class="label-green">Departamento: </label>
             <select #departamento="ngModel" class="form-control" id="departamento" name="departamento" (change)="ciudad()" [(ngModel)]="model.departamento" required>
               <option *ngFor="let item of departamentos; let i=index" value="{{item.id}}">{{item.department}}</option>
@@ -120,7 +114,7 @@
               <span class="form-error">Debe seleccionar un departamento</span>
             </ng-container>
           </div>
-          <div class="col">
+          <div class="col-12 col-lg-6">
             <label for="" class="label-green">Ciudad: </label>
             <select #city_id="ngModel" class="form-control" id="city_id" name="city_id" [(ngModel)]="model.city_id" required>
               <option *ngFor="let item of municipios; let i=index" value="{{item.id}}">{{item.city}}</option>
@@ -137,19 +131,19 @@
 
       <div class="row">
         <br>
-        <div class="col-sm-9 col-xl-5 mt-3">
+        <div class="col-10 col-xl-5 mt-3">
           <h5 for="" class="text-orange"><a target="_blank" href="https://fundacionprolongar.org/politica-de-privacidad/">Acepto términos y condiciones</a></h5>
         </div>
-        <div class="col-sm-3 col-xl-1 mt-3">
+        <div class="col-2 col-xl-1 mt-3">
           <input required #terminos="ngModel" type="checkbox" [(ngModel)]="model.terminos" name="terminos">
           <ng-container *ngIf="form.submitted && terminos.errors && terminos.invalid">
             <span *ngIf="terminos.errors.required" class="form-error terminos-error">Debe aceptar los términos y condiciones</span>
           </ng-container>
         </div>
-        <div class="col-sm-9 col-xl-5 mt-3">
+        <div class="col-10 col-xl-5 mt-3">
           <h5 for="" class="text-orange">Deseo recibir comunicacion </h5>
         </div>
-        <div class="col-sm-3 col-xl-1 mt-3">
+        <div class="col-2 col-xl-1 mt-3">
           <input type="checkbox" name="receive_info" [(ngModel)]="model.receive_info">
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   menuInterno:any;
   urlimage: any;
 
-  constructor(private services:ServicesProlongarService, private router:Router) { }
+  constructor(private services:ServicesProlongarService, private router:Router, private viewportScroller: ViewportScroller) { }
 
   ngOnInit(): void {
     this.datosMenu();
@@ -51,6 +52,10 @@ export class HomeComponent implements OnInit {
     }
 
     return 'half-wide';
+  }
+
+  goToAnchor(anchor:string) {
+    this.viewportScroller.scrollToAnchor(anchor)
   }
 
 

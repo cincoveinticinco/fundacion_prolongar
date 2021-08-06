@@ -1,7 +1,7 @@
 <app-loader *ngIf="loader"></app-loader>
-<section class="home">
+<section class="home" id="home">
     <div class="titulo mb-1">
-        <a routerLink="homes"><img src="./assets/img/LogoHome262X82.png" alt=""></a>
+        <a routerLink="homes"><img class="logo-garabatos-home" src="./assets/img/LogoHomeGris522X164.png" alt=""></a>
     </div>
 
     <ul class="nav justify-content-center" *ngIf="this.datos">
@@ -31,18 +31,18 @@
 
     <div class="container mt-5">
             <div class="d-flex justify-content-center mb-5">
-                <a href="">
+                <div href="" (click)="goToAnchor('modulos')">
                     <img src="./assets/img/Flecha.png" alt="" width="50px">
-                </a>
+                </div>
             </div>
     </div>
 
-    <section class="modulos">
+    <section class="modulos" id="modulos">
         <div class="container">
             <div class="row">
                 <div class="col-12 mt-5">
-                    <div class="col-8 offset-2">
-                        <div class="d-flex justify-content-center mt-5  rotate">
+                    <div class="content-center col-11 col-lg-8">
+                        <div class="d-flex justify-content-center mt-5  rotate" (click)="goToAnchor('home')">
                             <img src="./assets/img/Flecha.png" alt="" width="50px">
                         </div>
                         <h2 class="titulo-modulos">módulos</h2>
@@ -54,27 +54,6 @@
             </div>
 
         </div>
-
-
-        <!-- <div>
-            <div class="images wrapper">
-                <div>
-                    <img src="../../../assets/img/1-Prejuicios.jpg" alt="" class="img-modulos" (click)="redirecMenu(1)">
-                </div>
-                <div>
-                    <img src="../../../assets/img/2-Emociones.jpg" alt="" class="img-modulos" (click)="redirecMenu(2)">
-                </div>
-                 <div>
-                    <img src="../../../assets/img/2-Emociones.jpg" alt="" class="img-modulos">
-                </div>
-            </div>
-        </div>
-
-        <div class="corporalidad">
-            <div class="d-flex justify-content-center">
-                <h4 class="corporalidad-title mt-5" (click)="redirecMenu(3)">corporalida</h4>
-            </div>
-        </div> -->
 
         <div  *ngIf="menuInterno">
           <ng-container  *ngFor="let item of menuInterno; let i=index">

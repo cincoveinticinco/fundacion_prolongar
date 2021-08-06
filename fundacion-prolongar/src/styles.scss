@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #fff8e6 !important;
+  background-color: #fcf4e5 !important;
 }
 
 h3{
@@ -38,6 +38,18 @@ h5 a:hover{
   text-align: right !important;
 }
 
+.align-center{
+  text-align: center !important;
+}
+
+.logo-garabatos-home{
+  max-width: 262px;
+}
+
+.content-data-section{
+  max-width: 720px;
+  margin: 0 auto;
+}
 /* Estilos generales fomularui*/
 
 label{
@@ -66,12 +78,12 @@ label{
 .ng-invalid.is-submitted  select.ng-invalid,
 input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched{
-  border: 1px solid #d4826e !important;
+  border: 1px solid #d58071 !important;
 }
 
 .alert-danger{
-  border-color: #d4826e !important;
-  background: #d4826ec2 !important;
+  border-color: #d58071 !important;
+  background: #d58071c2 !important;
   color: white !important;
 }
 
@@ -84,6 +96,11 @@ select.ng-invalid.ng-touched{
   color: #D5774F;
   font-weight: 300;
   font-size: 15px;
+}
+
+.content-homepage ul span,
+.content-homepage p span{
+  font-size: 15px !important;
 }
 
 .textcontent-submodule p{
@@ -105,9 +122,41 @@ select.ng-invalid.ng-touched{
   // height: auto !important;
 }
 
+.content-page .text-justify{
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #fcc474;
+}
+
 @media (max-width: 500px) {
   .img-seccion {
     width: 100% !important;
     margin-bottom: 2em;
+    object-fit: contain;
   }
+
+  .content-page{
+    padding: 0 3rem !important;
+  }
+
+  .content-page .text-justify{
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    border-bottom: 2px solid #fcc474;
+  }
+
+  .textcontent-submodule{
+    padding: 0 2rem;
+  }
+
+  .textcontent-submodule img{
+    max-width: 100%;
+  }
+
+  // .order-sm-first{
+  //   order: 1 !important
+  // }
+
+  // .order-sm-last{
+  //   order: 6 !important
+  // }
 }

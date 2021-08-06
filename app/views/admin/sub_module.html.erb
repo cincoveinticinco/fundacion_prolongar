@@ -4,48 +4,62 @@
 <!-- Mensaje de confirmacion-->
 <%=flash[:msg] %>
 <!-- End Mensaje de confirmacion-->
-
 <div class="container">
-	<a class="btn-create mb-5" href="/admin/create_sub_module/<%=@module_page.id%>">Crear Sub Modulo</a>
-	<table border="1" class="table mt-5">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Descripcion Corta</th>
-					<th>Pdf</th>
-					<th>Link</th>
-					<th>Depende de</th>
-					<th>Imagen</th>
-					<th colspan="2">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @sub_modules.each do |data| %>
-				<tr>
-					<td><%=data['sub_module_name'] %></td>
-					<td><%=data['description'] %></td>
-					<td><a class="text-warning" href="<%=data['file_pdf'] %>" target="_blank" >ver Pdf</td>
-					<td><%=data['link'] %>
-						<% if  data['link'].include? 'youtu'%>
-							<% link = data['link'].split('/') %>
-							<iframe width="360" height="115" src="https://www.youtube.com/embed/<%=link[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						<% end %>
+<a href="/admin/create_sub_module/<%=@module_page.id%>" class="btn-create">Crear Sub Modulo</a>
+<table border="1" class="table mt-3">
+	 	<thead>
+	 		<tr>
+				<td>Nombre</td>
+				<td>Descripcion Corta</td>
+				<td>Pdf</td>
+				<td>Link</td>
+				<td>Link 2</td>
+				<td>Depende de</td>
+				<td>Orden</td>
+				<td>Imagen</td>
+				<td colspan="2">Acciones</td>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+	 		<% @sub_modules.each do |data| %>
+	 		<tr>
+	 			<td><%=data['sub_module_name'] %></td>
+	 			<td><%=data['description'] %></td>
+				 <td><a href="<%=data['file_pdf'] %>" target="_blank" >ver Pdf</td>
+	 			<td><%=data['link'] %>
+	 				<% if  data['link'].include? 'youtu'%>
+				   		<% link = data['link'].split('/') %>
+				   		<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=link[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		  			<% end %>
 
 						<% if  data['link'].include? 'soundcloud'%>
 								<iframe width="100%" height="95" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=<%=data['link']%>&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
 						<% end %>
 
-					</td>
-					<td><%=data['name_dependences'] %></td>
-					<td><img src="<%=data['image_min'] %>" width="100" height="100"></td>
-					<td>
-						<a class="btn-editar" href="/admin/create_sub_module/<%=@module_page.id%>/<%=data['id'] %>">Editar</a>
-					</td>
-					<td>
-						<a class="btn-eliminar" href="/admin/delete_sub_module/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Sub Modulo?')">Eliminar</a>
-					</td>
-				</tr>
+	 			</td>
+				 <td><%=data['link_2'] %>
+				 <%if !data['link_2'].blank? %>
+						<% if  data['link_2'].include? 'youtu'%>
+							<% link_2 = data['link_2'].split('/') %>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=link_2[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<% end %>
+
+						<% if  data['link_2'].include? 'soundcloud'%>
+								<iframe width="100%" height="95" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=<%=data['link_2']%>&color=%23dd9781&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+						<% end %>
 				<% end %>
-			</tbody>
-	</table>
-</div>
+
+	 			</td>
+	 			<td><%=data['name_dependences'] %></td>
+				<td><%=data['order_sub'] %></td>
+				<td><img src="<%=data['image_min'] %>" width="100" height="100"></td>
+				<td>
+					<a class="btn-editar" href="/admin/create_sub_module/<%=@module_page.id%>/<%=data['id'] %>">Editar</class=>	
+				</td>
+				<td>
+					<a class="btn-eliminar" href="/admin/delete_sub_module/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Sub Modulo?')">Eliminar</a>
+				</td>
+	 		</tr>
+	 		<% end %>
+	 	</tbody>
+</table>

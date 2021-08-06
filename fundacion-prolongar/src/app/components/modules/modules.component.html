@@ -1,4 +1,4 @@
-<app-loader-module *ngIf="!datos"></app-loader-module>
+<app-loader *ngIf="loader"></app-loader>
 <div *ngIf="modules">
   <div class="bannerModulo">
     <img [src]="urlimage+modules.img_banner" class="img-responsive img-banner">
@@ -12,9 +12,7 @@
     <div class="row content-modulo">
       <div class="col-lg-3 titulo-sub-modulo">
         <h4 class="text-uppercase title-sub-module">{{item.sub_module_name}}</h4>
-        <span class="img-globo" *ngIf="item.showMessageLocked">
-          <img src="./assets/img/Globo-2.png" alt="">
-      </span>
+
       </div>
       <div class="col-lg-5 col-sm-12 imagen-sub-module" (click)="verSubmodule(item)">
         <img [src]="urlimage+item.image_min" alt="" [ngClass]="{'opacity': item.locked==1}" class="img-sub-module">

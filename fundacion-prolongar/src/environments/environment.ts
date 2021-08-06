@@ -7,7 +7,8 @@ export const environment = {
   // url:"http://localhost:3000/web_services/",
   // urlImage:"http://localhost:3000"
 
-  url:"http://35.84.147.171:3000/web_services/",
+  ulrApi:"http://35.84.147.171:3000/",
+  url: "http://35.84.147.171:3000/web_services/",
   urlImage:"http://35.84.147.171:3000/"
 };
 

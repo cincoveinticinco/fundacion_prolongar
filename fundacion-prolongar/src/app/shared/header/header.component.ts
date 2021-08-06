@@ -10,7 +10,8 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 
   tokenValidate:any;
-  rutaMenu:any;
+  rutaMenu: any;
+  toggleMenuButton: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -26,6 +27,10 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((val) => {
       this.tokenValidate =localStorage.getItem('token');
     });
+  }
+
+  toggleMenu() {
+    this.toggleMenuButton = !this.toggleMenuButton
   }
 
 }

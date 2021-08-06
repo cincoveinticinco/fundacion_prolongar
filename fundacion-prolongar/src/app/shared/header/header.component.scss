@@ -3,11 +3,11 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #d4826e;
+    background-color: #d58071;
 }
 
 .navbar{
-  background-color: #d4826e;
+  background-color: #d58071;
 }
 
 .navbar * {
@@ -22,6 +22,8 @@
 
 .img-menu {
   width: 70%;
+  height: 38px;
+  object-fit: contain;
 }
 
 .dropdown {
@@ -29,11 +31,18 @@
   display: inline-block;
 }
 
+.logo-garabatos{
+  height: 26px;
+  margin-top: 7px;
+}
+
+
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.404);
+  background-color: rgba(255, 255, 255, 0.9);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.50);
   z-index: 9999;
@@ -51,13 +60,38 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  color: #d4826e !important;
+  color: #d58071 !important;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
+.main-logos img{
+  width: 100px;
+  margin-right: 20px;
+}
+
 @media (max-width: 768px) {
+
+  .navbar{
+    height: 59px;
+  }
+
+  .button-hamburger{
+    position: absolute;
+    right: 12px;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+
+  .main-logos{
+    position: absolute;
+    right: calc(50% - 20px);
+    bottom: 50%;
+    transform: translate(50%, 50%);
+  }
+
+
   .navbar-right{
     display: none;
   }
@@ -78,11 +112,9 @@
   }
 
   .dropdown-content{
-    display: none;
     position: absolute;
-    background-color: #fcc472;
+    background-color: #f7c371;
     min-width: 100vw;
-    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 50%);
     z-index: 9999;
     text-align: center;
   /*   top: 2.5em; */
@@ -90,5 +122,14 @@
     color: white !important;
     font-size: small;
 
+  }
+
+  .dropdown-content:after{
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #0000001f;
+    left: 0;
   }
 }

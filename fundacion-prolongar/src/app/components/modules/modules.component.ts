@@ -12,7 +12,8 @@ export class ModulesComponent implements OnInit {
 
   public datos:any;
   public modules:any;
-  public subModule:any;
+  public subModule: any;
+  public loader: boolean = true;
   moduleId: any;
   urlimage: any;
   messageSubModule:boolean=false;
@@ -21,18 +22,24 @@ export class ModulesComponent implements OnInit {
 
   ngOnInit(): void {
     this.urlimage = environment.urlImage;
-    this.rutaActiva.paramMap.subscribe(data=>{
-      this.moduleId=data;
-      this.viewModules(this.moduleId.params['tipomodule']);
+    this.rutaActiva.params.subscribe(params => {
+      this.loader = true;
+      this.moduleId = params.tipomodule;
+      this.viewModules(this.moduleId );
     })
   }
 
-  viewModules(id: any){
-    this.services.dataModule(id).subscribe(data => {
-      console.log(data);
-      this.datos=data;
-      this.subModule = this.datos.sub_module_pages
-      this.modules = this.datos.module_page
+  viewModules(id: any) {
+    this.loader = true;
+    this.services.loadIngoDataModule = false
+    this.services.infoDataModule(id).subscribe(data => {
+      if (data) {
+        this.datos=data;
+        this.subModule = this.datos.sub_module_pages
+        this.modules = this.datos.module_page
+        this.loader = false
+      }
+
     })
   }
 
@@ -47,7 +54,7 @@ export class ModulesComponent implements OnInit {
       this.messageSubModule =true;
       return
     }
-    this.router.navigate(['modulo',this.moduleId.params['tipomodule'],item.id])
+    this.router.navigate(['modulo',this.moduleId,item.id])
   }
 
 }

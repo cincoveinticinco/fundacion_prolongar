@@ -1,5 +1,5 @@
 section {
-    background-color: #fff8e6;
+    background-color: #fcf4e5;
     color:white;
     /* height:90vh; */
 }
@@ -10,7 +10,7 @@ section {
 }
 
 section .container {
-    background-color: #fff8e6;
+    background-color: #fcf4e5;
 }
 
 h3{
@@ -34,7 +34,7 @@ label + input[type="radio"]{
 }
 
 h3, label {
-    color:#d4826e;
+    color:#d58071;
 }
 
 .br-register {
@@ -65,7 +65,7 @@ label::first-letter {
 }
 
 .btn-enviar {
-    background-color:#fcc472;
+    background-color:#f7c371;
     color: white;
     width: 30%;
 }
@@ -81,4 +81,10 @@ label::first-letter {
   white-space: nowrap;
   direction: rtl;
   padding-right: 70%;
+}
+
+@media (max-width: 500px) {
+.form-register{
+  width: 100%;
+}
 }

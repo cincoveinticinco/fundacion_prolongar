@@ -11,11 +11,26 @@ export class ServicesProlongarService {
 
   public apiUrl: any = environment.url;
 
+  _infoDataModule:any = null
+  private infoDataModuleRequest = new BehaviorSubject(this._infoDataModule)
+  private infoDataModuleMessage = this.infoDataModuleRequest.asObservable()
+  private isLoadingInfoDataModule: boolean = false;
+
   _infoHomeData:any = null
   infoHomeResponse = new Subject<any>()
   private infoHomeRequest = new BehaviorSubject(this._infoHomeData)
   private infoHomeMessage = this.infoHomeRequest.asObservable()
+  private isLoadingInfoHome: boolean = false;
+
   public get infoHomeData() {
+    if (!this._infoHomeData && !this.isLoadingInfoHome) {
+      this.isLoadingInfoHome = true;
+      this.infoHome()
+        .subscribe(data => {
+          this._infoHomeData = data
+          this.infoHomeRequest.next(data)
+        })
+    }
     return this.infoHomeMessage
   }
 
@@ -23,14 +38,29 @@ export class ServicesProlongarService {
 
   infoHome() {
     return this.http.post(`${this.apiUrl}info_home`, '')
-      .pipe(map((result: any) => {
-        this._infoHomeData = result
-        this.infoHomeRequest.next(result)
-        return result
-      }))
+      .pipe(map((result => result)))
   }
 
-  dataModule(id:string){
+  public set loadIngoDataModule(value:boolean) {
+    this.isLoadingInfoDataModule = value
+    if (!value) {
+      this._infoDataModule = null;
+    }
+  }
+
+  public infoDataModule(id: string) {
+    if (!this._infoDataModule && !this.isLoadingInfoDataModule) {
+      this.isLoadingInfoDataModule = true;
+      this.dataModule(id).subscribe(data => {
+        this._infoDataModule = data;
+        this.infoDataModuleRequest.next(data)
+      })
+    }
+
+    return this.infoDataModuleMessage
+  }
+
+  private dataModule(id:string){
     let token = localStorage.getItem('token');
     let datos={
       id:id,

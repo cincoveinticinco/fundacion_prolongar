@@ -20,8 +20,8 @@ const routes: Routes = [
 			{
 				path: '**',
 				redirectTo: '/home/homes',
-				pathMatch: 'full' 
-			} 
+				pathMatch: 'full'
+			}
 		]
 	}
 ];
@@ -29,7 +29,7 @@ const routes: Routes = [
 export const APP_ROUTING = RouterModule.forChild(routes);
 
 @NgModule({
-	imports: [RouterModule.forChild(routes)],
+	imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],
 	exports: [RouterModule]
 })
 export class HomeRoutingModule { }

@@ -1,13 +1,13 @@
 .home {
     /* margin: auto; */
-    background-color: #fff8e6;
+    background-color: #fcf4e5;
    /*  width: 100%; */
 }
 
 .titulo{
     padding-top: 1em;
     text-align: center;
-    color: #d4826e;
+    color: #d58071;
     text-transform: uppercase;
 }
 
@@ -131,6 +131,10 @@
   display: inline-block;
 }
 
+.content-center{
+  margin: 0 auto;
+}
+
 .half-wide{
   width: 50% !important;
 }
@@ -169,7 +173,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  color: #d4826e;
+  color: #d58071;
   letter-spacing: 1.3px;
 }
 
@@ -192,7 +196,7 @@ li a:hover {
 .titulo-modulos{
   padding-top: 1em;
   text-align: center;
-  color: #d4826e;
+  color: #d58071;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 4px;
@@ -214,14 +218,14 @@ li a:hover {
 .corporalidad {
     color: white;
     width: 100%;
-    background-color: #fcc472;
+    background-color: #f7c371;
     height: 170px;
 }
 
 .corporalidad-title{
   text-transform: uppercase;
   font-weight: bold;
-  border-bottom-left-radius: 1px solid #fff8e6;
+  border-bottom-left-radius: 1px solid #fcf4e5;
 }
 
 .text-orange {
@@ -245,7 +249,7 @@ li a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
   width: max-content;
   left: -60%;
   z-index: 1;
@@ -253,7 +257,7 @@ li a:hover {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: #d4826e;
+  color: #d58071;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -312,7 +316,7 @@ li a:hover {
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #d4826e;
+  background-color: #d58071;
   color: white;
   transform: rotateY(180deg);
 }
@@ -338,8 +342,14 @@ li a:hover {
 }
 
 @media (max-width: 500px) {
+
+  .dropdown-content{
+    position: static;
+    background-color: transparent;
+  }
   .miniBanner{
     width: 100% !important;
+    height: 150px;
   }
 
   .miniBanner.full-wide h3 .lineFullWide.lineLeft,
@@ -350,7 +360,7 @@ li a:hover {
 
 
   .miniBanner.full-wide{
-    height: 260px;
+    height: 150px;
     text-align: left;
   }
 
@@ -373,6 +383,25 @@ li a:hover {
     display: block !important;
   }
 
+  .contentDescription .content-description{
+    font-size: 14px;
+    height: 80px;
+  }
+
+  .miniBanner.full-wide  .ver-mas{
+    bottom: 0;
+  }
+
+  .ver-mas{
+    font-size: 14px;
+    bottom: -20px;
+
+  }
+
+  .mt-5{
+    margin: 0 !important;
+  }
+
 
 
   ul {
@@ -383,6 +412,24 @@ li a:hover {
     display: grid;
     justify-content: center;
   }
+
+  ul li{
+    display: block;
+    width: 100%;
+  }
+
+  ul li a{
+    font-size: 15px;
+    font-weight: 500 !important;
+    padding: 10px 16px;
+  }
+
+  .text-modulos{
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+
 
   .wrapper{
     display: grid;

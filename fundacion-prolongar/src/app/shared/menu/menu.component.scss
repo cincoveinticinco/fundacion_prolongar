@@ -1,5 +1,5 @@
 .navbar{
-  background-color: #d4826e;
+  background-color: #d58071;
   padding: 0 !important;
 }
 
@@ -10,6 +10,14 @@
 
 .nav-link {
     color: #ffffff !important;
+
+}
+
+.item-modules a{
+  text-align: left;
+  padding-left: 4rem;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .dropdown {
@@ -21,11 +29,16 @@
   width: 70%;
 }
 
+.logo-garabatos{
+  height: 26px;
+  margin-top: 7px;
+}
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
       display: none;
       position: absolute;
-      background-color: rgb(255 255 255 / 93%);
+      background-color: rgba(255, 255, 255, 0.9);
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
       z-index: 9999;
@@ -39,7 +52,7 @@
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: #d4826e !important;
+  color: #d58071 !important;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -58,7 +71,7 @@
   width:100%;
   height: 100vh;
   color: #ddd;
-  background-color:#fcc472;
+  background-color:#f7c371;
   z-index:999;
   position: absolute;
 }
@@ -84,7 +97,9 @@
 }
 
 .btn-close{
+  opacity: 1 !important;
   float: right;
+  color: white;
 }
 
 .titles-modules {
@@ -134,7 +149,29 @@
   cursor: pointer;
 }
 
+.main-logos img{
+  width: 100px;
+  margin-right: 20px;
+}
+
 @media (max-width: 500px) {
+
+  .main-logos{
+    position: absolute;
+    right: calc(50% - 20px);
+    bottom: 50%;
+    transform: translate(50%, 50%);
+  }
+
+  .dropdown-content{
+    right: 0%;
+    transform: none;
+  }
+
+  .navbar-nav.nav-left{
+    width: 70%;
+  }
+
   .titles-modules {
     display: block;
     /* align-self: center; */
@@ -172,7 +209,6 @@
 
   .navbar-nav .nav-link {
     padding-right: 1em;
-    padding-left: 0;
   }
 
   .dropdown-content{
