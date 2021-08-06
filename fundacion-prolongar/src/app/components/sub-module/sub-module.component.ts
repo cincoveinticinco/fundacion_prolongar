@@ -147,7 +147,7 @@ export class SubModuleComponent implements OnInit {
   url(url:string) {
 
 
-    if (url.length <= 0)
+    if (!url || (url && url.length <= 0))
       return null;
 
     if (url.indexOf('youtu') > -1) {
