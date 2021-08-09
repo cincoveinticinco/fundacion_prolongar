@@ -1,8 +1,8 @@
 <% if !@sub_module.blank? %>
-	<h1 class="text-center text-dark-orange">Editar Sub Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Sub Modulo</h1>
 	<div class="container br-register"></div>
 <% else %>
-	<h1 class="text-center text-dark-orange">Crear Sub Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear Sub Modulo</h1>
 	<div class="container br-register"></div>
 <% end %>
 
@@ -18,7 +18,7 @@
 				<input type="text" class="form-control" name="sub_module_name" required="" value="<%= !@sub_module.blank? ?  @sub_module.sub_module_name : '' %>">
 			</div>
 			<div class="col">
-				<label>Descripcion Corta</label>
+				<label>Descripción Corta</label>
 				<textarea name="description" class="form-control"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.description : '' %></textarea>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 					<%if !@sub_module.link_2.blank? %>
 						<% if  @sub_module.link_2.include? 'youtu'%>
 							<% link_2 = @sub_module.link_2.split('/') %>
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=link_2[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="460" height="215" src="https://www.youtube.com/embed/<%=link_2[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<% end %>
 
 						<% if  @sub_module.link_2.include? 'soundcloud'%>
@@ -76,7 +76,17 @@
 		<div class="row mt-3">
 			<div class="col">
 				<label>Orden</label>
-				<input type="text" class="form-control" name="order_sub" required="" value="<%= !@sub_module.blank? ?  @sub_module.order_sub : '' %>">
+				<select name="order" id="order" class="form-control">
+					<% cont = 1%>
+					<% cont_selected = @total_sub%>
+					<% if !@sub_module.blank?%>
+						<% cont_selected = @sub_module.order_sub %>
+					<% end %>
+					<% while cont<=@total_sub.to_i%>
+						<option value="<%=cont%>" <% if cont_selected==cont %> selected <%end%> ><%=cont%></option>
+						<% cont = cont+1 %>
+					<% end %>
+				</select>
 			</div>
 			<div class="col">
 			<label>Imagen Submodulo (Tamaño 496 x 279 px)</label>

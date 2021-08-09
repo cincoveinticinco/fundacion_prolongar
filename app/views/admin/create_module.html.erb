@@ -1,8 +1,8 @@
 <% if !@module_page.blank? %>
-	<h1 class="text-center text-dark-orange">Editar Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Modulo</h1>
 	<div class="container br-register"></div>
 <% else %>
-	<h1 class="text-center text-dark-orange">Crear Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear Modulo</h1>
 	<div class="container br-register"></div>
 <% end %>
 
@@ -29,7 +29,7 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<label>Descripcion Corta</label>
+				<label>Descripción Corta</label>
 				<textarea name="description" class="form-control"  <% if @module_page.blank? %> required="" <% end %> ><%= !@module_page.blank? ?  @module_page.description : '' %></textarea>
 			</div>
 			<div class="col">
