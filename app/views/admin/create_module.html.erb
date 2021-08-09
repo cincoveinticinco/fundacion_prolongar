@@ -1,37 +1,51 @@
 <% if !@module_page.blank? %>
-	<h1>Editar Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Modulo</h1>
+	<div class="container br-register"></div>
 <% else %>
-	<h1>Crear Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear Modulo</h1>
+	<div class="container br-register"></div>
 <% end %>
 
 <%= form_tag({:controller => "admin", :action => "insert_module"},:method => "post", :multipart => true, :class =>'') do %>
-	<label>Nombre del Modulo</label>
-	<input type="text" name="name_module" required="" value="<%= !@module_page.blank? ?  @module_page.name_module : '' %>">
-	<br>
 
-	<label>Imagen Modulo</label>
-	<input type="file" name="imagen_min" <% if @module_page.blank? %>  <% end %> >
-	<% if !@module_page.blank? %>
-		<img src="<%=@module_page.imagen_min %>" width="100" height="100"> 
-		<input type="hidden" name="id" value ="<%= @module_page.id%>" >
-	<% end %>
-	<br>
-	<label for="color_module">Color:</label>
-	<input type="color" name="color_module" value="<%= !@module_page.blank? ?  @module_page.color_module : '' %>">
-	<br>
-
-	<label>Descripcion Corta</label>
-	<textarea name="description"   <% if @module_page.blank? %> required="" <% end %> ><%= !@module_page.blank? ?  @module_page.description : '' %></textarea>
-	<br>
-
-	<label>Banner (Tamaño 336 x 280 px)</label>
-	<input type="file" name="img_banner"  <% if @module_page.blank? %>  <% end %>>
-	<% if !@module_page.blank? %>
-		<img src="<%=@module_page.img_banner %>" width="100" height="100"> 
-	<% end %>
-	<br>
-
-	<input type="submit" value="Guardar">
+	<div class="container">
+		<div class="row">
+			<div class="col-5">
+				<label>Nombre del Modulo</label>
+				<input type="text" name="name_module" class="form-control" required="" value="<%= !@module_page.blank? ?  @module_page.name_module : '' %>">
+			</div>
+			<div class="col-6">
+				<label>Imagen Modulo</label>
+				<input type="file" name="imagen_min" class="form-control" <% if @module_page.blank? %>  <% end %> >
+				<% if !@module_page.blank? %>
+					<img src="<%=@module_page.imagen_min %>" width="100" height="100"> 
+					<input type="hidden" name="id" value ="<%= @module_page.id%>" >
+				<% end %>
+			</div>
+			<div class="col-1">
+				<label for="color_module">Color:</label>
+				<input type="color" class="form-control form-control-color" name="color_module" value="<%= !@module_page.blank? ?  @module_page.color_module : '' %>">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label>Descripción Corta</label>
+				<textarea name="description" class="form-control"  <% if @module_page.blank? %> required="" <% end %> ><%= !@module_page.blank? ?  @module_page.description : '' %></textarea>
+			</div>
+			<div class="col">
+				<label>Banner (Tamaño 336 x 280 px)</label>
+				<input type="file" name="img_banner" class="form-control"  <% if @module_page.blank? %>  <% end %>>
+				<% if !@module_page.blank? %>
+					<img src="<%=@module_page.img_banner %>" width="100" height="100"> 
+				<% end %>
+			</div>
+		</div>
+	</div>
+		
+	
+	<div class="d-flex justify-content-center mt-3">
+        <input type="submit" value="Guardar" class="btn-create">
+    </div>
 
 
 

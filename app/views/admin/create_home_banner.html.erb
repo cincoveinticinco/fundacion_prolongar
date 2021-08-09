@@ -1,34 +1,42 @@
 <% if !@home_banner.blank? %>
-	<h1>Editar Banner</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Banner</h1>
+	<div class="container br-register"></div>
 <% else %>
-	<h1>Crear Banner</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear Banner</h1>
+	<div class="container br-register"></div>
 <% end %>
 
 <%= form_tag({:controller => "admin", :action => "insert_home_banner"},:method => "post", :multipart => true, :class =>'') do %>
-	<label>Order</label>
-
-	<select name="order" id="order">
-		<% cont = 1%>
-		<% cont_selected = @total_banner%>
-		<% if !@home_banner.blank?%>
-			<% cont_selected = @home_banner.order_banner %>
-		<% end %>
-		<% while cont<=@total_banner%>
-			<option value="<%=cont%>" <% if cont_selected==cont %> selected <%end%> ><%=cont%></option>
-			<% cont = cont+1 %>
-		<% end %>
-	</select>
-
-	<br>
-
-	<label>Imagen Banner (Tamaño 540 x 1367 px) </label>
-	<input type="file" name="image" <% if @home_banner.blank? %> required="" <% end %> >
-	<% if !@home_banner.blank? %>
-		<img src="<%=@home_banner.image %>" width="100" height="100"> 
-		<input type="hidden" name="id" value ="<%= @home_banner.id%>" >
-	<% end %>
-	<br>
-
-	<input type="submit" value="Guardar">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<label>Orden</label>
+				<select name="order" id="order" required  class="form-control">
+					<% cont = 1%>
+					<% cont_selected = @total_banner%>
+					<% if !@home_banner.blank?%>
+						<% cont_selected = @home_banner.order_banner %>
+					<% end %>
+					<% while cont<=@total_banner%>
+						<option value="<%=cont%>" <% if cont_selected==cont %> selected <%end%> ><%=cont%></option>
+						<% cont = cont+1 %>
+					<% end %>
+				</select>
+			</div>
+			<div class="col">
+				<label>Imagen Banner (Tamaño 540 x 1367 px) </label>
+				<input type="file" required  name="image" class="form-control" <% if @home_banner.blank? %> <% end %> >
+				<% if !@home_banner.blank? %>
+					<img src="<%=@home_banner.image %>" width="100" height="100"> 
+					<input type="hidden" name="id" value ="<%= @home_banner.id%>" >
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center mt-3">
+		<input type="submit" value="Guardar" class="btn-create">
+	</div>
+	
 
 <%end%>

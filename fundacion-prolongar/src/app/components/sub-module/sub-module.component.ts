@@ -76,10 +76,8 @@ export class SubModuleComponent implements OnInit {
     let view;
     if (this.completado) {
       view =1;
-      console.log("1");
 
     }else {
-      console.log("0");
       view =0;
     }
     let datos={
@@ -105,10 +103,8 @@ export class SubModuleComponent implements OnInit {
     let view;
     if (this.verDespues) {
       view =0;
-      console.log("1");
 
     }else {
-      console.log("0");
       view =1;
     }
     let datos={

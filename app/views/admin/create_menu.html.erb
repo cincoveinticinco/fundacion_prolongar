@@ -1,23 +1,38 @@
 
-	<h1>Editar Menu</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Menú</h1>
+	<div class="container br-register"></div>
 
 
 <%= form_tag({:controller => "admin", :action => "insert_menu"},:method => "post", :multipart => true, :class =>'') do %>
 
-	<label>Nombre</label>
-	<input type="text" name="name_page" required="" value="<%= !@menu_content.blank? ?  @menu_content.name_page : '' %>">
-	<br>
-    <label>Texto</label>
-		<textarea name="texto" id="editor"  <% if @menu_content.blank? %> required="" <% end %> ><%= !@menu_content.blank? ?  @menu_content.texto : '' %></textarea>
-	<br>
-    <label>Imagen</label>
-	<input type="file" name="image" <% if @menu_content.blank? %> required="" <% end %> >
-	<% if !@menu_content.blank? %>
-		<img src="<%=@menu_content.image %>" width="100" height="100"> 
-		<input type="hidden" name="id" value ="<%= @menu_content.id%>" >
-	<% end %>
-	<br>
-    
-	<input type="submit" value="Guardar">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<label>Nombre</label>
+				<input type="text" name="name_page" class="form-control" required="" value="<%= !@menu_content.blank? ?  @menu_content.name_page : '' %>">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mt-3">
+				<label>Texto</label>
+				<textarea name="texto" id="editor" class="form-control"  <% if @menu_content.blank? %> required="" <% end %> ><%= !@menu_content.blank? ?  @menu_content.texto : '' %></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mt-3">
+				 <label>Imagen</label>
+				<input type="file" name="image" class="form-control" <% if @menu_content.blank? %> required="" <% end %> >
+				<% if !@menu_content.blank? %>
+					<img src="<%=@menu_content.image %>" width="100" height="100"> 
+					<input type="hidden" name="id" value ="<%= @menu_content.id%>" >
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	 <div class="d-flex justify-content-center mt-3 mb-5">
+         <input type="submit" value="Guardar" class="btn-create"> 
+    </div>
+	
 
 <%end%>

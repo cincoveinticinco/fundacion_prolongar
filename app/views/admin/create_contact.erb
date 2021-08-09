@@ -1,32 +1,49 @@
 <% if !@contact.blank? %>
-	<h1>Editar Contacts</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar contacto</h1>
+	<div class="container br-register"></div>
 <% else %>
-	<h1>Crear Contacts</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear contacto</h1>
+	<div class="container br-register"></div>
 <% end %>
 
 <%= form_tag({:controller => "admin", :action => "insert_contact"},:method => "post", :multipart => true, :class =>'') do %>
 	<% if !@contact.blank? %>
 	<input type="hidden" name="id" value ="<%= @contact.id%>" >
 	<% end %>
-	<label>Nombre</label>
-	<input type="text" name="name" required="" value="<%= !@contact.blank? ?  @contact.name : '' %>">
-	<br>
-    <label>Direccion</label>
-	<input type="text" name="direccion" required="" value="<%= !@contact.blank? ?  @contact.direccion : '' %>">
-	<br>
-    <label>Edificio</label>
-	<input type="text" name="edificio" required="" value="<%= !@contact.blank? ?  @contact.edificio : '' %>">
-	<br>
-    <label>Ciudad</label>
-	<input type="text" name="ciudad" required="" value="<%= !@contact.blank? ?  @contact.ciudad : '' %>">
-	<br>
-    <label>Telefono</label>
-	<input type="text" name="telefono" required="" value="<%= !@contact.blank? ?  @contact.telefono : '' %>">
-	<br>
-    <label>Email</label>
-	<br>
-	<input type="text" name="email" required="" value="<%= !@contact.blank? ?  @contact.email : '' %>">
-	<br>
-	<input type="submit" value="Guardar">
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<label>Nombre:</label>
+				<input type="text" class="form-control" name="name" required="" value="<%= !@contact.blank? ?  @contact.name : '' %>">
+			</div>
+			<div class="col">
+				<label>Dirección:</label>
+				<input type="text" class="form-control" name="direccion" required="" value="<%= !@contact.blank? ?  @contact.direccion : '' %>">
+			</div>
+			<div class="col">
+				<label>Edificio:</label>
+				<input type="text" class="form-control" name="edificio" required="" value="<%= !@contact.blank? ?  @contact.edificio : '' %>">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				 <label>Ciudad:</label>
+				<input type="text" class="form-control" name="ciudad" required="" value="<%= !@contact.blank? ?  @contact.ciudad : '' %>">
+			</div>
+			<div class="col">
+				<label>Teléfono:</label>
+				<input type="text" class="form-control" name="telefono" required="" value="<%= !@contact.blank? ?  @contact.telefono : '' %>">
+			</div>
+			<div class="col">
+				<label>Email:</label>
+				<input type="text" class="form-control" name="email" required="" value="<%= !@contact.blank? ?  @contact.email : '' %>">
+			</div>
+		</div>
+	</div>
+	
+	<div class="d-flex justify-content-center mt-3">
+        <input type="submit" value="Guardar" class="btn-create">
+    </div>
 
 <%end%>
