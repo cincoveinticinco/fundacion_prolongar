@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import { environment } from '../../../environments/environment';
@@ -18,7 +19,13 @@ export class ModulesComponent implements OnInit {
   urlimage: any;
   messageSubModule:boolean=false;
 
-  constructor(private services:ServicesProlongarService, private router:Router,private rutaActiva: ActivatedRoute) { }
+  constructor(
+    private services:ServicesProlongarService,
+    private router:Router,
+    private rutaActiva: ActivatedRoute,
+    private title: Title) {
+
+  }
 
   ngOnInit(): void {
     this.urlimage = environment.urlImage;
@@ -37,6 +44,8 @@ export class ModulesComponent implements OnInit {
         this.datos=data;
         this.subModule = this.datos.sub_module_pages
         this.modules = this.datos.module_page
+        this.title.setTitle(`${environment.titlePage} - ${this.modules.name_module}`)
+
         this.loader = false
       }
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/services/authservices.service';
 import { DepartamentosCiudadesService } from 'src/app/services/departamentos-ciudades.service';
 import { RegisterService } from 'src/app/services/register.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +25,10 @@ export class RegisterComponent implements OnInit {
   constructor(
     private router:Router,
     private register: RegisterService,
-    private auth: AuthservicesService) { }
+    private auth: AuthservicesService,
+    private title: Title) {
+      this.title.setTitle(`${environment.titlePage} - Registro de usuario`)
+    }
 
   ngOnInit(): void {
     this.departamentosCiudades();

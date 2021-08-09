@@ -6,12 +6,22 @@
 
 @import url("./assets/fonts/Roboto/fonts.css");
 
+:root{
+  --blanco: #FFF8E8;
+  --rojo: #d58071;
+  --amarillo: #f5af80;
+  --naranja: #fcc474;
+  --parrafo: #656b67;
+
+}
+
+
 * {
     font-family: 'Roboto' !important;
 }
 
 body {
-  background-color: #fcf4e5 !important;
+  background-color: #FFF8E8 !important;
 }
 
 h3{
@@ -93,22 +103,37 @@ select.ng-invalid.ng-touched{
 
 .content-homepage p{
   text-align: justify;
-  color: #D5774F;
+  color: var(--parrafo);
   font-weight: 300;
-  font-size: 15px;
+  line-height: 1.2;
 }
 
 .content-homepage ul span,
 .content-homepage p span{
-  font-size: 15px !important;
+  // font-size: 15px !important;
+}
+
+.content-homepage a{
+  color: var(--rojo) !important;
+}
+
+.textcontent-submodule h2 span{
+  color: var(--rojo) !important;
+}
+
+.textcontent-submodule a{
+  word-break: break-all;
+  color: var(--rojo) !important;
 }
 
 .textcontent-submodule p{
   font-weight: 300;
   text-align: justify;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
+  color: var(--parrafo);
 }
+
 
 .textcontent-submodule p strong{
   font-weight: 900;
@@ -124,7 +149,7 @@ select.ng-invalid.ng-touched{
 
 .content-page .text-justify{
   padding-bottom: 1rem;
-  border-bottom: 2px solid #fcc474;
+  // border-bottom: 2px solid #fcc474;
 }
 
 @media (max-width: 500px) {

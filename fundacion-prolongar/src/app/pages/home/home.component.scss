@@ -1,6 +1,6 @@
 .home {
     /* margin: auto; */
-    background-color: #fcf4e5;
+    background-color: #FFF8E8;
    /*  width: 100%; */
 }
 
@@ -178,7 +178,7 @@ li a {
 }
 
 li a:hover {
-  color: #88b87b;
+  color: var(--amarillo);
 }
 
 .text-modulos {
@@ -194,7 +194,6 @@ li a:hover {
   } */
 
 .titulo-modulos{
-  padding-top: 1em;
   text-align: center;
   color: #d58071;
   text-transform: uppercase;
@@ -225,7 +224,7 @@ li a:hover {
 .corporalidad-title{
   text-transform: uppercase;
   font-weight: bold;
-  border-bottom-left-radius: 1px solid #fcf4e5;
+  border-bottom-left-radius: 1px solid #FFF8E8;
 }
 
 .text-orange {
@@ -267,14 +266,20 @@ li a:hover {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: rgb(0 0 0 / 1%);
-  color: #88b87b;
+  color: var(--amarillo);
   cursor: pointer;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
-
+.home-separator{
+  background: var(--naranja);
+  height: 2px;
+  opacity: 1;
+  width: 76%;
+  margin: 3rem auto;
+}
 
 
 .flip-card {

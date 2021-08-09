@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import { environment } from 'src/environments/environment';
 
@@ -14,17 +15,12 @@ export class HomesComponent implements OnInit {
   datos: any;
   urlimage: any;
 
-  constructor(private services: ServicesProlongarService) { }
+  constructor(private services: ServicesProlongarService,
+    private title: Title) {
+    this.title.setTitle(`${environment.titlePage} - Inicio garabatos`)
+  }
 
   ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    console.log(this.video)
-    // this.video.nativeElement.play().then(() => {
-    //   console.log('autoplay')
-    // }).catch((error:any) => {
-    //   console.log('error', error)
-    // })
   }
 
   ngOnInit(): void {
