@@ -1,8 +1,8 @@
 <% if !@home_banner.blank? %>
-	<h1 class="text-center text-dark-orange">Editar Banner</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Banner</h1>
 	<div class="container br-register"></div>
 <% else %>
-	<h1 class="text-center text-dark-orange">Crear Banner</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear Banner</h1>
 	<div class="container br-register"></div>
 <% end %>
 
@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<label>Order</label>
+				<label>Orden</label>
 				<select name="order" id="order" class="form-control">
 					<% cont = 1%>
 					<% cont_selected = @total_banner%>

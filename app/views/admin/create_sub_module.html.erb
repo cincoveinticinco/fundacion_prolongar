@@ -1,8 +1,8 @@
 <% if !@sub_module.blank? %>
-	<h1 class="text-center text-dark-orange">Editar Sub Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar Sub Modulo</h1>
 	<div class="container br-register"></div>
 <% else %>
-	<h1 class="text-center text-dark-orange">Crear Sub Modulo</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear Sub Modulo</h1>
 	<div class="container br-register"></div>
 <% end %>
 
@@ -18,7 +18,7 @@
 				<input type="text" class="form-control" name="sub_module_name" required="" value="<%= !@sub_module.blank? ?  @sub_module.sub_module_name : '' %>">
 			</div>
 			<div class="col">
-				<label>Descripcion Corta</label>
+				<label>Descripción Corta</label>
 				<textarea name="description" class="form-control"  <% if @sub_module.blank? %> required="" <% end %> ><%= !@sub_module.blank? ?  @sub_module.description : '' %></textarea>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 					<%if !@sub_module.link_2.blank? %>
 						<% if  @sub_module.link_2.include? 'youtu'%>
 							<% link_2 = @sub_module.link_2.split('/') %>
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=link_2[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="460" height="215" src="https://www.youtube.com/embed/<%=link_2[-1]%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<% end %>
 
 						<% if  @sub_module.link_2.include? 'soundcloud'%>

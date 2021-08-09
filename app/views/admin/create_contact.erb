@@ -1,8 +1,8 @@
 <% if !@contact.blank? %>
-	<h1 class="text-center text-dark-orange">Editar Contacts</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Editar contacto</h1>
 	<div class="container br-register"></div>
 <% else %>
-	<h1 class="text-center text-dark-orange">Crear Contacts</h1>
+	<h1 class="text-center text-dark-orange text-uppercase">Crear contacto</h1>
 	<div class="container br-register"></div>
 <% end %>
 
@@ -14,29 +14,29 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<label>Nombre</label>
+				<label>Nombre:</label>
 				<input type="text" class="form-control" name="name" required="" value="<%= !@contact.blank? ?  @contact.name : '' %>">
 			</div>
 			<div class="col">
-				<label>Direccion</label>
+				<label>Dirección:</label>
 				<input type="text" class="form-control" name="direccion" required="" value="<%= !@contact.blank? ?  @contact.direccion : '' %>">
 			</div>
 			<div class="col">
-				<label>Edificio</label>
+				<label>Edificio:</label>
 				<input type="text" class="form-control" name="edificio" required="" value="<%= !@contact.blank? ?  @contact.edificio : '' %>">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				 <label>Ciudad</label>
+				 <label>Ciudad:</label>
 				<input type="text" class="form-control" name="ciudad" required="" value="<%= !@contact.blank? ?  @contact.ciudad : '' %>">
 			</div>
 			<div class="col">
-				<label>Telefono</label>
+				<label>Teléfono:</label>
 				<input type="text" class="form-control" name="telefono" required="" value="<%= !@contact.blank? ?  @contact.telefono : '' %>">
 			</div>
 			<div class="col">
-				<label>Email</label>
+				<label>Email:</label>
 				<input type="text" class="form-control" name="email" required="" value="<%= !@contact.blank? ?  @contact.email : '' %>">
 			</div>
 		</div>

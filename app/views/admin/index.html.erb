@@ -1,4 +1,4 @@
-<h1 style="color:#d48071" class="fw-bold mb-4 text-center">Adminstrador de contenido</h1>
+<h1 style="color:#d48071" class="fw-bold mb-4 text-center text-uppercase">Adminstrador de contenido</h1>
 
 <!-- Mensaje de confirmacion-->
 <%=flash[:msg] %>
@@ -6,7 +6,7 @@
 
 <div class="container">
 	<div id="accordion">
-		<h3>Administradores</h3>
+		<h3 class="text-uppercase">Administradores</h3>
 		<div>
 			<a href="create_admin" class="btn-create">Crear Administrador</a>
 			<table border="1" class="table mt-3">
@@ -33,14 +33,14 @@
 		</div>
 
 
-		<h3>Banner Home</h3>
+		<h3 class="text-uppercase">Banner Home</h3>
 
 		<div>
 			<a href="create_home_banner" class="btn-create">Crear Banner</a>
 			<table border="1" class="table mt-3">
 					<thead>
 						<tr>
-							<th>Order</th>
+							<th>Orden</th>
 							<th>Imagen Banner</th>
 							<th>Acciones</th>
 						</tr>
@@ -60,14 +60,14 @@
 			</table>
 		</div>
 
-		<h3>Menú</h3>
+		<h3 class="text-uppercase">Menú</h3>
 
 		<div>
 			
 			<table border="1" class="table mt-3">
 					<thead>
 						<tr>
-							<th>Menu</th>
+							<th>Menú</th>
 							<th>Texto</th>
 							<th>Imagén</th>
 							<th>Acciones</th>
@@ -88,7 +88,7 @@
 		</div>
 
 
-		<h3>Modulos</h3>
+		<h3 class="text-uppercase">módulos</h3>
 		<div>
 			<a href="create_module" class="btn-create">Crear Modulo</a>
 			<table border="1" class="table mt-3">
@@ -97,9 +97,9 @@
 							<th>Nombre del Modulo</th>
 							<th>Imagen Modulo</th>
 							<th>Color</th>
-							<th>Descripcion Corta</th>
+							<th>Descripción Corta</th>
 							<th>Banner</th>
-							<th>Sub Modulos</th>
+							<th>Sub módulos</th>
 							<th colspan="2">Acciones</th>
 						</tr>
 					</thead>
@@ -124,7 +124,7 @@
 			</table>
 		</div>
 
-		<h3>Registros</h3>
+		<h3 class="text-uppercase">Registros</h3>
 		<div>
 			<td>
 				<button class="btn-registro">
@@ -133,7 +133,7 @@
 			</td> 		
 		</div>
 
-		<h3>Contactenos</h3>
+		<h3 class="text-uppercase">Contactenos</h3>
 		<div>
 			<% if @contacts.blank?%>
 				<a href="create_contact" class="btn-create">Crear Contactos</a>
@@ -142,10 +142,10 @@
 					<thead>
 						<tr>
 							<th>Nombre</th>
-							<th>Direccion</th>
+							<th>Dirección</th>
 							<th>Edificio</th>
 							<th>Ciudad</th>
-							<th>Telefono</th>
+							<th>Teléfono</th>
 							<th>Email</th>
 							<th>Acciones</th>
 						</tr>
