@@ -1,161 +1,172 @@
-<h1>Adminstrador de contenido</h1>
+<h1 style="color:#d48071" class="fw-bold mb-4 text-center">Administrador de contenido</h1>
 
 <!-- Mensaje de confirmacion-->
 <%=flash[:msg] %>
 <!-- End Mensaje de confirmacion-->
 
-<div id="accordion">
-	<h3>Administradores</h3>
-	<div>
-		<a href="create_admin">Crear Administrador</a>
-		<table border="1">
-			 	<thead>
-			 		<tr>
-			 			<td>Usuario</td>
-			 			<td>Acciones</td>
-			 		</tr>
-			 	</thead>
-			 	<tbody>
-			 		<% @user_admin.each do |data| %>
-			 		<tr>
-			 			<td><%=data['name'] %></td>
-			 			<td>
-			 				<a href="/admin/create_admin/<%=data['id'] %>">Editar</a>
-			 				<% if @user_admin.length !=1 %>
-			 					/
-			 					<a href="/admin/delete_admin/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Administrador?')">Eliminar</a>
-			 				<% end %>
-			 			</td>
-			 		</tr>
-			 		<% end %>
-			 	</tbody>
-		</table>
+<div class="container">
+	<div id="accordion">
+		<h3>Administradores</h3>
+		<div>
+			<a href="create_admin" class="btn-create">Crear Administrador</a>
+			<table border="1" class="table mt-3">
+					<thead>
+						<tr>
+							<th>Usuario</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @user_admin.each do |data| %>
+						<tr>
+							<td><%=data['name'] %></td>
+							<td>
+								<a href="/admin/create_admin/<%=data['id'] %>" class="btn-editar">Editar</a>
+								<% if @user_admin.length !=1 %>
+									<a href="/admin/delete_admin/<%=data['id'] %>" class="btn-eliminar" onclick="return confirm('Desea eliminar este Administrador?')">Eliminar</a>
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+			</table>
+		</div>
+
+
+		<h3>Banner Home</h3>
+
+		<div>
+			<a href="create_home_banner" class="btn-create">Crear Banner</a>
+			<table border="1" class="table mt-3">
+					<thead>
+						<tr>
+							<th>Order</th>
+							<th>Imagen Banner</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @home_banners.each do |data| %>
+						<tr>
+							<td><%=data['order_banner'] %></td>
+							<td><img src="<%=data['image'] %>" width="120" height="80"></td>
+							<td>
+								<a href="/admin/create_home_banner/<%=data['id'] %>" class="btn-editar">Editar</a>
+								<a href="/admin/delete_home_banner/<%=data['id'] %>" class="btn-eliminar" onclick="return confirm('Desea eliminar este Banner?')">Eliminar</a>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+			</table>
+		</div>
+
+		<h3>Menú</h3>
+
+		<div>
+			
+			<table border="1" class="table mt-3">
+					<thead>
+						<tr>
+							<th>Menu</th>
+							<th>Texto</th>
+							<th>Imagén</th>
+							<th>Acciones</th>
+			
+						</tr>
+					</thead>
+					<tbody>
+						<% @menu_contents.each do |data| %>
+						<tr>
+							<td><%=data['name_page'] %></td>
+							<td><%=data['texto'] %></td>
+							<td><img src="<%=data['image'] %>" width="120" height="80"></td>
+							<td><a href="/admin/create_menu/<%=data['id'] %>" class="btn-editar">Editar</a>
+						</tr>
+						<% end %>
+					</tbody>
+			</table>
+		</div>
+
+
+		<h3>Módulos</h3>
+		<div>
+			<a href="create_module" class="btn-create">Crear Módulo</a>
+			<table border="1" class="table mt-3">
+					<thead>
+						<tr>
+							<th>Nombre del Módulo</th>
+							<th>Imagen Módulo</th>
+							<th>Color</th>
+							<th>Descripcion Corta</th>
+							<th>Banner</th>
+							<th>Sub Módulos</th>
+							<th colspan="2">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @module_pages.each do |data| %>
+						<tr>
+							<td><%=data['name_module'] %></td>
+							<td><img src="<%=data['imagen_min'] %>" width="100" height="100"></td>
+							<td><%=data['color_module'] %></td>
+							<td><%=data['description'] %></td>
+							<td><img src="<%=data['img_banner'] %>" width="100" height="100"></td>
+							<td><a class="text-warning" href="/admin/sub_module/<%=data['id'] %>">Ver Sub modulos</a></td>
+							<td>
+								<a href="/admin/create_module/<%=data['id'] %>" class="btn-editar">Editar</a>
+							</td>
+							<td>
+								<a href="/admin/delete_module/<%=data['id'] %>" class="btn-eliminar" onclick="return confirm('Desea eliminar este Modulo?')">Eliminar</a>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+			</table>
+		</div>
+
+		<h3>Registros</h3>
+		<div>
+			<td>
+				<button class="btn-registro">
+					<%= link_to "Descargar Registros", excel_download_path(:format => "xlsx") %>
+				</button>
+			</td> 		
+		</div>
+
+		<h3>Contáctenos</h3>
+		<div>
+			<% if @contacts.blank?%>
+				<a href="create_contact" class="btn-create">Crear Contactos</a>
+			<% end %>
+			<table border="1" class="table mt-3">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Direccion</th>
+							<th>Edificio</th>
+							<th>Ciudad</th>
+							<th>Telefono</th>
+							<th>Email</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @contacts.each do |data| %>
+						<tr>
+							<td><%=data['name'] %></td>
+							<td><%=data['direccion'] %></td>
+							<td><%=data['edificio'] %></td>
+							<td><%=data['ciudad'] %></td>
+							<td><%=data['telefono'] %></td>
+							<td><%=data['email'] %></td>
+							<td><a href="/admin/create_contact/<%=data['id'] %>" class="btn-editar">Editar</a>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+			</table>
+		</div>
 	</div>
 
-
-	<h3>Banner Home</h3>
-
-	<div>
-		<a href="create_home_banner">Crear Banner</a>
-		<table border="1">
-			 	<thead>
-			 		<tr>
-			 			<td>Order</td>
-			 			<td>Imagen Banner</td>
-			 			<td>Acciones</td>
-			 		</tr>
-			 	</thead>
-			 	<tbody>
-			 		<% @home_banners.each do |data| %>
-			 		<tr>
-			 			<td><%=data['order_banner'] %></td>
-			 			<td><img src="<%=data['image'] %>" width="120" height="80"></td>
-			 			<td><a href="/admin/create_home_banner/<%=data['id'] %>">Editar</a>/
-			 				<a href="/admin/delete_home_banner/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Banner?')">Eliminar</a>
-			 			</td>
-			 		</tr>
-			 		<% end %>
-			 	</tbody>
-		</table>
-	</div>
-
-	<h3>Menú</h3>
-
-	<div>
-		
-		<table border="1">
-			 	<thead>
-			 		<tr>
-			 			<td>Menu</td>
-						<td>Texto</td>
-						<td>Imagén</td>
-						<td>Acciones</td>
-		
-			 		</tr>
-			 	</thead>
-			 	<tbody>
-			 		<% @menu_contents.each do |data| %>
-			 		<tr>
-			 			<td><%=data['name_page'] %></td>
-						<td><%=data['texto'] %></td>
-						<td><img src="<%=data['image'] %>" width="120" height="80"></td>
-			 			<td><a href="/admin/create_menu/<%=data['id'] %>">Editar</a>
-			 		</tr>
-			 		<% end %>
-			 	</tbody>
-		</table>
-	</div>
-
-
-	<h3>Modulos</h3>
-	<div>
-		<a href="create_module">Crear Modulo</a>
-		<table border="1">
-			 	<thead>
-			 		<tr>
-			 			<td>Nombre del Modulo</td>
-			 			<td>Imagen Modulo</td>
-						 <td>Color</td>
-			 			<td>Descripcion Corta</td>
-			 			<td>Banner</td>
-			 			<td>Sub Modulos</td>
-			 			<td>Acciones</td>
-			 		</tr>
-			 	</thead>
-			 	<tbody>
-			 		<% @module_pages.each do |data| %>
-			 		<tr>
-			 			<td><%=data['name_module'] %></td>
-			 			<td><img src="<%=data['imagen_min'] %>" width="100" height="100"></td>
-						 <td><%=data['color_module'] %></td>
-			 			<td><%=data['description'] %></td>
-			 			<td><img src="<%=data['img_banner'] %>" width="100" height="100"></td>
-			 			<td><a href="/admin/sub_module/<%=data['id'] %>">Ver Sub modulos</a></td>
-			 			<td><a href="/admin/create_module/<%=data['id'] %>">Editar</a>/
-			 				<a href="/admin/delete_module/<%=data['id'] %>" onclick="return confirm('Desea eliminar este Modulo?')">Eliminar</a>
-			 			</td>
-			 		</tr>
-			 		<% end %>
-			 	</tbody>
-		</table>
-	</div>
-
-	<h3>Registros</h3>
-	<div>
-		 <td><%= link_to "Descargar Registros", excel_download_path(:format => "xlsx") %></td> 		
-	</div>
-
-	<h3>Contactenos</h3>
-	<div>
-		<% if @contacts.blank?%>
-			<a href="create_contact">Crear Contactos</a>
-		<% end %>
-		<table border="1">
-			 	<thead>
-			 		<tr>
-			 			<td>Nombre</td>
-			 			<td>Direccion</td>
-						 <td>Edificio</td>
-						 <td>Ciudad</td>
-						 <td>Telefono</td>
-						 <td>Email</td>
-						 <td>Acciones</td>
-			 		</tr>
-			 	</thead>
-			 	<tbody>
-			 		<% @contacts.each do |data| %>
-			 		<tr>
-			 			<td><%=data['name'] %></td>
-						<td><%=data['direccion'] %></td>
-						<td><%=data['edificio'] %></td>
-						<td><%=data['ciudad'] %></td>
-						<td><%=data['telefono'] %></td>
-						<td><%=data['email'] %></td>
-			 			<td><a href="/admin/create_contact/<%=data['id'] %>">Editar</a>
-			 			</td>
-			 		</tr>
-			 		<% end %>
-			 	</tbody>
-		</table>
-	</div>
 </div>
+

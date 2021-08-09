@@ -1,4 +1,5 @@
-<h1>Login</h1>
+<h1 class="text-center text-dark-orange mt-5">Login</h1>
+<div class="container br-register"></div>
 
 <!-- Mensaje de confirmacion-->
 <%=flash[:msg] %>
@@ -6,16 +7,21 @@
 
 
 <%= form_tag({:controller => "login", :action => "login_admin"},:method => "post", :multipart => true, :class =>'') do %>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<label>Usuario</label>
+				<input class="form-control" type="text" name="name" required="" value="">
+			</div>
+			<div class="col">
+				<label>Password</label>
+				<input class="form-control" type="password" placeholder="Password" id="password" name="password" required >
+			</div>
+		</div>
+	</div>
 	
-	<label>Usuario</label>
-	<input type="text" name="name" required="" value="">
-	<br>
-
-	<label>Password</label>
-	<input type="password" placeholder="Password" id="password" name="password" required >
-	<br>
-
-   
-	<input type="submit" value="Guardar">
+	<div class="d-flex justify-content-center mt-3">
+		<input type="submit" value="Guardar" class="btn-create">
+	</div>
 
 <%end%>

@@ -64,10 +64,8 @@ export class SubModuleComponent implements OnInit {
     let view;
     if (this.completado) {
       view =1;
-      console.log("1");
 
     }else {
-      console.log("0");
       view =0;
     }
     let datos={
@@ -93,10 +91,8 @@ export class SubModuleComponent implements OnInit {
     let view;
     if (this.verDespues) {
       view =0;
-      console.log("1");
 
     }else {
-      console.log("0");
       view =1;
     }
     let datos={
@@ -147,7 +143,7 @@ export class SubModuleComponent implements OnInit {
   url(url:string) {
 
 
-    if (url.length <= 0)
+    if (!url || (url && url.length <= 0))
       return null;
 
     if (url.indexOf('youtu') > -1) {
