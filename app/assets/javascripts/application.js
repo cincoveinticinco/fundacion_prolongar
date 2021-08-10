@@ -89,12 +89,12 @@
         } );
 
     $(document).on('change', '#confirm_password',function(){
-      validatePassword()
-    });
+      $(document).on('click', '#btn-create-admin',function(){
+        validatePassword()
+      });
+    }); 
 
-    $(document).on('click', '#btn-create-admin',function(){
-      validateCampos();
-    });
+   
 
     validateToast();
   });
@@ -114,6 +114,9 @@
       confirm_password.setCustomValidity('');
       alert("Las contraseñas no coinciden");
       $( "#btn-create-admin" ).prop( "disabled", true);
+      setTimeout(function() {
+        $('#btn-create-admin').removeAttr("disabled")
+    }, 100);
     }
   }
 
