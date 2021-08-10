@@ -113,6 +113,8 @@ select.ng-invalid.ng-touched{
   // font-size: 15px !important;
 }
 
+
+
 .content-homepage a{
   color: var(--rojo) !important;
 }
@@ -134,6 +136,9 @@ select.ng-invalid.ng-touched{
   color: var(--parrafo);
 }
 
+.textcontent-submodule p span{
+  color: var(--parrafo) !important;
+}
 
 .textcontent-submodule p strong{
   font-weight: 900;
@@ -146,6 +151,14 @@ select.ng-invalid.ng-touched{
   // width: 100% !important;
   // height: auto !important;
 }
+
+// .textcontent-submodule ul{
+//   color: var(--rojo) !important;
+// }
+
+// .textcontent-submodule ul li{
+//   color: var(--parrafo) !important;
+// }
 
 .content-page .text-justify{
   padding-bottom: 1rem;

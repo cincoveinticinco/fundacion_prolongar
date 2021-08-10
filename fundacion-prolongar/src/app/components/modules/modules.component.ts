@@ -44,7 +44,7 @@ export class ModulesComponent implements OnInit {
         this.datos=data;
         this.subModule = this.datos.sub_module_pages
         this.modules = this.datos.module_page
-        this.title.setTitle(`${environment.titlePage} - ${this.modules.name_module}`)
+        this.title.setTitle(`${environment.titlePage} - ${this.modules?.name_module}`)
 
         this.loader = false
       }

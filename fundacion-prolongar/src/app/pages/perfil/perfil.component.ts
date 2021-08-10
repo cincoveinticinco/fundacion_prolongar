@@ -31,7 +31,11 @@ export class PerfilComponent implements OnInit {
       this.title.setTitle(`${environment.titlePage} -  Editar información`)
     }
 
-    async ngOnInit() {
+    ngOnInit() {
+      this.loadData();
+    }
+
+    async loadData() {
       const responseDepartamentos:any = await this.register.gnederDepartamentCity().toPromise()
       if (responseDepartamentos) {
         this.departamentos=responseDepartamentos.department;
@@ -71,10 +75,6 @@ export class PerfilComponent implements OnInit {
         }
 
       })
-
-
-
-
     }
 
     checkDepartamentos(event: any): void {
@@ -130,7 +130,8 @@ export class PerfilComponent implements OnInit {
         }
 
         this.alert = "Datos actualizados con exito"
-
+        this.auth.loadIngoDataModule = false;
+        this.loadData();
       })
     }
 

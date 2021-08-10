@@ -51,7 +51,7 @@ export class SubModuleComponent implements OnInit {
         this.next = this.datos.next_submodule[0];
         this.previus = this.datos.prev_submodule[0]
 
-        this.title.setTitle(`${environment.titlePage} - ${this.moduleInfo.module_page_id} / ${this.moduleInfo.sub_module_name}`)
+        this.title.setTitle(`${environment.titlePage} - ${this.moduleInfo?.module_page_id} / ${this.moduleInfo?.sub_module_name}`)
 
         this.completado = this.moduleInfo.view_module == 1
 

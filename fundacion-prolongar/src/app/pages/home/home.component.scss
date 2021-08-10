@@ -182,8 +182,15 @@ li a:hover {
 }
 
 .text-modulos {
+  //letter-spacing: 0.28px;
+  // font-weight: 200;
+
+
   letter-spacing: 0.28px;
-  font-weight: 200;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: center !important;
+  line-height: 1.3;
 }
 
   /* modulos */
@@ -199,6 +206,7 @@ li a:hover {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 4px;
+  margin-bottom: 1.5rem;
 }
 
 .images{
@@ -228,7 +236,7 @@ li a:hover {
 }
 
 .text-orange {
-  color: #dc8c68;
+  color: var(--rojo);
 }
 
 .rotate{
@@ -432,6 +440,7 @@ li a:hover {
   .text-modulos{
     font-size: 14px;
     line-height: 1.2;
+
   }
 
 
