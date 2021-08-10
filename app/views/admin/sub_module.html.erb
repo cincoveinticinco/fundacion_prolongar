@@ -2,7 +2,7 @@
 <div class="container br-register"></div>
 
 <!-- Mensaje de confirmacion-->
-<%=flash[:msg] %>
+<div id="snackbar"><%=flash[:msg] %></div>
 <!-- End Mensaje de confirmacion-->
 <div class="container">
 <a href="/admin/create_sub_module/<%=@module_page.id%>" class="btn-create">Crear Sub Modulo</a>

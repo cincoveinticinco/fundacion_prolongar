@@ -88,20 +88,6 @@
             });
         } );
 
-        
-
-    var toast = document.getElementById("snackbar").innerHTML
-    console.log(toast);
-    if (toast!== '') {
-      console.log('lleno',toast);
-        mytoast();
-    }
-    if (toast === '') {
-      $("#snackbar").hide();
-      console.log('bacio',toast);
-    } 
-    
-    
     $(document).on('change', '#confirm_password',function(){
       validatePassword()
     });
@@ -110,6 +96,7 @@
       validateCampos();
     });
 
+    validateToast();
   });
 
  
@@ -140,6 +127,18 @@
     }
   }
 
+  function validateToast() {
+    var toast = document.getElementById("snackbar").innerHTML
+    console.log(toast);
+    if (toast!== '') {
+      console.log('lleno',toast);
+        mytoast();
+    }
+    if (toast === '') {
+      $("#snackbar").hide();
+      console.log('bacio',toast);
+    } 
+  }
 
   function mytoast() {
     var x = document.getElementById("snackbar");
