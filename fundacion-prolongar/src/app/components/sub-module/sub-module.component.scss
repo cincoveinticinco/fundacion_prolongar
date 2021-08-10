@@ -113,6 +113,11 @@
   width: 100px;
 }
 
+.image-banner img{
+   width: 100%;
+   object-fit: cover;
+
+}
 
 @media (max-width: 500px) {
   .right-button .img-globo{

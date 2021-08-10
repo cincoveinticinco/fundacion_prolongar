@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/services/authservices.service';
 import { DepartamentosCiudadesService } from 'src/app/services/departamentos-ciudades.service';
 import { RegisterService } from 'src/app/services/register.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil',
@@ -24,9 +26,16 @@ export class PerfilComponent implements OnInit {
   constructor(
     private router:Router,
     private register: RegisterService,
-    private auth: AuthservicesService) { }
+    private auth: AuthservicesService,
+    private title: Title) {
+      this.title.setTitle(`${environment.titlePage} -  Editar información`)
+    }
 
-    async ngOnInit() {
+    ngOnInit() {
+      this.loadData();
+    }
+
+    async loadData() {
       const responseDepartamentos:any = await this.register.gnederDepartamentCity().toPromise()
       if (responseDepartamentos) {
         this.departamentos=responseDepartamentos.department;
@@ -66,10 +75,6 @@ export class PerfilComponent implements OnInit {
         }
 
       })
-
-
-
-
     }
 
     checkDepartamentos(event: any): void {
@@ -125,7 +130,8 @@ export class PerfilComponent implements OnInit {
         }
 
         this.alert = "Datos actualizados con exito"
-
+        this.auth.loadIngoDataModule = false;
+        this.loadData();
       })
     }
 

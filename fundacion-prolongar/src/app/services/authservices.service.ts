@@ -43,6 +43,13 @@ export class AuthservicesService {
     return this.infoUserMessage
   }
 
+  public set loadIngoDataModule(value:boolean) {
+    this.isLoadinginfoUser = value
+    if (!value) {
+      this._infoUserData = null;
+    }
+  }
+
   infoUser() {
     const token = localStorage.getItem('token')
     return this.http.post(`${this.apiUrl}info_user`, {token: token})

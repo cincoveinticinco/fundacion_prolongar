@@ -5,8 +5,30 @@
     margin: 0;
 }
 
+.text-orange {
+  // color: #dc8c68;
+  color: var(--rojo);
+}
+
+.content-center{
+  margin: 0 auto;
+  max-width: 930px;
+}
+
+.text-modulos {
+  letter-spacing: 0.28px;
+  font-weight: 300;
+  font-size: 1.3rem;
+  text-align: justify !important;
+  line-height: 1.3;
+}
+
 @media (max-width: 500px) {
   .video{
     height: 150px;
+  }
+
+  .text-modulos {
+    font-size: 1rem;
   }
 }

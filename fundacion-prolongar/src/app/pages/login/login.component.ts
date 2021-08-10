@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthservicesService } from 'src/app/services/authservices.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,10 @@ export class LoginComponent implements OnInit {
 
   model:any ={}
   public error:any;
-  constructor(private auth:AuthservicesService, private router:Router) { }
+  constructor(private auth:AuthservicesService, private router:Router,
+    private title: Title) {
+    this.title.setTitle(`${environment.titlePage} -  Iniciar sesión`)
+  }
 
   ngOnInit(): void {
   }

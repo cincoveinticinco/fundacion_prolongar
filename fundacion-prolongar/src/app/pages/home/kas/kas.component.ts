@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,7 +14,10 @@ export class KasComponent implements OnInit {
   public kas:any;
   urlimage: any;
 
-  constructor(private services:ServicesProlongarService) { }
+  constructor(private services:ServicesProlongarService,
+    private title: Title) {
+    this.title.setTitle(`${environment.titlePage} - KAS`)
+  }
 
   ngOnInit(): void {
     this.urlimage = environment.urlImage;
