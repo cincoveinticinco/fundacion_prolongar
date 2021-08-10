@@ -89,20 +89,36 @@
         } );
 
 
+    $(document).on('change', '#confirm_password',function(){
+      validatePassword()
+    });
+
+   /*  $(document).on('change', '#password',function(){
+      validatePassword()
+    }); */
+
   });
 
  
 
-   var password = document.getElementById("password")
-    , confirm_password = document.getElementById("confirm_password");
+  
 
   function validatePassword(){
-    if(password.value != confirm_password.value) {
+    var password = document.getElementById("password")
+    , confirm_password = document.getElementById("confirm_password");
+
+    if(password.value == confirm_password.value) {
+      $('#btn-create-admin').removeAttr("disabled")
       confirm_password.setCustomValidity("Passwords Don't Match");
     } else {
       confirm_password.setCustomValidity('');
+      alert("Las contraseñas no coinciden");
+      $( "#btn-create-admin" ).prop( "disabled", true);
     }
   }
 
+/*
   password.onchange = validatePassword;
-  confirm_password.onkeyup = validatePassword;
+  confirm_password.onkeyup = validatePassword; */
+
+
