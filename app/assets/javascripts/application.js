@@ -88,11 +88,10 @@
             });
         } );
 
-    $(document).on('change', '#confirm_password',function(){
       $(document).on('click', '#btn-create-admin',function(){
         validatePassword()
       });
-    }); 
+  
 
    
 
@@ -109,7 +108,6 @@
 
     if(password.value == confirm_password.value) {
       $('#btn-create-admin').removeAttr("disabled")
-      confirm_password.setCustomValidity("Passwords Don't Match");
     } else {
       confirm_password.setCustomValidity('');
       alert("Las contraseñas no coinciden");
