@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/services/authservices.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-recuperar-password',
@@ -15,7 +17,10 @@ export class RecuperarPasswordComponent implements OnInit {
   validatePassword: boolean = false;
   createNewPassword: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthservicesService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthservicesService,
+    private title: Title) {
+      this.title.setTitle(`${environment.titlePage} - Recuperar contraseña`)
+    }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

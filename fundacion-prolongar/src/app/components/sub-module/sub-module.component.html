@@ -1,7 +1,12 @@
 <app-loader *ngIf="loader"></app-loader>
 <div class="content-submodule container mb-5" *ngIf="datos">
     <h2 class="mb-5 title-sub-module" >{{moduleInfo.sub_module_name}}</h2>
-    <div class="row" *ngIf="url(moduleInfo.link)">
+
+    <div class="image-banner mb-3" *ngIf="(moduleInfo.link.indexOf('youtu') == -1 && moduleInfo.link_2.indexOf('youtu') == -1)">
+      <img [src]="this.urlPdf+moduleInfo.image_min" alt="">
+    </div>
+
+    <div class="row mb-3" *ngIf="url(moduleInfo.link)">
       <div class="col-12">
         <div class="videoWrapp" *ngIf="moduleInfo.link.indexOf('youtu') > -1">
           <iframe [src]="url(moduleInfo.link)" allowfullscreen width="100%" height="100%"></iframe>
@@ -12,7 +17,7 @@
       </div>
     </div>
 
-    <div class="row" *ngIf="url(moduleInfo.link_2)">
+    <div class="row mb-3" *ngIf="url(moduleInfo.link_2)">
       <div class="col-12" >
         <div class="videoWrapp" *ngIf="moduleInfo.link_2.indexOf('youtu') > -1">
           <iframe [src]="url(moduleInfo.link_2)" allowfullscreen width="100%" height="100%"></iframe>
@@ -24,7 +29,7 @@
     </div>
 
     <div class="row">
-      <div class="col-12 mt-5" *ngIf="moduleInfo.content">
+      <div class="col-12" *ngIf="moduleInfo.content">
           <div class="textcontent-submodule" [innerHTML]="moduleInfo.content | safeHTML"></div>
       </div>
     </div>

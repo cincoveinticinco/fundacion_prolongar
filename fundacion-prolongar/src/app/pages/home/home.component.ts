@@ -1,5 +1,7 @@
 import { ViewportScroller } from '@angular/common';
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import { environment } from 'src/environments/environment';
@@ -17,11 +19,18 @@ export class HomeComponent implements OnInit {
   menuInterno:any;
   urlimage: any;
 
-  constructor(private services:ServicesProlongarService, private router:Router, private viewportScroller: ViewportScroller) { }
+  constructor(
+    private services: ServicesProlongarService,
+    private router: Router,
+    private viewportScroller: ViewportScroller,
+    private title: Title) {
+    this.title.setTitle(`${environment.titlePage} -  - Inicio garabatos`)
+  }
 
   ngOnInit(): void {
     this.datosMenu();
     this.urlimage = environment.urlImage;
+
   }
 
   datosMenu() {

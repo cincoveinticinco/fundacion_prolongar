@@ -12,7 +12,7 @@
 			<div class="col">
 				<input type="hidden" name="id" value ="<%= !@user_admin.blank? ?  @user_admin.id : '' %>" >
 				<label>Usuario</label>
-				<input type="text" class="form-control" name="name" required="" value="<%= !@user_admin.blank? ?  @user_admin.name : '' %>">
+				<input type="text" class="form-control" id="user" name="name" required="" value="<%= !@user_admin.blank? ?  @user_admin.name : '' %>">
 			</div>
 			<div class="col">
 				<label >Contraseña</label>
@@ -28,7 +28,7 @@
 		</div>
 
 		 <div class="d-flex justify-content-center mt-3">
-             <input type="submit" id="btn-create-admin" value="Guardar" class="btn-create disabled" disabled>
+             <input type="submit" id="btn-create-admin" value="Guardar" class="btn-create disabled" >
         </div>
 		
 	</div>

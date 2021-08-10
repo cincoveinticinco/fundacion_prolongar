@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, Title} from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 environment
 @Component({
@@ -24,10 +24,18 @@ export class SubModuleComponent implements OnInit {
   urlPdf: any;
   moduleInfo: any;
 
-  constructor(private router: Router, private services:ServicesProlongarService,private rutaActiva: ActivatedRoute,private sanitizer:DomSanitizer) { }
+  constructor(
+    private router: Router,
+    private services:ServicesProlongarService,
+    private rutaActiva: ActivatedRoute,
+    private sanitizer:DomSanitizer,
+    private title: Title) {
+
+  }
 
   ngOnInit(): void {
-    this.urlPdf= environment.urlImage;
+    this.urlPdf = environment.urlImage;
+
     this.datInfo();
   }
 
@@ -43,11 +51,15 @@ export class SubModuleComponent implements OnInit {
         this.next = this.datos.next_submodule[0];
         this.previus = this.datos.prev_submodule[0]
 
+        this.title.setTitle(`${environment.titlePage} - ${this.moduleInfo?.module_page_id} / ${this.moduleInfo?.sub_module_name}`)
+
         this.completado = this.moduleInfo.view_module == 1
 
         if (this.moduleInfo.locked == 1) {
           this.router.navigate(['modulo', this.moduleId])
         }
+
+
 
         this.loader = false
       });
