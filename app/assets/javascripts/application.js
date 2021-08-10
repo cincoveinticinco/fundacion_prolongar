@@ -88,14 +88,27 @@
             });
         } );
 
+        
 
+    var toast = document.getElementById("snackbar").innerHTML
+    console.log(toast);
+    if (toast!== '') {
+      console.log('lleno',toast);
+        mytoast();
+    }
+    if (toast === '') {
+      $("#snackbar").hide();
+      console.log('bacio',toast);
+    } 
+    
+    
     $(document).on('change', '#confirm_password',function(){
       validatePassword()
     });
 
-   /*  $(document).on('change', '#password',function(){
-      validatePassword()
-    }); */
+    $(document).on('click', '#btn-create-admin',function(){
+      validateCampos();
+    });
 
   });
 
@@ -115,6 +128,23 @@
       alert("Las contraseñas no coinciden");
       $( "#btn-create-admin" ).prop( "disabled", true);
     }
+  }
+
+  function validateCampos() {
+    var user = document.getElementById("user");
+    var password = document.getElementById("password")
+    var confirm_password = document.getElementById("confirm_password");
+
+    if (user.value ==="" || password.value==="" || confirm_password.value ==="") {
+      alert("Debe llenar todos los campos")
+    }
+  }
+
+
+  function mytoast() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
 
 /*
