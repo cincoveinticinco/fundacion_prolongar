@@ -56,6 +56,9 @@ class AdminController < ApplicationController
   end
 
   def create_sub_module
+
+    @total_sub  = SubModulePage.all.where('module_page_id=?',params[:module_page_id]).length
+    @total_sub = @total_sub+1 if params['id'].blank?
     @module_page_id = params[:module_page_id]
     @sub_module  = SubModulePage.where('id=?',params['id']).take if !params['id'].blank?
     @dependences_id = []
@@ -74,7 +77,7 @@ class AdminController < ApplicationController
   	  image_min = save_file(params[:image_min],'img_modules') if !params[:image_min].blank?
     
       sub_module = SubModulePage.where('id=?',params['id']).take
-      valid_order = SubModulePage.where('order_sub=?',params[:order_sub])
+      valid_order = SubModulePage.getSubmoduleOrder(params[:module_page_id],params[:order_sub])
       sub_module = SubModulePage.new if sub_module.blank? 
       sub_module.module_page_id = params[:module_page_id]
       sub_module.sub_module_name = params[:sub_module_name]
@@ -83,9 +86,20 @@ class AdminController < ApplicationController
       sub_module.link = params[:link]
       sub_module.link_2 = params[:link_2]
       sub_module.content = params[:content]
-      sub_module.order_sub = params[:order_sub]
+      sub_module.order_sub = params[:order]
       sub_module.image_min = image_min if !image_min.nil?
       sub_module.save 
+
+      sub_module_or = SubModulePage.where('order_sub>=?',params[:order]).where('id not in (?)',sub_module.id).where('module_page_id=?',params[:module_page_id])
+      order= params[:order].to_i+1
+      sub_module_or.each do |data|
+        sub = SubModulePage.where('id=?',data['id']).where('module_page_id=?',data['module_page_id']).take
+        puts sub.inspect
+        sub.order_sub = order
+        sub.save
+        order = order + 1
+      end
+
       dependences = params[:dependences]
       SubModulePageDependence.where('sub_module_page_id=?',sub_module.id).destroy_all
       if !dependences.blank?
@@ -196,6 +210,7 @@ class AdminController < ApplicationController
       user_admin = UserAdmin.where('id = ?', params[:id]).take
       user_admin = UserAdmin.new if user_admin.blank?
       user_admin.name = params[:name]
+      confirm_password = Digest::SHA256.hexdigest(params[:confirm_password]) if !params[:confirm_password].blank?
       user_admin.password = Digest::SHA256.hexdigest(params[:password]) if !params[:password].blank?
       user_admin.save
 

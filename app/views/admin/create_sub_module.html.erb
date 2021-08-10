@@ -69,12 +69,25 @@
 					<input type="checkbox" class="form-check-input" name="dependences[]" <% if @dependences_id.include?  data['id'] %>	checked="" <%end%> value="<%=data['id']%>"><%=data['sub_module_name']%></label>
 				<% end%>
 			<% end %>
+
+
 			</div>
 		</div>	
 		<div class="row mt-3">
 			<div class="col">
 				<label>Orden</label>
-				<input type="text" class="form-control" name="order_sub" required value="<%= !@sub_module.blank? ?  @sub_module.order_sub : '' %>">
+				<select name="order" id="order" class="form-control">
+					<% cont = 1%>
+					<% cont_selected = @total_sub%>
+					<% if !@sub_module.blank?%>
+						<% cont_selected = @sub_module.order_sub %>
+					<% end %>
+					<% while cont<=@total_sub.to_i%>
+						<option value="<%=cont%>" <% if cont_selected==cont %> selected <%end%> ><%=cont%></option>
+						<% cont = cont+1 %>
+					<% end %>
+				</select>
+
 			</div>
 			<div class="col">
 			<label>Imagen Submodulo (Tamaño 496 x 279 px)</label>
@@ -95,5 +108,6 @@
 	<div class="d-flex justify-content-center mt-3 mb-5">
         <input type="submit" value="Guardar" class="btn-create">
     </div>
+
 
 <%end%>

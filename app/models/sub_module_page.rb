@@ -34,4 +34,11 @@ class SubModulePage < ApplicationRecord
   		.where("sub_module_pages.module_page_id=?",module_page_id)
   		.group("sub_module_pages.id")
   end
+
+  def self.getSubmoduleOrder(module_page_id,order_sub)
+	SubModulePage.select("sub_module_pages.*")
+	.where("sub_module_pages.module_page_id=?",module_page_id)
+	.where("sub_module_pages.order_sub=?",order_sub)
+  end
+
 end
