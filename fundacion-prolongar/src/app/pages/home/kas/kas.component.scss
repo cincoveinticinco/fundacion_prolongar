@@ -36,3 +36,21 @@ img {
     object-fit: contain;
     width:100% ;
 }
+
+
+.order-first > h3{
+  display: none;
+}
+@media (max-width: 500px) {
+  .order-last  > h3{
+    display: none;
+  }
+
+  .order-first  > h3{
+    display: inherit;
+  }
+
+  .title-page{
+    text-align: center;
+  }
+}

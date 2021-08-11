@@ -37,3 +37,16 @@ strong {
     font-weight: bolder;
     color:#88b87b !important;
 }
+
+.order-first > h3{
+  display: none;
+}
+@media (max-width: 500px) {
+  .order-last  > h3{
+    display: none;
+  }
+
+  .order-first  > h3{
+    display: inherit;
+  }
+}
