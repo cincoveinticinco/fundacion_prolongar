@@ -1,6 +1,9 @@
 .navbar{
   background-color: #d58071;
   padding: 0 !important;
+  position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .navbar li{
@@ -150,8 +153,8 @@
 }
 
 .main-logos img{
-  width: 100px;
-  margin-right: 20px;
+  // width: 100px;
+  // margin-right: 20px;
 }
 
 @media (max-width: 500px) {
@@ -161,6 +164,10 @@
     right: calc(50% - 20px);
     bottom: 50%;
     transform: translate(50%, 50%);
+  }
+
+  .main-logos img{
+    width: 100%;
   }
 
   .dropdown-content{

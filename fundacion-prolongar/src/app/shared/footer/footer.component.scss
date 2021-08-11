@@ -24,13 +24,16 @@ ul {
   }
 
   li {
+    line-height: 1.5;
+    font-weight: 500;
+    font-size: 14px;
     width:auto;
     margin:1em;
     display: block;
     color: #dd8d69;
     text-align: center;
     text-decoration: none;
-    padding: 1em;
+    // padding: 1em;
   }
 
   li p {

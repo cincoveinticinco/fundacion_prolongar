@@ -60,6 +60,21 @@ h5 a:hover{
   max-width: 720px;
   margin: 0 auto;
 }
+
+.main-logo-garabatos{
+  text-decoration: none;
+}
+.main-logo-garabatos span{
+  display: block;
+  color: var(--parrafo);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 /* Estilos generales fomularui*/
 
 label{
@@ -105,13 +120,9 @@ select.ng-invalid.ng-touched{
   text-align: justify;
   color: var(--parrafo);
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
-.content-homepage ul span,
-.content-homepage p span{
-  // font-size: 15px !important;
-}
 
 
 
@@ -132,7 +143,7 @@ select.ng-invalid.ng-touched{
   font-weight: 300;
   text-align: justify;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.5;
   color: var(--parrafo);
 }
 
@@ -166,6 +177,11 @@ select.ng-invalid.ng-touched{
 }
 
 @media (max-width: 500px) {
+
+  .main-logo-garabatos span{
+    padding: 5px 1rem;
+  }
+
   .img-seccion {
     width: 100% !important;
     margin-bottom: 2em;

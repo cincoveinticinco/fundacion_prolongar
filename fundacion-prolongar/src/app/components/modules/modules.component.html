@@ -8,6 +8,14 @@
 </div>
 
 <div class="container-fluid mt-5 mb-5 main-content-modules">
+  <div class="row content-modulo">
+    <div class="col-12 mt-3">
+        <div class="content-center ">
+            <p class="text-intro">Al terminar una actividad, haga clic en “Completado” para habilitar su ingreso al siguiente contenido. Solo así, experimentando uno tras otro, quedarán habilitados los contenidos en su totalidad. </p>
+        </div>
+    </div>
+</div>
+
   <ng-container  *ngFor="let item of subModule; let i=index">
     <div class="row content-modulo">
       <div class="col-lg-3 titulo-sub-modulo">
@@ -22,7 +30,7 @@
       </div>
       <div class="col contenido-sub-module">
         <p class="text-sub-module">{{item.description}}</p>
-
+        <button (click)="verSubmodule(item)" class=" btn-visualized visualized-ok left-button">Ver más</button>
         <ng-container *ngIf="item.view_module==0; else elseBotonOjo" >
           <button class="float-end btn-visualized">
               <img src="./assets/img/3-Ojo.png" alt="">

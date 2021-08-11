@@ -30,3 +30,17 @@ span {
   padding-bottom: 2.5rem;
   // border-bottom: 2px solid #fcc474;
 }
+
+.order-first > h3{
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .order-last  > h3{
+    display: none;
+  }
+
+  .order-first  > h3{
+    display: inherit;
+  }
+}
