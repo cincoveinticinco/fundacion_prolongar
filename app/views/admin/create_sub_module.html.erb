@@ -82,7 +82,7 @@
 					<% if !@sub_module.blank?%>
 						<% cont_selected = @sub_module.order_sub %>
 					<% end %>
-					<% while cont<=@total_sub.to_i%>
+					<% while cont<=@total_sub%>
 						<option value="<%=cont%>" <% if cont_selected==cont %> selected <%end%> ><%=cont%></option>
 						<% cont = cont+1 %>
 					<% end %>

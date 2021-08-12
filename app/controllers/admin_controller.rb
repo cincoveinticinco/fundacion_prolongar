@@ -25,9 +25,11 @@ class AdminController < ApplicationController
   	  module_page = ModulePage.where('id=?',params['id']).take
   	  module_page = ModulePage.new if module_page.blank? 
   	  module_page.name_module = params[:name_module]
+      module_page.show_name = params[:show_name]
   	  module_page.imagen_min = imagen_min if !imagen_min.nil?
       module_page.color_module = params[:color_module]
   	  module_page.description = params[:description]
+      module_page.msg_felicitacion = params[:msg_felicitacion]
   	  module_page.img_banner = img_banner if !img_banner.nil?
   	  module_page.save 
 
@@ -90,16 +92,16 @@ class AdminController < ApplicationController
       sub_module.image_min = image_min if !image_min.nil?
       sub_module.save 
 
-      sub_module_or = SubModulePage.where('order_sub>=?',params[:order]).where('id not in (?)',sub_module.id).where('module_page_id=?',params[:module_page_id])
+      sub_modules= SubModulePage.where('order_sub>=?',params[:order]).where('id not in (?)',sub_module.id).where('module_page_id =?',sub_module.module_page_id).order('sub_module_pages.order_sub asc')
       order= params[:order].to_i+1
-      sub_module_or.each do |data|
-        sub = SubModulePage.where('id=?',data['id']).where('module_page_id=?',data['module_page_id']).take
-        puts sub.inspect
-        sub.order_sub = order
-        sub.save
+      sub_modules.each do |data|
+        submodule = SubModulePage.where('id=?',data['id']).take
+        submodule.order_sub = order
+        submodule.save
         order = order + 1
       end
 
+   
       dependences = params[:dependences]
       SubModulePageDependence.where('sub_module_page_id=?',sub_module.id).destroy_all
       if !dependences.blank?
@@ -175,6 +177,18 @@ class AdminController < ApplicationController
     home_banner.destroy_all
   	flash[:msg]='Banner Eliminado'
   	redirect_to '/admin/index'
+
+  end
+
+  def delete_image_menu
+
+    menu1 = MenuContent.where('id = ?', params[:id]).take
+    menu = MenuContent.where('id = ?', params[:id])
+    delete_file(menu[0]['image'])
+    menu1.image=nil
+    menu1.save
+    redirect_to '/admin/index'
+    flash[:msg]='Imagen de menú Eliminada'
 
   end
 

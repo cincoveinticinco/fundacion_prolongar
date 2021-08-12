@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_150511) do
+ActiveRecord::Schema.define(version: 2021_08_12_192242) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "city"
@@ -66,8 +66,10 @@ ActiveRecord::Schema.define(version: 2021_08_06_150511) do
 
   create_table "module_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name_module"
+    t.boolean "show_name"
     t.string "imagen_min"
     t.text "description"
+    t.text "msg_felicitacion"
     t.string "img_banner"
     t.string "color_module"
     t.datetime "created_at", precision: 6, null: false

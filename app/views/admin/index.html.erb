@@ -36,7 +36,7 @@
 			</table>
 		</div>
 
-		<!--
+		
 		<h3 class="text-uppercase">Banner Home</h3>
 
 		<div>
@@ -65,7 +65,7 @@
 						<% end %>
 					</tbody>
 			</table>
-		</div>-->
+		</div>
 
 		<h3 class="text-uppercase">Menú</h3>
 
@@ -88,6 +88,7 @@
 							<td><%=data['texto'] %></td>
 							<td><img src="<%=data['image'] %>" width="120" height="80"></td>
 							<td><a href="/admin/create_menu/<%=data['id'] %>" class="btn-editar">Editar</a>
+							<a href="/admin/delete_image_menu/<%=data['id'] %>" class="btn-eliminar" onclick="return confirm('Desea eliminar esta imagen?')">Eliminar Imagen</a>
 						</tr>
 						<% end %>
 					</tbody>

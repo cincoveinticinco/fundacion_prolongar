@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'admin/delete_admin/:id', to: "admin#delete_admin"
 
   get 'admin/create_menu/:id', to: "admin#create_menu"
+  get 'admin/delete_image_menu/:id', to: "admin#delete_image_menu"
 
 
   		namespace :admin do

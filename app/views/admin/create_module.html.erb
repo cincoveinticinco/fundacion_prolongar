@@ -13,6 +13,11 @@
 			<div class="col-5">
 				<label>Nombre del Módulo</label>
 				<input type="text" name="name_module" class="form-control" required="" value="<%= !@module_page.blank? ?  @module_page.name_module : '' %>">
+				<% if !@module_page.blank? %>
+				<label><input type="checkbox" name="show_name" value=1  <%= @module_page.show_name == true ? 'checked' : ' ' %>>No mostrar Titulo</label>
+				<% else %>
+				<label><input type="checkbox" name="show_name" value=1  >No mostrar Titulo</label>
+				<% end %>
 			</div>
 			<div class="col-6">
 				<label>Imagen Módulo</label>
@@ -34,10 +39,16 @@
 			</div>
 			<div class="col">
 				<label>Banner (Tamaño 336 x 280 px)</label>
-				<input type="file" name="img_banner" class="form-control"  <% if @module_page.blank? %>  <% end %>>
+				<input type="file" name="img_banner"  class="form-control"  <% if @module_page.blank? %> required="" <% end %>>
 				<% if !@module_page.blank? %>
-					<img src="<%=@module_page.img_banner %>" width="100" height="100"> 
+					<img src="<%=@module_page.img_banner %>"  width="100" height="100"> 
 				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label>Mensaje de Felicitaciones</label>
+				<textarea name="msg_felicitacion" class="form-control"  <% if @module_page.blank? %> <% end %> ><%= !@module_page.blank? ?  @module_page.msg_felicitacion : '' %></textarea>
 			</div>
 		</div>
 	</div>
