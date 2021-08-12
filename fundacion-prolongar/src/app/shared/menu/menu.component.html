@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg">
-    <div class="container collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container  collapse navbar-collapse menu-navbar" id="navbarSupportedContent">
       <ul class="navbar-nav nav-left" >
         <li class="nav-item" *ngIf="rutaMenu=='home'">
           <div class="navbar-brand main-logos">
@@ -49,17 +49,23 @@
     <div class="menu-modulos">
         <div class="container">
             <div class="row">
-                <div class="col-sm-10 col-lg-5 d-flex align-items-center contents-menu titles-modules">
-                    <div class="">
+                <div class="col-sm-10 col-lg-5 contents-menu titles-modules">
+
+                    <div class="col-lg-12 column-margin">
                         <h3 class="text-light text-uppercase">lista de contenidos</h3>
                         <h1 class="text-light menu-title-module">{{menuTitle.name_module}}</h1>
+
+                        <div>
+                          <p>¡Felicitaciones! ha terminado su indagación sobre los prejuicios e ideas fijas, ahora sí, ¿cómo cree que afectan los prejuicios su vida y la de otras personas? </p>
+                        </div>
                     </div>
+
                 </div>
-                <div class="col-lg-5 col-sm-10 offset-lg-2 offset-sm-0 contents-menu row">
+                <div class="col-lg-5 col-sm-10 offset-lg-2 offset-sm-0 contents-menu ">
                     <div class="col-lg-12 mt-5">
                         <button (click)="menuHideShow()" class="btn-close btn-close-white"></button>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 column-margin">
                         <ul class="menu-modules" *ngFor="let item of dataMenu">
                             <li class="item-modules nav-item">
                                 <ng-container *ngIf="item.view_module==0; else elseTemplate" >

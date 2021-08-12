@@ -30,7 +30,10 @@
       </div>
       <div class="col contenido-sub-module">
         <p class="text-sub-module">{{item.description}}</p>
-        <button (click)="verSubmodule(item)" class=" btn-visualized visualized-ok left-button">Ver más</button>
+        <button (click)="verSubmodule(item)" class=" btn-visualized  btn-vermas">
+          <img src="./assets/img/iconoblanco.png" alt="">
+          Ver más
+        </button>
         <ng-container *ngIf="item.view_module==0; else elseBotonOjo" >
           <button class="float-end btn-visualized">
               <img src="./assets/img/3-Ojo.png" alt="">

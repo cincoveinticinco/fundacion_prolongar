@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg"*ngIf="!tokenValidate; else elseTemplate">
-    <div class="container-fluid collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-left" >
         <li class="nav-item" >
           <div class="navbar-brand main-logos">
@@ -9,7 +9,7 @@
           </div>
 
         </li>
-        <li  class="nav-item mx-1" *ngIf="rutaMenu!='home' && rutaMenu!='regi' && rutaMenu!='logi'">
+        <li  class="nav-item mx-1" *ngIf="rutaMenu!='home' && rutaMenu!='regi' && rutaMenu!='logi' && rutaMenu!='recu'">
           <a class="navbar-brand" routerLink="home/homes" >
               <img src="./assets/img/GarabatosBlanco96X31.png" alt="" class="logo-garabatos" width="100%">
           </a>

@@ -4,6 +4,7 @@ import { filter } from 'rxjs/operators';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import {DomSanitizer, Title} from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { OpenModuleMenuService } from 'src/app/services/open-module-menu.service';
 environment
 @Component({
   selector: 'app-sub-module',
@@ -29,7 +30,8 @@ export class SubModuleComponent implements OnInit {
     private services:ServicesProlongarService,
     private rutaActiva: ActivatedRoute,
     private sanitizer:DomSanitizer,
-    private title: Title) {
+    private title: Title,
+    private menuStatus: OpenModuleMenuService) {
 
   }
 
@@ -39,7 +41,7 @@ export class SubModuleComponent implements OnInit {
     this.datInfo();
   }
 
-  datInfo(){
+  datInfo(refreshData = false){
     this.rutaActiva.params.subscribe(params => {
 
       this.moduleId = params.tipomodule;
@@ -48,8 +50,10 @@ export class SubModuleComponent implements OnInit {
       this.services.dataSubModule(this.subModuleId).subscribe((data:any) => {
         this.datos = data;
         this.moduleInfo = data.module_page
-        this.next = this.datos.next_submodule[0];
-        this.previus = this.datos.prev_submodule[0]
+
+        if (this.moduleInfo) {
+          this.next = this.datos.next_submodule ? this.datos.next_submodule[0] : null;
+        this.previus = this.datos.prev_submodule ? this.datos.prev_submodule[0] : null
 
         this.title.setTitle(`${environment.titlePage} - ${this.moduleInfo?.module_page_id} / ${this.moduleInfo?.sub_module_name}`)
 
@@ -60,6 +64,10 @@ export class SubModuleComponent implements OnInit {
         }
 
 
+        if(refreshData && this.completado)
+          this.temasCompletados();
+
+        }
 
         this.loader = false
       });
@@ -87,10 +95,18 @@ export class SubModuleComponent implements OnInit {
 
     this.services.viewSubModules(datos).subscribe(data => {
       console.log(data);
-      this.datInfo();
-      this.messageSubModule=null;
+      this.datInfo(true);
+      this.messageSubModule = null;
+
+
     })
 
+  }
+
+  temasCompletados() {
+    if (!this.next) {
+      this.menuStatus.changeMenu(true);
+    }
   }
 
   verdespues(event:MouseEvent, id: any) {

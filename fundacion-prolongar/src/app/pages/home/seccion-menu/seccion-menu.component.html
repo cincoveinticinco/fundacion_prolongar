@@ -1,0 +1,33 @@
+<app-loader *ngIf="!seccionContent"></app-loader>
+<div class="container mt-5" *ngIf="seccionContent">
+
+  <div class="content-data-section">
+    <ng-container *ngIf="seccionContent.image else fullTemplate">
+      <div class="row">
+        <div class="col-sm-12 col-xl-5  order-sm-first order-last">
+          <h3 *ngIf="seccionContent.name_page && seccionContent.name_page.length > 0" class="text-center text-uppercase" [innerHTML]="seccionContent.name_page | safeHTML"></h3>
+          <img [src]="urlimage+seccionContent.image" width="280px" height="336px" class="img-seccion">
+        </div>
+        <div class="col-xl-7 col-sm-12 order-sm-last order-first content-page">
+          <h3 *ngIf="seccionContent.name_page && seccionContent.name_page.length > 0" class="text-center text-uppercase" [innerHTML]="seccionContent.name_page | safeHTML"></h3>
+          <div class="text-justify mx-lg-12">
+            <div class="content-homepage " [innerHTML]="seccionContent.texto | safeHTML"></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #fullTemplate>
+      <div class="row" >
+        <div class="col-sm-12 col-xl-12  title-page">
+          <h3 *ngIf="seccionContent.name_page && seccionContent.name_page.length > 0" class="text-left text-uppercase" [innerHTML]="seccionContent.name_page | safeHTML"></h3>
+        </div>
+        <div class="col-xl-12 col-sm-12 content-page">
+          <div class="text-justify mx-lg-12">
+            <div class="content-homepage " [innerHTML]="seccionContent.texto | safeHTML"></div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

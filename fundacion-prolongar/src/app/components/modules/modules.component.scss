@@ -66,18 +66,41 @@
   background-color:#c7c7c7;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 0px;
   padding: 0;
 }
 
 .btn-visualized.left-button{
-  width: 100px;
+  width: 34px;
   border-radius: 7px;
-  left: 8px;
+  right: 40px;
   color: white;
   text-transform: uppercase;
   font-size: 13px;
   line-height: 0;
+  background: transparent;
+}
+
+.btn-visualized.left-button img{
+  max-width: 100%;
+}
+
+.btn-visualized.btn-vermas{
+  background-color: #f7c371;
+    color: white;
+    border: none;
+    margin: 0.5em;
+    border-radius: 7px;
+    width: auto;
+    max-width: 140px;
+    padding: 0 1.5rem;
+    left: 0;
+    margin: 0 6px;
+}
+
+.btn-visualized.btn-vermas > img{
+  width: 19px;
+  vertical-align: sub;
 }
 
 .btn-visualized img{
@@ -120,7 +143,7 @@
 }
 
 .text-sub-module{
-  color: var(--rojo);
+  color: var(--parrafo);
   border-top: 2px solid #88b87b;
   text-align: justify;
   font-size: 15px;

@@ -8,6 +8,7 @@ import { APP_ROUTING } from './home.routes';
 import { KasComponent } from './kas/kas.component';
 import { HomesComponent } from './home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SeccionMenuComponent } from './seccion-menu/seccion-menu.component';
 
 
 
@@ -18,6 +19,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ParaQueEsComponent,
     KasComponent,
     HomesComponent,
+    SeccionMenuComponent,
   ],
   imports: [
     CommonModule,

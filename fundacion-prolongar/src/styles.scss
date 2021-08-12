@@ -72,7 +72,7 @@ h5 a:hover{
   font-weight: 500;
   padding: 5px 0;
   line-height: 1.2;
-  text-transform: uppercase;
+
 }
 
 /* Estilos generales fomularui*/
@@ -130,6 +130,30 @@ select.ng-invalid.ng-touched{
   color: var(--rojo) !important;
 }
 
+.textcontent-submodule blockquote{
+  border-left: 7px solid var(--rojo);
+  padding: 1rem 2rem;
+  margin-left: 6rem;
+}
+
+.textcontent-submodule blockquote h2 span{
+  color: var(--parrafo);
+}
+
+.textcontent-submodule blockquote h1,
+.textcontent-submodule blockquote h1 span{
+  font-size: 28px !important;
+  font-weight: bold;
+  color: var(--parrafo);
+  margin-bottom: 1.5rem;
+}
+
+.textcontent-submodule blockquote span{
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.textcontent-submodule h2,
 .textcontent-submodule h2 span{
   color: var(--rojo) !important;
 }
@@ -176,7 +200,18 @@ select.ng-invalid.ng-touched{
   // border-bottom: 2px solid #fcc474;
 }
 
+.banner-section img{
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
 @media (max-width: 500px) {
+
+.banner-section{
+  display: none;
+}
+
 
   .main-logo-garabatos span{
     padding: 5px 1rem;
