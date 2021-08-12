@@ -2,10 +2,6 @@
 <div class="content-submodule container mb-5" *ngIf="datos">
     <h2 class="mb-5 title-sub-module" >{{moduleInfo.sub_module_name}}</h2>
 
-    <div class="image-banner mb-3" *ngIf="(moduleInfo.link.indexOf('youtu') == -1 && moduleInfo.link_2.indexOf('youtu') == -1)">
-      <img [src]="this.urlPdf+moduleInfo.image_min" alt="">
-    </div>
-
     <div class="row mb-3" *ngIf="url(moduleInfo.link)">
       <div class="col-12">
         <div class="videoWrapp" *ngIf="moduleInfo.link.indexOf('youtu') > -1">

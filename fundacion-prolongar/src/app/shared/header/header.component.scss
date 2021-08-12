@@ -8,6 +8,7 @@
 
 .navbar{
   background-color: #d58071;
+  height: 56px;
 }
 
 .navbar * {
@@ -21,8 +22,8 @@
 }
 
 .img-menu {
-  width: 70%;
-  height: 38px;
+  width: auto;
+  height: 90%;
   object-fit: contain;
 }
 
@@ -66,9 +67,14 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
-.main-logos img{
-  // width: 100px;
-  // margin-right: 20px;
+
+.main-logos a{
+  display: inline-block;
+    height: 100%;
+}
+
+.navbar-brand{
+  padding: 0 !important;
 }
 
 @media (max-width: 768px) {
@@ -86,9 +92,12 @@
 
   .main-logos{
     position: absolute;
-    right: calc(50% - 20px);
+    right: calc(50% - 0px);
     bottom: 50%;
     transform: translate(50%, 50%);
+    height: 100%;
+    width: 70%;
+    margin-right: 0;
   }
 
   .main-logos img{

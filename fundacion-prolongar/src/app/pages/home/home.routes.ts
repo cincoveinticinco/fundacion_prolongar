@@ -7,15 +7,17 @@ import { ParaQueEsComponent } from './para-que-es/para-que-es.component';
 import { KasComponent } from './kas/kas.component';
 import { HomesComponent } from './home/home.component';
 import { RegisterComponent } from '../register/register.component';
+import { SeccionMenuComponent } from './seccion-menu/seccion-menu.component';
 
 const routes: Routes = [
 	{
 		path: 'home', component: HomeComponent,
-		children: [
-			{ path: 'a-quienva-dirigida', component:AQuienVaDirigidaComponent },
-			{ path: 'principios', component: PrincipiosComponent},
-			{ path: 'para-que-es', component:ParaQueEsComponent  },
-			{ path: 'kas', component: KasComponent},
+    children: [
+      { path: ':seccionId', component:SeccionMenuComponent },
+			// { path: 'a-quienva-dirigida', component:AQuienVaDirigidaComponent },
+			// { path: 'principios', component: PrincipiosComponent},
+			// { path: 'para-que-es', component:ParaQueEsComponent  },
+			// { path: 'kas', component: KasComponent},
 			{ path: 'homes', component:HomesComponent },
 			{
 				path: '**',

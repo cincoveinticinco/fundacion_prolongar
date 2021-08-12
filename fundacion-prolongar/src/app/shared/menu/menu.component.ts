@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute, NavigationEnd } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AuthservicesService } from 'src/app/services/authservices.service';
+import { OpenModuleMenuService } from 'src/app/services/open-module-menu.service';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 
 @Component({
@@ -21,7 +23,10 @@ export class MenuComponent implements OnInit {
   user:any;
   rutaMenu:any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute,private services:ServicesProlongarService,private authservices:AuthservicesService) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private services: ServicesProlongarService, private authservices: AuthservicesService, private menuStatus: OpenModuleMenuService) {
+  }
+
+
 
   ngOnInit(): void {
 
@@ -45,6 +50,14 @@ export class MenuComponent implements OnInit {
     this.datosModulo()
     this.datosMenu();
     this.infoUser();
+
+    this.menuStatus.changeMenu$.subscribe(status => {
+      console.log(status)
+      this.services.loadIngoDataModule = false;
+      this.datosModulo()
+      this.menu = status
+    })
+
   }
 
   logout() {

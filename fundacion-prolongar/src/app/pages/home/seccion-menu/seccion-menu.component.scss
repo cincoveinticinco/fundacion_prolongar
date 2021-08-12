@@ -1,0 +1,50 @@
+h3{
+  color: #f5af80;
+}
+
+p {
+  color: #f5af80;
+  font-weight: 300;
+  width:100%;
+}
+
+h3 {
+  font-weight: bolder;
+}
+
+.text-green {
+  color:#88b87b !important;
+}
+
+span {
+  color:#88b87b !important;
+}
+
+.text-justify{
+  text-align: justify;
+  color: #d58071;
+  font-weight: 300;
+  width:100%;
+  line-height:18px ;
+}
+
+.order-first > h3{
+display: none;
+}
+
+.title-page{
+  white-space: pre;
+}
+@media (max-width: 500px) {
+.order-last  > h3{
+  display: none;
+}
+
+.order-first  > h3{
+  display: inherit;
+}
+
+.title-page{
+  text-align: center;
+}
+}
