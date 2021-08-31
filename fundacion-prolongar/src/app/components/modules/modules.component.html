@@ -2,7 +2,7 @@
 <div *ngIf="modules">
   <div class="bannerModulo">
     <img [src]="urlimage+modules.img_banner" class="img-responsive img-banner">
-    <h1 class="texto-encima text-uppercase" *ngIf="modules" >{{modules.name_module}}</h1>
+    <h1 *ngIf="!modules.show_name"  class="texto-encima text-uppercase" >{{modules.name_module}}</h1>
   </div>
 
 </div>

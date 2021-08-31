@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
+
   // url:"http://localhost:3000/web_services/",
-  // urlImage:"http://localhost:3000"
+  // urlImage: "http://localhost:3000",
+  // ulrApi:"http://localhost:3000",
 
   ulrApi:"http://35.84.147.171:3000/",
   url: "http://35.84.147.171:3000/web_services/",

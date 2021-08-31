@@ -90,6 +90,10 @@ export class MenuComponent implements OnInit {
     })
   }
 
+  mostrarFelicitacion() {
+    return !this.dataMenu.find((x:any) => x.view_module == 0)
+  }
+
   redirecMenu(id: any){
     this.router.navigate(['modulo/',id])
   }

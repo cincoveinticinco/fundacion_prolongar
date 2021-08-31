@@ -13,12 +13,13 @@ const routes: Routes = [
 	{
 		path: 'home', component: HomeComponent,
     children: [
+      { path: 'homes', component:HomesComponent },
       { path: ':seccionId', component:SeccionMenuComponent },
 			// { path: 'a-quienva-dirigida', component:AQuienVaDirigidaComponent },
 			// { path: 'principios', component: PrincipiosComponent},
 			// { path: 'para-que-es', component:ParaQueEsComponent  },
 			// { path: 'kas', component: KasComponent},
-			{ path: 'homes', component:HomesComponent },
+
 			{
 				path: '**',
 				redirectTo: '/home/homes',
