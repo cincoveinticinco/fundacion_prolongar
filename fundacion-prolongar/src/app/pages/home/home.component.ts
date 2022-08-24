@@ -1,6 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
@@ -11,7 +10,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   public loader = true;
   public datos: any;
@@ -30,7 +29,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.datosMenu();
     this.urlimage = environment.urlImage;
+  }
 
+  ngAfterViewInit(): void {
+    let homeModule = sessionStorage.getItem('homeModulo');
+    if (homeModule) {
+      location.hash = '#separator';
+      sessionStorage.removeItem('homeModulo');
+    }
   }
 
   datosMenu() {
