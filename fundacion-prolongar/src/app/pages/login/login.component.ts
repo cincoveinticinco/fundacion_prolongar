@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       if (lastView && lastView.indexOf('modulo') != -1) {
         this.router.navigate([lastView])
       } else {
-        this.router.navigate(['/modulo/1'])
+        sessionStorage.setItem('homeModulo', JSON.stringify(true));
+        this.router.navigate(['/home'])
       }
 
     })
