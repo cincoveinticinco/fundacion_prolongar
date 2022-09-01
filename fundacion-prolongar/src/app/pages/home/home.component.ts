@@ -1,7 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ServicesProlongarService } from 'src/app/services/services-prolongar.service';
 import { environment } from 'src/environments/environment';
 
@@ -37,6 +37,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       location.hash = '#separator';
       sessionStorage.removeItem('homeModulo');
     }
+    this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+        if (ev.url.includes('a-quienva-dirigida')) window.scrollTo(0, 0);
+      }
+    })
   }
 
   datosMenu() {
