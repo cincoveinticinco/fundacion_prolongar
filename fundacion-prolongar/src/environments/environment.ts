@@ -9,9 +9,9 @@ export const environment = {
   // urlImage: "http://localhost:3000",
   // ulrApi:"http://localhost:3000",
 
-  ulrApi:"http://35.84.147.171:3000/",
-  url: "http://35.84.147.171:3000/web_services/",
-  urlImage: "http://35.84.147.171:3000/",
+  ulrApi:"https://garabatos.fundacionprolongar.org/",
+  url: "https://garabatos.fundacionprolongar.org/web_services/",
+  urlImage: "https://garabatos.fundacionprolongar.org/",
   gaTrackingId: 'UA-204467916-1',
   titlePage: 'Fundación prolongar'
 };
